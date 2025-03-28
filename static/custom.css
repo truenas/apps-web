@@ -1229,6 +1229,183 @@ th {
 		--code-copy-border-color: #adb4bc;
 		--code-copy-success-color: rgb(0, 200, 83)}
 /* End remove Dark Mode colors */
+/* Docs Products Nav Boxes */
+.docs-sections {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+@media screen and (max-width:99rem) {
+	.docs-sections {
+		grid-template-columns: auto auto auto;
+	}
+}
+@media screen and (max-width:83rem) {
+	.docs-sections {
+		grid-template-columns: auto auto;
+	}
+}
+@media screen and (max-width:50rem) {
+	.docs-sections {
+		grid-template-columns: auto;
+	}
+}
+.docs-sections > p {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: rgb(248, 249, 250);
+}
+.docs-sections > p:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.docs-sections a {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #0095d5;
+}
+.docs-sections a:hover {
+	color: #0095d5;
+}
+.docs-sections a:visited {
+	color: #0095d5;
+}
+.docs-sections a:visited:hover {
+	color: #0095d5;
+}
+.section-sup {
+	top: -1.0em;
+	font-size: 50%;
+}
+.docs-more-sections {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+@media screen and (max-width:50rem) {
+	.docs-more-sections {
+		grid-template-columns: auto auto;
+	}
+}
+@media screen and (max-width:25rem) {
+	.docs-more-sections {
+		grid-template-columns: auto;
+	}
+}
+.docs-more-sections > p {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: rgb(248, 249, 250);
+}
+.docs-more-sections > p:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.docs-more-sections a {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #0095d5;
+}
+.docs-more-sections a:hover {
+	color: #0095d5;
+}
+.docs-more-sections a:visited {
+	color: #0095d5;
+}
+.docs-more-sections a:visited:hover {
+	color: #0095d5;
+}
+.section-box {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+	transition: 0.3s;
+	background-color: rgb(248, 249, 250);
+	position: relative;
+}
+.section-box:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.section-divider {
+    width: 80px;
+    height: 2px;
+    background-color: #0095d5 !important;
+    border: none;
+    margin: .5rem auto;
+  }
+  
+/* Adjust section-box for TrueNAS Systems page cards */
+.ixprods {
+	color: var(--body-font-color);
+	padding: 0 .75rem 0 .75rem;
+}
+a.section-box:hover {
+	text-decoration: none;
+}
+/* End adjust section-box for TrueNAS Systems page cards */
+.box-image {
+	padding: .5rem 2rem .5rem 2rem;
+	text-align: center;
+}
+.prod-card-img {
+	width: 10em;
+	height: 15em!important;
+	object-fit: contain;
+}
+.box-image > img:hover {
+	box-shadow: none;
+}
+.section-box > p {
+	text-align: center;
+	line-height: 1rem;
+	margin-block-start: .5rem;
+	margin-block-end: .5rem;
+}
+
+/* Style for tab navigation */
+.section-tabs {
+  display: flex;
+  justify-content: center;
+  background-color: #0095d5;
+}
+/* Style for individual tab */
+.section-tab {
+  padding: .5rem .5rem;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #0095d5;
+  color: white;
+  font-weight: 600;
+  border-top: solid;
+  border-top-color: #0095d5;
+
+}
+.section-tab-content {
+	padding-top: .25rem;
+	text-align: center;
+}
+.section-tab.active {
+    background-color: rgb(248, 249, 250);
+    color: #0095d5;
+    border-top: solid;
+    border-top-color: #0095d5;
+}
+.mute {
+	color:#0095d5;
+	cursor:default;
+}
 /* Apps Docs Boxes */
 .apps-docs-sections {
   display: grid;

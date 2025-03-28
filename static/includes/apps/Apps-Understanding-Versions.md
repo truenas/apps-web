@@ -8,3 +8,4 @@ There are two version numbers for the selected application: **App Version** and 
 * **Version** is the revision number of the app in the [TrueNAS app train](https://github.com/truenas/apps/tree/master/trains), for example *1.2.2*.
   The **Version** is the number used to identify app updates in TrueNAS.
   It also appears on the **Installed** applications screen, on the **Discover** screen app widget, and in the install wizard for the app.
+
