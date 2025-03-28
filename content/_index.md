@@ -12,7 +12,7 @@ Applications are stand-alone containers that you can use to dramatically expand 
 TrueNAS Apps are provided by both the TrueNAS team and our amazing user Community.
 There truly is something for everyone!
 
-Take a look at some of the most popular apps actively used today!
+See some of the most popular apps actively used today!
 
 {{< popular-apps >}}
 

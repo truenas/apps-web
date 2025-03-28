@@ -1,5 +1,5 @@
 ---
-title: "MinIO Enterprise"
+title: "MinIO"
 description: "Tutorials for installing and configuring the MinIO Enterprise application in an Enterprise-licensed deployment."
 geekdocCollapseSection: true
 weight: 

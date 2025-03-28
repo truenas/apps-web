@@ -11,23 +11,4 @@ keywords:
 - software storage solutions
 ---
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
-
-The **stable** train populates the application catalog with the official applications.
-The **Discover** screen shows the **stable** train applications by default.
-
-Applications in the **stable** catalog are added by the TrueNAS development team and are intended to expand system functionality far beyond what is typically expected from a NAS.
-Some apps replace deprecated services or functionality previously built into TrueNAS.
-
-{{< include file="/static/includes/apps/Apps-Community-Support.md" >}}
-
-The tutorials in this section are for the commonly-used **stable** train catalog.
-
-For information on adding to or changing the train for the apps catalog, see [Changing App Trains](https://www.truenas.com/docs/truenasapps/managingapps/#managing-application-catalogs).
-
-{{< include file="/static/includes/apps/AppsBestPractices.md" >}}
-
-## Understanding App Install Wizard Settings
-
-{{< include file="/static/includes/apps/InstallWizardSettingsOverview.md" >}}
-
+{{< catalog >}}

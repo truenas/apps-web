@@ -1,0 +1,73 @@
+<div class="docs-sections">
+  {{- $localBaseDir := "Apps_Temp/trains" -}} <!-- Base directory for temporary files -->
+  {{- $categories := slice "Enterprise" "Stable" "Community" -}} <!-- Define categories -->
+
+  {{- range .Page.Pages -}} <!-- Loop through all pages under the current directory -->
+    {{- $markdownFileName := .File.BaseFileName -}} <!-- Get the markdown file name -->
+    {{- $subDirName := path.Base .File.Dir -}} <!-- Get the subdirectory name -->
+    {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
+    {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
+    {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
+
+    <!-- Loop through categories to find the app -->
+    {{- range $categories -}}
+      {{- $category := . -}}
+      {{- $subDir := "" -}}
+      {{- if eq $category "Enterprise" -}}
+        {{- $subDir = "enterprise" -}}
+      {{- else if eq $category "Stable" -}}
+        {{- $subDir = "stable" -}}
+      {{- else if eq $category "Community" -}}
+        {{- $subDir = "community" -}}
+      {{- end -}}
+
+      <!-- Construct the local file paths -->
+      {{- $localFilePathMarkdown := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir $markdownFileName -}}
+      {{- $localFilePathSubDir := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir $subDirName -}}
+
+      <!-- Check if the file exists for the markdown file name -->
+      {{- if fileExists $localFilePathMarkdown -}}
+        {{- $fileContent := readFile $localFilePathMarkdown -}} <!-- Read the JSON file -->
+        {{- $jsonData := $fileContent | transform.Unmarshal -}} <!-- Parse the JSON file -->
+
+        <!-- Extract app metadata -->
+        {{- $firstKey := "" -}}
+        {{- range $key, $value := $jsonData -}}
+          {{- $firstKey = $key -}}
+          {{- break -}}
+        {{- end -}}
+        {{- $versionData := index $jsonData $firstKey -}}
+        {{- $appMetadata = index $versionData "app_metadata" -}}
+        {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
+        {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+        {{- break -}} <!-- Stop searching once the app is found -->
+      {{- else if fileExists $localFilePathSubDir -}} <!-- Check if the file exists for the subdirectory name -->
+        {{- $fileContent := readFile $localFilePathSubDir -}} <!-- Read the JSON file -->
+        {{- $jsonData := $fileContent | transform.Unmarshal -}} <!-- Parse the JSON file -->
+
+        <!-- Extract app metadata -->
+        {{- $firstKey := "" -}}
+        {{- range $key, $value := $jsonData -}}
+          {{- $firstKey = $key -}}
+          {{- break -}}
+        {{- end -}}
+        {{- $versionData := index $jsonData $firstKey -}}
+        {{- $appMetadata = index $versionData "app_metadata" -}}
+        {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
+        {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+        {{- break -}} <!-- Stop searching once the app is found -->
+      {{- end -}}
+    {{- end -}}
+
+    <!-- Render the app card -->
+    <a class="section-box" href="{{ .RelPermalink }}">
+      <div class="box-image">
+        <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ .Title }} Logo">
+      </div>
+      <div class="section-tab-content ixprods">
+        <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .Title }}</b>
+        <p>{{ $appDescription }}</p>
+      </div>
+    </a>
+  {{- end -}}
+</div>
