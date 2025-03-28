@@ -4,7 +4,6 @@ description: "This website describes the Apps that are available within TrueNAS.
 linkTitle: "Home"
 keywords:
  - TrueNAS Apps
-
 ---
 
 Welcome to TrueNAS Apps!
@@ -18,7 +17,8 @@ Take a look at some of the most popular apps actively used today!
 {{< popular-apps >}}
 
 ## New to TrueNAS Apps?
-Take a look at the documentation for starting with and managing apps.
+
+Take a look at documentation to begin learning how to download and use apps in TrueNAS!
 
 <div class="docs-sections">
 
@@ -27,8 +27,5 @@ descr="How to prepare TrueNAS and configure the Apps service." >}}
 
 {{< doc-card title="Managing Apps" link="https://www.truenas.com/docs/truenasapps/managingapps/"
 descr="How to find, install, and manage Apps in TrueNAS." >}}
-
-{{< doc-card title="Custom Applications" link="https://www.truenas.com/docs/truenasapps/usingcustomapp/"
-descr="How to deploy third-party apps that aren't available from any catalog." >}}
 
 </div>

@@ -3,13 +3,6 @@ title: "WebDAV"
 description: "Instructions for installing and configuring the WebDAV app and sharing feature in TrueNAS."
 weight:
 aliases:
- - /scale/scaletutorials/apps/webdav/
- - /scale/scaletutorials/systemsettings/services/webdavservicescale/
- - /scale/scaletutorials/shares/configurewebdav/
- - /scale/scaleuireference/shares/webdavsharesscreens/
- - /scale/scaleuireference/systemsettings/services/webdavservicescreen/
- - /scale/scaletutorials/apps/communityapps/webdav/
- - /images/CORE/12.0/SharingWebdavAdd.png
 tags:
  - webdav
  - shares
@@ -46,15 +39,15 @@ You create the WebDAV share as part of the application installation.
 
 To install the WebDAV application, go to **Apps**, click **Discover Apps**, then either begin typing WebDAV into the search field or scroll down to locate the **WebDAV** application widget.
 
-{{< trueimage src="/images/SCALE/Apps/WebDAVwidget.png" alt="WebDAV Application Widget" id="WebDAV Application Widget" >}}
+{{< trueimage src="/images/Apps/WebDAVwidget.png" alt="WebDAV Application Widget" id="WebDAV Application Widget" >}}
 
 Click on the widget to open the WebDAV information screen.
 
-{{< trueimage src="/images/SCALE/Apps/WebDAVInfoScreen.png" alt="WebDAV Application Information Screen" id="WebDAV Application Information Screen" >}}
+{{< trueimage src="/images/Apps/WebDAVInfoScreen.png" alt="WebDAV Application Information Screen" id="WebDAV Application Information Screen" >}}
 
 Click **Install** to open the **Install WebDAV** configuration screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVAppScreen.png" alt="Install WebDAV Application Screen" id="Install WebDAV Application Screen" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVAppScreen.png" alt="Install WebDAV Application Screen" id="Install WebDAV Application Screen" >}}
 
 Application configuration settings are presented in several sections.
 To find specific fields click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
@@ -80,7 +73,7 @@ After configuring the container settings, click **Install** to save the applicat
 
 After the installation completes, the application displays on the **Installed** applications screen.
 
-{{< trueimage src="/images/SCALE/Apps/WebDAVAppInstalled.png" alt="WebDAV App Installed" id="WebDAV App Installed" >}}
+{{< trueimage src="/images/Apps/WebDAVAppInstalled.png" alt="WebDAV App Installed" id="WebDAV App Installed" >}}
 
 The WebDAV widget on the **Discover** and **WebDAV** information screens includes the **Installed** badge.
 
@@ -95,7 +88,7 @@ WebDAV configuration settings include the type of share authentication to use, n
 **No Authentication** means any system can discover TrueNAS and access the data shared by the WebDAV application share, so this is not recommended.
 **Basic Authentication** adds the **Username** and **Password** fields and provides some basic security.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVAddBasicAuth.png" alt="WebDAV Configuration Basic Authentication" id="WebDAV Configuration Basic Authentication" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVAddBasicAuth.png" alt="WebDAV Configuration Basic Authentication" id="WebDAV Configuration Basic Authentication" >}}
 
 The WebDAV application configuration includes all the settings you need to install the Docker container for the app.
 You can use the Docker container environment variables listed in the table below to further customize the WebDAV Docker container.
@@ -114,18 +107,18 @@ You can use the Docker container environment variables listed in the table below
 
 The default user and group for WebDAV is 666. To specify a different user, create the user and group before installing the application, then enter the user ID (UID) and group ID (GID) in the fields for these settings.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVUserAndGroupConfig.png" alt="User And Group Configuration" id="User And Group Configuration" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVUserAndGroupConfig.png" alt="User And Group Configuration" id="User And Group Configuration" >}}
 
 ### Network Configuration Settings
 
 The container for the WebDAV app has **Enable HTTP** selected by default. The port for HTTP is 30034.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVAppNetworkConfig.png" alt="WebDAV Network Configuration for HTTP" id="WebDAV Network Configuration for HTTP" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVAppNetworkConfig.png" alt="WebDAV Network Configuration for HTTP" id="WebDAV Network Configuration for HTTP" >}}
 
 To add encryption to the web traffic between clients and the server, clear the checkmark in **Enable HTTP** and select **Enable HTTPS**.
 This changes the default port in **HTTPS Port** to 30035, and adds a system **Certificate**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVNetworkConfigEnableHTTPS.png" alt="WebDAV Network Configuration for HTTPS" id="WebDAV Network Configuration for HTTPS" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVNetworkConfigEnableHTTPS.png" alt="WebDAV Network Configuration for HTTPS" id="WebDAV Network Configuration for HTTPS" >}}
 
 The default certificate is 0. You can use the default as the **Certificate** if no other specific certificate is available.
 
@@ -137,7 +130,7 @@ Each share must have a unique name.
 
 To add a WebDAV share to the application, click **Add** to the right of **Shares** in the **Storage Configuration** section.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVStorageConfigAddShare.png" alt="WebDAV Storage Add Share" id="WebDAV Storage Add Share" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVStorageConfigAddShare.png" alt="WebDAV Storage Add Share" id="WebDAV Storage Add Share" >}}
 
 Enter a name in **Share Name**.
 The name can have upper and lowercase letters and numbers. It can include an underscore (_) and/or a dash (-).
@@ -167,7 +160,7 @@ It is recommended to only share newly created datasets that have the **Share Typ
 By default, this application is limited to use no more than **4** CPU cores and **8** Gibibytes available memory.
 The application might use considerably less system resources.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWebDAVResourcesConfig.png" alt="WebDAV Resource Configuration" id="WebDAV Resource Configuration" >}}
+{{< trueimage src="/images/Apps/InstallWebDAVResourcesConfig.png" alt="WebDAV Resource Configuration" id="WebDAV Resource Configuration" >}}
 
 Tune these limits as needed to prevent the application from over-consuming system resources and introducing performance issues.
 

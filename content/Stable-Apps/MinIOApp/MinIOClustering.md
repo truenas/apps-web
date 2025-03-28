@@ -34,7 +34,7 @@ The **stable** train version of MinIO supports [distributed mode](https://min.io
 Distributed mode, allows pooling multiple drives, even on different systems, into a single object storage server.
 For information on configuring a distributed mode cluster in TrueNAS using MinIO, see [Setting Up MinIO Clustering]({{< relref "MinIOClustering.md" >}}).
 
-The **enterprise** train version of MinIO provides two options for clustering, Single Node Multi-Disk (SNMD) and Multi-Node Multi-Disk (MNMD) configurations. See [MinIO Enterprise]({{< relref "/TruenasApps/EnterpriseApps/MinIO/_index.md" >}}) for more information.
+The **enterprise** train version of MinIO provides two options for clustering, Single Node Multi-Disk (SNMD) and Multi-Node Multi-Disk (MNMD) configurations. See [MinIO Enterprise]({{< relref "/Enterprise-Apps/MinIO/_index.md" >}}) for more information.
 
 The examples below use four TrueNAS systems to create a distributed cluster.
 For more information on MinIO distributed setups, refer to the [MinIO documentation](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
@@ -45,7 +45,7 @@ Before you install the **stable** version of the MinIO app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/MinIOS3AppInfoScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/MinIOS3AppInfoScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
@@ -66,7 +66,7 @@ Begin on the first node (system) in your cluster.
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinioS3Screen.png" alt="MinIO Install Wizard Screen" id="MinIO Install Wizard Screen" >}}
+{{< trueimage src="/images/Apps/InstallMinioS3Screen.png" alt="MinIO Install Wizard Screen" id="MinIO Install Wizard Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -86,7 +86,7 @@ Add your **Storage Configuration** settings.
 
 For a distributed cluster, ensure the values are identical between server nodes and that they have the same credentials.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinioDistributedModeAddStorage.png" alt="MinIO Distributed Mode Settings" id="MinIO Distributed Mode Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinioDistributedModeAddStorage.png" alt="MinIO Distributed Mode Settings" id="MinIO Distributed Mode Settings" >}}
 
 MinIO uses one dataset, one ixVolume, and two mount paths.
 Leave the **MinIO Export Storage (Data)** set to the defaults, with **Type** set to **ixVolume** and the mount path **/export**.
@@ -100,7 +100,7 @@ Click **Add** to the right of **ACL Entries** to show the permissions fields.
 Set **Id Type** to **Entry is for a USER**, enter **473** in **ID**, and give it full permissions.
 Repeat for the **/data** storage volume.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOAddDataHostPathACLandACESettings.png" alt="Data Host Path ACL and ACE Settings" id="Data Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOAddDataHostPathACLandACESettings.png" alt="Data Host Path ACL and ACE Settings" id="Data Host Path ACL and ACE Settings" >}}
 
 {{< include file="/static/includes/apps/MinIOCompleteInstall.md" >}}
 

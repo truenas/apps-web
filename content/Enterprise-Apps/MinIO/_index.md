@@ -4,7 +4,6 @@ description: "Tutorials for installing and configuring the MinIO Enterprise appl
 geekdocCollapseSection: true
 weight: 
 aliases: 
- - /scale/scaletutorials/apps/enterpriseapps/configminioenterprise/
 tags:
 - s3
 - enterprise
@@ -34,7 +33,7 @@ To install the MinIO **enterprise** train app, do the following:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/MinIOEnterpriseDetailsScreen.png" alt="MinIO Enterprise App Details Screen" id="MinIO Enterprise App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/MinIOEnterpriseDetailsScreen.png" alt="MinIO Enterprise App Details Screen" id="MinIO Enterprise App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
@@ -63,8 +62,6 @@ Set the <b>@owner</b> and <b>@group</b> to <b>admin</b> or the name of your True
 Next, click **Add Item** to add an ACE entry for the <b>MinIO</b> run as user, <b>568</b>.
 You might need to add another user, such as <b>www-data</b> if you receive an error message when installing the app.
 The error message shows the user name to add. Give both users full permissions.
-
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}</div>
 
 ## Installing the MinIO Application
@@ -76,7 +73,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 {{< include file="/static/includes/apps/MultipleAppInstancesAndNaming.md" >}}
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterprise.png" alt="Install MinIO Enterprise Screen" id="Install MinIO Enterprise Screen" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterprise.png" alt="Install MinIO Enterprise Screen" id="Install MinIO Enterprise Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -95,7 +92,7 @@ Scroll down to or click on **Storage Configuration** on the list of wizard secti
 
 Leave **Type** set to the default **ixVolume** for the **/export** mount point. A host path dataset is not required for this storage volume.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseStorageConfigSettings.png" alt="MinIO Enterprise Storage Configuration Settings" id="MinIO Enterprise Storage Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseStorageConfigSettings.png" alt="MinIO Enterprise Storage Configuration Settings" id="MinIO Enterprise Storage Configuration Settings" >}}
 
 Set **Type** to **Host Path (Path that already exists on the system)** which is the recommended option for MinIO.
 **Mount Path** populates with the default **/data1**.
@@ -168,12 +165,11 @@ Next, add an ACL entry for the run-as user.
 For MinIO, the run-as users is **568**. Add a user entry for this user.
 Save the ACL before leaving the screen.
 
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}
 
 ### Resource Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseResourcesConfig.png" alt="MinIO Enterprise Resource Limits" id="MinIO Enterprise Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseResourcesConfig.png" alt="MinIO Enterprise Resource Limits" id="MinIO Enterprise Resource Limits" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 

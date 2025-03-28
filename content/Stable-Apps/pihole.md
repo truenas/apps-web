@@ -44,11 +44,11 @@ If you want to create a dataset for Pi-hole data storage, you must do this befor
 When you are ready to create a container, click **Apps** to open the **Applications** screen, then click on **Available Applications**.
 Locate the **pihole** widget and click **Install** on the widget.
 
-![AvailableApplicationsScreen](/images/SCALE/Apps/AvailableApplicationsScreen.png "Available Applications")
+![AvailableApplicationsScreen](/images/Apps/AvailableApplicationsScreen.png "Available Applications")
 
 Fill in the **Application Name** and click **Version** to verify the default version is the only, and most current version.
 
-![AppPiHoleApplicationNameAndVersion](/images/SCALE/Apps/AppPiHoleApplicationNameAndVersion.png "Pi-Hole Application Name and Version")
+![AppPiHoleApplicationNameAndVersion](/images/Apps/AppPiHoleApplicationNameAndVersion.png "Pi-Hole Application Name and Version")
 
 Enter the password to use for the administrative user in **Admin password** in the **Container Environment Variables** section. The password entered can not be edited after you click **Save**.
 Adjust the **Configure timezone** setting if it does not match where your TrueNAS is located.
@@ -56,7 +56,7 @@ Adjust the **Configure timezone** setting if it does not match where your TrueNA
 To add the WEBPASSWORD environment variable, click **Add** for **Pihole Environment** to add a block of environment variable settings.
 Enter **WEBPASSWORD** in **Name**, then a secure password like the example the one used, *s3curep4$$word*.
 
-![AppPiHoleConfigurationSettings](/images/SCALE/Apps/AppPiHoleConfigurationSettings.png "TrueNAS Apps Configuration Settings")
+![AppPiHoleConfigurationSettings](/images/Apps/AppPiHoleConfigurationSettings.png "TrueNAS Apps Configuration Settings")
 
 Scroll down to the **Storage** settings.
 Select **Enable Custom Host Path for Pihole Configuration Volume** to add the **Host Path for Pihole Configuration Volume** field and dataset browse option.
@@ -69,7 +69,7 @@ Create directories in a dataset on TrueNAS, before you begin installing the cont
 {{< include file="/static/includes/MakeDirectory.md" >}}
 {{< /hint >}}
 
-![AppPiHoleStorageSettings](/images/SCALE/Apps/AppPiHoleStorageSettings.png "PiHole Storage Settings")
+![AppPiHoleStorageSettings](/images/Apps/AppPiHoleStorageSettings.png "PiHole Storage Settings")
 
 Click **Add** to display setting options to add extra host path volumes to the container if you need them.
 
@@ -78,12 +78,12 @@ TrueNAS adds the port assignments Pi-hole requires in the **Web Port for pihole*
 Select **Enable Host Network** to add host network settings.
 Click **Add** for **DNS Options** to add a block of DNS settings if you want to configure DNS options.
 
-![AppPiHoleNetworkingSettings](/images/SCALE/Apps/AppPiHoleNetworkingSettings.png "Pi-Hole Network and Port Forwarding")
+![AppPiHoleNetworkingSettings](/images/Apps/AppPiHoleNetworkingSettings.png "Pi-Hole Network and Port Forwarding")
 
 Click **Add** for **DNS Options** if you want to configure DNS for your pod.
 Select **Enable Pod resource limits** if you want to limit the CPU and memory for your Pi-hole application.
 
-![AppPiHoleDNSAndResourceLimitsSettings](/images/SCALE/Apps/AppPiHoleDNSAndResourceLimitsSettings.png "PiHole DNS and Resource Limit Settings")
+![AppPiHoleDNSAndResourceLimitsSettings](/images/Apps/AppPiHoleDNSAndResourceLimitsSettings.png "PiHole DNS and Resource Limit Settings")
 
 Click **Save**.
 TrueNAS deploys the container.
@@ -94,4 +94,4 @@ Clicking on the App card reveals details on the app.
 
 With Pi-hole as our example we navigate to the IP of our TrueNAS system with the port and directory address *:9080/admin/*.
 
-![PiHoleRunning](/images/SCALE/Apps/AppsPiHoleRunning.png "PiHole Running")
+![PiHoleRunning](/images/Apps/AppsPiHoleRunning.png "PiHole Running")

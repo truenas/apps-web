@@ -3,8 +3,6 @@ title: "Stable Apps"
 description: "Notes about TrueNAS stable train applications and individual tutorials for these applications."
 weight: 25
 aliases:
- - /scale/scaletutorials/apps/chartapps/
- - /scale/scaletutorials/apps/stableapps/
 tags:
 - apps
 related: false
@@ -25,7 +23,7 @@ Some apps replace deprecated services or functionality previously built into Tru
 
 The tutorials in this section are for the commonly-used **stable** train catalog.
 
-For information on adding to or changing the train for the apps catalog, see [Changing App Trains]({{< relref "/truenasapps/_index.md #changing-app-trains" >}}).
+For information on adding to or changing the train for the apps catalog, see [Changing App Trains](https://www.truenas.com/docs/truenasapps/managingapps/#managing-application-catalogs).
 
 {{< include file="/static/includes/apps/AppsBestPractices.md" >}}
 

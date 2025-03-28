@@ -35,7 +35,7 @@ Prepare TrueNAS before installing the app by:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/NetdataAppDetailsScreen.png" alt="Netdata Information Screen" id="Netdata Information Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/NetdataAppDetailsScreen.png" alt="Netdata Information Screen" id="Netdata Information Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
@@ -59,7 +59,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallNetdataScreen.png" alt="Install Netdata Screen" id="Install Netdata Screen" >}}
+{{< trueimage src="/images/Apps/InstallNetdataScreen.png" alt="Install Netdata Screen" id="Install Netdata Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -75,7 +75,7 @@ Add your **Storage Configuration** settings.
 Set **Type** for **Netdata Config Storage** to **Host Path (Path that already exists on the system)**.
 Select **Enable ACL**, and then enter or browse to and select the **config** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNetdataStorageConfigACLandACE.png" alt="Add Netdata Config Storage ACL and ACE Settings" id="Add Netdata Config Storage ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallNetdataStorageConfigACLandACE.png" alt="Add Netdata Config Storage ACL and ACE Settings" id="Add Netdata Config Storage ACL and ACE Settings" >}}
 
 Click **Add** to the right of **ACL Entries** to show the block of permissions settings.
 Change **ID Type** to user, enter **0** in **ID**, and set **Access** to full control.
@@ -90,13 +90,13 @@ Click **Install**. A progress dialog displays before switching to the **Installe
 The system opens the **Installed Applications** screen with the Netdata app in the **Deploying** state.
 When the installation completes it changes to **Running**.
 
-{{< trueimage src="/images/SCALE/Apps/NetdataInstalled.png" alt="Netdata Installed" id="Netdata Installed" >}}
+{{< trueimage src="/images/Apps/NetdataInstalled.png" alt="Netdata Installed" id="Netdata Installed" >}}
 
-{{< trueimage src="/images/SCALE/Apps/NetdataSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
+{{< trueimage src="/images/Apps/NetdataSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
 
 Click **Web Portal** on the **Application Info** widget to open the Netdata web interface showing the local dashboard.
 
-{{< trueimage src="/images/SCALE/Apps/NetdataWebPortalLocalDashboard.png" alt="Netdata Web Portal Local Dashboard" id="Netdata Web Portal Local Dashboard" >}}
+{{< trueimage src="/images/Apps/NetdataWebPortalLocalDashboard.png" alt="Netdata Web Portal Local Dashboard" id="Netdata Web Portal Local Dashboard" >}}
 
 Refer to Netdata user guides and documentation for more information on configuring Netdata dashboards.
 
@@ -113,7 +113,7 @@ The following section provides more detailed explanations of the settings in eac
 Accept defaults in the **Netdata Configuration** settings, or to customize the container deployment click **Add** to the right of **Additional Environment Variables** to show the **Name** and **Value** fields used to enter variables.
 Netdata does not require using environment variables to deploy the application but you can enter any you want to use to customize your container.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNetdataConfigAddEnvironmentVariable.png" alt="Netdata Configuration Add Environment Variable" id="Netdata Configuration Add Environment Variable" >}}
+{{< trueimage src="/images/Apps/InstallNetdataConfigAddEnvironmentVariable.png" alt="Netdata Configuration Add Environment Variable" id="Netdata Configuration Add Environment Variable" >}}
 
 Refer to Netdata user guides and documentation for information on configuring and customizing your app.
 Guides include [GitHub Install Netdata with Docker](https://github.com/netdata/netdata/blob/master/packaging/docker/README.md), and [Netdaa Deployment Guides](https://learn.netdata.cloud/docs/deployment-guides/).
@@ -156,8 +156,6 @@ Change the **@owner** and **@group** values from **root** to the administrative 
 Next, add an ACL entry for the run-as user.
 For Netdata, the run-as users is **0** for **root**. Add a user entry for this user.
 Save the ACL before leaving the screen.
-
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}
 
 #### Mounting an SMB Share Storage Volume
@@ -168,7 +166,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resources Configuration Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallNetdataResourceLimitsEnablePod.png" alt="Install Netdata Resource Limits" id="Install Netdata Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallNetdataResourceLimitsEnablePod.png" alt="Install Netdata Resource Limits" id="Install Netdata Resource Limits" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 
@@ -177,7 +175,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 After deploying the TrueNAS Netdata app click on **Web Portal** to open the Netdata agent local dashboard.
 This Netdata dashboard provides a system overview of CPU usage and other vital statistics for the TrueNAS server connecting to Netdata.
 
-{{< trueimage src="/images/SCALE/Apps/NetdataWebPortalLocalDashboard.png" alt="Netdata Web Portal Local Dashboard" id="Netdata Web Portal Local Dashboard" >}}
+{{< trueimage src="/images/Apps/NetdataWebPortalLocalDashboard.png" alt="Netdata Web Portal Local Dashboard" id="Netdata Web Portal Local Dashboard" >}}
 
 The Netdata System Overview dashboard displays a limited portion of the reporting capabilities.
 Scroll down to see more information or click on a listed metric on the right side of the screen to show the graph and reporting on that metric.
@@ -188,10 +186,10 @@ You can add your own Netdata dashboards using Netdata configuration documentatio
 Click on the **Nodes** tab to better understand the differences between the Netdata agent and Netdata Cloud service reporting.
 The Netdata Cloud monitors your cloud storage providers added to Netdata.
 
-{{< trueimage src="/images/SCALE/Apps/NetdataNodesDashboard.png" alt="Netdata Nodes Dashboard" id="Netdata Nodes Dashboard" >}}
+{{< trueimage src="/images/Apps/NetdataNodesDashboard.png" alt="Netdata Nodes Dashboard" id="Netdata Nodes Dashboard" >}}
 
 Click **Sign In** to open the Netdata Cloud sign-in screen.
 
-{{< trueimage src="/images/SCALE/Apps/NetdataSignInScreen.png" alt="Netdata Cloud Sign-In Screen" id="Netdata Cloud Sign-In Screen" >}}
+{{< trueimage src="/images/Apps/NetdataSignInScreen.png" alt="Netdata Cloud Sign-In Screen" id="Netdata Cloud Sign-In Screen" >}}
 
 Use the Netdata-provided documentation to customize Netdata dashboards to suit your use case and monitoring needs.

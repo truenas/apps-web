@@ -28,9 +28,9 @@ keywords:
 
 {{< include file="/static/includes/apps/SyncthingOverview.md" >}}
 
-Users migrating data from an existing third-party NAS solution to TrueNAS 24.04 (Dragonfish) or newer can use the Syncthing **enterprise** application to mount the source with a remote SMB share that preserves metadata.
+Users migrating data from an existing third-party NAS solution to TrueNAS 24.04 (Dragonfish) or newer can use the Syncthing **Enterprise** application to mount the source with a remote SMB share that preserves metadata.
 
-See [Third-Party SMB Data Migration]({{< relref "DataMigrationSyncthing.md" >}}) for considerations and a full tutorial.
+See [Third-Party SMB Data Migration](https://www.truenas.com/docs/scale/gettingstarted/thirdpartymigration/) for considerations and a full tutorial.
 
 Enterprise users with the appropriate license can see the apps in the **enterprise** train.
 Community users can access enterprise versions of apps by adding the **enterprise** train to their catalog. To change app train settings:
@@ -45,7 +45,7 @@ To install the Syncthing **enterprise** train app, do the following:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/SyncthingEnterpriseDetailsScreen.png" alt="Syncthing Enterprise App Details Screen" id="Syncthing Enterprise App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/SyncthingEnterpriseDetailsScreen.png" alt="Syncthing Enterprise App Details Screen" id="Syncthing Enterprise App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
@@ -72,8 +72,6 @@ Select the parent dataset row on the **Datasets** screen tree table, scroll down
 Set the <b>@owner</b> and <b>@group</b> to <b>admin</b> or the name of your TrueNAS administration user account, and click <b>Apply Owner</b> and <b>Apply Group</b>.
 
 Next, click **Add Item** to add an ACE entry for the <b>Syncthing</b> run as user, <b>0</b>. Give the user full permissions.
-
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}</div>
 
 ## Installing the Syncthing Application
@@ -86,7 +84,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 {{< include file="/static/includes/apps/MultipleAppInstancesAndNaming.md" >}}
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseScreen.png" alt="Install Syncthing Enterprise Screen" id="Install Syncthing Enterprise Screen" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseScreen.png" alt="Install Syncthing Enterprise Screen" id="Install Syncthing Enterprise Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -98,7 +96,7 @@ Accept the default user and group IDs or enter the UID for any new TrueNAS user 
 
 Select **Host Network** to bind to the default host settings programmed for Syncthing. See [Network Configuration](#networking-settings) below for more information.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseNetworkSettings.png" alt="Syncthing Enterprise Network Settings" id="Syncthing Enterprise Network Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseNetworkSettings.png" alt="Syncthing Enterprise Network Settings" id="Syncthing Enterprise Network Settings" >}}
 
 Accept the default web port **8384**. Before changing ports, see [Default Ports](https://www.truenas.com/docs/references/defaultports/) for a list of assigned port numbers.
 
@@ -114,7 +112,7 @@ Set **ID** to **Entry is for a USER**, enter **0** in **ID**, and then give the 
 
 Select **Force Flag** to allow upgrading the app. This allows writing to the dataset when there is existing data.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingStorageHomeACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStorageHomeACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
 
 Repeat for the **/data1** storage volume. Click **Add** to the right of **Additional Storage** to show the storage settings.
 
@@ -155,7 +153,7 @@ Click here for more information on [Syncthing environmental variables](https://d
 
 ### User and Group Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseUserAndGroupConfig.png" alt="Syncthing Enterprise User and Group IDs" id="Syncthing Enterprise User and Group IDs" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseUserAndGroupConfig.png" alt="Syncthing Enterprise User and Group IDs" id="Syncthing Enterprise User and Group IDs" >}}
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -163,7 +161,7 @@ Click here for more information on [Syncthing environmental variables](https://d
 
 The Syncthing enterprise app listens on port **8384**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseNetworkSettings.png" alt="Syncthing Enterprise Network Settings" id="Syncthing Enterprise Network Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseNetworkSettings.png" alt="Syncthing Enterprise Network Settings" id="Syncthing Enterprise Network Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardDefaultPorts.md" >}}
 
@@ -204,8 +202,6 @@ Change the **@owner** and **@group** values from **root** to the administrative 
 Next, add an ACL entry for the run-as user.
 For Syncthing, the run-as user is **0**. Add a user entry for this user.
 Save the ACL before leaving the screen.
-
-For more infomration, see [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}).
 {{< /expand >}}
 
 #### Mounting an SMB Share Storage Volume
@@ -220,7 +216,7 @@ ACL preservation is not guaranteed if in a non-AD environment, or if the ACL or 
 
 ### Resource Configuration Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseResourcesConfig.png" alt="Syncthing Enterprise Resource Limits" id="Syncthing Enterprise Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseResourcesConfig.png" alt="Syncthing Enterprise Resource Limits" id="Syncthing Enterprise Resource Limits" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 
@@ -233,13 +229,13 @@ Using the Syncthing Enterprise app to sync directories with greater than 8191 su
 Increase inotify values to allow Syncthing to monitor all sync directories.
 Add a sysctl variable to ensure changes persist through restart.
 
-Go to **System > Advanced** and locate the [**Sysctl** widget]({{< relref "/scale/scaletutorials/systemsettings/advanced/_index.md #managing-sysctl-variables" >}}).
+Go to **System > Advanced** in TrueNAS and locate the **Sysctl** widget to add a variable.
 
-{{< trueimage src="/images/SCALE/SystemSettings/AdvancedSysctlWidget.png" alt="Sysctl Widget" id="Sysctl Widget" >}}
+{{< trueimage src="/images/TrueNAS/SystemSettings/AdvancedSysctlWidget.png" alt="Sysctl Widget" id="Sysctl Widget" >}}
 
 Click **Add** to open the **Add Sysctl** screen.
 
-{{< trueimage src="/images/SCALE/SystemSettings/AddSysctlConfigScreen.png" alt="Add Sysctl Screen" id="Add Sysctl Screen" >}}
+{{< trueimage src="/images/TrueNAS/SystemSettings/AddSysctlConfigScreen.png" alt="Add Sysctl Screen" id="Add Sysctl Screen" >}}
 
 Enter **fs.inotify.max_user_watches** in **Variable**.
 

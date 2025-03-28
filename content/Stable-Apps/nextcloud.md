@@ -41,11 +41,6 @@ TrueNAS Nextcloud app provides backward compatibility and migration of early dep
 TrueNAS offers one deployment option for setting up Nextcloud, a Linux Debian-based TrueNAS version application available in TrueNAS releases 24.10 and later.
 The instructions in this article apply to these TrueNAS 24.10 and later releases.
 
-TrueNAS offered a FreeBSD-based TrueNAS Nextcloud plugin in releases 13.0 and 13, but it is no longer available in TrueNAS 13.0 and is soon to be unavailable in 13.3. Refer to release notes for more information on upcoming and current changes.
-For more information on the FreeBSD-based Nextcloud plugin, see [Nextcloud]({{< relref "/content/solutions/integrations/nextcloud.md" >}}).
-
-
-
 ## Before You Begin
 
 Before you install the Nextcloud app:
@@ -53,7 +48,7 @@ Before you install the Nextcloud app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/NextcloudDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/NextcloudDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
@@ -88,7 +83,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 {{< include file="/static/includes/apps/MultipleAppInstancesAndNaming.md" >}}
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudScreen.png" alt="Install Nextcloud Screen" id="Install Nextcloud Screen" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudScreen.png" alt="Install Nextcloud Screen" id="Install Nextcloud Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -98,7 +93,7 @@ For a basic installation, you can accept default values, but enter the following
 Enter the name of the administration user in **Admin User** and **Admin Password**.
 If using an existing Nextcloud account, enter the administration credentials for that account or enter new to create new Nextcloud user account credentials.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudConfig1.png" alt="Nextcloud Configuration Username" id="Nextcloud Configuration Username" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudConfig1.png" alt="Nextcloud Configuration Username" id="Nextcloud Configuration Username" >}}
 
 Select the APT packages you want to use. Nextcloud requires **ffmpeg** and **smbclient**. Click **Add** to the right of **APT Packages** twice to add two sets of **Package** fields.
 Select **ffmpeg** in one, and **smbclient** in the other.
@@ -111,7 +106,7 @@ The **Data Directory Path** is pre-populated with the correct path.
 
 Enable **Imaginary** if you want to use this option to modify images.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudConfig2.png" alt="Enter Host and Other Config Settings" id="Enter Host and Other Config Settings" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudConfig2.png" alt="Enter Host and Other Config Settings" id="Enter Host and Other Config Settings" >}}
 
 Enter a password in **Redis Password** to create a new credential or enter the existing password if you already have Redis configured in your Nextcloud account.
 Enter a password in **Database Password** to create a new credential for the Nextcloud database or enter the existing password if you already have the Nextcloud account database configured. Nextcloud does not URL encode in some places so do not use the ampersand (&), at (@), hashtag (#), or percent (%) characters in the Redis password.
@@ -120,8 +115,6 @@ Accept the remaining defaults in the **Nextcloud Configuration** section. Howeve
 
 {{< expand "Nextcloud Cron Jobs" "v" >}}
 NextCloud cron jobs only run while the app is running. If you stop the app, the cron job(s) do not run until you start the app again.
-
-For more information on formatting and using cron jobs, see [Managing Cron Jobs]({{< relref "ManageCronJobsSCALE.md" >}}).
 {{< /expand >}}
 
 The TrueNAS app is configured with all the required environment variables, but if you want to customize the container, click **Add** to the right of **Additional Environment Variables** for each to enter the variable(s) and values(s).
@@ -145,7 +138,7 @@ If you are upgrading where your Nextcloud deployment in TrueNAS was a 1.x.x rele
 Set **Type** to **Host Path (Path that already exists on the system)** for **AppData Storage**.
 Select **Enable ACL**, then enter or browse to select the **html** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudStorageAppDataACLandACESettings.png" alt="Add Nextcloud Storage for AppData" id="Add Nextcloud Storage for AppData" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudStorageAppDataACLandACESettings.png" alt="Add Nextcloud Storage for AppData" id="Add Nextcloud Storage for AppData" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 Set **ID Type** to **Entry is for a USER**, enter the **0** in **ID**, and give it full control permissions.
@@ -159,7 +152,7 @@ To configure the **Nextcloud Postgres Data Storage** host path, do not select **
 Set **Type** to **Host Path (Path that already exists on the system)**, then enter or browse to select the **postgres_data** dataset to populate the **Host Path** field.
 Select **Automatic Permissions**. This does not show if you selected **Enable ACL**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
+{{< trueimage src="/images/Apps/InstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
 
 See [Storage Configuration Settings](#storage-configuration-settings) below for more information.
 
@@ -170,7 +163,7 @@ The **Installed** screen displays with the **nextcloud** app in the **Deploying*
 
 Click **Web UI** on the **Application Info** widget to open the Nextcloud web portal sign-in screen.
 
-{{< trueimage src="/images/SCALE/Apps/NextcloudSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
+{{< trueimage src="/images/Apps/NextcloudSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -194,7 +187,7 @@ Nextcloud has three APT package options:
 * **smbclient**
 * **ocrmypdf**
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudConfigAPTPackageOptions.png" alt="Configure Nextcloud APT Packages" id="Configure Nextcloud APT Packages" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudConfigAPTPackageOptions.png" alt="Configure Nextcloud APT Packages" id="Configure Nextcloud APT Packages" >}}
 
 You must add both the **ffmpeg** and **smbclient** packages to deploy this app.
 
@@ -228,7 +221,7 @@ The **OP Cache Memory Consumption (in MB)** sets the size of the memory cache co
 
 If enabled, **Cron** shows the **Schedule** option. The default value is <b>*/5 * * * *</b>. Enter the schedule values to replace the asterisks based on your desired schedule.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudConfigCronSettings.png" alt="Configure Nextcloud Cron Settings" id="Configure Nextcloud Cron Settings" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudConfigCronSettings.png" alt="Configure Nextcloud Cron Settings" id="Configure Nextcloud Cron Settings" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardEnvironVariablesSettings.md" >}}
 Refer to Nextcloud documentation for more information on environment variables.
@@ -272,7 +265,7 @@ Upgrading to 24.10 migrates earlier Nextcloud Kubernetes app deployments to the 
 You can configure ACL permissions for the required dataset in the **Install Nextcloud** wizard, or from the **Datasets** screen any time after adding the datasets.
 
 {{< expand "Creating App Datasets" "v" >}}
-To create the Nextcloud app datasets, go to **Datasets**, select the dataset you want to use as the parent dataset, then click **Add Dataset** to [add a dataset]({{< relref "DatasetsScale.md" >}}).
+To create the Nextcloud app datasets, go to **Datasets**, select the dataset you want to use as the parent dataset, then click **Add Dataset**.
 In this example, we create the Nextcloud datasets under the root parent dataset **tank**.
 
 Enter **nextcloud** in **Name**, and select **Apps** as the **Dataset Preset**.
@@ -290,7 +283,7 @@ When finished you should have the **nextcloud** parent dataset with three child 
 * */mnt/tank/nextcloud/***data**
 * */mnt/tank/nextcloud/***postgres_data**
 
-{{< trueimage src="/images/SCALE/Apps/AppsAddNextcloudDatasets.png" alt="Add Nextcloud Storage" id="Add Nextcloud Storage" >}}
+{{< trueimage src="/images/Apps/AppsAddNextcloudDatasets.png" alt="Add Nextcloud Storage" id="Add Nextcloud Storage" >}}
 {{< /expand >}}
 
 #### ACL and ACE Settings
@@ -324,7 +317,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resource Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}

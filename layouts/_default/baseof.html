@@ -34,7 +34,7 @@
     >
       <input type="checkbox" class="hidden" id="menu-control" />
       <input type="checkbox" class="hidden" id="menu-header-control" />
-      {{ $navEnabled := default true .Page.Params.GeekdocNav }}
+      {{ $navEnabled := default false .Page.Params.GeekdocNav }}
       {{ partial "site-header" (dict "Root" . "MenuEnabled" $navEnabled) }}
 
 

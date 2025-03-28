@@ -31,7 +31,7 @@ Before you install the Plex app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/PlexDetailsScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/PlexDetailsScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
@@ -56,7 +56,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexScreen.png" alt="Install Plex Screen" id="Install Plex Screen" >}}
+{{< trueimage src="/images/Apps/InstallPlexScreen.png" alt="Install Plex Screen" id="Install Plex Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -67,7 +67,7 @@ For a basic installation, you can accept the default values.
 
 While logged into your Plex account, go to the [Plex **Claim Code** web page](https://www.plex.tv/claim/) to copy the **Claim Code** string provided by Plex, and then paste it into the TrueNAS **Install Plex** wizard **Claim Token** field. This authentication token provides TrueNAS access to your Plex account.
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexConfig1.png" alt="Plex Configuration Settings" id="Plex Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallPlexConfig1.png" alt="Plex Configuration Settings" id="Plex Configuration Settings" >}}
 
 Next, either accept the default values shown or enter the IP addresses for local network connections (Ethernet or WiFi routers) you want in your Plex network.
 See [Setting Up Local Network](#setting-up-local-network) below for more information.
@@ -100,7 +100,7 @@ The **Installed** screen shows the **plex** app in the **Deploying** state until
 
 Click **Web Portal** on the **Application Info** widget to open the Plex web portal sign-in screen.
 
-{{< trueimage src="/images/SCALE/Apps/PlexAppWebPortalSignInScreen.png" alt="Plex Sign In Screen" id="Plex Sign In Screen" >}}
+{{< trueimage src="/images/Apps/PlexAppWebPortalSignInScreen.png" alt="Plex Sign In Screen" id="Plex Sign In Screen" >}}
 
 After signing in, Plex guides you through several initial media server configuration screens if this is a new account or shows your default Plex media screen for your existing configured account.
 
@@ -116,7 +116,7 @@ The following section provides more detailed explanations of the settings in eac
 
 Plex configuration settings include setting up the server timezone, authentication to the Plex account, location of the Plex container image, local network settings, and adding devices or additional environment variables to apply to the container.
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexConfig1.png" alt="Install Plex Configuration Settings" id="Install Plex Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallPlexConfig1.png" alt="Install Plex Configuration Settings" id="Install Plex Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardTimezoneSetting.md" >}}
 
@@ -146,7 +146,7 @@ Plex account settings allow you to add and manage devices, such as a USB TV tune
 Adding devices in the TrueNAS Plex app passes devices through to your Plex account.
 Click **Add** to the right of **Devices** in the **Install Plex** wizard for each device to add.
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexConfigAddDevice.png" alt="Install Plex Add Device" id="Install Plex Add Device" >}}
+{{< trueimage src="/images/Apps/InstallPlexConfigAddDevice.png" alt="Install Plex Add Device" id="Install Plex Add Device" >}}
 
 Enter the device name in **Host Device** and **Container Device**. For example, device */dev/dvb*.
 
@@ -158,7 +158,7 @@ Refer to Plex documentation for more information on [environment variables](http
 
 ### User and Group Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexUserAndGroupConfig.png" alt="Plex User and Group Configuration Settings" id="Plex User and Group Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallPlexUserAndGroupConfig.png" alt="Plex User and Group Configuration Settings" id="Plex User and Group Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardUserAndGroupConfig.md" >}}
 
@@ -189,7 +189,7 @@ Plex required host path storage volumes:
 * **config** to use as the Plex app configuration storage volume.
 * **logs** optional if you want to save and have easy access to log data.
 
-If organizing datasets under a parent dataset named *plex*, configure the [ACL permissions]({{< relref "PermissionsSCALE.md" >}}) for this parent dataset and add an ACE entry for the run-as (root or **0**) or assigned user (**568**).
+If organizing datasets under a parent dataset named *plex*, configure the ACL permissions for this parent dataset and add an ACE for the run-as (root or **0**) or assigned user (**568**).
 
 See [Before You Begin](#before-you-begin) for more information on creating app datasets.
 
@@ -209,7 +209,6 @@ Change the **@owner** and **@group** values from **root** to the administrative 
 Next, add an ACL entry for the run-as user.
 For Plex, the run-as users are **0** for **root** and **568**. Add a user entry for these users.
 Save the ACL before leaving the screen.
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}
 
 #### Mounting an SMB Share Storage Volume
@@ -220,7 +219,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resource Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallPlexResourcesConfiguration.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallPlexResourcesConfiguration.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}

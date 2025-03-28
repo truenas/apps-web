@@ -21,7 +21,7 @@ keywords:
 
 Elastic Search is the distributed, RESTful search and analytics engine at the heart of the [Elastic Stack](https://www.elastic.co/guide/en/starting-with-the-elasticsearch-platform-and-its-solutions/current/stack-components.html).
 The TrueNAS Elastic Search app allows you to configure and deploy a single Elasticsearch node.
-You can install multiple instances to deploy additional nodes, however you must configure a [Custom App]({{< relref "/TruenasApps/UsingCustomApp.md" >}}) with the **Install via YAML** option to deploy a [multi-node cluster](https://www.elastic.co/guide/en/elasticsearch/reference/master/docker.html#docker-compose-file).
+You can install multiple instances to deploy additional nodes, however you must configure a [Custom App]({{< relref "UsingCustomApp.md" >}}) with the **Install via YAML** option to deploy a [multi-node cluster](https://www.elastic.co/guide/en/elasticsearch/reference/master/docker.html#docker-compose-file).
 
 This tutorial covers installing the TrueNAS Elastic Search app to deploy a node.
 It does not detail management of the node or integrating it with other containers.
@@ -34,7 +34,7 @@ Prepare TrueNAS before installing the app by:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/ElasticSearchDetailsScreen.png" alt="Elastic Search App Details Screen" id="Elastic Search App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/ElasticSearchDetailsScreen.png" alt="Elastic Search App Details Screen" id="Elastic Search App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
@@ -59,7 +59,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallElasticSearchScreen.png" alt="Install Elastic Search Screen" id="Install Elastic Search Screen" >}}
+{{< trueimage src="/images/Apps/InstallElasticSearchScreen.png" alt="Install Elastic Search Screen" id="Install Elastic Search Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -85,7 +85,7 @@ Add your **Storage Configuration** settings.
 Set **Host Path (Path that already exists on the system)** in **Type** for **Elastic Search Data Storage**.
 Select **Enable ACL**, and then enter or browse to and select the **data** dataset created above to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallElasticSearchStorageDataACLandACE.png" alt="Add Elastic Search Data Storage" id="Add Elastic Search Data Storage" >}}
+{{< trueimage src="/images/Apps/InstallElasticSearchStorageDataACLandACE.png" alt="Add Elastic Search Data Storage" id="Add Elastic Search Data Storage" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 Enter the user and group ID **1000** and give each **FULL_CONTROL Access**.
@@ -105,7 +105,7 @@ Status changes to **Running** when ready to use.
 Click **Web UI** on the **Application Info** widget to open the Elastic Search web portal screen, which displays information about the configured node.
 This is the equivalent of running a `curl` check on the app port.
 
-{{< trueimage src="/images/SCALE/Apps/ElasticSearchWebPortal.png" alt="Elastic Search Web Portal" id="Elastic Search Web Portal" >}}
+{{< trueimage src="/images/Apps/ElasticSearchWebPortal.png" alt="Elastic Search Web Portal" id="Elastic Search Web Portal" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -185,6 +185,6 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallElasticSearchResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallElasticSearchResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}

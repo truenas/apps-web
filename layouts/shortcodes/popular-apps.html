@@ -15,7 +15,7 @@
         {{ $appList = $appList | append (dict "name" $name "count" $count) }}
       {{ end }}
       {{ $sortedApps := sort $appList "count" "desc" }}
-      {{ range first 3 $sortedApps }}
+      {{ range first 4 $sortedApps }}
         <!-- Define subdirectory for metadata fetching -->
         {{ $subDir := "" }}
         {{ if eq $category "Enterprise" }}

@@ -50,26 +50,26 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 Go to **Apps**, click on **Discover Apps**, and locate the app widget by either scrolling down to it or typing the name into the search field.
 For example, to locate the Home Assistant app widget, begin typing *Home Assistant* into the search field to show app widgets matching the search input.
 
-{{< trueimage src="/images/SCALE/Apps/DiscoverScreenHomeAssistant.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
+{{< trueimage src="/images/Apps/DiscoverScreenHomeAssistant.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
 
 If this is the first application you are installing, TrueNAS displays a dialog about configuring apps.
 
 {{< expand "Configuring Apps Dialog" "v" >}}
-{{< trueimage src="/images/SCALE/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
+{{< trueimage src="/images/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
 
 Click **Confirm** then **Agree** to close the dialog and open the application details screen.
 
 {{< /expand >}}
 If not the first time installing apps the dialog does not show, click on the widget to open the app information screen.
 
-{{< trueimage src="/images/SCALE/Apps/HomeAssistantInformationScreen.png" alt="Home Assistant Information Screen" id="Home Assistant Information Screen" >}}
+{{< trueimage src="/images/Apps/HomeAssistantInformationScreen.png" alt="Home Assistant Information Screen" id="Home Assistant Information Screen" >}}
 
 Click **Install** to open the app installation wizard.
 
 Application configuration settings are grouped into several sections, each explained below in **Understanding App Installation Wizard Settings**.
 To find specific fields begin typing in the **Search Input Fields** search field to show the section or field, scroll down to a particular section, or click on the section heading in the list of sections on the upper-right of the wizard screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallHomeAssistantScreen.png" alt="Home Assistant Install Screen" id="Home Assistant Install Screen" >}}
+{{< trueimage src="/images/Apps/InstallHomeAssistantScreen.png" alt="Home Assistant Install Screen" id="Home Assistant Install Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -82,7 +82,7 @@ Add your **Storage Configuration** settings.
 Set **Host Path (Path that already exists on the system)** in **Type** for ***Data Storage***.
 Select **Enable ACL**, and then enter or browse to select the ***data-storage*** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/AddHomeAssistantStorageConfigs.png" alt="Add Home Assistant Storage Configurations" id="Add Home Assistant Storage Configurations" >}}
+{{< trueimage src="/images/Apps/AddHomeAssistantStorageConfigs.png" alt="Add Home Assistant Storage Configurations" id="Add Home Assistant Storage Configurations" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 For example, add the **568** user and **0**, and give each **FULL_CONTROL Access**.
@@ -98,9 +98,9 @@ The **Installed** screen displays with the **nextcloud** app in the **Deploying*
 
 Click **Web UI** on the **Application Info** widget to open the *Home Assistant* web portal sign-up screen.
 
-{{< trueimage src="/images/SCALE/Apps/HomeAssistantSignUpScreen.png" alt="Home Assistant Sign Up Screen" id="Home Assistant Sign Up Screen" >}}
+{{< trueimage src="/images/Apps/HomeAssistantSignUpScreen.png" alt="Home Assistant Sign Up Screen" id="Home Assistant Sign Up Screen" >}}
 
-{{< trueimage src="/images/SCALE/Apps/HomeAssistantDashboard.png" alt="Home Assistant Dashboard" id="Home Assistant Dashboard" >}}
+{{< trueimage src="/images/Apps/HomeAssistantDashboard.png" alt="Home Assistant Dashboard" id="Home Assistant Dashboard" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -118,7 +118,7 @@ The **Home Assistant Configuration** section contains a **Database Password** fi
 
 Upon deployment, users can set the desired Home Assistant login credentials or log in to an existing account from the Home Assistant UI.
 
-{{< trueimage src="/images/SCALE/Apps/HomeAssistantAddDevices.png" alt="Home Assistant Add Devices Option" id="Home Assistant Add Devices" >}}
+{{< trueimage src="/images/Apps/HomeAssistantAddDevices.png" alt="Home Assistant Add Devices Option" id="Home Assistant Add Devices" >}}
 
 Users can select the **Add Devices** drop-down menu to configure device settings for any Home Assistant-compatible devices that they currently own. Users do not have to own any devices before installing the app and can leave this section blank if not applicable.
 
@@ -153,7 +153,7 @@ TrueNAS provides two options for storage volumes: ixVolumes and host paths.
 * ***data-storage*** to use as the ***User Data*** storage volume.
 * ***media-storage*** to use as the ***Media Data*** storage volume.
 
-If you group these datasets under a parent dataset named *Home Assistant*, configure the [ACL permissions]({{< relref "PermissionsSCALE.md" >}}) for this parent dataset and add an ACE entry for the ***Home Assistant*** user.
+If you group these datasets under a parent dataset named *Home Assistant*, configure the ACL permissions for this parent dataset and add an ACE for the ***Home Assistant*** user.
 If the app includes postgres storage volumes, include the following information
 If the app installation wizard cannot set up the ACL type or correctly add user permissions for the postgres storage volume,
 you must configure these outside the install wizard using the **Add Dataset** and **Edit ACL** screens.
@@ -188,6 +188,6 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallHomeAssistantResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallHomeAssistantResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}

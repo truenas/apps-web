@@ -43,7 +43,7 @@ To add the Enterprise MinIO application to the list of available applications:
 
 Both the **stable** and **enterprise** train versions of the MinIO app widget display on the **Discover** application screen.
 
-![DiscoverScreenMinIOAppWidgets](/images/SCALE/Apps/DiscoverScreenMinIOAppWidgets.png "Minio App Widgets")
+![DiscoverScreenMinIOAppWidgets](/images/Apps/DiscoverScreenMinIOAppWidgets.png "Minio App Widgets")
 
 {{< /expand >}}
 
@@ -53,7 +53,7 @@ Before you install the **stable** version of the MinIO app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/MinIOS3AppInfoScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/MinIOS3AppInfoScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
@@ -71,8 +71,8 @@ Start any sharing services after MinIO completes the installation and starts.</d
 
 ## Installing MinIO (S3) App
 This procedure covers the basic requirements and installation and configuration instructions for the **stable** train version of the MinIO application.
-For instructions on installing the Enterprise version of the MinIO application see [Configuring
-Enterprise MinIO]({{< relref "/content/TruenasApps/EnterpriseApps/_index.md" >}}).
+For instructions on installing the Enterprise version of the MinIO application see [Configuring Enterprise MinIO]({{< relref "/content/Enterprise-Apps/_index.md" >}}).
+
 {{< hint info >}}
 This basic procedure covers the required MinIO app settings.
 For optional settings, see [Understanding App Installation Wizard Settings](#understanding-app-installation-wizard-settings).
@@ -82,7 +82,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinioS3Screen.png" alt="MinIO Install Wizard Screen" id="MinIO Install Wizard Screen" >}}
+{{< trueimage src="/images/Apps/InstallMinioS3Screen.png" alt="MinIO Install Wizard Screen" id="MinIO Install Wizard Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -110,7 +110,7 @@ Click **Add** to the right of **ACL Entries** to show the permissions fields.
 Set **Id Type** to **Entry is for a USER**, enter **473** in **ID**, and give it full permissions.
 Repeat for the **/data** storage volume.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOAddDataHostPathACLandACESettings.png" alt="Data Host Path ACL and ACE Settings" id="Data Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOAddDataHostPathACLandACESettings.png" alt="Data Host Path ACL and ACE Settings" id="Data Host Path ACL and ACE Settings" >}}
 
 {{< include file="/static/includes/apps/MinIOCompleteInstall.md" >}}
 
@@ -127,7 +127,7 @@ MinIO configuration settings include setting up credentials and adding additiona
 MinIO credentials establish the login credentials for the MinIO web portal and the MinIO administration user.
 Enter existing MinIO credentials if you already have a MinIO account, or create new login credentials for the first time you log into MinIO.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOConfigSettings.png" alt="MinIO Configuration Settings" id="MinIO Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOConfigSettings.png" alt="MinIO Configuration Settings" id="MinIO Configuration Settings" >}}
 
 Enter a username for the root user (MinIO access key) in **MinIO Root User** that is limited to five to 20 characters long. For example *admin* or *admin1*.
 
@@ -149,7 +149,7 @@ Do not enter the **server** and URL argument required in earlier app versions.
 
 ### User and Group Configuration Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOUserAndGroupSettings.png" alt="MinIO User and Group Configuration Settings" id="MinIO User and Group Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOUserAndGroupSettings.png" alt="MinIO User and Group Configuration Settings" id="MinIO User and Group Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -157,7 +157,7 @@ Do not enter the **server** and URL argument required in earlier app versions.
 Network configuration settings set the port number to access the MinIO API and WebUI console ports.
 The default ports are **9000** for API port and **9002** for the console port
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIONetworkConfigSettings.png" alt="Network Configuration Settings" id="Network Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIONetworkConfigSettings.png" alt="Network Configuration Settings" id="Network Configuration Settings" >}}
 
 Accept the default port settings in **Network Configuration**.
 
@@ -214,7 +214,7 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 ### Resource Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOResourcesConfig.png" alt="MinIO Resource Limits" id="MinIO Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallMinIOResourcesConfig.png" alt="MinIO Resource Limits" id="MinIO Resource Limits" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
 

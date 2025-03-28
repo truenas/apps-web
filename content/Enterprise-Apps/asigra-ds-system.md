@@ -57,7 +57,7 @@ Before you install the Asigra app:
 
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/AsigraAppDetailsScreen.png" alt="Asigra App Details Screen" id="Asigra App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/AsigraAppDetailsScreen.png" alt="Asigra App Details Screen" id="Asigra App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 <div style="margin-left: 33px">Asigra has two run-as user IDs, <b>0</b> for the root users and <b>999</b> for the postgres data user.
@@ -85,7 +85,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallAsigraScreen.png" alt="Install Asigra DS-System Screen" id="Install Asigra DS-System Screen" >}}
+{{< trueimage src="/images/Apps/InstallAsigraScreen.png" alt="Install Asigra DS-System Screen" id="Install Asigra DS-System Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -110,7 +110,7 @@ Add your **Storage Configuration** settings.
 For **Asigra DS-System Configuration Storage**, set the **Type** to **Host Path (Path that already exists on the system)**.
 Select **Enable ACL**, then enter or browse to and select the **data** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallAsigraStorageDataACLandACESettings.png" alt="Add Config Asigra Data ACL and ACE Settings" id="Add Asigra Data ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallAsigraStorageDataACLandACESettings.png" alt="Add Config Asigra Data ACL and ACE Settings" id="Add Asigra Data ACL and ACE Settings" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 Click once to add the **0** user ID. Give it **FULL_CONTROL Access**.
@@ -121,7 +121,7 @@ Next, for **Asigra DS-System Postgres Data Storage**, set **Type** to **Host Pat
 Enter or browse to select the **postgres_data** dataset to populate the **Host Path** field. Do not click **Edit ACL**!
 Select **Automatic Permissions** to set the permissions for this dataset and for the parent dataset if storage volume datasets are nested under a parent dataset.
 
-{{< trueimage src="/images/SCALE/Apps/InstallAsigraStorageConfigPostgresDataAutoPerms.png" alt="Add Config Asigra Postgres_Data Automatic Permissions" id="Add Asigra Postgres_Data Automatic Permissions" >}}
+{{< trueimage src="/images/Apps/InstallAsigraStorageConfigPostgresDataAutoPerms.png" alt="Add Config Asigra Postgres_Data Automatic Permissions" id="Add Asigra Postgres_Data Automatic Permissions" >}}
 
 See [Storage Configuration Settings](#storage-configuration-settings) below for more information.
 
@@ -130,7 +130,7 @@ Accept the defaults in **Resources Configuration**, and select the GPU option if
 Click **Install**. A progress dialog displays before switching to the **Installed** applications screen.
 The **Installed** screen displays with the **Asigra DS-System** app in the **Deploying** state. Status changes to **Running** when ready to use.
 
-{{< trueimage src="/images/SCALE/Apps/AsigraAppRunning.png" alt="Asigra DS-System App Installed and Running" id="Asigra DS-System App Installed and Running" >}}
+{{< trueimage src="/images/Apps/AsigraAppRunning.png" alt="Asigra DS-System App Installed and Running" id="Asigra DS-System App Installed and Running" >}}
 
 
 See **Setting Up the DS-System in DS-Operator** below for the next steps.
@@ -139,7 +139,7 @@ See **Setting Up the DS-System in DS-Operator** below for the next steps.
 
 After installing the Asigra application in TrueNAS, either click **Register** to open the Asigra New Account screen to register your company with Asigra, or if you already have a registered account, use the link provided by Asigra to download and extract the DS-Operator GUI program.
 
-{{< trueimage src="/images/SCALE/Apps/AsigraNewCustomerInfoScreen.png" alt="Asigra New Customer Information Screen" id="Asigra New Customer Information Screen" >}}
+{{< trueimage src="/images/Apps/AsigraNewCustomerInfoScreen.png" alt="Asigra New Customer Information Screen" id="Asigra New Customer Information Screen" >}}
 
 Asigra provides your valid license and the license server IP address or URL> Enter the IP address when adding the license server for your service.
 It also provides the link to where you download a zip file with the DS-Operator.
@@ -163,7 +163,7 @@ The following instructions cover a Windows OS-based DS-Operator initial configur
    The TrueNAS Asigra app default user **oper** is preconfigured with all administration roles, but if you add some other user account to serve as the administration user you must assign the user the **Data Operator**, **Account Manager**, and **Export CRI** roles.
    Refer to the [Asigra DS-System User Guide](https://asigra-documentation.s3.amazonaws.com/Guides/Cloud+Backup/v14.2/DS-System_User_Guide.pdf) for more information.
 
-   {{< trueimage src="/images/SCALE/Apps/AsigraConnectToDS-Operator.png" alt="Connect to Asigra DS-Operator" id="Connect to Asigra DS-Operator" >}}
+   {{< trueimage src="/images/Apps/AsigraConnectToDS-Operator.png" alt="Connect to Asigra DS-Operator" id="Connect to Asigra DS-Operator" >}}
 
    If you receive authentication errors, you might need to add the oper user to your Windows system.
    {{< expand "Adding a User in Windows" "v" >}}
@@ -179,18 +179,18 @@ The following instructions cover a Windows OS-based DS-Operator initial configur
 4. Set up the TrueNAS DS-Server using the DS-Operator GUI.
    Click **Setup** on the top toolbar, then click **Initialization** to open the **DS-Operator Initialization** window.
 
-   {{< trueimage src="/images/SCALE/Apps/DS-OperatorInitializationOption.png" alt="Asigra DS-Operator Initializaton" id="Asigra DS-Operator Initialization" >}}
+   {{< trueimage src="/images/Apps/DS-OperatorInitializationOption.png" alt="Asigra DS-Operator Initializaton" id="Asigra DS-Operator Initialization" >}}
 
    Click **Add** to open the **Add a DS-System** window. Enter the IP address for your TrueNAS server running the Asigra DS-System app, then click **OK**.
 
-   {{< trueimage src="/images/SCALE/Apps/AsigraDS-OperatorAddaDS-SystemWindow.png" alt="Asigra DS-Operator Add a DS-System" id="Asigra DS-Operator Add a DS-System" >}}
+   {{< trueimage src="/images/Apps/AsigraDS-OperatorAddaDS-SystemWindow.png" alt="Asigra DS-Operator Add a DS-System" id="Asigra DS-Operator Add a DS-System" >}}
 
    Click **Refresh** at the bottom left of the window to change the default IP address to the name of your DS-System.
 
 5. Enter the license server for your DS-System.
    Select the checkbox to the left of the system name or IP address, click **Setup** on the top toolbar, and then select **License Server** to open the **DS-License Server** window for your system.
 
-   {{< trueimage src="/images/SCALE/Apps/AsigraDS-OperatorAddLicenseServer.png" alt="Asigra DS-Operator Add License Server" id="Asigra DS-Operator Add License Server" >}}
+   {{< trueimage src="/images/Apps/AsigraDS-OperatorAddLicenseServer.png" alt="Asigra DS-Operator Add License Server" id="Asigra DS-Operator Add License Server" >}}
 
    Enter the license server URL provided by Asigra, for example, *rlm.asigra.com*, verify the port number is **4417** or the port number Asigra provides with the license, then click **Add**.
 
@@ -292,6 +292,6 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallAsigraResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallAsigraResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}

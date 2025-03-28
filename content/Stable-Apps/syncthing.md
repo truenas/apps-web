@@ -29,7 +29,7 @@ To add the **enterprise** train Syncthing application to the list of available a
 {{< include file="/static/includes/AddEnterpriseTrain.md" >}}
 The **stables** and **enterprise** train versions of the Syncthing app widget display on the **Discover** application screen.
 
-{{< trueimage src="/images/SCALE/Apps/DiscoverSyncthingAppWidgets.png" alt="Discovering Syncthing App Widgets" id="Discovering Syncthing App Widget" >}}
+{{< trueimage src="/images/Apps/DiscoverSyncthingAppWidgets.png" alt="Discovering Syncthing App Widgets" id="Discovering Syncthing App Widget" >}}
 
 {{< /expand >}}
 
@@ -43,7 +43,7 @@ To install the Syncthing **stable** train app, do the following:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/SyncthingAppDetailsScreen.png" alt="Syncthing App Details Screen" id="Syncthing App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/SyncthingAppDetailsScreen.png" alt="Syncthing App Details Screen" id="Syncthing App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
@@ -68,8 +68,6 @@ Select the parent dataset row on the **Datasets** screen tree table, scroll down
 Set the <b>@owner</b> and <b>@group</b> to <b>admin</b> or the name of your TrueNAS administration user account, and click <b>Apply Owner</b> and <b>Apply Group</b>.
 
 Next, click **Add Item** to add an ACE entry for the <b>Syncthing</b> run as user, <b>0</b>. Give the user full permissions.
-
-See [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}) for more information.
 {{< /expand >}}</div>
 
 ## Installing the Syncthing Application
@@ -82,7 +80,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 {{< include file="/static/includes/apps/MultipleAppInstancesAndNaming.md" >}}
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingScreen.png" alt="Install Syncthing Screen" id="Install Syncthing Screen" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingScreen.png" alt="Install Syncthing Screen" id="Install Syncthing Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -103,7 +101,7 @@ Click **Add** to the right of **Additional Storage** to add another set of stora
 Repeat the instructions above to add the storage volume for the  **data1** dataset.
 The Syncthing stable train app **config** stores app configuration data.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Syncthing Config Dataset ACL and ACE Settings" id="Syncthing Config Dataset ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Syncthing Config Dataset ACL and ACE Settings" id="Syncthing Config Dataset ACL and ACE Settings" >}}
 
 For more information on storage settings, see [**Storage Settings**](#storage-settings) below.
 
@@ -114,7 +112,7 @@ For more information on storage settings, see [**Storage Settings**](#storage-se
 After installing and starting the Syncthing application, launch the Syncthing web UI.
 Go to **Actions > Settings** and set a user password for the web UI.
 
-{{< trueimage src="/images/SCALE/Apps/SyncthingUIActionsMenu.png" alt="Syncthing UI Actions Menu" id="Syncthing UI Actions Menu" >}}
+{{< trueimage src="/images/Apps/SyncthingUIActionsMenu.png" alt="Syncthing UI Actions Menu" id="Syncthing UI Actions Menu" >}}
 
 ### Using the Syncthing Web Portal for TrueNAS
 
@@ -136,7 +134,7 @@ Click here for more information on [Syncthing environmental variables](https://d
 
 ### User and Group Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseUserAndGroupConfig.png" alt="Syncthing Enterprise User and Group IDs" id="Syncthing Enterprise User and Group IDs" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseUserAndGroupConfig.png" alt="Syncthing Enterprise User and Group IDs" id="Syncthing Enterprise User and Group IDs" >}}
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -146,7 +144,7 @@ Accept the default port numbers in **Web Port for Syncthing**, **TCP Port for Sy
 The TrueNAS Syncthing stable app listens on port **20910**.
 The default TCP port is **20978** and the default UDP port is **20979**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingStableNetworking.png" alt="Syncthing (stable) Network Configuration" id="Syncthing (stable) Network Configuration" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStableNetworking.png" alt="Syncthing (stable) Network Configuration" id="Syncthing (stable) Network Configuration" >}}
 
 {{< include file="/static/includes/apps/InstallWizardDefaultPorts.md" >}}
 
@@ -160,7 +158,7 @@ Disabling **Host Network** shows the TCP and UDP port numbers, and sets the web 
 
 TrueNAS provides two storage options for storage volumes: ixVolumes and host paths.
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Syncthing Config Dataset ACL and ACE Settings" id="Syncthing Config Dataset ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Syncthing Config Dataset ACL and ACE Settings" id="Syncthing Config Dataset ACL and ACE Settings" >}}
 
 To allow TrueNAS to create the storage volume, leave **Type** set to **ixVolume (Dataset created automatically by the system)**.
 This adds a storage volume for the application nested in the hidden **ix-apps** dataset, located on the pool selected as the apps pool.
@@ -189,8 +187,6 @@ Change the **@owner** and **@group** values from **root** to the administrative 
 Next, add an ACL entry for the run-as user.
 For Syncthing, the run-as user is **0**. Add a user entry for this user.
 Save the ACL before leaving the screen.
-
-For more infomration, see [Setting Up Permissions]({{< relref "PermissionsSCALE.md" >}}) and [Edit ACL Screen]({{< relref "EditACLScreens.md" >}}).
 {{< /expand >}}
 
 #### Mounting an SMB Share Storage Volume
@@ -201,6 +197,6 @@ The TrueNAS Syncthing app includes the option to mount an SMB share inside the c
 
 ### Resource Configuration Settings
 
-{{< trueimage src="/images/SCALE/Apps/InstallSyncthingEnterpriseResourcesConfig.png" alt="Syncthing Enterprise Resource Limits" id="Syncthing Enterprise Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingEnterpriseResourcesConfig.png" alt="Syncthing Enterprise Resource Limits" id="Syncthing Enterprise Resource Limits" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}

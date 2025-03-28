@@ -3,11 +3,6 @@ title: "Rsync Daemon"
 description: "Installation and basic usage instructions for the Rsync Daemon application in TrueNAS."
 weight:
 aliases:
- - /scale/scaletutorials/apps/rsyncd/
- - /scale/scaletutorials/systemsettings/services/configrsyncservicescale/
- - /scale/scaleuireference/systemsettings/services/rsyncservicesscreenscale/
- - /scale/scaletutorials/apps/communityapps/rsyncd/
- - /images/SCALE/22.12/ServicesRsyncCreateModule.png
 tags:
 - rsync
 - apps
@@ -28,7 +23,7 @@ keywords:
 {{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
 
 {{< hint type="important" >}}
-This application in not needed when rsync is configured externally with SSH or with the [TrueNAS built-in rsync task in SSH mode]({{< relref "RsyncTasksSCALE.md" >}}).
+This application in not needed when rsync is configured externally with SSH or with the TrueNAS built-in rsync task in SSH mode.
 It is always recommended to use rsync with SSH as a security best practice.
 
 You do not need this application to schedule or run rsync tasks from the **Data Protections** screen using the **Rsync Task** widget.
@@ -45,15 +40,15 @@ The before installing the Rsync Daemon application (rsyncd) add a dataset the ap
 
 To install this application, go to **Apps**, click on **Discover Apps**, then either begin typing rsync into the search field or scroll down to locate the **Rsync Daemon** application widget.
 
-{{< trueimage src="/images/SCALE/Apps/RsyncAppWidget.png" alt="Rsync Daemon Application Widget" id="Rsync Daemon Application Widget" >}}
+{{< trueimage src="/images/Apps/RsyncAppWidget.png" alt="Rsync Daemon Application Widget" id="Rsync Daemon Application Widget" >}}
 
 Click on the widget to open the application **Rsync Daemon** information screen.
 
-{{< trueimage src="/images/SCALE/Apps/RsyncAppInfoScreen.png" alt="Rsync Daemon App Information Screen" id="Rsync Daemon App Information Screen" >}}
+{{< trueimage src="/images/Apps/RsyncAppInfoScreen.png" alt="Rsync Daemon App Information Screen" id="Rsync Daemon App Information Screen" >}}
 
 Click **Install** to open the **Install Rsync Daemon** configuration screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDaemonScreen.png" alt="Install Rsync Daemon Screen" id="Install Rsync Daemon Screen" >}}
+{{< trueimage src="/images/Apps/InstallRsyncDaemonScreen.png" alt="Install Rsync Daemon Screen" id="Install Rsync Daemon Screen" >}}
 
 Accept the default value or enter a name in **[Application Name](#application-name)**.
 
@@ -68,7 +63,7 @@ Select the type of access from the **Access Mode** dropdown list.
 Accept the rest of the module setting defaults.
 To limit clients that connect, enter IP addresses in **Hosts Allow** and **Hosts Deny**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDAddModuleConfig.png" alt="Add Module Name and Path" id="Add Module Name and Path" >}}  
+{{< trueimage src="/images/Apps/InstallRsyncDAddModuleConfig.png" alt="Add Module Name and Path" id="Add Module Name and Path" >}}  
 
 Accept the default for the rest of the settings.
 
@@ -78,7 +73,7 @@ Click **Save**.
 
 The **Installed** applications displays with the app in the **Deploying** state until the installation completes, then it changes to **Running**.
 
-{{< trueimage src="/images/SCALE/Apps/RsyncDAppInstalled.png" alt="Rsync Daemon Application Installed" id="Rsync Daemon Application Installed" >}}
+{{< trueimage src="/images/Apps/RsyncDAppInstalled.png" alt="Rsync Daemon Application Installed" id="Rsync Daemon Application Installed" >}}
 
 ## Understanding Rsync App Settings
 
@@ -93,7 +88,7 @@ The **Application Name** section includes only the **Application Name** setting.
 The **Rysnc Configuration** section **Auxiliary Parameters** allow you to customize the rsync server deployment.
 Enter rsync [global or module parameters](https://www.samba.org/ftp/rsync/rsyncd.conf.html) using the **Auxiliary Parameters** fields.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDAddAuxParameters.png" alt="Add Auxiliary Parameters" id="Add Auxiliary Parameters" >}}
+{{< trueimage src="/images/Apps/InstallRsyncDAddAuxParameters.png" alt="Add Auxiliary Parameters" id="Add Auxiliary Parameters" >}}
 
 Click **Add** to the right of **Auxiliary Parameters** for each parameter you want to add.
 Enter the name of the parameter in **Parameter** and the value for that parameter in **Value**.
@@ -102,7 +97,7 @@ Enter the name of the parameter in **Parameter** and the value for that paramete
 
 The **Network Configuration** section includes the **Host Network** and **Rsync Port** settings.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDNetworkConfig.png" alt="Network Configuration Settings" id="Network Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallRsyncDNetworkConfig.png" alt="Network Configuration Settings" id="Network Configuration Settings" >}}
 
 Accept the default port number 30026 which is the port the Rsync app listens on.
 Before changing the port number refer to [Default Ports](https://www.truenas.com/docs/references/defaultports/) to verify the port is not already assigned. Enter a new port number in **Rsync Port**.
@@ -114,7 +109,7 @@ We recommend that you leave **Host Network** unselected.
 The **Module Configuration** section includes settings to add and customize a module for the rsync server and to configure the clients allowed or denied access to it.
 Click **Add** for each module to add.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDAddModuleConfig.png" alt="Add Module Name and Path" id="Add Module Name and Path" >}}  
+{{< trueimage src="/images/Apps/InstallRsyncDAddModuleConfig.png" alt="Add Module Name and Path" id="Add Module Name and Path" >}}  
 
 There are seven required settings to add a module and four optional settings.
 
@@ -135,7 +130,7 @@ Enter a number in **Max Connections** for the number of client connections to al
 
 Accept the **UID** (user ID) and **GID** (group ID) default 568. If you create an administration user and group to use for this module in this application, enter that UID/GID number in these fields.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRsyncDAddAllowDenyHostsAuxParams.png" alt="Add Module Allow or Deny Hosts" id="Add Module Allow or Deny Hosts" >}}
+{{< trueimage src="/images/Apps/InstallRsyncDAddAllowDenyHostsAuxParams.png" alt="Add Module Allow or Deny Hosts" id="Add Module Allow or Deny Hosts" >}}
 
 Use **Hosts Allow** and **Hosts Deny** to specify IP addresses for client systems that can to connect to the rsync server through this module.
 Enter multiple IP addresses separated by a comma and space between entries in the field.
@@ -170,6 +165,6 @@ The **Resources Configuration** section allows you to limit the amount of CPU an
 By default, this application is limited to use no more than **4** CPU cores and **8** Gibibytes available memory.
 The application might use considerably less system resources.
 
-{{< trueimage src="/images/SCALE/Apps/RsyncdResourceConfig.png" alt="Resources Configuration" id="Resources Configuration" >}}
+{{< trueimage src="/images/Apps/RsyncdResourceConfig.png" alt="Resources Configuration" id="Resources Configuration" >}}
 
 Tune these limits as needed to prevent the application from over-consuming system resources and introducing performance issues.

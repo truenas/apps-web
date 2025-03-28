@@ -37,7 +37,7 @@ Before you install the Emby app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/EmbyDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/EmbyDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 <div style="margin-left: 33px">The Emby run-as user ID is <b>0</b>. The app also includes the default <b>apps</b> user ID <b>568</b>.
@@ -64,7 +64,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallEmbyScreen.png" alt="Install Enby Screen" id="Install Emby Screen" >}}
+{{< trueimage src="/images/Apps/InstallEmbyScreen.png" alt="Install Enby Screen" id="Install Emby Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -84,7 +84,7 @@ Add your **Storage Configuration** settings.
 For **Emby Configuration Storage**, set the **Type** to **Host Path (Path that already exists on the system)**.
 Select **Enable ACL** then enter or browse to and select the **config** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallEmbyStorageConfigHostPathACLandACESettings.png" alt="Add Emby Config ACL and ACE Settings" id="Add Emby Config ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallEmbyStorageConfigHostPathACLandACESettings.png" alt="Add Emby Config ACL and ACE Settings" id="Add Emby Config ACL and ACE Settings" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 For Emby, click twice to add the **568** and **0** user IDs. Give each **FULL_CONTROL Access**.
@@ -99,19 +99,19 @@ Accept the defaults in **Resources Configuration**, and select the GPU option if
 Click **Install**. A progress dialog displays before switching to the **Installed** applications screen.
 The **Installed** screen displays with the **Emby** app in the **Deploying** state. Status changes to **Running** when ready to use.
 
-{{< trueimage src="/images/SCALE/Apps/EmbyAppRunning.png" alt="Emby App Installed and Running" id="Emby App Installed and Running" >}}
+{{< trueimage src="/images/Apps/EmbyAppRunning.png" alt="Emby App Installed and Running" id="Emby App Installed and Running" >}}
 
 Select the Emby app row, and click **Web Portal** on the **Application Info** widget to open the Emby web portal sign-in screen or if adding a new Emby account, to show the Emby account creation screens.
 
-{{< trueimage src="/images/SCALE/Apps/EmbySignInScreen.png" alt="Emby First Time Sign In Screen" id="Emby First Time Sign In Screen" >}}
+{{< trueimage src="/images/Apps/EmbySignInScreen.png" alt="Emby First Time Sign In Screen" id="Emby First Time Sign In Screen" >}}
 
 Select the language from the **Preferred display language** dropdown list, then click **Next** to advance to the **Create Your First User** screen.
 
-{{< trueimage src="/images/SCALE/Apps/EmbyCreateNewUserAcctScreen.png" alt="Emby Create First User Screen" id="Emby Create First User Screen" >}}
+{{< trueimage src="/images/Apps/EmbyCreateNewUserAcctScreen.png" alt="Emby Create First User Screen" id="Emby Create First User Screen" >}}
 
 Click **Next** to show the Emby **Setup Libraries Screen** where you can add your media libraries.
 
-{{< trueimage src="/images/SCALE/Apps/EmbySetupMediaLibrariesScreen.png" alt="Emby Setup Libraries Screen" id="Emby Setup Libraries Screen" >}}
+{{< trueimage src="/images/Apps/EmbySetupMediaLibrariesScreen.png" alt="Emby Setup Libraries Screen" id="Emby Setup Libraries Screen" >}}
 
 Click **Next** to continue setting up your Emby server account. Advance through the setup screens until complete, then click **Finish**.
 
@@ -152,7 +152,7 @@ Emby only expects one host path storage volume, **config** to hold app configura
 
 {{< include file="/static/includes/apps/InstallAppsStorageConfig.md" >}}
 
-If you organize the **config** dataset under a parent dataset named **emby**, configure the [ACL permissions]({{< relref "PermissionsSCALE.md" >}}) for this parent dataset and add an ACE entry for the **root** user.
+If you organize the **config** dataset under a parent dataset named **emby**, configure the ACL permissions for this parent dataset and add an ACE for the **root** user.
 
 You can add extra storage volumes during the app installation, or edit the application after it deploys. Stop the app before editing settings.
 {{< include file="/static/includes/apps/InstallAppStorageConfig2.md" >}}
@@ -195,11 +195,11 @@ Emby uses tags to add identification information to media files.
 
 {{< include file="/static/includes/apps/InstallWizardLabelsConfiguration.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallEmbyLabelsConfig.png" alt="Labels Configuration Settings" id="Labels Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallEmbyLabelsConfig.png" alt="Labels Configuration Settings" id="Labels Configuration Settings" >}}
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallEmbyResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallEmbyResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}

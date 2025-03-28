@@ -49,15 +49,15 @@ You can install the application using all default settings, or you can customize
 
 To install the **TFTP Server** app, go to **Apps**, click **Discover Apps**. Either begin typing TFTP into the search field or scroll down to locate the **TFTP Server** application widget.
 
-{{< trueimage src="/images/SCALE/Apps/TFTPServerAppWidget.png" alt="TFTP Server Application Widget" id="TFTP Server Application Widget" >}}
+{{< trueimage src="/images/Apps/TFTPServerAppWidget.png" alt="TFTP Server Application Widget" id="TFTP Server Application Widget" >}}
 
 Click on the widget to open the ***TFTP Server** information screen.
 
-{{< trueimage src="/images/SCALE/Apps/TFTPServerAppInfoScreen.png" alt="TFTP Server Information Screen" id="TFTP Server Information Screen" >}}
+{{< trueimage src="/images/Apps/TFTPServerAppInfoScreen.png" alt="TFTP Server Information Screen" id="TFTP Server Information Screen" >}}
 
 Click **Install** to open the **TFTP Server** configuration screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallTFTPServerAppScreen.png" alt="Install TFTP Server Screen" id="Install TFTP Server Screen" >}}
+{{< trueimage src="/images/Apps/InstallTFTPServerAppScreen.png" alt="Install TFTP Server Screen" id="Install TFTP Server Screen" >}}
 
 Application configuration settings are presented in several sections.
 To find specific fields click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
@@ -65,7 +65,7 @@ To find specific fields click in the **Search Input Fields** search field, scrol
 After accepting or changing the default settings explained in the sections below, click **Install** to start the installation process.
 The TFTP Server application displays on the **Installed** applications screen when the installation completes.
 
-{{< trueimage src="/images/SCALE/Apps/TFTPServerAppInstalled.png" alt="TFTP Server App Installed" id="TFTP Server App Installed" >}}
+{{< trueimage src="/images/Apps/TFTPServerAppInstalled.png" alt="TFTP Server App Installed" id="TFTP Server App Installed" >}}
 
 ### Application Name Settings
 
@@ -76,7 +76,7 @@ Accept the default **Version**.
 
 Select the location of the TrueNAS server in **Timezone**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallTFTPServerAddTFTPConfigEnvironVariables.png" alt="TFTP Configuration Add Environment Variables" id="TFTP Configuration Add Environment Variables" >}}
+{{< trueimage src="/images/Apps/InstallTFTPServerAddTFTPConfigEnvironVariables.png" alt="TFTP Configuration Add Environment Variables" id="TFTP Configuration Add Environment Variables" >}}
 
 Select **Allow Create** to allow creating new files. This sets **CREATE** to **1** and **MAPFILE** to **""**. This changes the permissions of the tftpboot directory to 757, otherwise the tftpboot directory permissiong is 555.
 
@@ -107,7 +107,7 @@ This table lists docker environmental variables for the TFTP Server (tftpd-hpa) 
 
 When selected, **Host Network** sets the app to use the default port 69, otherwise the default port is 30031.
 
-{{< trueimage src="/images/SCALE/Apps/InstallTFTPServerAppNetworkConfig.png" alt="TFTP Server Host Network" id="TFTP Server Host Network" >}}
+{{< trueimage src="/images/Apps/InstallTFTPServerAppNetworkConfig.png" alt="TFTP Server Host Network" id="TFTP Server Host Network" >}}
 
 To change the default port number, clear the **Host Network** checkmark to display the **TFTP Port** field.
 Enter a new port number in **TFTP Port** within the range 9000-65535.
@@ -120,4 +120,4 @@ The default storage type is **ixVolume (Dataset created automatically by the sys
 Select **Host Path (Path that already exists on the system)** to show the **Host Path** field.
 Enter or browse to select a dataset you created on the system for the application to use.
 
-{{< trueimage src="/images/SCALE/Apps/InstallTFTPServerAppStorageHostPath.png" alt="Enter Host Path" id="Enter Host Path" >}}
+{{< trueimage src="/images/Apps/InstallTFTPServerAppStorageHostPath.png" alt="Enter Host Path" id="Enter Host Path" >}}

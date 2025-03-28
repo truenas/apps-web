@@ -43,7 +43,7 @@ Before you install the Diskover Data app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/DiskoverAppDetailsScreen.png" alt="Diskover Data App Details Screen" id="Diskover Data App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/DiskoverAppDetailsScreen.png" alt="Diskover Data App Details Screen" id="Diskover Data App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 <div style="margin-left: 33px">The Diskover Data has two run-as user IDs, <b>0</b> for Diskover and <b>1000</b> for the Elasticsearch component.
@@ -71,7 +71,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallDiskoverScreen.png" alt="Install Diskover Data Screen" id="Install Diskover Data Screen" >}}
+{{< trueimage src="/images/Apps/InstallDiskoverScreen.png" alt="Install Diskover Data Screen" id="Install Diskover Data Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -91,7 +91,7 @@ Add your **Storage Configuration** settings.
 For **Diskover Data Configuration Storage**, set the **Type** to **Host Path (Path that already exists on the system)**.
 Select **Enable ACL**, then enter or browse to and select the **config** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallDiskoverStorageConfigACLandACESettings.png" alt="Add Diskover Data Config ACL and ACE Settings" id="Add Diskover Data Config ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallDiskoverStorageConfigACLandACESettings.png" alt="Add Diskover Data Config ACL and ACE Settings" id="Add Diskover Data Config ACL and ACE Settings" >}}
 
 Click **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 For Diskover Data, click twice to add the **568** and **0** user IDs. For the Elasticsearch storage volume, add **568** and **1000**. Give each **FULL_CONTROL Access**.
@@ -106,11 +106,11 @@ Accept the defaults in **Resources Configuration**, and select the GPU option if
 Click **Install**. A progress dialog displays before switching to the **Installed** applications screen.
 The **Installed** screen displays with the **Diskover Data** app in the **Deploying** state. Status changes to **Running** when ready to use.
 
-{{\< trueimage src="/images/SCALE/Apps/DiskoverAppRunning.png" alt="Diskover Data App Installed and Running" id="Diskover Data App Installed and Running" >}}
+{{\< trueimage src="/images/Apps/DiskoverAppRunning.png" alt="Diskover Data App Installed and Running" id="Diskover Data App Installed and Running" >}}
 
 Log in with your Diskover account credentials.
 
-{{< trueimage src="/images/SCALE/Apps/DiskoverSignInScreen.png" alt="Diskover Data Sign-In Screen" id="Diskover Data Sign-In Screen" >}}
+{{< trueimage src="/images/Apps/DiskoverSignInScreen.png" alt="Diskover Data Sign-In Screen" id="Diskover Data Sign-In Screen" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -152,7 +152,7 @@ Diskover Data only expects one host path storage volume, **config** to hold app 
 
 {{< include file="/static/includes/apps/InstallAppsStorageConfig.md" >}}
 
-If you organize the **config** dataset under a parent dataset named *diskoverdata*, configure the [ACL permissions]({{< relref "PermissionsSCALE.md" >}}) for this parent dataset and add an ACE entry for the **root** user and the Elasticsearch root **1000**.
+If you organize the **config** dataset under a parent dataset named *diskoverdata*, configure the ACL permissions for this parent dataset and add an ACE for the **root** user and the Elasticsearch root **1000**.
 
 You can add extra storage volumes during the app installation or edit the application after it deploys. Stop the app before editing settings.
 {{< include file="/static/includes/apps/InstallAppStorageConfig2.md" >}}
@@ -185,7 +185,7 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallDiskOverResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallDiskOverResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}

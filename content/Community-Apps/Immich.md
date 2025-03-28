@@ -42,7 +42,7 @@ You can configure environment variables at any time after deploying the applicat
 TrueNAS does not need advance preparation.
 
 You can allow TrueNAS to create the datasets Immich requires automatically during app installation.
-Or before beginning app installation, [create the datasets]({{< relref "DatasetsSCALE.md" >}}) to use in the **Storage Configuration** section during installation.
+Create the datasets to use in the **Storage Configuration** section during installation.
 Immich requires seven datasets: **library**, **pgBackup**, **pgData**, **profile**, **thumbs**, **uploads**, and **video**.
 You can organize these as one parent with seven child datasets, for example <file>mnt/tank/immich/library</file>, <file>mnt/tank/immich/pgBackup</file>, and so on.
 
@@ -50,18 +50,18 @@ You can organize these as one parent with seven child datasets, for example <fil
 
 To install the **Immich** application, go to **Apps**, click **Discover Apps**, either begin typing Immich into the search field or scroll down to locate the **Immich** application widget.
 
-{{< trueimage src="/images/SCALE/Apps/ImmichWidget.png" alt="Immich App Widget" id="Immich App Widget" >}}
+{{< trueimage src="/images/Apps/ImmichWidget.png" alt="Immich App Widget" id="Immich App Widget" >}}
 
 Click on the widget to open the **Immich** application details screen.
 
-{{< trueimage src="/images/SCALE/Apps/ImmichAppDetailsScreen.png" alt="Immich App Details Screen" id="Immich App Details Screen" >}}
+{{< trueimage src="/images/Apps/ImmichAppDetailsScreen.png" alt="Immich App Details Screen" id="Immich App Details Screen" >}}
 
 Click **Install** to open the Immich application configuration screen.
 
 Application configuration settings are presented in several sections, each explained below.
 To find specific fields click in the **Search Input Fields** search field, scroll down to a particular section or click on the section heading on the navigation area in the upper-right corner.
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichScreen.png" alt="Install Immich Screen" id="Install Immich Screen" >}}
+{{< trueimage src="/images/Apps/InstallImmichScreen.png" alt="Install Immich Screen" id="Install Immich Screen" >}}
 
 Accept the default values in **Application Name** and **Version**.
 
@@ -81,12 +81,12 @@ Click **Install**.
 The system opens the **Installed Applications** screen with the Immich app in the **Deploying** state.
 When the installation completes it changes to **Running**.
 
-{{< trueimage src="/images/SCALE/Apps/ImmichInstalled.png" alt="Immich Installed" id="Immich Installed" >}}
+{{< trueimage src="/images/Apps/ImmichInstalled.png" alt="Immich Installed" id="Immich Installed" >}}
 
 Click **Web Portal** on the **Application Info** widget to open the Immich web interface to set up your account and begin uploading photos.
 See Immich [Post Install Steps](https://documentation.immich.app/docs/install/post-install) for more information.
 
-{{< trueimage src="/images/SCALE/Apps/ImmichWebPortal.png" alt="Immich Web Portal" id="Immich Web Portal" >}}
+{{< trueimage src="/images/Apps/ImmichWebPortal.png" alt="Immich Web Portal" id="Immich Web Portal" >}}
 
 ## Editing the Immich Application
 
@@ -110,7 +110,7 @@ The following sections provide more detailed explanations of the settings found 
 
 You can accept the defaults in the **Immich Configuration** settings, or enter the settings you want to use.
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichConfigSettings.png" alt="Immich Configuration Settings" id="Immich Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallImmichConfigSettings.png" alt="Immich Configuration Settings" id="Immich Configuration Settings" >}}
 
 Accept the default setting in **Timezone** or change to match your local timezone.
 **Timezone** is only used by the Immich `exiftool` microservice if it cannot be determined from the image metadata.
@@ -122,27 +122,27 @@ You can enter a **Public Login Message** to display on the login page, or leave 
 Accept the default port numbers in **Web Port**.
 The TrueNAS Immich app listens on port **30041**.
 
-Refer to the TrueNAS [default port list]({{< relref "/solutions/optimizations/security.md #truenas-default-ports" >}}) for a list of assigned port numbers.
+Refer to the TrueNAS [default port list](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) for a list of assigned port numbers.
 To change the port numbers, enter a number within the range 9000-65535.
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichNetworkConfig.png" alt="Immich Networking" id="Immich Networking" >}}
+{{< trueimage src="/images/Apps/InstallImmichNetworkConfig.png" alt="Immich Networking" id="Immich Networking" >}}
 
 ### Storage Settings
 
 You can install Immich using the default setting **ixVolume (dataset created automatically by the system)** or use the host path option with datasets [created before installing the app](#first-steps).
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichStorageConfigixVolume.png" alt="Immich Configure Storage ixVolumes" id="Immich Configure Storage ixVolumes" >}}
+{{< trueimage src="/images/Apps/InstallImmichStorageConfigixVolume.png" alt="Immich Configure Storage ixVolumes" id="Immich Configure Storage ixVolumes" >}}
 
 Select **Host Path (Path that already exists on the system)** to browse to and select the datasets.
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichStorageConfigHostPath.png" alt="Immich Host Paths" id="Immich Host Paths" >}}
+{{< trueimage src="/images/Apps/InstallImmichStorageConfigHostPath.png" alt="Immich Host Paths" id="Immich Host Paths" >}}
 
 ### Resource Configuration Settings
 
 Accept the default values in **Resources Configuration** or enter new CPU and memory values
 By default, this application is limited to use no more than 4 CPU cores and 8 gibibytes available memory. The application might use considerably less system resources.
 
-{{< trueimage src="/images/SCALE/Apps/InstallImmichResourceConfig.png" alt="Immich Resource Limits" id="Immich Resource Limits" >}}
+{{< trueimage src="/images/Apps/InstallImmichResourceConfig.png" alt="Immich Resource Limits" id="Immich Resource Limits" >}}
 
 To customize the CPU and memory allocated to the container Immich uses, enter new CPU values as a plain integer value followed by the suffix m (milli).
 Default is 4000m, which means Immich is able to use 4 cores.
@@ -153,7 +153,7 @@ Enter a plain integer followed by the measurement suffix, for example 4G or 123M
 Systems with compatible GPU(s) display devices in **GPU Configuration**.
 Use the **GPU Resource** dropdown menu(s) to configure device allocation.
 
-See [Allocating GPU]({{< relref "/content/TruenasApps/_index.md#allocating-gpu" >}}) for more information about allocating GPU devices in TrueNAS.
+See [Allocating GPU](https://www.truenas.com/docs/truenasapps/managingapps/#gpu-passthrough) for more information about allocating GPU devices in TrueNAS.
 
 ## Immich Database Backup and Restore
 

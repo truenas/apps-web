@@ -26,7 +26,7 @@ Prepare TrueNAS before installing Photoprism by:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/PhotoprismAppDetailsScreen.png" alt="Photoprism Information Screen" id="Photoprism Information Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/PhotoprismAppDetailsScreen.png" alt="Photoprism Information Screen" id="Photoprism Information Screen" >}}</div>
 
 <p style="margin-left: 33px">Photoprism uses three datasets: <b>import</b>, <b>storage</b>, and <b>originals</b>. Ensure that your <b>import</b> dataset is configured with a functioning SMB share, as this is the dataset Photoprism uses to access and import your desired photos.
 Follow the instructions below in **Creating Datasets for Apps** to correctly set up these datasets.</p>
@@ -50,12 +50,12 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 Go to **Apps**, click on **Discover Apps**, and locate the Photoprism widget by either scrolling down to it or begin typing the name into the search field.
 To locate the Photoprism app widget, begin typing Photoprism into the search field to show app widgets matching the search input.
 
-{{< trueimage src="/images/SCALE/Apps/DiscoverScreenLocatePhotoprism.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
+{{< trueimage src="/images/Apps/DiscoverScreenLocatePhotoprism.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
 
 If this is the first application installed, TrueNAS displays a dialog about configuring apps.
 
 {{< expand "Configuring Apps Dialog" "v" >}}
-{{< trueimage src="/images/SCALE/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
+{{< trueimage src="/images/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
 
 Click **Confirm** then **Agree** to close the dialog and open the application details screen.
 {{< /expand >}}
@@ -66,7 +66,7 @@ Click **Install** to open the Photoprism installation wizard.
 Application configuration settings are grouped into several sections, each explained below in **Understanding App Installation Wizard Settings**.
 To find specific fields begin typing in the **Search Input Fields** search field to show the section or field, scroll down to a particular section, or click on the section heading in the list of sections on the upper-right of the wizard screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallPhotoprismScreen.png" alt="Install Photoprism Screen" id="Install Photoprism Screen" >}}
+{{< trueimage src="/images/Apps/InstallPhotoprismScreen.png" alt="Install Photoprism Screen" id="Install Photoprism Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -84,7 +84,7 @@ Add your **Storage Configuration** settings.
 Set **Host Path (Path that already exists on the system)** in **Type** for **Photoprism Import Storage**.
 Select **Enable ACL**, and then enter or browse to select the **import** dataset to populate the **Host Path** field. This is the dataset that should have a usable SMB share configured.
 
-{{< trueimage src="/images/SCALE/Apps/InstallPhotoprismStorageConfigDataACLandACE.png" alt="Add Photoprism Data Storage" id="Add Photoprism Data Storage" >}}
+{{< trueimage src="/images/Apps/InstallPhotoprismStorageConfigDataACLandACE.png" alt="Add Photoprism Data Storage" id="Add Photoprism Data Storage" >}}
 
 Select **Add** to the right of **ACL Entries** for each user or group entry you want to add.
 For example, add the **568** user and **0**, and give each **FULL_CONTROL Access**.
@@ -100,15 +100,15 @@ Accept the defaults in **Resources Configuration**, and select the GPU option if
 Click **Install**. A progress dialog displays before switching to the **Installed** applications screen.
 The **Installed** screen displays with the **nextcloud** app in the **Deploying** state. Status changes to **Running** when ready to use.
 
-{{< trueimage src="/images/SCALE/Apps/PhotoprismInstalled.png" alt="Photoprism Installed" id="Photoprism Installed" >}}
+{{< trueimage src="/images/Apps/PhotoprismInstalled.png" alt="Photoprism Installed" id="Photoprism Installed" >}}
 
 Click **Web UI** on the **Application Info** widget to open the Photoprism web portal sign-in screen. 
 
 Sign in using the **admin** username and the password you set when configuring Photoprism.
 
-{{< trueimage src="/images/SCALE/Apps/PhotoprismSignInScreen.png" alt="Photoprism Sign In Screen" id="Photoprism Sign In Screen" >}}
+{{< trueimage src="/images/Apps/PhotoprismSignInScreen.png" alt="Photoprism Sign In Screen" id="Photoprism Sign In Screen" >}}
 
-{{< trueimage src="/images/SCALE/Apps/PhotoprismMainDashboard.png" alt="Photoprism Dashboard" id="Photoprism Dashboard" >}}
+{{< trueimage src="/images/Apps/PhotoprismMainDashboard.png" alt="Photoprism Dashboard" id="Photoprism Dashboard" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -200,7 +200,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallPhotoprismResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}} -->
+{{< trueimage src="/images/Apps/InstallPhotoprismResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}} -->
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 

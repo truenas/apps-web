@@ -32,7 +32,7 @@ The Remote Assist app allows TrueNAS Enterprise support personnel remote access 
 Remote Assist uses Tailscale to create secure connections between support staff and customers.
 Authentication is established with a one-time use authentication key, provided by TrueNAS Enterprise Support and used for the duration of the active deployment or support case.
 
-We recommend that customers create a [restricted admin account]({{< relref "/scale/scaletutorials/credentials/adminroles.md #configuring-administrative-privileges" >}}) and [enable auditing]({{< relref "/scale/scaletutorials/systemsettings/auditingscale.md" >}}) for remote assistance sessions.
+We recommend that customers create a restricted admin account and enable auditing for remote assistance sessions.
 This ensures that production passwords are not shared with the TrueNAS team and retains a log of the actions taken by the support personnel during the session.
 Support personnel can guide you through configuration.
 
@@ -55,7 +55,7 @@ Go to **Apps**, click on **Discover Apps**, and locate the **Remote Assist** app
 Select the widget to open the **Remote Assist** information screen.
 Click **Install** to open the app installation wizard.
 
-{{< trueimage src="/images/SCALE/Apps/InstallRemoteAssist.png" alt="Install Remote Assist Screen" id="Install Remote Assist Screen" >}}
+{{< trueimage src="/images/Apps/InstallRemoteAssist.png" alt="Install Remote Assist Screen" id="Install Remote Assist Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 

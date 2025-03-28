@@ -54,26 +54,26 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 Go to **Apps**, click on **Discover Apps**, and locate the app widget by either scrolling down to it or typing the name into the search field.
 For example, to locate the Collabora app widget, begin typing *Collabora* into the search field to show app widgets matching the search input.
 
-{{< trueimage src="/images/SCALE/Apps/DiscoverScreenCollabora.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
+{{< trueimage src="/images/Apps/DiscoverScreenCollabora.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
 
 If this is the first application you are installing, TrueNAS displays a dialog about configuring apps.
 
 {{< expand "Configuring Apps Dialog" "v" >}}
-{{< trueimage src="/images/SCALE/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
+{{< trueimage src="/images/Apps/AppsInformationDialog.png" alt="Apps Information Dialog" id="Apps Information Dialog" >}}
 
 Click **Confirm** then **Agree** to close the dialog and open the application details screen.
 
 {{< /expand >}}
 If not the first time installing apps the dialog does not show, click on the widget to open the app information screen.
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraInformationScreen.png" alt="Collabora Information Screen" id="Collabora Information Screen" >}}
+{{< trueimage src="/images/Apps/CollaboraInformationScreen.png" alt="Collabora Information Screen" id="Collabora Information Screen" >}}
 
 Click **Install** to open the app installation wizard.
 
 Application configuration settings are grouped into sections. Each section is explained below in **Understanding App Installation Wizard Settings**.
 To find specific fields begin typing in the **Search Input Fields** search field to show the section or field, scroll down to a particular section, or click on the section heading in the list of sections on the upper-right of the wizard screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallCollaboraScreen.png" alt="Collabora Install Screen" id="Collabora Install Screen" >}}
+{{< trueimage src="/images/Apps/InstallCollaboraScreen.png" alt="Collabora Install Screen" id="Collabora Install Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -85,7 +85,7 @@ The TrueNAS app is configured with all the required environment variables, but i
 
 Add your **Storage Configuration** settings.
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraInstallStorage.png" alt="Storage Configuration" id="Storage Configuration" >}}
+{{< trueimage src="/images/Apps/CollaboraInstallStorage.png" alt="Storage Configuration" id="Storage Configuration" >}}
 
 For example, if you create an optional dataset named ***data-storage***, set **Host Path (Path that already exists on the system)** in **Type**.
 Select **Enable ACL**, then enter or browse to select the ***data-storage*** dataset to populate the **Host Path** field.
@@ -104,9 +104,9 @@ The **Installed** screen displays with the **Collabora** app in the **Deploying*
 
 Click **Web UI** on the **Application Info** widget to open the *Collabora* web portal sign-in screen.
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraSignInScreen.png" alt="Collabora Sign In Screen" id="Collabora Sign In Screen" >}}
+{{< trueimage src="/images/Apps/CollaboraSignInScreen.png" alt="Collabora Sign In Screen" id="Collabora Sign In Screen" >}}
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraDashboard.png" alt="Collabora Dashboard" id="Collabora Dashboard" >}}
+{{< trueimage src="/images/Apps/CollaboraDashboard.png" alt="Collabora Dashboard" id="Collabora Dashboard" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -126,11 +126,11 @@ Upon deployment, users can set the desired Collabora login credentials or log in
 
 Users can select the **Add Devices** drop-down menu to configure device settings for any Collabora-compatible devices they currently own. Users do not have to own devices before installing the app and can leave this section blank if not applicable.
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraInstallDictionaries.png" alt="Collabora Dictionaries" id="Collabora Dictionaries" >}}
+{{< trueimage src="/images/Apps/CollaboraInstallDictionaries.png" alt="Collabora Dictionaries" id="Collabora Dictionaries" >}}
 
 Collabora offers users the option to configure multiple dictionaries. The **Dictionaries** configuration specifies which spell-checking dictionaries are available in the Collabora UI, providing a valuable feature for multilingual environments. Users can accept the default configuration for **Dictionaries**, or add and remove unwanted default selections.
 
-{{< trueimage src="/images/SCALE/Apps/CollaboraInstallExtraParameters.png" alt="Collabora Extra Parameters" id="Collabora Extra Parameters" >}}
+{{< trueimage src="/images/Apps/CollaboraInstallExtraParameters.png" alt="Collabora Extra Parameters" id="Collabora Extra Parameters" >}}
 
 You can utilize the **Extra Parameters** settings to further customize the behavior of the Collabora UI. These parameters are passed directly to Collabora as command-line arguments when the container is started. Users can accept the default parameters if no additional customization is desired.
 
@@ -163,7 +163,7 @@ TrueNAS provides two options for storage volumes: ixVolumes and host paths.
 
 If you create datasets within TrueNAS for the Collabora app, set **Type** to **Host Path (Path that already exists on the system)**, and select your elective datasets in the **Host Path** field.
 
-If you group these datasets under a parent dataset named *Collabora*, configure the [ACL permissions]({{< relref "PermissionsSCALE.md" >}}) for this parent dataset and add an ACE entry for the ***Collabora*** user.
+If you group these datasets under a parent dataset named *Collabora*, configure the ACL permissions for this parent dataset and add an ACE for the ***Collabora*** user.
 If the app includes postgres storage volumes, include the following information
 If the app installation wizard cannot set up the ACL type or correctly add user permissions for the postgres storage volume,
 you must configure these outside the install wizard using the **Add Dataset** and **Edit ACL** screens.
@@ -198,7 +198,7 @@ TrueNAS **Additional Storage** options include mounting an SMB share inside the 
 
 ### Resources Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallCollaboraResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallCollaboraResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 

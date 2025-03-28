@@ -51,7 +51,6 @@
 
 {{ $showPrevNext := (and (default true .Site.Params.GeekdocNextPrev) .Site.Params.GeekdocMenuBundle) }}
 {{ if $showPrevNext }}
-  {{ partial "apps-catalogs.html" . }}
 {{ end }}
 
 {{ $geekdocRepo := default (default false .Site.Params.GeekdocRepo) .Page.Params.GeekdocRepo }}

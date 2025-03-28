@@ -1,0 +1,21 @@
+Process time: 2025-03-28 12:13:45
+Initiated by: ixuser
+
+81 files reviewed.
+13 files deleted.
+The following files were deleted:
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\AppCatalogs.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\AppsIntro.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\AppsManageImages.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\AppsSMBErrorWarning.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\AppsVMsNoHTTPS.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\InstallWizardStorageTemporaryAndTmpfs.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\includes\apps\YAMLWarning.md
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\ixsystems_logo_130_30.svg
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\LogoTrueCommand.png
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\LogoTrueNASEnterprise.png
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\LogoTrueNASScale.png
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\TrueNAS_Open_Enterprise_Storage.png
+C:\Users\ixuser\Documents\GitHub\apps-web\static\images\truenas_open_storage-logo-full-color-rgb.png
+
+----------------------------------------
