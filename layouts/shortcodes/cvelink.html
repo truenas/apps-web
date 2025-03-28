@@ -1,0 +1,297 @@
+{{ if .IsNamedParams }}
+    {{ $jsonFilePath1 := "static/advisories/CORE.json" }}
+    {{ $jsonFilePath2 := "static/advisories/SCALE.json" }}
+    {{ $jsonFilePath3 := "static/advisories/Solutions.json" }}
+    {{ $vulnerabilities1 := getJSON $jsonFilePath1 }}
+    {{ $vulnerabilities2 := getJSON $jsonFilePath2 }}
+    {{ $vulnerabilities3 := getJSON $jsonFilePath3 }}
+    {{ $reference := .Site.Params.reference }}
+<script>
+    const searchParams = new URLSearchParams(window.location.search);
+</script>
+    <div class="tablecontainer" id="tablecontainer">
+        <table id="tableHead">
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Description</th>
+                    <th>Security Reference</th>
+                    <th>Severity</th>
+                    <th>Security Risk</th>
+                    <th>Impacted Version</th>
+                    <th>Resolved Version</th>
+                    <th>More Info</th>
+                    <th>Additional Info</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                {{ range $vulnerability := $vulnerabilities1 }}
+                        <tr>
+                            <td>{{ $vulnerability.component }}</td>
+                            <td>{{ $vulnerability.description }}</td>
+                            <td>{{ $vulnerability.reference }}</td>
+                            <td>{{ $vulnerability.severity }}</td>
+                            <td>{{ $vulnerability.truenasSecurityRisk }}</td>
+                            <td>{{ $vulnerability.productVersionImpacted }}</td>
+                            <td>{{ $vulnerability.productVersionResolvedIn }}</td>
+                            <td><a href="{{ $vulnerability.moreinfo }}">Link</a></td>
+                            <td>{{ $vulnerability.ixAdditionalInfo }}</td>
+                        </tr>
+                {{ end }}
+                {{ range $vulnerability := $vulnerabilities2 }}
+                        <tr>
+                            <td>{{ $vulnerability.component }}</td>
+                            <td>{{ $vulnerability.description }}</td>
+                            <td>{{ $vulnerability.reference }}</td>
+                            <td>{{ $vulnerability.severity }}</td>
+                            <td>{{ $vulnerability.truenasSecurityRisk }}</td>
+                            <td>{{ $vulnerability.productVersionImpacted }}</td>
+                            <td>{{ $vulnerability.productVersionResolvedIn }}</td>
+                            <td><a href="{{ $vulnerability.moreinfo }}">Link</a></td>
+                            <td>{{ $vulnerability.ixAdditionalInfo }}</td>
+                        </tr>
+                {{ end }}
+                {{ range $vulnerability := $vulnerabilities3 }}
+                        <tr>
+                            <td>{{ $vulnerability.component }}</td>
+                            <td>{{ $vulnerability.description }}</td>
+                            <td>{{ $vulnerability.reference }}</td>
+                            <td>{{ $vulnerability.severity }}</td>
+                            <td>{{ $vulnerability.truenasSecurityRisk }}</td>
+                            <td>{{ $vulnerability.productVersionImpacted }}</td>
+                            <td>{{ $vulnerability.productVersionResolvedIn }}</td>
+                            <td><a href="{{ $vulnerability.moreinfo }}">Link</a></td>
+                            <td>{{ $vulnerability.ixAdditionalInfo }}</td>
+                        </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+      <div id="advisory-details" class="advisory-details"></div>
+{{ end }}
+
+<script>
+
+let jsonData = [];
+let CVE = "";
+let details_exist = 0;
+
+async function draw_page() {
+    // Get the table by its ID
+    var table = document.getElementById("tableBody");
+    var tablehead = document.getElementById("tableHead");
+    var tablecontainer = document.getElementById("tablecontainer");
+    var parts = searchParams.toString().split('=');
+    CVE = parts[1];
+    await fetchJSONData().then(jsonData => {
+       jsonData;
+       populateTable(jsonData);
+    });
+
+
+    // Loop through the rows of the table starting from the last row
+    // (to avoid issues with indexing while deleting rows)
+    for (var i = table.rows.length - 1; i >= 0; i--) {
+        var row = table.rows[i];
+        var thirdFieldValue = row.cells[2].innerText || row.cells[2].textContent;
+
+        // Check if the third field's value does not match the specified value
+        if (thirdFieldValue !== CVE) {
+            table.deleteRow(i);
+        }
+    }
+    if (table.rows.length == 0) {
+        table.style.display = 'none';
+        tablehead.style.display = 'none';
+        var errorParagraph = document.createElement("p");
+        errorParagraph.style.textAlign = "center";
+        errorParagraph.style.margin = "40px 0";
+        errorParagraph.textContent = "Vulnerability identifier " + CVE + " not found.";
+
+        tablecontainer.appendChild(errorParagraph);
+    }
+}
+
+async function fetchJSONData() {
+    const response1 = await fetch('/advisories/CORE.json');
+    const result1 = await response1.json();
+    const response2 = await fetch('/advisories/SCALE.json');
+    const result2 = await response2.json();
+    result = result1.concat(result2);
+    return result;
+}
+
+function populateTable(data) {
+    const tableBody = document.getElementById('tableBody');
+    data.forEach(item => {
+        console.log("CVEs: " + item.reference + " " + CVE);
+        if (item.reference != CVE) 
+            return;
+      const cve = item.reference;
+      const component = item.component;
+      const description = item.description;
+      const version = item.productVersionImpacted;
+      const severity = item.severity;
+      const impacttruenas = item.truenasSecurityRisk;
+      const fixversion = item.productVersionResolvedIn;
+      const row = document.createElement('tr');
+      row.dataset.relatedVersion = version; // Set the data-related-version attribute
+
+         showDetails(item);
+
+
+      const cveCell = document.createElement('td');
+      const cveLink = document.createElement('a');
+      cveLink.textContent = cve;
+      const link = item.moreinfo;
+      cveLink.href = link;
+      cveLink.target = '_blank';
+      cveCell.appendChild(cveLink);
+      row.appendChild(cveCell);
+
+      const severityCell = document.createElement('td');
+      severityCell.textContent = severity;
+      row.appendChild(severityCell);
+
+      const descriptionCell = document.createElement('td');
+      const descriptionText = item.description;
+      const truncatedDescription = descriptionText.length > 100 ? descriptionText.substring(0, 100) + '...' : descriptionText;
+      descriptionCell.textContent = truncatedDescription;
+      row.appendChild(descriptionCell);
+
+      const impacttruenasCell = document.createElement('td');
+      impacttruenasCell.textContent = impacttruenas;
+      row.appendChild(impacttruenasCell);
+
+
+      const fixversionCell = document.createElement('td');
+      fixversionCell.textContent = fixversion;
+      row.appendChild(fixversionCell);
+    });
+}
+
+
+function showDetails(item) {
+  if (details_exist == 1) {
+      
+    const prodimp = document.getElementById('productversionimpacted');
+    if (item.productVersionImpacted && item.productVersionImpacted != "N/A False Positive") {
+      prodimp.textContent += ", " + item.productVersionImpacted;
+    }
+    const prodres = document.getElementById('productversionresolvedin');
+    if (item.productVersionResolvedIn && item.productVersionResolvedIn != "N/A False Positive") {
+      prodres.textContent += ", " + item.productVersionResolvedIn;
+    }
+    return;
+  }
+  details_exist = 1;
+  const detailsDiv = document.getElementById('advisory-details');
+  detailsDiv.innerHTML = '';
+  detailsDiv.style.display = 'none';
+  const tableContainer = document.getElementById('tablecontainer');
+  tableContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const columnsDiv = document.createElement('div');
+  columnsDiv.style.display = 'flex';
+
+  const leftColumn = document.createElement('div');
+  leftColumn.style.flex = '1';
+  leftColumn.style.marginRight = '5rem';
+
+  const rightColumn = document.createElement('div');
+  rightColumn.style.flex = '1';
+
+  const cveHeader = document.createElement('h3');
+  cveHeader.textContent = item.reference;
+  leftColumn.appendChild(cveHeader);
+
+  const ixresponseHeader = document.createElement('h3');
+  ixresponseHeader.textContent = 'TrueNAS Response';
+  rightColumn.appendChild(ixresponseHeader);
+
+  const properties = [
+    { label: 'Reference', key: 'moreinfo' },
+    { label: 'Component', key: 'component' },
+    { label: 'Base Severity (NIST)', key: 'severity' },
+    { label: 'Description', key: 'description' },
+    { label: 'Related Version', key: 'productVersionImpacted' },
+    { label: 'TrueNAS Vulnerability Rating', key: 'truenasSecurityRisk' },
+    { label: 'Additional Details', key: 'ixAdditionalInfo' },
+    { label: 'Fix Version', key: 'productVersionResolvedIn' },
+    { label: 'Ticket', key: 'ixbug' }
+  ];
+
+  for (let i = 0; i < properties.length; i++) {
+    const prop = properties[i];
+
+    const label = document.createElement('span');
+    label.textContent = prop.label + ': ';
+	label.style.fontSize = '1.1em';
+
+    const value = document.createElement('span');
+    if (prop.key === 'moreinfo') {
+      const link = document.createElement('a');
+      link.href = item[prop.key];
+	  link.target = '_blank';
+      link.textContent = item[prop.key];
+      value.appendChild(link);
+    } else {
+      const propValue = item[prop.key];
+      if (prop.key === 'ixbug' && propValue !== undefined && propValue !== '' && propValue !== 'None') {
+        const link = document.createElement('a');
+        link.href = 'https://ixsystems.atlassian.net/browse/' + propValue;
+        link.textContent = propValue;
+        link.target = '_blank';
+        value.appendChild(link);
+      } else {
+        value.textContent = propValue !== undefined && propValue !== '' ? propValue : 'N/A';
+      }
+    }
+
+    if (prop.key === 'impactTruenas' || prop.key === 'severity') {
+      value.style.fontWeight = 'bold';
+    }
+
+    if (prop.key === 'description') {
+      const leftItem = document.createElement('div');
+	  leftItem.classList.add('detailspacing');
+      leftItem.appendChild(label);
+      leftItem.appendChild(value);
+      leftColumn.appendChild(leftItem);
+    } else if (prop.key === 'productVersionImpacted') {
+      const rightItem = document.createElement('div');
+      rightItem.setAttribute("id", "productversionimpacted");
+	  rightItem.classList.add('detailspacing');
+      rightItem.appendChild(label);
+      rightItem.appendChild(value);
+      rightColumn.appendChild(rightItem);
+    } else {
+      const itemColumn = i < 5 ? leftColumn : rightColumn;
+      const itemElement = document.createElement('div');
+	  itemElement.classList.add('detailspacing');
+      itemElement.appendChild(label);
+      itemElement.appendChild(value);
+      itemColumn.appendChild(itemElement);
+      if (prop.key === 'productVersionResolvedIn') {
+        itemElement.setAttribute("id", "productversionresolvedin");
+      }
+    }
+  }
+
+  columnsDiv.appendChild(leftColumn);
+  columnsDiv.appendChild(rightColumn);
+  detailsDiv.appendChild(columnsDiv);
+  detailsDiv.style.display = 'block';
+  const hr = detailsDiv.nextSibling;
+  if (hr && hr.nodeName === 'HR') {
+    hr.remove();
+  }
+  const nextSibling = detailsDiv.nextSibling;
+  if (!nextSibling || nextSibling.nodeName !== 'HR') {
+    const hr = document.createElement('hr');
+    detailsDiv.parentNode.insertBefore(hr, detailsDiv.nextSibling);
+  }
+  detailsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+draw_page();
+</script>

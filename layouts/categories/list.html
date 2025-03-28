@@ -1,0 +1,13 @@
+{{ if eq .Kind "taxonomy" }}
+  {{ if ne (len .Pages) 0 }}
+    <ul>
+      {{ range .Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <script>
+      window.location.href = '{{ "/" | relURL }}';
+    </script>
+  {{ end }}
+{{ end }}

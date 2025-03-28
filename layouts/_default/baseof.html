@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html
+  lang="{{ .Site.Language.Lang }}"
+  class="color-toggle-hidden"
+  {{ if default false .Site.Params.GeekdocDarkModeCode }}code-theme="dark"{{ end }}
+>
+  <head>
+    {{ partial "head/meta" . }}
+    <title>
+      {{- if eq .Kind "home" -}}
+        {{ .Site.Title }}
+      {{- else -}}
+        {{ printf "%s | %s" (partial "utils/title" .) .Site.Title }}
+      {{- end -}}
+    </title>
+
+    {{ partial "head/favicons" . }}
+    {{ partial "head/rel-me" . }}
+    {{ partial "head/microformats" . }}
+    {{ partial "head/others" . }}
+    {{ partial "head/custom" . }}
+  </head>
+
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MZ8TZ5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<!-- Define feature image for search results or linking -->
+    <a href="#" style="display: none;" class="image featured">{{ with .Site.Params.featured_image }}<img src="{{ . }}" alt="TrueNAS Open Storage logo"></img>{{end}}</a>
+	{{ partial "svg-icon-symbols" . }}
+
+    <div
+      class="wrapper {{ if default false .Site.Params.GeekdocDarkModeDim }}dark-mode-dim{{ end }}"
+    >
+      <input type="checkbox" class="hidden" id="menu-control" />
+      <input type="checkbox" class="hidden" id="menu-header-control" />
+      {{ $navEnabled := default true .Page.Params.GeekdocNav }}
+      {{ partial "site-header" (dict "Root" . "MenuEnabled" $navEnabled) }}
+
+
+      <main class="container flex flex-even">
+		<button class="scrollToTopBtn" title="Back to top"><span class="iconify" data-icon="mdi:chevron-right" style="font-size:30px";></span></button>
+        {{ if $navEnabled }}
+          <aside class="gdoc-nav">
+            {{ partial "menu" . }}
+          </aside>
+        {{ end }}
+
+
+        <div class="gdoc-page">
+          {{ template "main" . }}
+		  
+          {{ partial "menu-nextprev" . }}
+        </div>
+      </main>
+
+      {{ partial "site-footer" . }}
+    </div>
+
+    {{ partial "foot" . }}
+  </body>
+</html>
+<script>
+  function loadtheme(){
+    let html = document.documentElement;
+    let cur=localStorage.getItem("hugo-geekdoc");
+    html.setAttribute("color-mode", cur);  
+  }
+  document.addEventListener('DOMContentLoaded',loadtheme())
+  
+</script>
+<script>
+var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+var rootElement = document.documentElement;
+
+function handleScroll() {
+  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+  if (rootElement.scrollTop / scrollTotal > 0.10) {
+    scrollToTopBtn.classList.add("showBtn");
+  } else {
+    scrollToTopBtn.classList.remove("showBtn");
+  }
+}
+
+function scrollToTop() {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+scrollToTopBtn.addEventListener("click", scrollToTop);
+document.addEventListener("scroll", handleScroll);
+</script>
