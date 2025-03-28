@@ -1,6 +1,25 @@
-<div class="docs-sections">
+<!-- Search and Filter Controls -->
+<div class="catalog-search-container">
+  <select id="catalog-filter">
+    <option value="">Categories: All</option>
+  </select>
+  <input
+    type="text"
+    id="catalog-search"
+    placeholder="Filter apps..."
+    onkeyup="filterCatalog()"
+  />
+</div>
+
+<!-- Catalog Cards -->
+<div class="docs-sections" id="catalog-cards">
+  {{- $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" -}} <!-- Telemetry data URL -->
+  {{- $rawData := resources.GetRemote $telemetryURL -}} <!-- Fetch telemetry data -->
+  {{- $telemetryData := $rawData | transform.Unmarshal -}} <!-- Parse telemetry data -->
   {{- $localBaseDir := "Apps_Temp/trains" -}} <!-- Base directory for temporary files -->
   {{- $categories := slice "Enterprise" "Stable" "Community" -}} <!-- Define categories -->
+  {{- $telemetryGroups := $telemetryData -}} <!-- Rename telemetry categories to telemetryGroups -->
+  {{- $allCategories := slice -}} <!-- Initialize a slice to collect all categories -->
 
   {{- range .Page.Pages -}} <!-- Loop through all pages under the current directory -->
     {{- $markdownFileName := .File.BaseFileName -}} <!-- Get the markdown file name -->
@@ -8,6 +27,8 @@
     {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
     {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
     {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
+    {{- $appCategories := slice -}} <!-- Initialize categories for the app -->
+    {{- $deploymentCount := 0 -}} <!-- Initialize deployment count -->
 
     <!-- Loop through categories to find the app -->
     {{- range $categories -}}
@@ -40,6 +61,14 @@
         {{- $appMetadata = index $versionData "app_metadata" -}}
         {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
         {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+        {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
+        {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
+
+        <!-- Get deployment count from telemetry data -->
+        {{- $telemetryGroup := index $telemetryGroups $category -}}
+        {{- if $telemetryGroup -}}
+          {{- $deploymentCount = index $telemetryGroup $markdownFileName | default 0 -}}
+        {{- end -}}
         {{- break -}} <!-- Stop searching once the app is found -->
       {{- else if fileExists $localFilePathSubDir -}} <!-- Check if the file exists for the subdirectory name -->
         {{- $fileContent := readFile $localFilePathSubDir -}} <!-- Read the JSON file -->
@@ -55,12 +84,34 @@
         {{- $appMetadata = index $versionData "app_metadata" -}}
         {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
         {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+        {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
+        {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
+
+        <!-- Get deployment count from telemetry data -->
+        {{- $telemetryGroup := index $telemetryGroups $category -}}
+        {{- if $telemetryGroup -}}
+          {{- $deploymentCount = index $telemetryGroup $subDirName | default 0 -}}
+        {{- end -}}
         {{- break -}} <!-- Stop searching once the app is found -->
       {{- end -}}
     {{- end -}}
 
     <!-- Render the app card -->
-    <a class="section-box" href="{{ .RelPermalink }}">
+    <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}">
+      <!-- Inline Award for active use callouts -->
+      {{ if gt $deploymentCount 0 }}
+      <div class="popular-app">
+        {{ if gt $deploymentCount 10000 }}
+          <img src="/images/Gold-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 5000 }}
+          <img src="/images/Silver-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 1000 }}
+          <img src="/images/Bronze-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 100 }}
+          <img src="/images/Ribbon-Labeled.png" alt="100 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ end }}
+      </div>
+      {{ end }}
       <div class="box-image">
         <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ .Title }} Logo">
       </div>
@@ -71,3 +122,72 @@
     </a>
   {{- end -}}
 </div>
+
+<!-- Populate the Dropdown with Categories -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    try {
+      // Populate the dropdown with categories
+      const categories = JSON.parse('{{ $allCategories | jsonify }}');
+      const dropdown = document.getElementById("catalog-filter");
+      if (Array.isArray(categories)) {
+        categories.forEach((category) => {
+          const option = document.createElement("option");
+          option.value = category.toLowerCase();
+          option.textContent = category;
+          dropdown.appendChild(option);
+        });
+      } else {
+        console.error("Categories is not an array:", categories);
+      }
+    } catch (error) {
+      console.error("Error parsing categories:", error);
+    }
+
+    // Add event listeners for filtering
+    const searchInput = document.getElementById("catalog-search");
+    const filterDropdown = document.getElementById("catalog-filter");
+
+    if (searchInput) {
+      searchInput.addEventListener("keyup", filterCatalog);
+    } else {
+      console.error("Search input not found in the DOM.");
+    }
+
+    if (filterDropdown) {
+      filterDropdown.addEventListener("change", filterCatalog);
+    } else {
+      console.error("Filter dropdown not found in the DOM.");
+    }
+  });
+
+  function filterCatalog() {
+    const input = document.getElementById("catalog-search")?.value.toLowerCase() || "";
+    const filter = document.getElementById("catalog-filter")?.value.toLowerCase() || "";
+    const cards = document.querySelectorAll(".catalog-card");
+
+    if (!cards || cards.length === 0) {
+      console.error("No catalog cards found for filtering.");
+      return;
+    }
+
+    cards.forEach((card) => {
+      if (!card || !(card instanceof HTMLElement)) {
+        console.error("Invalid card element:", card);
+        return;
+      }
+
+      const title = card.getAttribute("data-title") || "";
+      const categories = card.getAttribute("data-categories") || "";
+
+      const matchesSearch = title.toLowerCase().includes(input);
+      const matchesFilter = !filter || categories.toLowerCase().includes(filter);
+
+      if (matchesSearch && matchesFilter) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>

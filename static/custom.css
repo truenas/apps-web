@@ -2777,3 +2777,27 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	top: -1.0em;
 	font-size: 50%;
 }
+/* App Catalog Page Styling */
+.catalog-search-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+#catalog-search,
+#catalog-filter {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#catalog-search {
+  width: 300px;
+}
+
+#catalog-filter {
+  width: 200px;
+}
+/* End Styling */
