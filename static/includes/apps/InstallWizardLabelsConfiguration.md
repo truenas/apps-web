@@ -7,7 +7,7 @@ They can store information such as environment details, ownership, service role,
 
 Click **Add** to display a set of label configuration fields.
 
-{{< trueimage src="/images/SCALE/Apps/InstallAppLabels.png" alt="Labels Configuration Settings" id="Labels Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallAppLabels.png" alt="Labels Configuration Settings" id="Labels Configuration Settings" >}}
 
 Use **Key** to define the identifier that categorizes and filters resources, for example *com.example.owner*.
 Use **Value** to enter the associated data for the container, for example *team-a*.

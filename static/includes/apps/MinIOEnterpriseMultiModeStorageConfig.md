@@ -4,7 +4,7 @@ Scroll down to or click on **Storage Configuration** on the list of wizard secti
 
 Leave **Type** set to the default **ixVolume** for the **/export** mount point. A host path dataset is not required for this storage volume.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseStorageConfigSettings.png" alt="MinIO Enterprise Storage Configuration Settings" id="MinIO Enterprise Storage Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseStorageConfigSettings.png" alt="MinIO Enterprise Storage Configuration Settings" id="MinIO Enterprise Storage Configuration Settings" >}}
 
 Set **Type** to **Host Path (Path that already exists on the system)** which is the recommended option for MinIO.
 **Mount Path** populates with the default **/data1**.

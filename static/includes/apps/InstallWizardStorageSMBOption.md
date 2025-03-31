@@ -2,7 +2,7 @@
 
 Set **Type** an **SMB/CIFS Share (Mounts a volume to a SMB share)** to add an SMB share storage volume.
 
-{{< trueimage src="/images/SCALE/Apps/InstallAppStorageConfigSMBOption.png" alt="SMB Share Option" id="SMB Share Option" >}}
+{{< trueimage src="/images/Apps/InstallAppStorageConfigSMBOption.png" alt="SMB Share Option" id="SMB Share Option" >}}
 
 Select **Read Only** to make the storage volume read only.
 

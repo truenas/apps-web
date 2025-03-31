@@ -49,17 +49,17 @@
 
    b. Right-click on the certificate.crt file, click **Open**, then click **Install Certificate** to open the **Certificate Import Wizard**.
    
-   ![CertificateOpenCertificateWindow](/images/SCALE/Credentials/CertificateOpenCertificateWindow.png "Open Certificate Window")
+   ![CertificateOpenCertificateWindow](/images/TrueNAS/Credentials/CertificateOpenCertificateWindow.png "Open Certificate Window")
 
    c. Select **Local Machine** on the **Welcome to the Certificate Import Wizard** window. Click **Next**.
    
-   ![CertificateImportWizardSelectLocalMachine](/images/SCALE/Credentials/CertificateImportWizardSelectLocalMachine.png "Select Local Machine Install")
+   ![CertificateImportWizardSelectLocalMachine](/images/TrueNAS/Credentials/CertificateImportWizardSelectLocalMachine.png "Select Local Machine Install")
 
      If on a Windows system, allow changes to be made.
 
    d. Select **Place all certificates in the following store**, then select **Trusted Root Certificate Authorities** and click **OK**. 
    
-   ![SelelectCertificateStore](/images/SCALE/Credentials/SelelectCertificateStore.png "Select Trusted Root Certificate Authorities")
+   ![SelelectCertificateStore](/images/TrueNAS/Credentials/SelectCertificateStore.png "Select Trusted Root Certificate Authorities")
 
    c. Click **Next** then **Finish**.
 {{< /expand >}}

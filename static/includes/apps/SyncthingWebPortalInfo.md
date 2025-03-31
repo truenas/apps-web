@@ -10,7 +10,7 @@ To change folder configuration settings, click on the folder.
 **Actions** displays a dropdown list of options.
 Click **Advanced** to access GUI, LDAP, folder, device, and other settings.
 
-{{< trueimage src="/images/SCALE/Apps/SyncthingWebPortalAdvancedConfig.png" alt="Syncthing Advanced Configuration Menu" id="Syncthing Advanced Configuration Menu" >}}
+{{< trueimage src="/images/Apps/SyncthingWebPortalAdvancedConfig.png" alt="Syncthing Advanced Configuration Menu" id="Syncthing Advanced Configuration Menu" >}}
 
 You can manage directional settings for sync configurations, security, encryption, and UI server settings through the **Actions** options.
 
@@ -21,7 +21,7 @@ Syncthing creates a default sync folder in the main user or HOME directory durin
 
 Click on a folder to see details on that folder.
 
-{{< trueimage src="/images/SCALE/Apps/SyncthingWebPortalFolderExpanded.png" alt="Syncthing Expanded Folder" id="Syncthing Expanded Folder" >}}
+{{< trueimage src="/images/Apps/SyncthingWebPortalFolderExpanded.png" alt="Syncthing Expanded Folder" id="Syncthing Expanded Folder" >}}
 
 **Untrusted Device Password** is a beta feature and not recommended for production environments.
 This feature is for edge cases where two users want to share data on a given device but cannot risk interception of data.

@@ -7,4 +7,4 @@ For more information, see the [Distributed MinIO Quickstart Guide](https://docs.
 
 To create a distributed cluster, click **Add** to show the **Distributed MinIO Instance URI(s)** fields for each TrueNAS system (node) IP addresses/host names to include in the cluster. Use the same order across all the nodes.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinioEnableDistributedMode.png" alt="Install MinIO Enable Distributed Mode" id="Install Minio Enable Distributed Mode" >}}
+{{< trueimage src="/images/Apps/InstallMinioEnableDistributedMode.png" alt="Install MinIO Enable Distributed Mode" id="Install Minio Enable Distributed Mode" >}}

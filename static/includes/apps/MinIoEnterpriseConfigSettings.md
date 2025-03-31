@@ -8,11 +8,11 @@ A username for the root user (MinIO access key), entered in **MinIO Root User**,
 Enter the administration user password in **MinIO Root Password**, which is the login password for that user or the MinIO secret key.
 The root user password (MinIO secret key), entered in **MinIO Root Password**, is limited to eight to 40 random characters. For example, *MySecr3tPa$$w0d4Min10*.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseMinioConfig.png" alt="MinIO Enterprise MinIO Configuration" id="MinIO Enterprise MinIO Configuration" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseMinioConfig.png" alt="MinIO Enterprise MinIO Configuration" id="MinIO Enterprise MinIO Configuration" >}}
 
 Select **Anonymous** to hide sensitive information from logging, or **Quiet** to disable startup information.
 
 To configure a multi-mode deployment, select **Enabled**.
 MinIO recommends using MNMD for enterprise-grade performance and scalability.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOAddMultiModeSNMDorMNMD.png" alt="MinIO Enterprise Multi-Mode Configuration" id="MinIO Enterprise Multi-Mode Configuration" >}}
+{{< trueimage src="/images/Apps/InstallMinIOAddMultiModeSNMDorMNMD.png" alt="MinIO Enterprise Multi-Mode Configuration" id="MinIO Enterprise Multi-Mode Configuration" >}}

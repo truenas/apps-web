@@ -8,7 +8,7 @@ Create the **data** dataset to use as a host path storage volume, and accept the
 Set **Type** to the default **ixVolume (Dataset created automatically by the system)** to allow TrueNAS to create a storage volume.
 This storage volume can be found nested under the hidden **ix-apps** dataset. This is not the recommended storage option except for the /export option.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseStorageConfig.png" alt="MinIO Add Storage Volumes" id="MinIO Add Storage Volumes" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseStorageConfig.png" alt="MinIO Add Storage Volumes" id="MinIO Add Storage Volumes" >}}
 
 Set **Type** to **Host Path (Path that already exists on the system)** to use the **data** dataset.
 The **Mount Path** field populates with **/data** as the first storage volume for a basic installation.

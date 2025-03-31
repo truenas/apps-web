@@ -4,7 +4,7 @@ When storage volumes include a postgres dataset, do not select **Enable ACL** to
 Instead, proceed with entering or browsing to select the dataset and populate the **Host Path** field, then select the **Automatic Permissions** option.
 This configures permissions for the postgres dataset and, if configured, the parent dataset used to organize required datasets for the app.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
+{{< trueimage src="/images/Apps/InstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
 
 As with other host path storage volumes, you can create a dataset when entering the host path.
 

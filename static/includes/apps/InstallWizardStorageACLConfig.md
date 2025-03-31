@@ -6,7 +6,7 @@ Configure ACE entries for each UID and/or GID you recorded from the **Run As Con
 {{< expand "Configuring ACE Entries" "v" >}}
 Enter or browse to select the dataset and populate **Host Path**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallAppStorageConfigurationACLandACESettings.png" alt="Host Path ACL and ACE Settings" id="Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallAppStorageConfigurationACLandACESettings.png" alt="Host Path ACL and ACE Settings" id="Host Path ACL and ACE Settings" >}}
 
 Next, click **Add** to the right of **ACL Entries** to show the permissions settings.
 Set **ID Type** to **Entry is for a USER** or **Entry is for a GROUP**.

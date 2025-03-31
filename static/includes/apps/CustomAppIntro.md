@@ -10,12 +10,12 @@ Click <i class="material-icons" aria-hidden="true" title="more_vert">more_vert</
 TrueNAS also allows users to convert already installed apps into custom applications. 
 Select the app you wish to convert, and then click the triple dot icon button next to **Edit** to open the menu containing **Update** and **Convert to custom app** options.
 
-{{< trueimage src="/images/SCALE/Apps/ConvertToCustomAppMenu.png" alt="Convert to Custom App Menu" id="Convert to Custom App Menu" >}}
+{{< trueimage src="/images/Apps/ConvertToCustomAppMenu.png" alt="Convert to Custom App Menu" id="Convert to Custom App Menu" >}}
 
 Select **Convert to custom app** from the dropdown list, then select **Confirm** to convert the app. 
 
-{{< trueimage src="/images/SCALE/Apps/ConvertToCustomAppConfirm.png" alt="Convert to Custom App Confirm" id="Convert to Custom App Confirm" >}}
+{{< trueimage src="/images/Apps/ConvertToCustomAppConfirm.png" alt="Convert to Custom App Confirm" id="Convert to Custom App Confirm" >}}
 
 After converting, clicking the **Edit** button within the **Application Info** window opens an **Edit App YAML** window. This gives users the option to enter a custom app configuration.
 
-{{< trueimage src="/images/SCALE/Apps/CustomAppEditWindow.png" alt="Custom App Edit Window" id="Custom App Edit Window" >}}
+{{< trueimage src="/images/Apps/CustomAppEditWindow.png" alt="Custom App Edit Window" id="Custom App Edit Window" >}}

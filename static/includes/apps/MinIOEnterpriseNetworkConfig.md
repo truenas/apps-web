@@ -2,7 +2,7 @@
 
 Scroll down to or click **Network Configuration** on the list of sections at the right of the screen.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIONetworkConfig.png" alt="MinIO Enterprise Network Configuration" id="MinIO Enterprise Network Configuration" >}}
+{{< trueimage src="/images/Apps/InstallMinIONetworkConfig.png" alt="MinIO Enterprise Network Configuration" id="MinIO Enterprise Network Configuration" >}}
 
 Accept the default port numbers in **API Port** and **Console Port (Web UI)**, which are the port numbers MinIO uses to communicate with the app and web portal.
 

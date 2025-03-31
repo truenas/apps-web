@@ -1,15 +1,8 @@
 ---
 title: "Setting Up MinIO Clustering"
 description: "Provides configuration instructions using the MinIO Offical Charts application widget. It includes instructions on setting up a distributed cluster configuration."
-weight: 20
+weight:
 aliases:
- - /scale/scaleuireference/apps/minioclustersscale/
- - /scale/scaletutorials/apps/minioclustersscale/minioclustering/
- - /scale/scaletutorials/apps/communityapps/minioapp/minioclustering/
- - /scale/scaletutorials/apps/communityapps/minioclustersscale/minioclustering/
- - /scale/scaletutorials/apps/chartapps/minioapp/minioclustering/
- - /scale/scaletutorials/apps/stableapps/minioapp/minioclustering/
- - /truenasapps/communityapps/minioapp/minioclustering/
 tags:
 - s3
 - apps
@@ -19,7 +12,6 @@ keywords:
 - software storage solutions
 - object based storage
 ---
-
 
 {{< include file="/static/includes/ProposeArticleChange.md" >}}
 
@@ -32,7 +24,6 @@ A *node* is a single TrueNAS storage system in a cluster.
 
 The **stable** train version of MinIO supports [distributed mode](https://min.io/docs/minio/kubernetes/upstream/index.html?ref=docs-redirect).
 Distributed mode, allows pooling multiple drives, even on different systems, into a single object storage server.
-For information on configuring a distributed mode cluster in TrueNAS using MinIO, see [Setting Up MinIO Clustering]({{< relref "MinIOClustering.md" >}}).
 
 The **enterprise** train version of MinIO provides two options for clustering, Single Node Multi-Disk (SNMD) and Multi-Node Multi-Disk (MNMD) configurations. See [MinIO Enterprise]({{< relref "/Enterprise-Apps/MinIO/_index.md" >}}) for more information.
 

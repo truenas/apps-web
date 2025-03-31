@@ -29,11 +29,11 @@
         <!-- Define subdirectory for website URL -->
         {{ $urlSubDir := "" }}
         {{ if eq $category "Enterprise" }}
-          {{ $urlSubDir = "enterpriseapps" }}
+          {{ $urlSubDir = "enterprise-apps" }}
         {{ else if eq $category "Stable" }}
-          {{ $urlSubDir = "stableapps" }}
+          {{ $urlSubDir = "stable-apps" }}
         {{ else if eq $category "Community" }}
-          {{ $urlSubDir = "communityapps" }}
+          {{ $urlSubDir = "community-apps" }}
         {{ end }}
 
         <!-- Construct the local file path -->
@@ -69,7 +69,7 @@
           {{ end }}
           
           <!-- Render the app card -->
-          <a class="section-box" href="/truenasapps/{{ $urlSubDir }}/{{ .name | urlize }}/">
+          <a class="section-box" href="/{{ $urlSubDir }}/{{ .name | urlize }}/">
             <!-- Inline Award for active use callouts -->
             {{ if gt $deploymentCount 0 }}
             <div class="popular-app">

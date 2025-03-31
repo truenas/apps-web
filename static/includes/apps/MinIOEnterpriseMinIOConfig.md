@@ -2,7 +2,7 @@
 
 MinIO credentials establish the login credentials for the MinIO web portal and the MinIO administration user.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOEnterpriseMinioConfig.png" alt="MinIO Enterprise MinIO Configuration" id="MinIO Enterprise MinIO Configuration" >}}
+{{< trueimage src="/images/Apps/InstallMinIOEnterpriseMinioConfig.png" alt="MinIO Enterprise MinIO Configuration" id="MinIO Enterprise MinIO Configuration" >}}
 
 Enter existing MinIO credentials if you already have a MinIO account, or create new login credentials for the first time you log into MinIO. If you are configuring an MNMD cluster, use the same credentials in all four systems in the cluster. 
 
@@ -15,7 +15,7 @@ The root user password (MinIO secret key), entered in **Root Password**, is limi
 To configure a multi-mode deployment, select **Enabled**.
 MinIO recommends using MNMD for enterprise-grade performance and scalability. See the related MinIO articles listed below for SNMD and MNMD configuration tutorials.
 
-{{< trueimage src="/images/SCALE/Apps/InstallMinIOAddMultiModeSNMDorMNMD.png" alt="MinIO Enterprise MultiMode Configuration" id="MinIO Enterprise MultiMode Configuration" >}}
+{{< trueimage src="/images/Apps/InstallMinIOAddMultiModeSNMDorMNMD.png" alt="MinIO Enterprise MultiMode Configuration" id="MinIO Enterprise MultiMode Configuration" >}}
 
 Select **Quiet** to disable startup information and not show it in the logs.
 

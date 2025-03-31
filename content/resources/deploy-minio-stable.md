@@ -13,11 +13,6 @@ keywords:
 - object based storage
 ---
 
-{{< github-content 
-    path="trains/stable/minio/app_versions.json"
-	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
->}}
-
 {{< include file="/static/includes/ProposeArticleChange.md" >}}
 
 MinIO High Performance Object Storage, released under the Apache Licenses v2.0 is an open source Amazon S3 cloud storage compatible object storage solution.
@@ -211,9 +206,3 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
 
 <div class="noprint">
-
-## Contents
-
-{{< children depth="2" description="true" >}}
-
-</div>
