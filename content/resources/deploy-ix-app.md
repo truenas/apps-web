@@ -1,13 +1,8 @@
 ---
-title: "Installing Custom Applications"
+title: "Custom Applications"
 description: "Provides information on installing and configuring custom or third-party applications in TrueNAS."
-weight: 50
+weight:
 aliases:
- - /scale/scaletutorials/apps/docker/
- - /scale/apps/docker/
- - /scale/scaleuireference/apps/docker/
- - /scale/scaletutorials/apps/usingcustomapp/
- - /truenasapps/stableapps/ix-app/
 tags:
 - customapp
 - apps
