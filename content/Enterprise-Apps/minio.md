@@ -7,14 +7,14 @@ tags:
 - apps
 ---
 
-{{< include file="/static/includes/apps/EnterpriseApps.md" >}}
-
 {{< github-content 
     path="trains/enterprise/minio/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
 ## Resources
+
+{{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 
 <div class="docs-sections">
 

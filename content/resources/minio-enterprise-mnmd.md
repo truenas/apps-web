@@ -1,18 +1,10 @@
 ---
 title: "Installing MinIO Enterprise MNMD"
 description: "Provides instructions on installing and configuring MinIO Enterprise in a Multi-Node Multi-Disk (MNMD) configuration."
-weight:
-aliases:
 tags:
 - s3
 - enterprise
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
-- enterprise data storage
-- two-factor authentication (2FA)
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
@@ -25,8 +17,6 @@ MinIO recommends using MNMD (distributed) for enterprise-grade performance and s
 This article applies to the TrueNAS MinIO application in the **enterprise** train.
 This version of MinIO is tested and polished to provide a safe and supportable experience for TrueNAS Enterprise customers.
 The enterprise MinIO application is tested and verified as an immutable target for Veeam Backup and Replication.
-
-<b>Contents</b>
 
 {{< toc >}}
 

@@ -22,6 +22,9 @@ descr="How to prepare TrueNAS and configure the Apps service." >}}
 {{< doc-card title="Managing Apps" link="https://www.truenas.com/docs/truenasapps/managingapps/"
 descr="How to find, install, and manage Apps in TrueNAS." >}}
 
+{{< doc-card title="App Support Definitions" link="https://www.truenas.com/docs/truenasapps/#app-support-definitions"
+descr="Describing the support availability for different apps." >}}
+
 </div>
 
 See some of the most popular apps actively used today!

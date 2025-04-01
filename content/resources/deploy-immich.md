@@ -1,20 +1,12 @@
 ---
-title: "Immich"
+title: "Immich Deployment"
 description: "Provides installation instructions for the Immich application in TrueNAS."
-weight: 
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
-
-<!--Comment or remove the following line if your PR changes provide a complete, up-to-date, and working installation tutorial -->
-{{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
 
 [Immich](https://immich.app) is a self-hosted photo and video backup tool.
 
@@ -23,7 +15,7 @@ It includes features such as libraries, automatic backup, bulk upload, partner s
 
 TrueNAS makes installing Immich easy, but you must use the Immich web portal and mobile app to configure accounts and access libraries.
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< toc >}}
 
 ## First Steps
 

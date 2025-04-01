@@ -1,16 +1,8 @@
 ---
-title: "Elastic Search"
+title: "Elastic Search Deployment Notes"
 description: "Provides installation instructions for the Elastic Search application in TrueNAS."
-weight:
-aliases:
 tags:
 - apps
-keywords:
-- apps
-- database
-- generative ai
-- security
-- observability
 ---
 
 Elastic Search is the distributed, RESTful search and analytics engine at the heart of the [Elastic Stack](https://www.elastic.co/guide/en/starting-with-the-elasticsearch-platform-and-its-solutions/current/stack-components.html).
@@ -20,6 +12,8 @@ You can install multiple instances to deploy additional nodes, however you must 
 This tutorial covers installing the TrueNAS Elastic Search app to deploy a node.
 It does not detail management of the node or integrating it with other containers.
 Elastic provides a basic primer, [What is Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/master/elasticsearch-intro-what-is-es.html), with further information about the app and its place within the Elastic Stack.
+
+{{< toc >}}
 
 ## Before You Begin
 

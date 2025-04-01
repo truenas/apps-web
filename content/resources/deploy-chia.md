@@ -1,31 +1,18 @@
 ---
-title: "Chia"
+title: "Chia Deployment Notes"
 description: "Provides basic installation instructions for the Chia application in TrueNAS."
-weight: 
-aliases:
 tags: 
  - apps
  - crypto
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
-
-{{< github-content 
-    path="trains/community/chia/app_versions.json"
-	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
->}}
-
-<!--Comment or remove the following line if your PR changes provide a complete, up-to-date, and working installation tutorial -->
-{{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
 
 The TrueNAS Chia app installs the Chia Blockchain architecture in a Kubernetes container.
 Chia Blockchain is a cryptocurrency ecosystem that uses Proof of Space and Time, and allows users to work with digital money and interact with their assets and resources.
 Instead of using expensive hardware that consumes exorbitant amounts of electricity to mine crypto, it leverages existing empty hard disk space on your computer(s) to farm crypto with minimal resources.
 
-
+{{< toc >}}
 
 ## First Steps
 Before you install the application, you have the option to create the **config** and **plots** datasets for the Chia app storage volumes, or you can allow TrueNAS to automatically create these storage volumes.

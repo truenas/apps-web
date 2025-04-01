@@ -1,14 +1,9 @@
 ---
-title: "Diskover Data"
+title: "Diskover Data Deployment Notes"
 description: "Provides instructions to configure TrueNAS and install Diskover Data ."
-weight:
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 Diskover Data Community edition is an open-source file indexer with a file search engine and a data management and analytics component powered by Elasticsearch.
@@ -23,6 +18,8 @@ It supports crawling local file systems, NFS and SMB, cloud storage, and plugins
 
 This TrueNAS Diskover Data communitity edition app provides effective search and file organization functions. System administrators can manage storage infrastructure, monitor storage and usage reports, use the information to provision storage, and make effective decisions about new infrastructure purchases.
 The app provides storage for Diskover Data and the Elasticsearch component. Read Diskover Data documentation to become familiar with the functions and configuration options in the Diskover Data web interface.
+
+{{< toc >}}
 
 ## Before You Begin
 

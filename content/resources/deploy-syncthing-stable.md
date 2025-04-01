@@ -1,8 +1,6 @@
 ---
-title: "Syncthing (Stable)"
+title: "Syncthing (Stable) Deployment"
 description: "Provides general information, guidelines, installation instructions, and use scenarios for the official version of Syncthing in the stable app train."
-weight: 
-aliases:
 tags:
 - apps
 - syncthing
@@ -20,6 +18,8 @@ The **stables** and **enterprise** train versions of the Syncthing app widget di
 {{< trueimage src="/images/Apps/DiscoverSyncthingAppWidgets.png" alt="Discovering Syncthing App Widgets" id="Discovering Syncthing App Widget" >}}
 
 {{< /expand >}}
+
+{{< toc >}}
 
 ## Before Installing Syncthing
 

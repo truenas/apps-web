@@ -1,14 +1,9 @@
 ---
-title: "Pi-hole"
+title: "Pi-hole Deployment"
 description: "Provides information on installing Pi-hole to support network-level advertisement and internet tracker blocking."
-weight: 
-aliases: 
 tags:
 - apps
 - dns
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
@@ -23,7 +18,7 @@ Always read through the Docker Hub page for the container you are considering in
 To set up a Docker image, first determine if you want the container to use its own dataset.
 If yes, create a dataset for host volume paths before you click **Launch Docker Image**.
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< toc >}}
 
 ## Installing Pi-hole Application
 

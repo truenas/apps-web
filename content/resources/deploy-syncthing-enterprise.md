@@ -1,21 +1,17 @@
 ---
 title: "Deploying Enterprise Syncthing"
 description: "Provides general information, guidelines, installation instructions, and use scenarios for the Enterprise version of the Syncthing app."
-weight:
-aliases:
 tags:
 - syncthing
 - apps
 - enterprise
-keywords:
-- nas data storage
-- software storage solutions
-- enterprise data storage
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 
 {{< include file="/static/includes/apps/SyncthingArticleIntro.md" >}}
+
+{{< toc >}}
 
 ## Syncthing Overview
 

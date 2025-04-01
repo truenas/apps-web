@@ -1,18 +1,14 @@
 ---
-title: "Plex"
+title: "Plex Deployment"
 description: "Provides installation instructions to configure and deploy the Plex app in TrueNAS."
-weight:
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-- TrueNAS media applications
 ---
 
 Plex is a media server that allows you to manage and stream your media (music, movies, live TV, etc.) to any Plex client.
+
+{{< toc >}}
 
 ## Before You Begin
 

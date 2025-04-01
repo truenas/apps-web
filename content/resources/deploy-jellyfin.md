@@ -1,21 +1,12 @@
 ---
-title: "Jellyfin"
+title: "Jellyfin Deployment"
 description: "Provides installation instructions for the Jellyfin application in TrueNAS."
-weight: 
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-- flash storage
 ---
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
-
-<!--Comment or remove the following line if your PR changes provide a complete, up-to-date, and working installation tutorial -->
-{{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
 
 [Jellyfin](https://jellyfin.org/) is a volunteer-built media solution that puts you in control of managing and streaming your media.
 
@@ -23,7 +14,7 @@ Jellyfin enables you to collect, manage, and stream media files. Official and th
 
 TrueNAS makes installing Jellyfin easy, but you must use the Jellyfin web portal to configure accounts and manage libraries.
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< toc >}}
 
 ## First Steps
 

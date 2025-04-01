@@ -1,16 +1,9 @@
 ---
-title: "Nextcloud"
+title: "Nextcloud Deployment"
 description: "Provides instructions to configure TrueNAS and install Nextcloud to support hosting a wider variety of media file previews such as HEIC, Mp4, and MOV files."
-weight:
-aliases:
 tags:
 - apps
 - media
-- imaginary
-- redis
-keywords:
-- nas data storage
-- software storage solutions
 - imaginary
 - redis
 ---
@@ -28,6 +21,8 @@ TrueNAS Nextcloud app provides backward compatibility and migration of early dep
 
 TrueNAS offers one deployment option for setting up Nextcloud, a Linux Debian-based TrueNAS version application available in TrueNAS releases 24.10 and later.
 The instructions in this article apply to these TrueNAS 24.10 and later releases.
+
+{{< toc >}}
 
 ## Before You Begin
 

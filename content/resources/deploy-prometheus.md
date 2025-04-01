@@ -1,14 +1,9 @@
 ---
-title: "Prometheus"
+title: "Prometheus Deployment"
 description: "Provides installation instructions for the Prometheus application."
-weight: 
-aliases:
 tags:
 - apps
 - reporting
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 Prometheus is a monitoring platform that collects metrics from *targets* it monitors. Targets are system HTTP endpoints configured in the Prometheus web UI. Prometheus is itself an HTTP endpoint so it can monitor itself.
@@ -21,7 +16,7 @@ Also use it to diagnose problems with the monitored endpoints when there is a sy
 
 TrueNAS makes installing Prometheus easy, but you must use the Prometheus web portal to configure targets, labels, alerts, and queries.
 
-
+{{< toc >}}
 
 ## Before You Begin
 

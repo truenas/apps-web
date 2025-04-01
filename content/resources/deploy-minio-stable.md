@@ -1,19 +1,10 @@
 ---
-title: "MinIO"
+title: "MinIO (Stable) Deployments"
 description: "Tutorials for installing and using the MinIO charts application available in the stable train in TrueNAS."
-geekdocCollapseSection: true
-weight:
-aliases:
 tags:
 - s3
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
 ---
-
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
 
 MinIO High Performance Object Storage, released under the Apache Licenses v2.0 is an open source Amazon S3 cloud storage compatible object storage solution.
 The TrueNAS MinIO applications allow users to build high-performance infrastructure for machine learning, analytics, and application data workloads.
@@ -33,6 +24,8 @@ Both the **stable** and **enterprise** train versions of the MinIO app widget di
 ![DiscoverScreenMinIOAppWidgets](/images/Apps/DiscoverScreenMinIOAppWidgets.png "Minio App Widgets")
 
 {{< /expand >}}
+
+{{< toc >}}
 
 ## Before You Begin
 Before you install the **stable** version of the MinIO app:

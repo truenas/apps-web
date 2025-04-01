@@ -11,13 +11,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-<!--Comment or remove the following line if your PR changes provide a complete, up-to-date, and working installation tutorial -->
-{{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
-
 The WebDAV application is a set of extensions to the HTTP protocol that allows users to collaboratively edit and manage files on remote web servers.
 It serves as the replacement for the built-in TrueNAS WebDAV feature.
 
 When installed and configured with at least one share, a container launches with temporary root privileges to configure the shares and activate the service.
+
+{{< toc >}}
 
 ## First Steps
 

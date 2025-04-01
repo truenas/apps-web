@@ -1,21 +1,12 @@
 ---
-title: "Rsync Daemon"
+title: "Rsync Daemon Deployment"
 description: "Installation and basic usage instructions for the Rsync Daemon application in TrueNAS."
-weight:
-aliases:
 tags:
 - rsync
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- backup and recovery
 ---
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
-
-<!--Comment or remove the following line if your PR changes provide a complete, up-to-date, and working installation tutorial -->
-{{< include file=\"/static/includes/apps/CommunityPleaseImprove.md\" >}}
 
 This application is an open source server that provides fast incremental file transfers.
 When installed, the Rsync Daemon application provides the server function to rsync clients given the server information and ability to connect.
@@ -25,7 +16,7 @@ It is always recommended to use rsync with SSH as a security best practice.
 
 You do not need this application to schedule or run rsync tasks from the **Data Protections** screen using the **Rsync Task** widget.
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< toc >}}
 
 ## Installing the Rsync Daemon Application
 

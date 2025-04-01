@@ -1,17 +1,10 @@
 ---
 title: "Deploying Enterprise MinIO: Basics"
 description: "Tutorial for a basic installation and configuration for the MinIO Enterprise application."
-weight:
-aliases: 
 tags:
 - s3
 - enterprise
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
-- enterprise data storage
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
@@ -19,8 +12,6 @@ keywords:
 This article applies to the TrueNAS MinIO application in the **enterprise** train.
 This smaller version of MinIO is tested and polished for a safe and supportable experience for TrueNAS Enterprise customers.
 The enterprise MinIO application is tested and verified as an immutable target for Veeam Backup and Replication.
-
-<b>Contents</b>
 
 {{< toc >}}
 

@@ -1,14 +1,9 @@
 ---
-title: "Storj"
+title: "Storj Deployment"
 description: "Provides information on setting up the Storj node app on your TrueNAS system."
-weight: 
-aliases:
 tags:
 - apps
 - crypto
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
@@ -24,7 +19,7 @@ Using TrueNAS in a multi-tenant solution architecture pattern is outside the sco
 Contact Storj support for assistance with their products and services not covered in the TrueNAS articles.
 {{< /hint >}}
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< toc >}}
 
 ## Before You Begin
 

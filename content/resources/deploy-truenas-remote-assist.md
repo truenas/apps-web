@@ -20,6 +20,8 @@ The Remote Assist app is intended for use by TrueNAS Enterprise customers with a
 TrueNAS community use of Remote assist for any reason is outside of the intended purposes and not supported.
 {{< /hint >}}
 
+{{< toc >}}
+
 ## App Description
 
 The Remote Assist app allows TrueNAS Enterprise support personnel remote access to customer systems to assist with deploying or troubleshooting an environment.

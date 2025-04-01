@@ -1,17 +1,14 @@
 ---
-title: "Custom Applications"
+title: "Custom Application Deployments"
 description: "Provides information on installing and configuring custom or third-party applications in TrueNAS."
-weight:
-aliases:
 tags:
 - customapp
 - apps
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< include file="/static/includes/apps/CustomAppIntro.md" >}}
+
+{{< toc >}}
 
 ## Custom Docker Applications
 

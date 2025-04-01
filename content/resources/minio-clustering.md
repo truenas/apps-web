@@ -1,19 +1,11 @@
 ---
 title: "Setting Up MinIO Clustering"
 description: "Provides configuration instructions using the MinIO Offical Charts application widget. It includes instructions on setting up a distributed cluster configuration."
-weight:
-aliases:
 tags:
 - s3
 - apps
 - clustering
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
 ---
-
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
 
 {{< hint info >}}
 This article applies to the public release of the TrueNAS S3 **MinIO** stable train application configured in a distributed mode cluster.
@@ -29,6 +21,8 @@ The **enterprise** train version of MinIO provides two options for clustering, S
 
 The examples below use four TrueNAS systems to create a distributed cluster.
 For more information on MinIO distributed setups, refer to the [MinIO documentation](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
+
+{{< toc >}}
 
 ## Before You Begin
 Before you install the **stable** version of the MinIO app:
