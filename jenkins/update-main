@@ -14,9 +14,9 @@ pipeline {
         steps {
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
-			sh ./scripts/download_apps_repo.sh
+	    sh 'bash ./scripts/download_apps_repo.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
-			sh ./scripts/cleanup_apps_repo.sh
+	    sh 'bash ./scripts/cleanup_apps_repo.sh'
         }
     }
     stage('Publish') {
