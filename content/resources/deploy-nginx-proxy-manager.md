@@ -12,6 +12,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 [Nginx Proxy Manager](https://nginxproxymanager.com)
 
 {{< toc >}}

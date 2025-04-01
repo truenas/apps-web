@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 Storj is an open-source decentralized cloud storage (DCS) platform.
 TrueNAS partners with Storj in two areas, the Cloud data backup option and as storage media for cloud service data through the Storj node application.
 

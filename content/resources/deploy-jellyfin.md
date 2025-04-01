@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 [Jellyfin](https://jellyfin.org/) is a volunteer-built media solution that puts you in control of managing and streaming your media.
 
 Jellyfin enables you to collect, manage, and stream media files. Official and third-party Jellyfin streaming clients are available on most popular platforms.

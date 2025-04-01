@@ -12,6 +12,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 Elastic Search is the distributed, RESTful search and analytics engine at the heart of the [Elastic Stack](https://www.elastic.co/guide/en/starting-with-the-elasticsearch-platform-and-its-solutions/current/stack-components.html).
 The TrueNAS Elastic Search app allows you to configure and deploy a single Elasticsearch node.
 You can install multiple instances to deploy additional nodes, however you must configure a [Custom App]({{< relref "ix-app.md" >}}) with the **Install via YAML** option to deploy a [multi-node cluster](https://www.elastic.co/guide/en/elasticsearch/reference/master/docker.html#docker-compose-file).

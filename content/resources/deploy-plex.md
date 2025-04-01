@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 Plex is a media server that allows you to manage and stream your media (music, movies, live TV, etc.) to any Plex client.
 
 {{< toc >}}

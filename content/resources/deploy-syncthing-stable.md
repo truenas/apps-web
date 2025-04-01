@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 {{< include file="/static/includes/SyncthingOverview.md" >}}
 
 {{< include file="/static/includes/SyncthingArticleIntro.md" >}}

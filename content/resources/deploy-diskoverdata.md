@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 Diskover Data Community edition is an open-source file indexer with a file search engine and a data management and analytics component powered by Elasticsearch.
 Diskover Data is a web-based platform that provides single-pane viewing (a dashboard) of distributed digital assets or repositories file systems spread across cloud and on-premise storage across an organization.
 It has three main components: Elasticsearch, Diskover web interface, and Diskover Data indexers.

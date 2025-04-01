@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 WG Easy is the easiest way to install and manage WireGuard on any Linux host.
 
 WG EASY is a Docker image designed to simplify setting up and managing WireGuard connections.

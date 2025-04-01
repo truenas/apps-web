@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 [Immich](https://immich.app) is a self-hosted photo and video backup tool.
 
 Immich integrates photo and video storage with a web portal and mobile app.

@@ -12,6 +12,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 [Linkding](https://github.com/sissbruecker/linkding) is a web bookmarking application supporting tags, search, multi-users, page snapshots, and more.
 
 {{< toc >}}

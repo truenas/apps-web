@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 Emby manages personal media libraries of home videos, movies, TV shows, photos, books, and music files.
 Emby has two parts with at least one client and server.
 The client or apps play back media files stored in the Emby server, and the server stores the media library.

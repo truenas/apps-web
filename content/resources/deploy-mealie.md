@@ -12,6 +12,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 [Mealie](https://docs.mealie.io) is a self-hosted recipe manager and meal planner.
 
 {{< toc >}}
@@ -29,5 +31,3 @@ tags:
 
 - **User ID**: Set to `911` to match the default described in https://docs.mealie.io/documentation/getting-started/installation/backend-config/.
 - **Group ID**: Set to `911` to match the default described in https://docs.mealie.io/documentation/getting-started/installation/backend-config/.
-
-{{< include file="/static/includes/ProposeArticleChange.md" >}}

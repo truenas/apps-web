@@ -14,6 +14,8 @@ tags:
 
 {{< include file="/static/includes/apps/StableApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 {{< hint info >}}
 This article applies to the public release of the TrueNAS S3 **MinIO** stable train application configured in a distributed mode cluster.
 {{< /hint >}}

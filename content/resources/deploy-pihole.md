@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 TrueNAS includes the ability to run Docker containers using Docker Compose.
 
 {{< expand "What is Docker?" "v" >}}

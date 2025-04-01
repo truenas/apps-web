@@ -13,6 +13,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
+{{< include file="/static/includes/ProposeArticleChange.md" >}}
+
 This application is an open source server that provides fast incremental file transfers.
 When installed, the Rsync Daemon application provides the server function to rsync clients given the server information and ability to connect.
 
