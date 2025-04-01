@@ -2,6 +2,8 @@
 title: "Elastic Search Deployment Notes"
 description: "Provides installation instructions for the Elastic Search application in TrueNAS."
 related_app: "/stable-apps/elastic-search"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-elastic-search.md"
 tags:
 - apps
 ---

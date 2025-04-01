@@ -1,10 +1,15 @@
 {{ $geekdocRepo := default (default false .Site.Params.GeekdocRepo) .Page.Params.GeekdocRepo }}
 {{ $geekdocEditPath := default (default false .Site.Params.GeekdocEditPath) .Page.Params.GeekdocEditPath }}
+
+{{/* Check if the file exists and set the file path */}}
 {{ if .File }}
   {{ $.Scratch.Set "geekdocFilePath" (default (path.Join (default "content" .Site.Params.contentDir) .File.Path) .Page.Params.GeekdocFilePath) }}
 {{ else }}
   {{ $.Scratch.Set "geekdocFilePath" false }}
 {{ end }}
+
+{{/* Check if the edit link should be shown based on the front matter parameter */}}
+{{ $showEdit := and ($.Scratch.Get "geekdocFilePath") $geekdocRepo $geekdocEditPath (default false .Page.Params.GeekdocShowEdit) }}
 
 {{ define "breadcrumb" }}
   {{ $parent := .page.Parent }}
@@ -19,7 +24,6 @@
 {{ end }}
 
 {{ $showBreadcrumb := (and (default true .Page.Params.GeekdocBreadcrumb) (default true .Site.Params.GeekdocBreadcrumb)) }}
-{{ $showEdit := (and ($.Scratch.Get "geekdocFilePath") $geekdocRepo $geekdocEditPath) }}
 <div
   class="gdoc-page__header flex flex-wrap
   {{ if $showBreadcrumb }}
@@ -47,7 +51,7 @@
       <span class="editpage">
         <svg class="gdoc-icon gdoc_code"><use xlink:href="#gdoc_code"></use></svg>
         <a
-          href="{{ $geekdocRepo }}/{{ path.Join $geekdocEditPath ($.Scratch.Get "geekdocFilePath") }}"
+          href="{{ $geekdocRepo }}/{{ $geekdocEditPath }}"
         >
           {{ i18n "edit_page" }}
         </a>

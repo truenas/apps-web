@@ -2,6 +2,8 @@
 title: "Photoprism Deployment"
 description: "Provides installation instructions to configure and deploy the Photoprism app in TrueNAS."
 related_app: "/stable-apps/photoprism"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-photoprism.md"
 tags:
 - apps
 - media

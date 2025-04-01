@@ -2,6 +2,8 @@
 title: "Pi-hole Deployment"
 description: "Provides information on installing Pi-hole to support network-level advertisement and internet tracker blocking."
 related_app: "/community-apps/pihole"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-pihole.md"
 tags:
 - apps
 - dns

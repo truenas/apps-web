@@ -2,6 +2,8 @@
 title: "Nextcloud Deployment"
 description: "Provides instructions to configure TrueNAS and install Nextcloud to support hosting a wider variety of media file previews such as HEIC, Mp4, and MOV files."
 related_app: "/stable-apps/nextcloud"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-nextcloud.md"
 tags:
 - apps
 - media

@@ -2,6 +2,8 @@
 title: "MinIO (Stable) Deployments"
 description: "Tutorials for installing and using the MinIO charts application available in the stable train in TrueNAS."
 related_app: "/stable-apps/minio"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-minio-stable.md"
 tags:
 - s3
 - apps

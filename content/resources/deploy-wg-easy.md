@@ -2,6 +2,8 @@
 title: "WG Easy Deployment"
 description: "Provides installation instructions for the WG Easy application."
 related_app: "/stable-apps/wg-easy"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-wg-easy.md"
 tags:
 - vpn
 - apps

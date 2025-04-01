@@ -2,6 +2,8 @@
 title: "Syncthing (Stable) Deployment"
 description: "Provides general information, guidelines, installation instructions, and use scenarios for the official version of Syncthing in the stable app train."
 related_app: "/stable-apps/syncthing"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-syncthing-stable.md"
 tags:
 - apps
 - syncthing

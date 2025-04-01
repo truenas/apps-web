@@ -1,5 +1,5 @@
 ---
-title: App Resources
+title: Resources
 description: "This TrueNAS Apps Portal section contains all the app related content provided and maintained by the TrueNAS community."
 ---
 

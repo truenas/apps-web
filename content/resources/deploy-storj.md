@@ -2,6 +2,8 @@
 title: "Storj Deployment"
 description: "Provides information on setting up the Storj node app on your TrueNAS system."
 related_app: "/community-apps/storj"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-storj.md"
 tags:
 - apps
 - crypto

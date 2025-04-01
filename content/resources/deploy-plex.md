@@ -2,6 +2,8 @@
 title: "Plex Deployment"
 description: "Provides installation instructions to configure and deploy the Plex app in TrueNAS."
 related_app: "/stable-apps/plex"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-plex.md"
 tags:
 - apps
 - media

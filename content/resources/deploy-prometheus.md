@@ -2,6 +2,8 @@
 title: "Prometheus Deployment"
 description: "Provides installation instructions for the Prometheus application."
 related_app: "/stable-apps/prometheus"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-prometheus.md"
 tags:
 - apps
 - reporting

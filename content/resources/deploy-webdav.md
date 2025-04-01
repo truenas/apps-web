@@ -2,6 +2,8 @@
 title: "WebDAV"
 description: "Instructions for installing and configuring the WebDAV app and sharing feature in TrueNAS."
 related_app: "/community-apps/webdav"
+GeekdocShowEdit: true
+geekdocEditPath: "edit/main/content/resources/deploy-webdav.md"
 tags:
  - webdav
  - shares
