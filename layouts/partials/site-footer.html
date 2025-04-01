@@ -128,36 +128,6 @@ function callback(entries, observer) {
 	});
 }
 
-// New observer for detecting the footer visibility
-var footerObserver = new IntersectionObserver(function(entries, observer) {
-		entries.forEach(entry => {
-				var sidebarFixed = document.querySelector('.sidebar-fixed');
-				var tocPanel = document.querySelector('.toc-panel');
-
-				if (entry.isIntersecting) {
-						// Footer is visible, shrink side nav and allow scroll
-						sidebarFixed.style.height = '40vh';
-						tocPanel.style.height = '40vh';
-						sidebarFixed.style.overflowY = 'auto';
-						tocPanel.style.overflowY = 'auto';
-				} else {
-						// Footer is not visible, restore normal side nav behavior
-						sidebarFixed.style.height = ''; // Reset height
-						tocPanel.style.height = ''; // Reset height
-						sidebarFixed.style.overflowY = ''; // Reset scroll behavior
-						tocPanel.style.overflowY = ''; // Reset scroll behavior
-				}
-		});
-}, {
-		root: null,
-		rootMargin: '0px',
-		threshold: 0
-});
-
-// Observe the footer
-var footer = document.querySelector('.gdoc-footer'); // Adjust this to the correct footer class/ID
-footerObserver.observe(footer);
-
 // Existing behavior for right-side TOC panel on small screens
 document.addEventListener('DOMContentLoaded', function() {
 		var sidebarRight = document.querySelector('.sidebar-right');
