@@ -1,10 +1,13 @@
 ---
 title: "TFTP Server Deployment"
-description: "Provides instructions for installing the TFTP Server application in TrueNAS." 
+description: "Provides instructions for installing the TFTP Server application in TrueNAS."
+related_app: "/community-apps/tftpd-hpa"
 tags:
 - tftp
 - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

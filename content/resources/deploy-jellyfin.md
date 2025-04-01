@@ -1,10 +1,13 @@
 ---
 title: "Jellyfin Deployment"
 description: "Provides installation instructions for the Jellyfin application in TrueNAS."
+related_app: "/community-apps/jellyfin"
 tags:
 - apps
 - media
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

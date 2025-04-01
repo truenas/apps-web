@@ -1,10 +1,13 @@
 ---
 title: "Immich Deployment"
 description: "Provides installation instructions for the Immich application in TrueNAS."
+related_app: "/community-apps/immich"
 tags:
 - apps
 - media
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

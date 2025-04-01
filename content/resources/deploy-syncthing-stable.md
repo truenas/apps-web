@@ -1,10 +1,15 @@
 ---
 title: "Syncthing (Stable) Deployment"
 description: "Provides general information, guidelines, installation instructions, and use scenarios for the official version of Syncthing in the stable app train."
+related_app: "/stable-apps/syncthing"
 tags:
 - apps
 - syncthing
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 {{< include file="/static/includes/SyncthingOverview.md" >}}
 

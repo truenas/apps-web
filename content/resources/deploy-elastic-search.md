@@ -1,9 +1,14 @@
 ---
 title: "Elastic Search Deployment Notes"
 description: "Provides installation instructions for the Elastic Search application in TrueNAS."
+related_app: "/stable-apps/elastic-search"
 tags:
 - apps
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 Elastic Search is the distributed, RESTful search and analytics engine at the heart of the [Elastic Stack](https://www.elastic.co/guide/en/starting-with-the-elasticsearch-platform-and-its-solutions/current/stack-components.html).
 The TrueNAS Elastic Search app allows you to configure and deploy a single Elasticsearch node.

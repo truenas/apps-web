@@ -1,10 +1,15 @@
 ---
 title: "Netdata Deployment"
 description: "Provides information on installing and configuring the Netdata app on TrueNAS."
+related_app: "/stable-apps/netdata"
 tags:
 - apps
 - reporting
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 The TrueNAS Netdata app provides an easy way to install and access the Netdata infrastructure monitoring solution.
 TrueNAS deploys the Netdata app in a Docker container using Docker Compose.

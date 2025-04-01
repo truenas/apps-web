@@ -1,10 +1,15 @@
 ---
 title: "Prometheus Deployment"
 description: "Provides installation instructions for the Prometheus application."
+related_app: "/stable-apps/prometheus"
 tags:
 - apps
 - reporting
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 Prometheus is a monitoring platform that collects metrics from *targets* it monitors. Targets are system HTTP endpoints configured in the Prometheus web UI. Prometheus is itself an HTTP endpoint so it can monitor itself.
 

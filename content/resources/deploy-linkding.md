@@ -1,9 +1,12 @@
 ---
 title: "Linkding Deployment"
 description: "Provides installation instructions for the Linkding application in TrueNAS."
+related_app: "/community-apps/linkding"
 tags:
 - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

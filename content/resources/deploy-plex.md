@@ -1,10 +1,15 @@
 ---
 title: "Plex Deployment"
 description: "Provides installation instructions to configure and deploy the Plex app in TrueNAS."
+related_app: "/stable-apps/plex"
 tags:
 - apps
 - media
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 Plex is a media server that allows you to manage and stream your media (music, movies, live TV, etc.) to any Plex client.
 

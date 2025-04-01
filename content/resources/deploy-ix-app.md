@@ -1,10 +1,13 @@
 ---
 title: "Custom Application Deployments"
 description: "Provides information on installing and configuring custom or third-party applications in TrueNAS."
+related_app: "/stable-apps/ix-app"
 tags:
 - customapp
 - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CustomAppIntro.md" >}}
 

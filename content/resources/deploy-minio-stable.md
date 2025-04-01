@@ -1,10 +1,15 @@
 ---
 title: "MinIO (Stable) Deployments"
 description: "Tutorials for installing and using the MinIO charts application available in the stable train in TrueNAS."
+related_app: "/stable-apps/minio"
 tags:
 - s3
 - apps
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 MinIO High Performance Object Storage, released under the Apache Licenses v2.0 is an open source Amazon S3 cloud storage compatible object storage solution.
 The TrueNAS MinIO applications allow users to build high-performance infrastructure for machine learning, analytics, and application data workloads.

@@ -1,10 +1,13 @@
 ---
 title: "DDNS-Updater Deployment Notes"
 description: "Provides basic configuration instructions for the DDNS-Updater application in TrueNAS."
+related_app: "/community-apps/ddns-updater"
 tags:
   - ddns
   - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

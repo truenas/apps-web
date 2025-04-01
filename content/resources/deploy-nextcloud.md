@@ -1,12 +1,17 @@
 ---
 title: "Nextcloud Deployment"
 description: "Provides instructions to configure TrueNAS and install Nextcloud to support hosting a wider variety of media file previews such as HEIC, Mp4, and MOV files."
+related_app: "/stable-apps/nextcloud"
 tags:
 - apps
 - media
 - imaginary
 - redis
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 Nextcloud is a drop-in replacement for many popular cloud services, including file sharing, calendar, groupware, and more.
 One of its more common uses for the home environment is serving as a media backup, and organizing and sharing service.

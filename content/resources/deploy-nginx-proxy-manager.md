@@ -1,9 +1,14 @@
 ---
 title: "Nginx Proxy Manager Deployment"
 description: "Provides installation instructions for the Nginx Proxy Manager application in TrueNAS."
+related_app: "/community-apps/nginx-proxy-manager"
 tags:
 - apps
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 [Nginx Proxy Manager](https://nginxproxymanager.com)
 

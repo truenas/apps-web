@@ -1,10 +1,15 @@
 ---
 title: "Emby Server Deployment"
 description: "Provides instructions to configure TrueNAS and install Emby Server for movies, TV shows, books, photos, music, and other media files."
+related_app: "/stable-apps/emby"
 tags:
 - apps
 - media
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 Emby manages personal media libraries of home videos, movies, TV shows, photos, books, and music files.
 Emby has two parts with at least one client and server.

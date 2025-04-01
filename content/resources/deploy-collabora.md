@@ -1,10 +1,15 @@
 ---
 title: "Collabora Deployment Notes"
 description: "Provides basic configuration instructions for adding the Collabora app using the TrueNAS webUI."
+related_app: "/stable-apps/collabora"
 tags:
  - apps
  - cloud
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 The TrueNAS Collabora app offers an efficient solution for deploying and managing a powerful online office suite. TrueNAS installs the Collabora app in a Docker container using Docker Compose. Once deployed, you can access the Collabora Online interface through TrueNAS, enabling seamless document editing and collaboration. Collabora supports popular file formats like DOCX, XLSX, and PPTX, ensuring compatibility with Microsoft Office documents. With real-time collaboration, robust editing tools, and integration with platforms like Nextcloud, the Collabora app provides a reliable and feature-rich environment for your productivity needs.
 

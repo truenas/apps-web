@@ -1,13 +1,14 @@
 ---
 title: "WebDAV"
 description: "Instructions for installing and configuring the WebDAV app and sharing feature in TrueNAS."
-weight:
-aliases:
+related_app: "/community-apps/webdav"
 tags:
  - webdav
  - shares
  - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

@@ -1,11 +1,16 @@
 ---
 title: "Setting Up MinIO Clustering"
 description: "Provides configuration instructions using the MinIO Offical Charts application widget. It includes instructions on setting up a distributed cluster configuration."
+related_app: "/stable-apps/minio"
 tags:
 - s3
 - apps
 - clustering
 ---
+
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 {{< hint info >}}
 This article applies to the public release of the TrueNAS S3 **MinIO** stable train application configured in a distributed mode cluster.

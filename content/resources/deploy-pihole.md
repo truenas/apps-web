@@ -1,10 +1,13 @@
 ---
 title: "Pi-hole Deployment"
 description: "Provides information on installing Pi-hole to support network-level advertisement and internet tracker blocking."
+related_app: "/community-apps/pihole"
 tags:
 - apps
 - dns
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 

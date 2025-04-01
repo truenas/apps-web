@@ -1,0 +1,14 @@
+{{/* Get the related app path from the front matter */}}
+{{ $relatedApp := .Page.Params.related_app | default "" }}
+
+{{/* Generate the button if a related app is defined */}}
+{{ if $relatedApp }}
+  <div class="back-to-app-button">
+    <a href="{{ $relatedApp }}" class="btn btn-primary">
+      ← Back to App
+    </a>
+  </div>
+{{ else }}
+  {{/* Optional: Display a warning if no related app is defined */}}
+  <p><small>No related app found.</small></p>
+{{ end }}

@@ -1,11 +1,14 @@
 ---
 title: "Deploying Enterprise MinIO: Basics"
 description: "Tutorial for a basic installation and configuration for the MinIO Enterprise application."
+related_app: "/enterprise-apps/minio"
 tags:
 - s3
 - enterprise
 - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 

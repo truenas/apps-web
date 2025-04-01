@@ -1,10 +1,13 @@
 ---
 title: "Chia Deployment Notes"
 description: "Provides basic installation instructions for the Chia application in TrueNAS."
+related_app: "/community-apps/chia"
 tags: 
  - apps
  - crypto
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 

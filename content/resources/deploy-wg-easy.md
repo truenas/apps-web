@@ -1,13 +1,17 @@
 ---
 title: "WG Easy Deployment"
 description: "Provides installation instructions for the WG Easy application."
+related_app: "/stable-apps/wg-easy"
 tags:
 - vpn
 - apps
 ---
 
+{{< resource-return-button >}}
+
+{{< include file="/static/includes/apps/StableApp.md" >}}
+
 WG Easy is the easiest way to install and manage WireGuard on any Linux host.
-The application is included in the Community catalog of applications.
 
 WG EASY is a Docker image designed to simplify setting up and managing WireGuard connections.
 This app provides a pre-configured environment with all the necessary components and a web-based user interface to manage VPN connections.

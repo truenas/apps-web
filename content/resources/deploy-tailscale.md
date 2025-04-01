@@ -1,13 +1,16 @@
 ---
 title: "Tailscale Deployment"
 description: "Provides installation instructions for the Tailscale application in TrueNAS."
+related_app: "/community-apps/tailscale"
 tags:
 - apps
 ---
 
+{{< resource-return-button >}}
+
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-[Tailscale](https://tailscale.com) <!-- is a [description of the application] -->
+[Tailscale](https://tailscale.com)
 
 {{< toc >}}
 

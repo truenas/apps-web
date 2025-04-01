@@ -1,9 +1,12 @@
 ---
 title: "Mealie Deployment Notes"
 description: "Provides installation instructions for the Mealie application in TrueNAS."
+related_app: "/community-apps/mealie"
 tags:
 - apps
 ---
+
+{{< resource-return-button >}}
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
