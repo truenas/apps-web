@@ -13,6 +13,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/CommunityAppsLegacy.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Diskoverdata Deployment" link="/resources/deploy-wg-easy"

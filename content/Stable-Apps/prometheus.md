@@ -13,6 +13,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Prometheus Deployment" link="/resources/deploy-prometheus"

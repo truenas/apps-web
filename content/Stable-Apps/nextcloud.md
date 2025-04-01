@@ -15,6 +15,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Nextcloud Deployment" link="/resources/deploy-nextcloud"

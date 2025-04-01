@@ -11,9 +11,11 @@ tags:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
-{{< include file="/static/includes/CommunityAppsLegacy.md" >}}
-
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
+{{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 
 <div class="docs-sections">
 

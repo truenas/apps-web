@@ -13,6 +13,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Emby Server Deployment" link="/resources/deploy-emby"

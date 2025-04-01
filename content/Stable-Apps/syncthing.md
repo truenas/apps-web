@@ -13,6 +13,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/CommunityAppsLegacy.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Syncthing Deployment" link="/resources/deploy-syncthing-stable"

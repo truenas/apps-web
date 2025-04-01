@@ -13,6 +13,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Collabora Deployment" link="/resources/deploy-collabora"

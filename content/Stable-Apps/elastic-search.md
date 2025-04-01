@@ -12,6 +12,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Elastic Search Deployment" link="/resources/deploy-elastic-search"

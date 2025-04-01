@@ -27,7 +27,7 @@ descr="Describing the support availability for different apps." >}}
 
 </div>
 
-See some of the most popular apps actively used today!
+Here are some of the most popular apps actively used today!
 
 {{< popular-apps >}}
 

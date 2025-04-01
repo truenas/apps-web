@@ -14,6 +14,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Minio Deployment" link="/resources/deploy-minio-stable"

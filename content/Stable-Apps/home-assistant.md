@@ -12,6 +12,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 <div class="docs-sections">
 
 {{< doc-card title="Home Assistant Deployment" link="/resources/deploy-home-assistant"
