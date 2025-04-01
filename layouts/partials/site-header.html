@@ -276,8 +276,6 @@ var nav = document.getElementById("sitenav");
 var isSticky = false; // Track if the element is sticky
 
 
-observer.observe(iconsbar);
-
 function callback(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
