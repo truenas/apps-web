@@ -28,8 +28,6 @@ tags:
 - enterprise
 ---
 
-{{< include file="/static/includes/apps/EnterpriseApps.md" >}}
-
 {{< github-content 
     path="trains/enterprise/$name/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
@@ -37,7 +35,7 @@ tags:
 
 ## Resources
 
-{{< shortcode for submitting a doc for this app >}}
+{{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 
 <! uncomment and adjust to link to a resource file about this app
 <div class="docs-sections">
@@ -51,62 +49,59 @@ descr="How to deploy and configure the enterprise $name app." >}}
 """,
     "Stable": """---
 title: "$title"
-description: "Provides installation instructions for the $title application in TrueNAS."
-weight: 
-aliases:
+description: "Description and resources for the TrueNAS application called $title."
 tags:
 - $name
 - apps
-keywords:
-- stable storage
-- software solutions
-- data management
 ---
 
-{{< github-content repo="truenas/apps" path="train/stable/$name/app_versions.json" branch="master" title="$title" >}}
+{{< github-content 
+    path="trains/stable/$name/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
 
-$app_readme
+## Resources
+
+{{< include file="/static/includes/apps/StableApps.md" >}}
+
+<!-- uncomment and adjust to link to a resource file about this app
+<div class="docs-sections">
+
+{{< doc-card title="$name Deployment" link="/resources/deploy-$name"
+descr="How to deploy and configure the stable $name app." >}}
+
+</div>
+-->
+
 """,
     "Community": """---
 title: "$title"
-description: "Provides installation instructions for the $title application in TrueNAS."
-weight: 
-aliases:
+description: "Description and resources for the TrueNAS application called $title."
 tags:
 - $name
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
+
+{{< github-content 
+    path="trains/community/$name/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
+
+## Resources
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< github-content repo="truenas/apps" path="train/community/$name/app_versions.json" branch="master" title="$title" >}}
+<!-- uncomment and adjust to link to a resource file about this app
+<div class="docs-sections">
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+{{< doc-card title="$name Deployment" link="/resources/deploy-$name"
+descr="How to deploy and configure the stable $name app." >}}
 
-$app_readme
+</div>
+-->
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
 """,
 }
-
-# URL to catalog.json
-catalog_url = "https://raw.githubusercontent.com/truenas/apps/master/catalog.json"
-
-# Fetch the catalog data from the remote URL
-response = requests.get(catalog_url)
-if response.status_code == 200:
-    try:
-        catalog = response.json()
-    except json.JSONDecodeError:
-        print("Error: Received invalid JSON from catalog.")
-        exit(1)
-else:
-    print(f"Failed to retrieve catalog from {catalog_url}. Status code: {response.status_code}")
-    exit(1)
 
 enterprise_added = []
 stable_added = []
@@ -128,13 +123,7 @@ for train, apps in catalog.items():
             continue  # Skip ignored apps
 
         title = app_details.get("title", app_name)
-        home = app_details.get("home", "#")
         app_readme = app_details.get("app_readme", "")
-
-        # Extract only the first <p> section
-        match = re.search(r"<p>(.*?)</p>", app_readme, re.DOTALL)
-        app_readme = match.group(1).strip() if match else ""
-
         md_file_path = os.path.join(output_dir, f"{app_name}.md")
 
         # Skip if the file already exists

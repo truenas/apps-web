@@ -1,6 +1,6 @@
 ---
 title: "TrueNAS Apps"
-description: "This website describes the Apps that are available within TrueNAS."
+description: "This website describes the Apps that are available to deploy with TrueNAS."
 linkTitle: "Home"
 keywords:
  - TrueNAS Apps
@@ -23,12 +23,10 @@ descr="How to prepare TrueNAS and configure the Apps service." >}}
 descr="How to find, install, and manage Apps in TrueNAS." >}}
 
 {{< doc-card title="App Support Definitions" link="https://www.truenas.com/docs/truenasapps/#app-support-definitions"
-descr="Describing the support availability for different apps." >}}
+descr="Support availability for different apps and catalogs." >}}
 
 </div>
 
 Here are some of the most popular apps actively used today!
 
 {{< popular-apps >}}
-
-
