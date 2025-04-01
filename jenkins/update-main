@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Publish') {
         steps {
-            sh 'rclone --stats-one-line -P --stats 5s sync public/ apps-storj:apps.truenas.com'
+            sh 'rclone --stats-one-line --stats 5s sync public/ apps-storj:apps.truenas.com'
         }
     }
   }
