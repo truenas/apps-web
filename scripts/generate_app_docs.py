@@ -9,9 +9,9 @@ root_dir = os.path.abspath(os.path.join(script_dir, ".."))  # Move up one level 
 
 # Paths to documentation directories (dynamically generated)
 output_dirs = {
-    "Enterprise": os.path.join(root_dir, "content", "TruenasApps", "EnterpriseApps"),
-    "Stable": os.path.join(root_dir, "content", "TruenasApps", "StableApps"),
-    "Community": os.path.join(root_dir, "content", "TruenasApps", "CommunityApps"),
+    "Enterprise": os.path.join(root_dir, "content", "Enterprise-Apps"),
+    "Stable": os.path.join(root_dir, "content", "Stable-Apps"),
+    "Community": os.path.join(root_dir, "content", "Community-Apps"),
 }
 
 # Apps to ignore during processing
@@ -21,7 +21,7 @@ ignored_apps = {"minio", "ix-app"}
 templates = {
     "Enterprise": """---
 title: "$title"
-description: "Provides basic installation instructions for the TrueNAS Enterprise $title application."
+description: "Description and resources for the TrueNAS enterprise application called $title."
 weight: 
 aliases:
 tags:
@@ -29,16 +29,29 @@ tags:
 - apps
 - enterprise
 keywords:
-- nas data storage
-- software storage solutions
-- enterprise data storage
+
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 
-{{< github-content repo="truenas/apps" path="train/enterprise/$name/app_versions.json" branch="master" title="$title" >}}
+{{< github-content 
+    path="trains/enterprise/$name/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
 
-$app_readme
+## Resources
+
+{{< shortcode for submitting a doc for this app >}}
+
+<! uncomment and adjust to link to a resource file about this app
+<div class="docs-sections">
+
+{{< doc-card title="$name Deployment" link="/resources/deploy-$name"
+descr="How to deploy and configure the enterprise $name app." >}}
+
+</div>
+-->
+
 """,
     "Stable": """---
 title: "$title"

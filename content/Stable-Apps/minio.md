@@ -25,4 +25,7 @@ keywords:
 {{< doc-card title="Minio Deployment" link="/resources/deploy-minio-stable"
 descr="How to deploy and configure the Stable Minio app." >}}
 
+{{< doc-card title="Minio Clustering" link="/resources/minio-clustering"
+descr="Configuring Minio app with a distributed clustering configuration." >}}
+
 </div>
