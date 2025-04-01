@@ -1,14 +1,9 @@
 ---
 title: "Custom Applications"
 description: "Description and resources for the TrueNAS stable application called iX App (custom application)."
-weight:
-aliases:
 tags:
 - customapp
 - apps
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

@@ -22,14 +22,10 @@ templates = {
     "Enterprise": """---
 title: "$title"
 description: "Description and resources for the TrueNAS enterprise application called $title."
-weight: 
-aliases:
 tags:
 - $name
 - apps
 - enterprise
-keywords:
-
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}

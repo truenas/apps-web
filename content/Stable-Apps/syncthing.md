@@ -1,8 +1,6 @@
 ---
 title: "Syncthing (Stable)"
 description: "Description and resources for the TrueNAS Stable application called Syncthing."
-weight: 
-aliases:
 tags:
 - apps
 - syncthing

@@ -1,14 +1,9 @@
 ---
 title: "Netdata"
 description: "Description and resources for the TrueNAS Stable application called Netdata."
-weight:
-aliases:
 tags:
 - apps
 - reporting
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

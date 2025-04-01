@@ -1,14 +1,9 @@
 ---
 title: "WG Easy"
 description: "Description and resources for the TrueNAS Stable application called WG Easy."
-weight:
-aliases:
 tags:
 - vpn
 - apps
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

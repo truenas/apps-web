@@ -1,8 +1,6 @@
 ---
 title: "Syncthing (Enterprise)"
 description: "Description and resources for the TrueNAS Enterprise application called Syncthing."
-weight: 
-aliases:
 tags:
 - syncthing
 - apps

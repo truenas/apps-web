@@ -1,15 +1,9 @@
 ---
 title: "Photoprism"
 description: "Description and resources for the TrueNAS Stable application called Photoprism."
-weight:
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-- TrueNAS photo applications
 ---
 
 {{< github-content 

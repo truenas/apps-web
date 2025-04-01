@@ -1,16 +1,8 @@
 ---
 title: "Elastic Search"
 description: "Description and resources for the TrueNAS Stable application called Elastic Search."
-weight:
-aliases:
 tags:
 - apps
-keywords:
-- apps
-- database
-- generative ai
-- security
-- observability
 ---
 
 {{< github-content 

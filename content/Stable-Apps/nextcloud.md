@@ -1,16 +1,9 @@
 ---
 title: "Nextcloud"
 description: "Description and resources for the TrueNAS Stable application called Nextcloud."
-weight:
-aliases:
 tags:
 - apps
 - media
-- imaginary
-- redis
-keywords:
-- nas data storage
-- software storage solutions
 - imaginary
 - redis
 ---

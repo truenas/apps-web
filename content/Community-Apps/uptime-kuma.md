@@ -1,15 +1,9 @@
 ---
 title: "Uptime Kuma"
 description: "Provides installation instructions for the Uptime Kuma application in TrueNAS."
-weight: 
-aliases:
 tags:
 - uptime-kuma
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
 
 {{< github-content 
@@ -17,10 +11,17 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> - A fancy self-hosted monitoring tool
+<!--
+<div class="docs-sections">
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
+
+</div>
+-->

@@ -1,15 +1,9 @@
 ---
 title: "Plex"
 description: "Description and resources for the TrueNAS Stable application called Plex."
-weight:
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-- TrueNAS media applications
 ---
 
 {{< github-content 

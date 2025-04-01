@@ -1,14 +1,9 @@
 ---
 title: "Pi-hole"
 description: "Description and resources for the TrueNAS Stable application called Pi-hole."
-weight: 
-aliases: 
 tags:
 - apps
 - dns
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

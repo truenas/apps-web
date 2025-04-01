@@ -1,16 +1,10 @@
 ---
-title: "Asigra DS-System"
+title: "Asigra DS-System Deployment Notes"
 description: "Tutorial for deploying the TrueNAS Enterprise application called Asigra DS-System."
-weight: 
-aliases:
 tags:
-- asigra-ds-system
-- apps
-- enterprise
-keywords:
-- nas data storage
-- software storage solutions
-- enterprise data storage
+ - asigra-ds-system
+ - apps
+ - enterprise
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}

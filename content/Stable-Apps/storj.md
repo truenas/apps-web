@@ -1,14 +1,9 @@
 ---
 title: "Storj"
 description: "Description and resources for the TrueNAS Stable application called Storj."
-weight: 
-aliases:
 tags:
 - apps
 - crypto
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

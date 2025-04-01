@@ -1,14 +1,8 @@
 ---
 title: "Home Assistant"
 description: "Description and resources for the TrueNAS Stable application called Home Assistant."
-weight:
-aliases:
 tags:
 - apps
-keywords:
-- home
-- app
-- assistant
 ---
 
 {{< github-content 

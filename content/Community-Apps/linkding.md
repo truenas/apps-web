@@ -1,17 +1,9 @@
 ---
 title: "Linkding"
 description: "Description and resources for the TrueNAS community application called Linkding."
-weight: 
-aliases:
 tags:
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- flash storage
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/linkding/app_versions.json"
@@ -19,6 +11,8 @@ keywords:
 >}}
 
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

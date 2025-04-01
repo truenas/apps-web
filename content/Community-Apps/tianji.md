@@ -1,15 +1,9 @@
 ---
 title: "Tianji"
 description: "Provides installation instructions for the Tianji application in TrueNAS."
-weight: 
-aliases:
 tags:
 - tianji
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
 
 {{< github-content 
@@ -17,10 +11,17 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<a href="https://github.com/msgbyte/tianji">Tianji</a> - Insight into everything, Website Analytics + Uptime Monitor + Server Status. not only another GA alternatives
+<!--
+<div class="docs-sections">
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
+
+</div>
+-->

@@ -1,14 +1,8 @@
 ---
 title: "Tailscale"
 description: "Description and resources for the TrueNAS community application called Tailscale."
-weight: 
-aliases:
 tags:
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- flash storage
 ---
 
 {{< github-content 
@@ -16,9 +10,9 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
-
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

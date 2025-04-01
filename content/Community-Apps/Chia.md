@@ -1,17 +1,10 @@
 ---
 title: "Chia"
 description: "Description and resources for the TrueNAS community application called Chia."
-weight: 
-aliases:
 tags: 
  - apps
  - crypto
-keywords:
-- nas data storage
-- software storage solutions
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/chia/app_versions.json"
@@ -19,6 +12,8 @@ keywords:
 >}}
 
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

@@ -1,15 +1,9 @@
 ---
 title: "Emby Server"
 description: "Description and resources for the TrueNAS Stable application called Emby Server."
-weight:
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-
 ---
 
 {{< github-content 

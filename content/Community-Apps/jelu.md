@@ -1,15 +1,9 @@
 ---
 title: "Jelu"
 description: "Provides installation instructions for the Jelu application in TrueNAS."
-weight: 
-aliases:
 tags:
 - jelu
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
 
 {{< github-content 
@@ -17,10 +11,17 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<a href="https://github.com/bayang/jelu">Jelu</a> is a self hosted read and to-read list book tracker.
+<!--
+<div class="docs-sections">
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
+
+</div>
+-->

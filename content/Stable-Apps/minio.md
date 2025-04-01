@@ -2,15 +2,9 @@
 title: "MinIO"
 description: "Description and resources for the TrueNAS stable application called MinIO."
 geekdocCollapseSection: true
-weight:
-aliases:
 tags:
 - s3
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
 ---
 
 {{< github-content 

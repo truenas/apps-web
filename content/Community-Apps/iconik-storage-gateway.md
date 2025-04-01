@@ -1,26 +1,27 @@
 ---
 title: "Iconik Storage Gateway"
 description: "Provides installation instructions for the Iconik Storage Gateway application in TrueNAS."
-weight: 
-aliases:
 tags:
 - iconik-storage-gateway
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/iconik-storage-gateway/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<a href="https://iconik.io">Iconik Storage Gateway</a> is a cloud-native storage gateway for your on-premise storage.
+<!--
+<div class="docs-sections">
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
+
+</div>
+-->

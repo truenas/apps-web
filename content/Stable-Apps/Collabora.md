@@ -1,14 +1,9 @@
 ---
 title: "Collabora"
 description: "Description and resources for the TrueNAS stable application called Collabora."
-weight:
-aliases:
 tags:
  - apps
  - cloud
-keywords:
-- nas data storage
-- software storage solutions
 ---
 
 {{< github-content 

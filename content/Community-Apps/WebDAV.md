@@ -1,8 +1,6 @@
 ---
 title: "WebDAV"
 description: "Description and resources for the TrueNAS community application called WebDAV."
-weight:
-aliases:
 tags:
  - webdav
  - shares
@@ -14,9 +12,9 @@ tags:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
-
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

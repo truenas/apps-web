@@ -1,18 +1,10 @@
 ---
 title: "MinIO"
 description: "Description and resources for the TrueNAS Enterprise application called Minio."
-geekdocCollapseSection: true
-weight: 
-aliases: 
 tags:
 - s3
 - enterprise
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- object based storage
-- enterprise data storage
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}

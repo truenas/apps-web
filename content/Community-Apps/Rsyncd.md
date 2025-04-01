@@ -1,15 +1,9 @@
 ---
 title: "Rsync Daemon"
 description: "Description and resources for the TrueNAS community application called Rsync Daemon."
-weight:
-aliases:
 tags:
 - rsync
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- backup and recovery
 ---
 
 {{< github-content 
@@ -17,9 +11,9 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
-
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

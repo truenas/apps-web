@@ -1,14 +1,8 @@
 ---
 title: "Ollama"
 description: "Provides installation instructions for the Ollama application in TrueNAS."
-weight: 
-aliases:
 tags:
 - apps
-keywords:
-- nas data storage
-- software storage solutions
-- flash storage
 ---
 
 {{< github-content 
@@ -16,14 +10,17 @@ keywords:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-<!-- Comment out the following line if your suggested changes to this Community app documentation provide a complete installation tutorial. Leave exposed if you are proposing a partial expansion of the content, but further work is needed. -->
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!-- Uncomment the following line if you suspect this Community app documentation is out of date, inaccurate, or needs further improvement -->
-<!--{{< include file="/static/includes/apps/CommunityPleaseImprove.md" >}}-->
+<!--
+<div class="docs-sections">
 
-[Ollama](https://ollama.com) <!-- is a [description of the application] -->
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+</div>
+-->

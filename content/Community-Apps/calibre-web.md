@@ -1,26 +1,27 @@
 ---
 title: "Calibre Web"
 description: "Provides installation instructions for the Calibre Web application in TrueNAS."
-weight: 
-aliases:
 tags:
 - calibre-web
 - apps
-keywords:
-- community storage
-- software solutions
-- data management
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/calibre-web/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<a href="https://github.com/janeczku/calibre-web">Calibre Web</a> is a web app for browsing, reading and downloading eBooks stored in a Calibre database
+<!--
+<div class="docs-sections">
 
-{{< include file="/static/includes/ProposeArticleChange.md" >}}
+{{< doc-card title="<appname> Deployments" link="/resources/"
+descr="How to deploy and configure the <appname> app." >}}
+
+</div>
+-->

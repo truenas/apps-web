@@ -1,8 +1,6 @@
 ---
 title: "TFTP Server"
 description: "Description and resources for the TrueNAS community application called TFTP Server." 
-weight:
-aliases:
 tags:
 - tftp
 - apps
@@ -13,9 +11,9 @@ tags:
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
-
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

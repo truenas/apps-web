@@ -1,16 +1,10 @@
 ---
 title: "Remote Assist"
 description: "Description and resources for the TrueNAS Enterprise application called Remote Assist."
-weight:
-aliases:
 tags:
 - support
 - apps
 - enterprise
-keywords:
-- nas data storage
-- software storage solutions
-- enterprise data storage
 ---
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}

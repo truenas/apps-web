@@ -1,18 +1,10 @@
 ---
 title: "Jellyfin"
 description: "Description and resources for the TrueNAS community application called Jellyfin."
-weight: 
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
-- flash storage
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/jellyfin/app_versions.json"
@@ -20,6 +12,8 @@ keywords:
 >}}
 
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 

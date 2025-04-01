@@ -1,17 +1,10 @@
 ---
 title: "Immich"
 description: "Description and resources for the TrueNAS community application called Immich."
-weight: 
-aliases:
 tags:
 - apps
 - media
-keywords:
-- nas data storage
-- software storage solutions
 ---
-
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< github-content 
     path="trains/community/immich/app_versions.json"
@@ -19,6 +12,8 @@ keywords:
 >}}
 
 ## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 <div class="docs-sections">
 
