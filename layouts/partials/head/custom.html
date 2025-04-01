@@ -37,3 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  <link rel="stylesheet" href="{{ .Site.Params.googlefonts }}" type="text/css" media="all" /> 
  {{ end }}
  
+ <!-- Add app keywords to html metadata -->
+{{ if .Scratch.Get "keywords" }}
+  <meta name="keywords" content="{{ delimit (.Scratch.Get "keywords") ", " }}">
+{{ end }}

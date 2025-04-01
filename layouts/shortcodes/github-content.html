@@ -30,7 +30,11 @@
       {{ break }}
     {{ end }}
     {{ $versionData := index $jsonData $firstKey }}
-
+    <!-- Extract keywords -->
+    {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
+	<!-- Add keywords to the page metadata -->
+    {{ .Page.Scratch.Set "keywords" $keywords }}
+	
   <!-- Determine the app's category -->
     {{ $appCategory := "" }}
     {{ $name := $versionData.app_metadata.name }}
