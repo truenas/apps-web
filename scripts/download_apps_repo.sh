@@ -22,8 +22,9 @@ echo "Starting to download the 'trains' directory from the GitHub repository int
 REPO_URL="https://github.com/truenas/apps"
 
 git clone -b master --depth=1 $REPO_URL $BASE_DIR
-if [ $? -ne 0 ]; then
+if [ $? -eq 0 ]; then
   echo "'trains' directory successfully downloaded to: $TEMP_DIR"
+  exit 0
 else
   echo "Failed to download the 'trains' directory. Please check the URL or your network connection."
   exit 1
