@@ -1,6 +1,6 @@
 ---
 title: "Wordpress"
-description: "Provides installation instructions for the Wordpress application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Wordpress."
 tags:
 - apps
 ---

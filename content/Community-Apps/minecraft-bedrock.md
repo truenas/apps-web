@@ -1,6 +1,6 @@
 ---
 title: "Minecraft Bedrock"
-description: "Provides installation instructions for the Minecraft Bedrock application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Minecraft Bedrock."
 tags:
 - minecraft-bedrock
 - apps

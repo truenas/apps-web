@@ -1,6 +1,6 @@
 ---
 title: "Tianji"
-description: "Provides installation instructions for the Tianji application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Tianji."
 tags:
 - tianji
 - apps

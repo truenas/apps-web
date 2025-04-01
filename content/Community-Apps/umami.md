@@ -1,6 +1,6 @@
 ---
 title: "Umami"
-description: "Provides installation instructions for the Umami application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Umami."
 tags:
 - umami
 - apps

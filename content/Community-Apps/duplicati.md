@@ -1,6 +1,6 @@
 ---
 title: "Duplicati"
-description: "Provides installation instructions for the Duplicati application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Duplicati."
 tags:
 - duplicati
 - apps

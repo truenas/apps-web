@@ -1,6 +1,6 @@
 ---
 title: "Plex Auto Languages"
-description: "Provides installation instructions for the Plex Auto Languages application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Plex Auto Languages."
 tags:
 - apps
 ---

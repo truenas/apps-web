@@ -1,6 +1,6 @@
 ---
 title: "Romm"
-description: "Provides installation instructions for the Romm application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Romm."
 tags:
 - romm
 - apps

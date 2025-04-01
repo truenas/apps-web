@@ -1,6 +1,6 @@
 ---
 title: "Frigate"
-description: "Provides installation instructions for the Frigate application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Frigate."
 tags:
 - apps
 ---

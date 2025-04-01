@@ -1,6 +1,6 @@
 ---
 title: "Overseerr"
-description: "Provides installation instructions for the Overseerr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Overseerr."
 tags:
 - apps
 ---

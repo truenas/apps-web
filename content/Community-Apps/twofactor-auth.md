@@ -1,6 +1,6 @@
 ---
 title: "2FAuth"
-description: "Provides installation instructions for the 2FAuth application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called 2FAuth."
 tags:
 - apps
 ---

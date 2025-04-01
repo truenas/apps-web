@@ -1,6 +1,6 @@
 ---
 title: "Readarr"
-description: "Provides installation instructions for the Readarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Readarr."
 tags:
 - apps
 ---

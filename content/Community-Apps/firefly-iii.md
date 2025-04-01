@@ -1,6 +1,6 @@
 ---
 title: "Firefly III"
-description: "Provides installation instructions for the Firefly III application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Firefly III."
 tags:
 - apps
 ---

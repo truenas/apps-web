@@ -1,6 +1,6 @@
 ---
 title: "Jelu"
-description: "Provides installation instructions for the Jelu application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Jelu."
 tags:
 - jelu
 - apps

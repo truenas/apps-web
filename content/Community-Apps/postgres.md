@@ -1,6 +1,6 @@
 ---
 title: "Postgres"
-description: "Provides installation instructions for the Postgres application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Postgres."
 tags:
 - postgres
 - apps

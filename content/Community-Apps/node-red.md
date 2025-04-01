@@ -1,6 +1,6 @@
 ---
 title: "Node-RED"
-description: "Provides installation instructions for the Node-RED application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Node-RED."
 tags:
 - apps
 ---

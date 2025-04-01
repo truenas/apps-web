@@ -1,6 +1,6 @@
 ---
 title: "Unifi Controller"
-description: "Provides installation instructions for the Unifi Controller application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Unifi Controller."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Autobrr"
-description: "Provides installation instructions for the Autobrr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Autobrr."
 tags:
 - apps
 ---

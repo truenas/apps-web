@@ -1,6 +1,6 @@
 ---
 title: "ClamAV"
-description: "Provides installation instructions for the ClamAV application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called ClamAV."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Glances"
-description: "Provides installation instructions for the Glances application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Glances."
 tags:
 - glances
 - apps

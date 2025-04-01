@@ -1,6 +1,6 @@
 ---
 title: "Eclipse Mosquitto"
-description: "Provides installation instructions for the Eclipse Mosquitto application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Eclipse Mosquitto."
 tags:
 - eclipse-mosquitto
 - apps

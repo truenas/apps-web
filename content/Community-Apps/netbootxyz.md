@@ -1,6 +1,6 @@
 ---
 title: "Netboot.xyz"
-description: "Provides installation instructions for the Netboot.xyz application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Netboot.xyz."
 tags:
 - apps
 ---

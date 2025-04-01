@@ -1,6 +1,6 @@
 ---
 title: "Audiobookshelf"
-description: "Provides installation instructions for the Audiobookshelf application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Audiobookshelf."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Wyze Bridge"
-description: "Provides installation instructions for the Wyze Bridge application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Wyze Bridge."
 tags:
 - wyze-bridge
 - apps

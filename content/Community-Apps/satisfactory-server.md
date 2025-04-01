@@ -1,6 +1,6 @@
 ---
 title: "Satisfactory Server"
-description: "Provides installation instructions for the Satisfactory Server application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Satisfactory Server."
 tags:
 - satisfactory-server
 - apps

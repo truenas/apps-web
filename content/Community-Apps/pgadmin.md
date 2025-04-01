@@ -1,6 +1,6 @@
 ---
 title: "pgAdmin"
-description: "Provides installation instructions for the pgAdmin application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called pgAdmin."
 tags:
 - apps
 ---

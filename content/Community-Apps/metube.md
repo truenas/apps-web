@@ -1,6 +1,6 @@
 ---
 title: "MeTube"
-description: "Provides installation instructions for the MeTube application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called MeTube."
 tags:
 - apps
 ---

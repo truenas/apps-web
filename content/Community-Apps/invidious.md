@@ -1,6 +1,6 @@
 ---
 title: "Invidious"
-description: "Provides installation instructions for the Invidious application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Invidious."
 tags:
 - apps
 ---

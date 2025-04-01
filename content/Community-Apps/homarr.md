@@ -1,6 +1,6 @@
 ---
 title: "Homarr"
-description: "Provides installation instructions for the Homarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Homarr."
 tags:
 - apps
 ---

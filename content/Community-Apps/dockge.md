@@ -1,6 +1,6 @@
 ---
 title: "Dockge"
-description: "Provides installation instructions for the Dockge application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Dockge."
 tags:
 - apps
 ---

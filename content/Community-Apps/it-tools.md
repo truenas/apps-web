@@ -1,6 +1,6 @@
 ---
 title: "IT Tools"
-description: "Provides installation instructions for the IT Tools application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called IT Tools."
 tags:
 - it-tools
 - apps

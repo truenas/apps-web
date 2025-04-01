@@ -1,6 +1,6 @@
 ---
 title: "Logseq"
-description: "Provides installation instructions for the Logseq application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Logseq."
 tags:
 - apps
 ---

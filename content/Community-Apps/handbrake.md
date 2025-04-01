@@ -1,6 +1,6 @@
 ---
 title: "HandBrake"
-description: "Provides installation instructions for the HandBrake application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called HandBrake."
 tags:
 - apps
 ---

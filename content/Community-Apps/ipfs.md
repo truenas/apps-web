@@ -1,6 +1,6 @@
 ---
 title: "IPFS"
-description: "Provides installation instructions for the IPFS application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called IPFS."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Dashy"
-description: "Provides installation instructions for the Dashy application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Dashy."
 tags:
 - apps
 ---

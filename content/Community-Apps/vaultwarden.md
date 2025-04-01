@@ -1,6 +1,6 @@
 ---
 title: "Vaultwarden"
-description: "Provides installation instructions for the Vaultwarden application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Vaultwarden."
 tags:
 - apps
 ---

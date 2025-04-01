@@ -1,6 +1,6 @@
 ---
 title: "Flame"
-description: "Provides installation instructions for the Flame application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Flame."
 tags:
 - apps
 ---

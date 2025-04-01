@@ -1,6 +1,6 @@
 ---
 title: "Prowlarr"
-description: "Provides installation instructions for the Prowlarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Prowlarr."
 tags:
 - apps
 ---

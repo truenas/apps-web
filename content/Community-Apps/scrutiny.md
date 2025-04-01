@@ -1,6 +1,6 @@
 ---
 title: "Scrutiny"
-description: "Provides installation instructions for the Scrutiny application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Scrutiny."
 tags:
 - scrutiny
 - apps

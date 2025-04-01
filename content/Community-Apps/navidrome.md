@@ -1,6 +1,6 @@
 ---
 title: "Navidrome"
-description: "Provides installation instructions for the Navidrome application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Navidrome."
 tags:
 - apps
 ---

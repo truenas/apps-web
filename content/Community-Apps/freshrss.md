@@ -1,6 +1,6 @@
 ---
 title: "FreshRSS"
-description: "Provides installation instructions for the FreshRSS application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called FreshRSS."
 tags:
 - apps
 ---

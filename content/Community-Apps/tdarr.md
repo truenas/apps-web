@@ -1,6 +1,6 @@
 ---
 title: "Tdarr"
-description: "Provides installation instructions for the Tdarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Tdarr."
 tags:
 - apps
 ---

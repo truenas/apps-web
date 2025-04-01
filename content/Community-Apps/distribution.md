@@ -1,6 +1,6 @@
 ---
 title: "Distribution"
-description: "Provides installation instructions for the Distribution application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Distribution."
 tags:
 - apps
 ---

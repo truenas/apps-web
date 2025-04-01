@@ -1,6 +1,6 @@
 ---
 title: "Octoprint"
-description: "Provides installation instructions for the Octoprint application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Octoprint."
 tags:
 - octoprint
 - apps

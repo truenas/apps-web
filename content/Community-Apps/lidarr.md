@@ -1,6 +1,6 @@
 ---
 title: "Lidarr"
-description: "Provides installation instructions for the Lidarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Lidarr."
 tags:
 - apps
 ---

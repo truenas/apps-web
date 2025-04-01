@@ -1,6 +1,6 @@
 ---
 title: "Odoo"
-description: "Provides installation instructions for the Odoo application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Odoo."
 tags:
 - apps
 ---

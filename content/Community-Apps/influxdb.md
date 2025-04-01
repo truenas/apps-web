@@ -1,6 +1,6 @@
 ---
 title: "InfluxDB"
-description: "Provides installation instructions for the InfluxDB application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called InfluxDB."
 tags:
 - influxdb
 - apps

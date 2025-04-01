@@ -1,6 +1,6 @@
 ---
 title: "Heimdall"
-description: "Provides installation instructions for the Heimdall application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Heimdall."
 tags:
 - heimdall
 - apps

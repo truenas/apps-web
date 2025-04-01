@@ -1,6 +1,6 @@
 ---
 title: "Unifi Protect Backup"
-description: "Provides installation instructions for the Unifi Protect Backup application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Unifi Protect Backup."
 tags:
 - apps
 ---

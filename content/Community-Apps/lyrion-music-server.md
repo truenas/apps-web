@@ -1,6 +1,6 @@
 ---
 title: "Lyrion Music Server"
-description: "Provides installation instructions for the Lyrion Music Server application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Lyrion Music Server."
 tags:
 - lyrion-music-server
 - apps

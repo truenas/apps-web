@@ -1,6 +1,6 @@
 ---
 title: "Cloudflared"
-description: "Provides installation instructions for the Cloudflared application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Cloudflared."
 tags:
 - apps
 ---

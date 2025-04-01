@@ -1,6 +1,6 @@
 ---
 title: "Redis"
-description: "Provides installation instructions for the Redis application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Redis."
 tags:
 - apps
 ---

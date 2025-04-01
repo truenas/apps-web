@@ -1,6 +1,6 @@
 ---
 title: "SABnzbd"
-description: "Provides installation instructions for the SABnzbd application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called SABnzbd."
 tags:
 - apps
 ---

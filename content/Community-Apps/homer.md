@@ -1,6 +1,6 @@
 ---
 title: "Homer"
-description: "Provides installation instructions for the Homer application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Homer."
 tags:
 - apps
 ---

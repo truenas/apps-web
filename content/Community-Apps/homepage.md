@@ -1,6 +1,6 @@
 ---
 title: "Homepage"
-description: "Provides installation instructions for the Homepage application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Homepage."
 tags:
 - apps
 ---

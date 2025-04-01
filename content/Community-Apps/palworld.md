@@ -1,6 +1,6 @@
 ---
 title: "Palworld"
-description: "Provides installation instructions for the Palworld application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Palworld."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Planka"
-description: "Provides installation instructions for the Planka application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Planka."
 tags:
 - apps
 ---

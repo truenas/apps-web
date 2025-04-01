@@ -1,6 +1,6 @@
 ---
 title: "Gitea"
-description: "Provides installation instructions for the Gitea application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Gitea."
 tags:
 - apps
 ---

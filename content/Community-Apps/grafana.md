@@ -1,6 +1,6 @@
 ---
 title: "Grafana"
-description: "Provides installation instructions for the Grafana application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Grafana."
 tags:
 - apps
 ---

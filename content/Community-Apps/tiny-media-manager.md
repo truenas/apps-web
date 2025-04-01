@@ -1,6 +1,6 @@
 ---
 title: "Tiny Media Manager"
-description: "Provides installation instructions for the Tiny Media Manager application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Tiny Media Manager."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Recyclarr"
-description: "Provides installation instructions for the Recyclarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Recyclarr."
 tags:
 - apps
 ---

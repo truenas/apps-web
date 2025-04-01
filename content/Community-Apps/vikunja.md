@@ -1,6 +1,6 @@
 ---
 title: "Vikunja"
-description: "Provides installation instructions for the Vikunja application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Vikunja."
 tags:
 - apps
 ---

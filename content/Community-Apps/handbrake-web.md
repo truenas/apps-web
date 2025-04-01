@@ -1,6 +1,6 @@
 ---
 title: "Handbrake Web"
-description: "Provides installation instructions for the Handbrake Web application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Handbrake Web."
 tags:
 - handbrake-web
 - apps

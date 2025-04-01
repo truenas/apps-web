@@ -1,6 +1,6 @@
 ---
 title: "Calibre"
-description: "Provides installation instructions for the Calibre application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Calibre."
 tags:
 - calibre
 - apps

@@ -1,6 +1,6 @@
 ---
 title: "FlareSolverr"
-description: "Provides installation instructions for the FlareSolverr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called FlareSolverr."
 tags:
 - apps
 ---

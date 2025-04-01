@@ -1,6 +1,6 @@
 ---
 title: "Bazarr"
-description: "Provides installation instructions for the Bazarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Bazarr."
 tags:
 - apps
 ---

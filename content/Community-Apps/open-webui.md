@@ -1,6 +1,6 @@
 ---
 title: "Open WebUI"
-description: "Provides installation instructions for the Open WebUI application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Open WebUI."
 tags:
 - apps
 ---

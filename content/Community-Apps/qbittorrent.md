@@ -1,6 +1,6 @@
 ---
 title: "qBittorrent"
-description: "Provides installation instructions for the qBittorrent application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called qBittorrent."
 tags:
 - apps
 ---

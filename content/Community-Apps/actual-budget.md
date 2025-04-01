@@ -1,6 +1,6 @@
 ---
 title: "Actual Budget"
-description: "Provides installation instructions for the Actual Budget application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Actual Budget."
 tags:
 - apps
 ---

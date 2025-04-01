@@ -1,6 +1,6 @@
 ---
 title: "Komga"
-description: "Provides installation instructions for the Komga application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Komga."
 tags:
 - apps
 ---

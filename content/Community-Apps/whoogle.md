@@ -1,6 +1,6 @@
 ---
 title: "Whoogle"
-description: "Provides installation instructions for the Whoogle application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Whoogle."
 tags:
 - apps
 ---

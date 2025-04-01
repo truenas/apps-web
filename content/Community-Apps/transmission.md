@@ -1,6 +1,6 @@
 ---
 title: "Transmission"
-description: "Provides installation instructions for the Transmission application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Transmission."
 tags:
 - apps
 ---

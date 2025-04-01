@@ -1,6 +1,6 @@
 ---
 title: "Terraria"
-description: "Provides installation instructions for the Terraria application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Terraria."
 tags:
 - apps
 ---

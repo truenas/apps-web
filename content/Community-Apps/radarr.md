@@ -1,6 +1,6 @@
 ---
 title: "Radarr"
-description: "Provides installation instructions for the Radarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Radarr."
 tags:
 - apps
 ---

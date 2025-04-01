@@ -1,6 +1,6 @@
 ---
 title: "UrBackup"
-description: "Provides installation instructions for the UrBackup application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called UrBackup."
 tags:
 - urbackup
 - apps

@@ -1,6 +1,6 @@
 ---
 title: "Paperless-ngx"
-description: "Provides installation instructions for the Paperless-ngx application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Paperless-ngx."
 tags:
 - apps
 ---

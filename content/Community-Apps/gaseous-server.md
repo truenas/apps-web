@@ -1,6 +1,6 @@
 ---
 title: "Gaseous Server"
-description: "Provides installation instructions for the Gaseous Server application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Gaseous Server."
 tags:
 - gaseous-server
 - apps

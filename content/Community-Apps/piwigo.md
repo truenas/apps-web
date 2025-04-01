@@ -1,6 +1,6 @@
 ---
 title: "Piwigo"
-description: "Provides installation instructions for the Piwigo application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Piwigo."
 tags:
 - apps
 ---

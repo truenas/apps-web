@@ -1,6 +1,6 @@
 ---
 title: "Sonarr"
-description: "Provides installation instructions for the Sonarr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Sonarr."
 tags:
 - apps
 ---

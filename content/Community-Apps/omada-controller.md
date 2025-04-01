@@ -1,6 +1,6 @@
 ---
 title: "Omada Controller"
-description: "Provides installation instructions for the Omada Controller application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Omada Controller."
 tags:
 - apps
 ---

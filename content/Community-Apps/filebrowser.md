@@ -1,6 +1,6 @@
 ---
 title: "File Browser"
-description: "Provides installation instructions for the File Browser application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called File Browser."
 tags:
 - apps
 ---

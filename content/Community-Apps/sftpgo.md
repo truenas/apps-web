@@ -1,6 +1,6 @@
 ---
 title: "SFTPGo"
-description: "Provides installation instructions for the SFTPGo application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called SFTPGo."
 tags:
 - apps
 ---

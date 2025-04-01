@@ -1,6 +1,6 @@
 ---
 title: "Roundcube"
-description: "Provides installation instructions for the Roundcube application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Roundcube."
 tags:
 - apps
 ---

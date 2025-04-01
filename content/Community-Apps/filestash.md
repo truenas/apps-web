@@ -1,6 +1,6 @@
 ---
 title: "Filestash"
-description: "Provides installation instructions for the Filestash application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Filestash."
 tags:
 - filestash
 - apps

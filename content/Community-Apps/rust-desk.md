@@ -1,6 +1,6 @@
 ---
 title: "Rust Desk"
-description: "Provides installation instructions for the Rust Desk application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Rust Desk."
 tags:
 - apps
 ---

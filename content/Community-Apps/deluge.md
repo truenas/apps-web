@@ -1,6 +1,6 @@
 ---
 title: "Deluge"
-description: "Provides installation instructions for the Deluge application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Deluge."
 tags:
 - apps
 ---

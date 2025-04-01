@@ -1,6 +1,6 @@
 ---
 title: "PiGallery2"
-description: "Provides installation instructions for the PiGallery2 application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called PiGallery2."
 tags:
 - apps
 ---

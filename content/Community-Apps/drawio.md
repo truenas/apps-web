@@ -1,6 +1,6 @@
 ---
 title: "Draw.io"
-description: "Provides installation instructions for the Draw.io application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Draw.io."
 tags:
 - apps
 ---

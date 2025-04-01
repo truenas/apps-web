@@ -1,6 +1,6 @@
 ---
 title: "n8n"
-description: "Provides installation instructions for the n8n application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called n8n."
 tags:
 - apps
 ---

@@ -1,6 +1,6 @@
 ---
 title: "FSCrawler"
-description: "Provides installation instructions for the FSCrawler application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called FSCrawler."
 tags:
 - apps
 ---

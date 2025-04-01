@@ -1,6 +1,6 @@
 ---
 title: "Kavita"
-description: "Provides installation instructions for the Kavita application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Kavita."
 tags:
 - apps
 ---

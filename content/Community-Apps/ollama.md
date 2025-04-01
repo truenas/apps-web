@@ -1,6 +1,6 @@
 ---
 title: "Ollama"
-description: "Provides installation instructions for the Ollama application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Ollama."
 tags:
 - apps
 ---

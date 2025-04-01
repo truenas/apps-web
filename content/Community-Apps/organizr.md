@@ -1,6 +1,6 @@
 ---
 title: "Organizr"
-description: "Provides installation instructions for the Organizr application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Organizr."
 tags:
 - apps
 ---

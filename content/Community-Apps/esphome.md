@@ -1,6 +1,6 @@
 ---
 title: "ESPHome"
-description: "Provides installation instructions for the ESPHome application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called ESPHome."
 tags:
 - esphome
 - apps

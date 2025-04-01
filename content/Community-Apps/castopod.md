@@ -1,6 +1,6 @@
 ---
 title: "Castopod"
-description: "Provides installation instructions for the Castopod application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Castopod."
 tags:
 - apps
 ---

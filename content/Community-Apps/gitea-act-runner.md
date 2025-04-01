@@ -1,6 +1,6 @@
 ---
 title: "Gitea Act Runner"
-description: "Provides installation instructions for the Gitea Act Runner application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Gitea Act Runner."
 tags:
 - gitea-act-runner
 - apps

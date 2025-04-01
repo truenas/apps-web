@@ -1,6 +1,6 @@
 ---
 title: "Open Speed Test"
-description: "Provides installation instructions for the Open Speed Test application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Open Speed Test."
 tags:
 - open-speed-test
 - apps

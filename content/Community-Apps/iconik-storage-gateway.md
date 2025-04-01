@@ -1,6 +1,6 @@
 ---
 title: "Iconik Storage Gateway"
-description: "Provides installation instructions for the Iconik Storage Gateway application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Iconik Storage Gateway."
 tags:
 - iconik-storage-gateway
 - apps

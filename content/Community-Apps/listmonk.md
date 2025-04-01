@@ -1,6 +1,6 @@
 ---
 title: "Listmonk"
-description: "Provides installation instructions for the Listmonk application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Listmonk."
 tags:
 - apps
 ---

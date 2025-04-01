@@ -1,6 +1,6 @@
 ---
 title: "Uptime Kuma"
-description: "Provides installation instructions for the Uptime Kuma application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Uptime Kuma."
 tags:
 - uptime-kuma
 - apps

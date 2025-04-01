@@ -1,6 +1,6 @@
 ---
 title: "Portainer"
-description: "Provides installation instructions for the Portainer application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Portainer."
 tags:
 - apps
 ---

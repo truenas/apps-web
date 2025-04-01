@@ -1,6 +1,6 @@
 ---
 title: "Steam Headless"
-description: "Provides installation instructions for the Steam Headless application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Steam Headless."
 tags:
 - steam-headless
 - apps

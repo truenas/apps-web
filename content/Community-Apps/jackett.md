@@ -1,6 +1,6 @@
 ---
 title: "Jackett"
-description: "Provides installation instructions for the Jackett application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Jackett."
 tags:
 - jackett
 - apps

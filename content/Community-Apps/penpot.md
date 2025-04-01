@@ -1,6 +1,6 @@
 ---
 title: "Penpot"
-description: "Provides installation instructions for the Penpot application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Penpot."
 tags:
 - apps
 ---

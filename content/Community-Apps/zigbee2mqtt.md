@@ -1,6 +1,6 @@
 ---
 title: "Zigbee2MQTT"
-description: "Provides installation instructions for the Zigbee2MQTT application in TrueNAS."
+description: "Description and resources for the TrueNAS community application called Zigbee2MQTT."
 tags:
 - zigbee2mqtt
 - apps
