@@ -8,7 +8,7 @@
   {{ $category := . }} <!-- Save the current category name -->
   {{ $apps := index $telemetryData $category }}
   {{ if $apps }}
-    <h2>{{ $category }}</h2>
+    <h3>{{ $category }}</h3>
     <div class="docs-sections">
       {{ $appList := slice }}
       {{ range $name, $count := $apps }}

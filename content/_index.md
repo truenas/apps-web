@@ -7,18 +7,12 @@ keywords:
 ---
 
 Welcome to TrueNAS Apps!
-Applications are stand-alone containers that you can use to dramatically expand your TrueNAS experience - ranging from professional-minded containers for security and data management uses to home user tools for network file sharing and media management!
+Applications are stand-alone containers that you can use to dramatically expand your TrueNAS experience!
+These range from professional-minded containers for security and data management uses to home user tools for network file sharing and media management.
 
 TrueNAS Apps are provided by both the TrueNAS team and our amazing user Community.
-There truly is something for everyone!
-
-See some of the most popular apps actively used today!
-
-{{< popular-apps >}}
 
 ## New to TrueNAS Apps?
-
-Take a look at documentation to begin learning how to download and use apps in TrueNAS!
 
 <div class="docs-sections">
 
@@ -29,3 +23,9 @@ descr="How to prepare TrueNAS and configure the Apps service." >}}
 descr="How to find, install, and manage Apps in TrueNAS." >}}
 
 </div>
+
+See some of the most popular apps actively used today!
+
+{{< popular-apps >}}
+
+
