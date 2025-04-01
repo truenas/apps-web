@@ -13,7 +13,7 @@ tags:
 
 ## Resources
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 

@@ -12,7 +12,7 @@ tags:
 
 ## Resources
 
-{{< include file="/static/includes/apps/CommunityApp.md" >}}
+{{< include file="/static/includes/apps/StableApp.md" >}}
 
 <div class="docs-sections">
 
