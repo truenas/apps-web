@@ -8,6 +8,6 @@ Official TrueNAS support for Enterprise apps falls under two tiers: **Enterprise
 Please review the [App Support Definitions](https://www.truenas.com/docs/truenasapps/#app-support-definitions) and consult with the TrueNAS Support Team for any further clarifications.
 
 {{< expand "Contacting TrueNAS Support" "v" >}}
-{{< include file="/static/includes/iXsystemsSupportContact.md" >}}
+{{< include file="/static/includes/truenas-support-contact.md" >}}
 {{< /expand >}}
 {{< /enterprise >}}

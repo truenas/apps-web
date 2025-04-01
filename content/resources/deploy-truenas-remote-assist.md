@@ -40,7 +40,7 @@ Install Remote Assist only if instructed to by TrueNAS Enterprise support staff.
 If you have not been instructed to install the app as part of an ongoing support case, contact support before moving forward.
 
 {{< expand "Contacting Support" "v" >}}
-{{< include file="/static/includes/iXsystemsSupportContact.md" >}}
+{{< include file="/static/includes/truenas-support-contact.md" >}}
 {{< /expand >}}
 {{< /enterprise >}}
 
