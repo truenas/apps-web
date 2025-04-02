@@ -2623,6 +2623,7 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	width: 10em;
 	object-fit: contain;
 	padding: 1em 1em 1em 1em;
+	background-color: var(--accent-color);
 }
 .truenas-appbutton {
     background:#0095D5;
