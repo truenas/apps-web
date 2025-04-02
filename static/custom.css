@@ -2609,13 +2609,13 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	text-align: center;
 	font-size: 14px;
 	font-weight: bold;
-	color: #0095d5;
+	color: white;
 }
 .apps-docs-sections a:hover {
-	color: #0095d5;
+	color: white;
 }
 .apps-docs-sections a:visited {
-	color: #0095d5;
+	color: white;
 }
 .apps-docs-sections a:visited:hover {
 	color: #0095d5;
@@ -2635,7 +2635,7 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     font-weight: 600;
  }
 .truenas-appbutton:visited {
-	color: white !important;
+	color: white;
 }
 .app-info {
 	padding-top: .5rem;
