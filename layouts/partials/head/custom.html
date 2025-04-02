@@ -10,6 +10,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Favicon -->
 <link rel="icon" href="{{ "favicon/TN-favicon-32x32.png" | relURL }}" type="image/x-icon" title="TrueNAS favicon">
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
 
 <!-- Add Font Awesome and Material Design -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,3 +46,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {{ if .Scratch.Get "keywords" }}
   <meta name="keywords" content="{{ delimit (.Scratch.Get "keywords") ", " }}">
 {{ end }}
+<!-- Preload app icons -->
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const baseURL = "https://media.sys.truenas.net/apps/";
+    try {
+      // Fetch the directory listing
+      const response = await fetch(baseURL);
+      const text = await response.text();
+
+      // Parse the HTML to extract subdirectory names
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, "text/html");
+      const links = doc.querySelectorAll("a[href$='/']"); // Select links ending with "/"
+
+      links.forEach((link) => {
+        const href = link.getAttribute("href").trim(); // Trim whitespace from href
+
+        // Filter out invalid links
+        if (
+          href === "../" || // Ignore parent directory
+          href.startsWith("http") || // Ignore absolute URLs
+          href === "/" || // Ignore root directory
+          href === "apps/" || // Ignore the base directory itself
+          href === "./" // Ignore current directory
+        ) {
+          return; // Skip invalid links
+        }
+
+        // Extract subdirectory name and preload the icon
+        const subdir = href.replace("/", ""); // Remove trailing slash
+        if (subdir) {
+          const img = new Image();
+          img.src = `${baseURL}${subdir}/icons/icon.png`;
+          img.onload = () => {
+            const preloadLink = document.createElement("link");
+            preloadLink.rel = "preload";
+            preloadLink.href = img.src;
+            preloadLink.as = "image";
+            document.head.appendChild(preloadLink);
+          };
+          img.onerror = () => {
+            console.warn(`Icon not found for subdirectory: ${subdir}`);
+          };
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching or parsing directory listing:", error);
+    }
+  });
+</script>
