@@ -61,21 +61,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const links = doc.querySelectorAll("a[href$='/']"); // Select links ending with "/"
 
       links.forEach((link) => {
-        const href = link.getAttribute("href").trim(); // Trim whitespace from href
+        let href = link.getAttribute("href").trim(); // Trim whitespace from href
+
+        // Normalize the href value
+        href = href.replace(/\/+$/, ""); // Remove trailing slashes
+        href = href.replace(/^\.\//, ""); // Remove leading "./"
 
         // Filter out invalid links
         if (
-          href === "../" || // Ignore parent directory
+          href === ".." || // Ignore parent directory
           href.startsWith("http") || // Ignore absolute URLs
-          href === "/" || // Ignore root directory
-          href === "apps/" || // Ignore the base directory itself
-          href === "./" // Ignore current directory
+          href === "" || // Ignore root directory
+          href === "apps" || // Ignore the base directory itself
+          href === "/apps" || // Explicitly skip "/apps"
+          href === "/apps/" // Explicitly skip "/apps/"
         ) {
           return; // Skip invalid links
         }
 
         // Extract subdirectory name and preload the icon
-        const subdir = href.replace("/", ""); // Remove trailing slash
+        const subdir = href; // Use the normalized href as the subdirectory name
         if (subdir) {
           const img = new Image();
           img.src = `${baseURL}${subdir}/icons/icon.png`;

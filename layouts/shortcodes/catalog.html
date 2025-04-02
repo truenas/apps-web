@@ -98,7 +98,7 @@
 
     <!-- Render the app card -->
     <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}">
-      <!-- Inline Award for active use callouts -->
+	  <!-- Inline Award for active use callouts -->
       {{ if gt $deploymentCount 0 }}
       <div class="popular-app">
         {{ if gt $deploymentCount 20000 }}
@@ -121,8 +121,6 @@
       </div>
     </a>
   {{- end -}}
-</div>
-
 <!-- Populate the Dropdown with Categories -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -191,3 +189,4 @@
     });
   }
 </script>
+</div>
