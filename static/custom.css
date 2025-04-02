@@ -2610,20 +2610,10 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	font-size: 14px;
 	font-weight: bold;
 }
-.apps-docs-sections a:hover {
-	color: white;
-}
-.apps-docs-sections a:visited {
-	color: white;
-}
-.apps-docs-sections a:visited:hover {
-	color: #0095d5;
-}
 .app-card-img {
 	width: 10em;
 	object-fit: contain;
 	padding: 1em 1em 1em 1em;
-	background-color: var(--accent-color);
 }
 .truenas-appbutton {
     background:#0095D5;

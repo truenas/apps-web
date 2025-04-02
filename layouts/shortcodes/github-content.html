@@ -85,10 +85,17 @@
           <div class="app-info">
             <small>App Version: <b>{{ $versionData.app_metadata.app_version }}</b>
             {{ with $versionData.app_metadata.home }}
-              {{ if strings.HasPrefix . "https://github.com" }}
-              (<a href="{{ . }}/releases/" target="_blank">Releases</a>)
-              {{ end }}
-            {{ end }}
+				{{ if strings.HasPrefix . "https://github.com" }}
+					{{ if strings.Contains . "truenas/containers" }}
+						<!-- Special handling for truenas/containers repository -->
+						{{ $fixedURL := strings.Replace . "/main/" "/master/" 1 }} <!-- Replace 'main' with 'master' -->
+						(<a href="{{ $fixedURL }}" target="_blank">Repository</a>)
+					{{ else }}
+					<!-- Default behavior for other GitHub repositories -->
+					(<a href="{{ . }}/releases/tag/{{ $versionData.app_metadata.app_version }}" target="_blank">Release</a>)
+					{{ end }}
+				{{ end }}
+			{{ end }}
             <br>
             Version: <b>{{ $versionData.version }}</b> (<a href="https://github.com/truenas/apps/blame/master/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 }}</a>)<br>
             {{ with $versionData.app_metadata.keywords }}
