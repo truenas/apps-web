@@ -1,4 +1,9 @@
 <a class="section-box" href="{{ .Get "link" }}">
+  {{ if .Get "image" }}
+  <div class="box-image">
+      <img class="prod-card-img" src="{{ .Get "image" }}" aria-label="{{ .Get "title" }} Documentation Page">
+  </div>
+  {{ end }}
   <div class="section-tab-content ixprods">
     <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .Get "title" }}</b>
     <p>{{ .Get "descr" }}</p>

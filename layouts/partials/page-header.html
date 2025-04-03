@@ -24,6 +24,9 @@
 {{ end }}
 
 {{ $showBreadcrumb := (and (default true .Page.Params.GeekdocBreadcrumb) (default true .Site.Params.GeekdocBreadcrumb)) }}
+
+<!-- Check if the current page is NOT the home page -->
+{{ if ne .RelPermalink "/" }}
 <div
   class="gdoc-page__header flex flex-wrap
   {{ if $showBreadcrumb }}
@@ -59,3 +62,4 @@
     </div>
   {{ end }}
 </div>
+{{ end }}

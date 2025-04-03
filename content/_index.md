@@ -16,16 +16,16 @@ TrueNAS Apps are provided by both the TrueNAS team and our amazing user Communit
 
 <div class="docs-sections">
 
-{{< doc-card title="Catalog" link="/catalog"
+{{< doc-card title="Catalog" image="/images/catalog-icon.png" link="/catalog"
 descr="Browse the full catalog of applications available in TrueNAS!" >}}
 
-{{< doc-card title="Starting with Apps" link="https://www.truenas.com/docs/truenasapps/"
+{{< doc-card title="Starting with Apps" image="/images/document-question.png" link="https://www.truenas.com/docs/truenasapps/"
 descr="How to prepare TrueNAS and configure the Apps service." >}}
 
-{{< doc-card title="Managing Apps" link="https://www.truenas.com/docs/truenasapps/managingapps/"
+{{< doc-card title="Managing Apps" image="/images/document-question.png" link="https://www.truenas.com/docs/truenasapps/managingapps/"
 descr="How to find, install, and manage Apps in TrueNAS." >}}
 
-{{< doc-card title="App Support Definitions" link="https://www.truenas.com/docs/truenasapps/#app-support-definitions"
+{{< doc-card title="App Support Definitions" image="/images/support-icon.png" link="https://www.truenas.com/docs/truenasapps/#app-support-definitions"
 descr="Support availability for different apps and catalogs." >}}
 
 </div>

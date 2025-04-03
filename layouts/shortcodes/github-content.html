@@ -102,35 +102,6 @@
         </div>
       </div>
 
-      <!-- Security Capabilities Section -->
-      {{ if $versionData.app_metadata.capabilities }}
-        {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
-        <div class="section-box">
-          <b>Security Capabilities</b>
-          <ul>
-            {{ range $capability := $versionData.app_metadata.capabilities }}
-            <li>
-              {{ $capability.description }}
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ end }}
-      {{ end }}
-
-      <!-- Screenshots Section -->
-      {{ if $versionData.app_metadata.screenshots }}
-      <div class="screenshots-section">
-        <b>Screenshots</b>
-        <div class="screenshots-thumbnails">
-          {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
-          <img class="screenshot-thumbnail" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-
     <!-- Include Additional File -->
     {{ if $includeFile }}
     <details>
@@ -141,31 +112,54 @@
         </div>
     </details>
     {{ end }}
-	
-	<!-- Security Capabilities Section -->
-    {{ if $versionData.app_metadata.capabilities }}
-      {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
-      <br>
-      <details>
-        <summary>Security Capabilities</summary>
-        <ul>
-          {{ range $capability := $versionData.app_metadata.capabilities }}
-          <li>
-            {{ $capability.description }}
-          </li>
-          {{ end }}
-        </ul>
-      </details>
+  </div>
+
+  <!-- Screenshots Section -->
+  {{ if $versionData.app_metadata.screenshots }}
+  <br>
+  <div class="screenshots-section">
+    <b>Screenshots</b>
+    <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+      <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
       {{ end }}
-    {{ end }}
-    <!-- App_Versions File Expand -->
-    <br>
-    <details>
-      <summary>App Metadata (Raw File)</summary>
-      <pre><code>{{ $fileContent }}</code></pre>
-    </details>
-    <br>
-    <hr>
+    </div>
+  </div>
+  {{ end }}
+ <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
+    <div class="lightbox-controls">
+      <button id="prev-button" onclick="prevImage(event)">&#10094;</button>
+      <button id="next-button" onclick="nextImage(event)">&#10095;</button>
+    </div>
+  </div>
+
+ <!-- Security Capabilities Section -->
+   {{ if $versionData.app_metadata.capabilities }}
+     {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
+     <br>
+     <details>
+       <summary>Security Capabilities</summary>
+       <ul>
+         {{ range $capability := $versionData.app_metadata.capabilities }}
+         <li>
+           {{ $capability.description }}
+         </li>
+         {{ end }}
+       </ul>
+     </details>
+     {{ end }}
+   {{ end }}
+   <!-- App_Versions File Expand -->
+   <br>
+   <details>
+     <summary>App Metadata (Raw File)</summary>
+     <pre><code>{{ $fileContent }}</code></pre>
+   </details>
+   <br>
+   <hr>
 	
   {{ else }}
     <p>Error: Invalid JSON data in <code>{{ $localFilePath }}</code>.</p>
