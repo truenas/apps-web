@@ -1,11 +1,6 @@
 ---
-title: "Stable Apps"
-description: "Notes about TrueNAS stable train applications and individual tutorials for these applications."
-weight: 25
-aliases:
-tags:
-- apps
-related: false
+title: "Stable Catalog"
+description: "List of TrueNAS applications contained within the Stable catalog. These are routinely build-tested by TrueNAS developers but are otherwise community supported."
 keywords:
 - nas data storage
 - software storage solutions

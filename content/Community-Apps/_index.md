@@ -1,11 +1,6 @@
 ---
-title: "Community Apps Catalog"
-description: "TrueNAS Apps built by and for the TrueNAS Community."
-weight: 30
-aliases:
-tags:
-- apps
-related: false
+title: "Community Catalog"
+description: "List of TrueNAS applications contained within the Community catalog. These are maintained and supported by TrueNAS contributors."
 keywords:
 - nas data storage
 - software storage solutions
