@@ -129,24 +129,24 @@
     const input = document.getElementById("catalog-search")?.value.toLowerCase() || "";
     const filter = document.getElementById("catalog-filter")?.value.toLowerCase() || "";
     const cards = document.querySelectorAll(".catalog-card");
-
+  
     if (!cards || cards.length === 0) {
       console.error("No catalog cards found for filtering.");
       return;
     }
-
+  
     cards.forEach((card) => {
       if (!card || !(card instanceof HTMLElement)) {
         console.error("Invalid card element:", card);
         return;
       }
-
+  
       const title = card.getAttribute("data-title") || "";
       const categories = card.getAttribute("data-categories") || "";
-
+  
       const matchesSearch = title.toLowerCase().includes(input);
       const matchesFilter = !filter || categories.toLowerCase().includes(filter);
-
+  
       if (matchesSearch && matchesFilter) {
         card.style.display = "block";
       } else {
