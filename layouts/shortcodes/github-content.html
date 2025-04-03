@@ -1,13 +1,13 @@
 <!-- Define variables -->
 {{ $path := .Get "path" }}
-{{ $localBaseDir := "Apps_Temp" }}
-{{ $localFilePath := printf "%s/catalog/%s" $localBaseDir $path }}
+{{ $localBaseDir := "Apps_Temp" }} <!-- Base directory for trains -->
+{{ $localFilePath := printf "%s/%s" $localBaseDir $path }} <!-- Corrected file path -->
 {{ $includeFile := .Get "includeFile" }}
-{{ $editUrl := printf "https://github.com/truenas/apps/edit/master/catalog/%s" $path }}
+{{ $editUrl := printf "https://github.com/truenas/apps/edit/master/trains/%s" $path }}
 
 <!-- Fetch Telemetry Data -->
 {{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
-{{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal }}
+{{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal | default dict }}
 
 <!-- Initialize deployment count -->
 {{ $deploymentCount := 0 }}
@@ -16,7 +16,7 @@
 {{ if fileExists $localFilePath }}
   <!-- Read and parse the JSON file -->
   {{ $fileContent := readFile $localFilePath }}
-  {{ $jsonData := transform.Unmarshal $fileContent }}
+  {{ $jsonData := transform.Unmarshal $fileContent | default dict }}
 
   <!-- Ensure jsonData is valid before proceeding -->
   {{ if $jsonData }}
@@ -26,15 +26,15 @@
       {{ $firstKey = $key }}
       {{ break }}
     {{ end }}
-    {{ $versionData := index $jsonData $firstKey }}
+    {{ $versionData := index $jsonData $firstKey | default dict }}
+
     <!-- Extract keywords -->
     {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
-    <!-- Add keywords to the page metadata -->
     {{ .Page.Scratch.Set "keywords" $keywords }}
 
     <!-- Get deployment count from telemetry data -->
-    {{ $name := $versionData.app_metadata.name }}
-    {{ $telemetryGroup := index $telemetryData "catalog" }}
+    {{ $name := $versionData.app_metadata.name | default "" }}
+    {{ $telemetryGroup := index $telemetryData "catalog" | default dict }}
     {{ if $telemetryGroup }}
       {{ $deploymentCount = index $telemetryGroup $name | default 0 }}
     {{ end }}
@@ -58,32 +58,20 @@
         </div>
         {{ end }}
         <div class="box-image">
-          <img class="app-card-img" src="{{ $versionData.app_metadata.icon }}" aria-label="{{ $versionData.app_metadata.name }} Logo">
+          <img class="app-card-img" src="{{ $versionData.app_metadata.icon | default "/images/default-icon.png" }}" aria-label="{{ $versionData.app_metadata.name | default "App" }} Logo">
         </div>
         <div class="section-tab-content ixprods">
-          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $versionData.app_metadata.title }}</b><br>
+          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $versionData.app_metadata.title | default "App Title" }}</b><br>
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
-            <small>App Version: <b>{{ $versionData.app_metadata.app_version }}</b>
-            {{ with $versionData.app_metadata.home }}
-              {{ if strings.HasPrefix . "https://github.com" }}
-                {{ if strings.Contains . "truenas/containers" }}
-                  <!-- Special handling for truenas/containers repository -->
-                  {{ $fixedURL := strings.Replace . "/main/" "/master/" 1 }} <!-- Replace 'main' with 'master' -->
-                  (<a href="{{ $fixedURL }}" target="_blank">Repository</a>)
-                {{ else }}
-                <!-- Default behavior for other GitHub repositories -->
-                (<a href="{{ . }}/releases/tag/{{ $versionData.app_metadata.app_version }}" target="_blank">Release</a>)
-                {{ end }}
-              {{ end }}
-            {{ end }}
+            <small>App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
             <br>
-            Version: <b>{{ $versionData.version }}</b> (<a href="https://github.com/truenas/apps/blame/master/catalog/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 }}</a>)<br>
+            Version: <b>{{ $versionData.version | default "Unknown" }}</b> (<a href="https://github.com/truenas/apps/blame/master/trains/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 | default "Unknown" }}</a>)<br>
             {{ with $versionData.app_metadata.keywords }}
               Keywords: {{ delimit . ", " }}<br>
             {{ end }}
-            Train: {{ $versionData.app_metadata.train }}<br>
-            Home Page: <a href="{{ $versionData.app_metadata.home }}" target="_blank">{{ $versionData.app_metadata.home }}</a><br>
+            Train: {{ $versionData.app_metadata.train | default "Unknown" }}<br>
+            Home Page: <a href="{{ $versionData.app_metadata.home | default "#" }}" target="_blank">{{ $versionData.app_metadata.home | default "N/A" }}</a><br>
             </small>
           </div>
         </div>
@@ -92,32 +80,58 @@
       <!-- Second Card -->
       <div class="section-box">
         <div class="box-image">
-          <b>{{ $versionData.app_metadata.title }} Details</b>
+          <b>{{ $versionData.app_metadata.title | default "App Details" }} Details</b>
           <p class="app-descr">
-            {{ $versionData.app_metadata.description }}
+            {{ $versionData.app_metadata.description | default "No description available." }}
           </p>
-          <div class="app-details">
-            <!-- Context Section -->
-            {{ if $versionData.app_metadata.run_as_context }}
-            <p><small><b>Run as Context</b></small>
-            <ul style="list-style-type:none;padding-left:0;">
-              {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
-              <li>
-                <small>
-                {{ $run_as_context.description }}<br>
-                <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
-                <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
-                </small>
-              </li>
-              {{ end }}
-            </ul>
-            </p>
+		  <!-- Context Section -->
+		  {{ if $versionData.app_metadata.run_as_context }}
+          <b>Run as Context</b>
+          <ul style="list-style-type:none;padding-left:0;">
+            {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
+            <li>
+              <small>
+              {{ $run_as_context.description }}<br>
+              <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
+              <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
+              </small>
+            </li>
             {{ end }}
-          </div>
+          </ul>
+      {{ end }}
         </div>
       </div>
+
+      <!-- Security Capabilities Section -->
+      {{ if $versionData.app_metadata.capabilities }}
+        {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
+        <div class="section-box">
+          <b>Security Capabilities</b>
+          <ul>
+            {{ range $capability := $versionData.app_metadata.capabilities }}
+            <li>
+              {{ $capability.description }}
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      {{ end }}
+
+      <!-- Screenshots Section -->
+      {{ if $versionData.app_metadata.screenshots }}
+      <div class="screenshots-section">
+        <b>Screenshots</b>
+        <div class="screenshots-thumbnails">
+          {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+          <img class="screenshot-thumbnail" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
     </div>
 
+    <!-- Include Additional File -->
     {{ if $includeFile }}
     <details>
       <summary><small>Understanding App Versioning</small></summary>
@@ -127,30 +141,8 @@
         </div>
     </details>
     {{ end }}
-
-    <!-- Screenshots Section -->
-    {{ if $versionData.app_metadata.screenshots }}
-    <br>
-    <div class="screenshots-section">
-      <b>Screenshots</b>
-      <div class="screenshots-thumbnails">
-        {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
-        <img class="screenshot-thumbnail" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-      <span class="lightbox-close">&times;</span>
-      <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
-      <div class="lightbox-controls">
-        <button id="prev-button" onclick="prevImage(event)">&#10094;</button>
-        <button id="next-button" onclick="nextImage(event)">&#10095;</button>
-      </div>
-    </div>
-
-    <!-- Security Capabilities Section -->
+	
+	<!-- Security Capabilities Section -->
     {{ if $versionData.app_metadata.capabilities }}
       {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
       <br>
@@ -174,5 +166,10 @@
     </details>
     <br>
     <hr>
+	
+  {{ else }}
+    <p>Error: Invalid JSON data in <code>{{ $localFilePath }}</code>.</p>
   {{ end }}
+{{ else }}
+  <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
 {{ end }}

@@ -2,92 +2,71 @@
 {{ $rawData := resources.GetRemote $telemetryURL }}
 {{ $telemetryData := $rawData | transform.Unmarshal }}
 {{ $localBaseDir := "Apps_Temp/trains" }}
-{{ $categories := slice "Enterprise" "Stable" "Community" }}
 
-{{ range $categories }}
-  {{ $category := . }} <!-- Save the current category name -->
-  {{ $apps := index $telemetryData $category }}
-  {{ if $apps }}
-    <h3>{{ $category }}</h3>
-    <div class="docs-sections">
-      {{ $appList := slice }}
-      {{ range $name, $count := $apps }}
-        {{ $appList = $appList | append (dict "name" $name "count" $count) }}
-      {{ end }}
-      {{ $sortedApps := sort $appList "count" "desc" }}
-      {{ range first 8 $sortedApps }}
-        <!-- Construct the local file path -->
-        {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $category) .name }}
-        
-        <!-- Initialize deployment count -->
-        {{ $deploymentCount := 0 }}
-        
-        <!-- Check if the app is actively deployed -->
-        {{ $name := .name }}
-        {{ $appCount := index $apps $name }}
-        {{ if $appCount }}
-          {{ $deploymentCount = $appCount }}
-        {{ end }}
-        
-        <!-- Check if the file exists -->
-        {{ if fileExists $localFilePath }}
-          <!-- Read and parse the JSON file -->
-          {{ $fileContent := readFile $localFilePath }}
-          {{ $jsonData := transform.Unmarshal $fileContent }}
-          
-          <!-- Extract app metadata -->
-          {{ $appTitle := "" }}
-          {{ $appDescription := "" }}
-          {{ $appIcon := "" }}
-          {{ $appTrain := "" }} <!-- Initialize app train -->
-          
-          <!-- Iterate over the keys in the JSON data to find the version -->
-          {{ range $version, $data := $jsonData }}
-            {{ $appTitle = index $data "app_metadata" "title" }}
-            {{ $appDescription = index $data "app_metadata" "description" }}
-            {{ $appIcon = index $data "app_metadata" "icon" }}
-            {{ $appTrain = index $data "app_metadata" "train" }} <!-- Extract train -->
-            {{ break }}
-          {{ end }}
-          
-          <!-- Render the app card -->
-          <a class="section-box" href="/catalog/{{ .name | urlize }}/">
-            <!-- Inline Award for active use callouts -->
-            {{ if gt $deploymentCount 0 }}
-            <div class="popular-app">
-				{{ if gt $deploymentCount 20000 }}
-				<img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-				{{ else if gt $deploymentCount 10000 }}
-				<img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-				{{ else if gt $deploymentCount 5000 }}
-				<img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-				{{ else if gt $deploymentCount 1000 }}
-				<img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-				{{ end }}
-            </div>
-            {{ end }}
-            <div class="box-image">
-              <img class="app-card-img" src="{{ $appIcon | default "/images/default-icon.png" }}" aria-label="{{ $appTitle | default (.name | title) }} Logo">
-            </div>
-            <div class="section-tab-content ixprods">
-              <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle | default (.name | title) }}</b>
-			  <br>Train: {{ $appTrain | default "Unknown" }}<br>
-              <p>{{ $appDescription | default (printf "Learn more about %s and its features." (.name | title)) }}</p>
-            </div>
-          </a>
-        {{ else }}
-          <!-- Fallback if the file does not exist -->
-          <a class="section-box" href="/catalog/{{ .name | urlize }}/">
-            <div class="box-image">
-              <img class="app-card-img" src="/images/default-icon.png" aria-label="{{ .name | title }} Logo">
-            </div>
-            <div class="section-tab-content ixprods">
-              <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .name | title }}</b>
-              <p>Learn more about {{ .name | title }} and its features.</p>
-            </div>
-          </a>
-        {{ end }}
-      {{ end }}
-    </div>
+<!-- Flatten all apps across all trains -->
+{{ $allApps := slice }}
+{{ range $train, $apps := $telemetryData }}
+  {{ range $name, $count := $apps }}
+    {{ $allApps = $allApps | append (dict "name" $name "count" $count "train" $train) }}
   {{ end }}
 {{ end }}
+
+<!-- Sort all apps by deployment count in descending order -->
+{{ $sortedApps := sort $allApps "count" "desc" }}
+
+<!-- Display the top 8 apps -->
+<div class="docs-sections">
+  {{ range first 8 $sortedApps }}
+    <!-- Extract app details -->
+    {{ $appName := .name }}
+    {{ $deploymentCount := .count }}
+    {{ $appTrain := .train }}
+    {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $appTrain) $appName }}
+
+    <!-- Initialize app metadata -->
+    {{ $appTitle := "" }}
+    {{ $appDescription := "" }}
+    {{ $appIcon := "" }}
+
+    <!-- Check if the file exists -->
+    {{ if fileExists $localFilePath }}
+      <!-- Read and parse the JSON file -->
+      {{ $fileContent := readFile $localFilePath }}
+      {{ $jsonData := transform.Unmarshal $fileContent }}
+
+      <!-- Extract app metadata -->
+      {{ range $version, $data := $jsonData }}
+        {{ $appTitle = index $data "app_metadata" "title" }}
+        {{ $appDescription = index $data "app_metadata" "description" }}
+        {{ $appIcon = index $data "app_metadata" "icon" }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+
+    <!-- Render the app card -->
+    <a class="section-box" href="/catalog/{{ $appName | urlize }}/">
+      <!-- Inline Award for active use callouts -->
+      {{ if gt $deploymentCount 0 }}
+      <div class="popular-app">
+        {{ if gt $deploymentCount 20000 }}
+        <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 10000 }}
+        <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 5000 }}
+        <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $deploymentCount 1000 }}
+        <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ end }}
+      </div>
+      {{ end }}
+      <div class="box-image">
+        <img class="app-card-img" src="{{ $appIcon | default "/images/default-icon.png" }}" aria-label="{{ $appTitle | default ($appName | title) }} Logo">
+      </div>
+      <div class="section-tab-content ixprods">
+        <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle | default ($appName | title) }}</b>
+        <br>Train: {{ $appTrain | default "Unknown" }}<br>
+        <p>{{ $appDescription | default (printf "Learn more about %s and its features." ($appName | title)) }}</p>
+      </div>
+    </a>
+  {{ end }}
+</div>
