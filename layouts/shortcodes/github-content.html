@@ -32,9 +32,11 @@
     {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
     {{ .Page.Scratch.Set "keywords" $keywords }}
 
-    <!-- Get deployment count from telemetry data -->
+    <!-- Telemetry Data Matching -->
     {{ $name := $versionData.app_metadata.name | default "" }}
-    {{ $telemetryGroup := index $telemetryData "catalog" | default dict }}
+    {{ $train := $versionData.app_metadata.train | lower | default "" }}
+    {{ $telemetryTrain := cond (eq $train "enterprise") "Enterprise" (cond (eq $train "stable") "Stable" "Community") }}
+    {{ $telemetryGroup := index $telemetryData $telemetryTrain | default dict }}
     {{ if $telemetryGroup }}
       {{ $deploymentCount = index $telemetryGroup $name | default 0 }}
     {{ end }}
