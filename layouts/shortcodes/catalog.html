@@ -17,88 +17,52 @@
   {{- $rawData := resources.GetRemote $telemetryURL -}} <!-- Fetch telemetry data -->
   {{- $telemetryData := $rawData | transform.Unmarshal -}} <!-- Parse telemetry data -->
   {{- $localBaseDir := "Apps_Temp/trains" -}} <!-- Base directory for temporary files -->
-  {{- $categories := slice "Enterprise" "Stable" "Community" -}} <!-- Define categories -->
-  {{- $telemetryGroups := $telemetryData -}} <!-- Rename telemetry categories to telemetryGroups -->
+  {{- $categories := dict "Community-Apps" "community" "Enterprise-Apps" "enterprise" "Stable-Apps" "stable" -}} <!-- Map categories to subdirectories -->
   {{- $allCategories := slice -}} <!-- Initialize a slice to collect all categories -->
 
   {{- range .Page.Pages -}} <!-- Loop through all pages under the current directory -->
-    {{- $markdownFileName := .File.BaseFileName -}} <!-- Get the markdown file name -->
-    {{- $subDirName := path.Base .File.Dir -}} <!-- Get the subdirectory name -->
+    {{- $category := .Section -}} <!-- Get the section name (e.g., Community-Apps, Enterprise-Apps, Stable-Apps) -->
+    {{- $subDir := index $categories $category -}} <!-- Map the section to the corresponding subdirectory -->
+    {{- $path := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir .File.BaseFileName -}} <!-- Construct the file path -->
     {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
     {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
     {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
-    {{- $appCategories := slice -}} <!-- Initialize categories for the app -->
     {{- $deploymentCount := 0 -}} <!-- Initialize deployment count -->
+    {{- $appCategories := slice -}} <!-- Initialize app categories -->
 
-    <!-- Loop through categories to find the app -->
-    {{- range $categories -}}
-      {{- $category := . -}}
-      {{- $subDir := "" -}}
-      {{- if eq $category "Enterprise" -}}
-        {{- $subDir = "enterprise" -}}
-      {{- else if eq $category "Stable" -}}
-        {{- $subDir = "stable" -}}
-      {{- else if eq $category "Community" -}}
-        {{- $subDir = "community" -}}
+    <!-- Check if the file exists -->
+    {{- if fileExists $path -}}
+      {{- $fileContent := readFile $path -}} <!-- Read the JSON file -->
+      {{- $jsonData := transform.Unmarshal $fileContent -}} <!-- Parse the JSON file -->
+
+      <!-- Extract app metadata -->
+      {{- $firstKey := "" -}}
+      {{- range $key, $value := $jsonData -}}
+        {{- $firstKey = $key -}}
+        {{- break -}}
       {{- end -}}
+      {{- $versionData := index $jsonData $firstKey -}}
+      {{- $appMetadata = index $versionData "app_metadata" -}}
+      {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
+      {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+      {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
 
-      <!-- Construct the local file paths -->
-      {{- $localFilePathMarkdown := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir $markdownFileName -}}
-      {{- $localFilePathSubDir := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir $subDirName -}}
+      <!-- Collect categories for the dropdown -->
+      {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
 
-      <!-- Check if the file exists for the markdown file name -->
-      {{- if fileExists $localFilePathMarkdown -}}
-        {{- $fileContent := readFile $localFilePathMarkdown -}} <!-- Read the JSON file -->
-        {{- $jsonData := $fileContent | transform.Unmarshal -}} <!-- Parse the JSON file -->
-
-        <!-- Extract app metadata -->
-        {{- $firstKey := "" -}}
-        {{- range $key, $value := $jsonData -}}
-          {{- $firstKey = $key -}}
-          {{- break -}}
-        {{- end -}}
-        {{- $versionData := index $jsonData $firstKey -}}
-        {{- $appMetadata = index $versionData "app_metadata" -}}
-        {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
-        {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
-        {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
-        {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
-
-        <!-- Get deployment count from telemetry data -->
-        {{- $telemetryGroup := index $telemetryGroups $category -}}
-        {{- if $telemetryGroup -}}
-          {{- $deploymentCount = index $telemetryGroup $markdownFileName | default 0 -}}
-        {{- end -}}
-        {{- break -}} <!-- Stop searching once the app is found -->
-      {{- else if fileExists $localFilePathSubDir -}} <!-- Check if the file exists for the subdirectory name -->
-        {{- $fileContent := readFile $localFilePathSubDir -}} <!-- Read the JSON file -->
-        {{- $jsonData := $fileContent | transform.Unmarshal -}} <!-- Parse the JSON file -->
-
-        <!-- Extract app metadata -->
-        {{- $firstKey := "" -}}
-        {{- range $key, $value := $jsonData -}}
-          {{- $firstKey = $key -}}
-          {{- break -}}
-        {{- end -}}
-        {{- $versionData := index $jsonData $firstKey -}}
-        {{- $appMetadata = index $versionData "app_metadata" -}}
-        {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
-        {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
-        {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
-        {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
-
-        <!-- Get deployment count from telemetry data -->
-        {{- $telemetryGroup := index $telemetryGroups $category -}}
-        {{- if $telemetryGroup -}}
-          {{- $deploymentCount = index $telemetryGroup $subDirName | default 0 -}}
-        {{- end -}}
-        {{- break -}} <!-- Stop searching once the app is found -->
+      <!-- Get deployment count from telemetry data -->
+      {{- $appName := index $appMetadata "name" -}}
+      {{- $telemetryGroup := index $telemetryData $category -}}
+      {{- if $telemetryGroup -}}
+        {{- $deploymentCount = index $telemetryGroup $appName | default 0 -}}
       {{- end -}}
+    {{- else -}}
+      {{ warnf "File not found: %s" $path }}
     {{- end -}}
 
     <!-- Render the app card -->
     <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}">
-	  <!-- Inline Award for active use callouts -->
+      <!-- Inline Award for active use callouts -->
       {{ if gt $deploymentCount 0 }}
       <div class="popular-app">
         {{ if gt $deploymentCount 20000 }}
@@ -121,6 +85,8 @@
       </div>
     </a>
   {{- end -}}
+</div>
+
 <!-- Populate the Dropdown with Categories -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -189,4 +155,3 @@
     });
   }
 </script>
-</div>
