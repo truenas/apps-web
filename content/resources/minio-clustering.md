@@ -1,7 +1,7 @@
 ---
 title: "Setting Up MinIO Clustering"
 description: "Provides configuration instructions using the MinIO Offical Charts application widget. It includes instructions on setting up a distributed cluster configuration."
-related_app: "/stable-apps/minio"
+related_app: "/catalog/minio-stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/minio-clustering.md"
 tags:
@@ -26,7 +26,8 @@ A *node* is a single TrueNAS storage system in a cluster.
 The **stable** train version of MinIO supports [distributed mode](https://min.io/docs/minio/kubernetes/upstream/index.html?ref=docs-redirect).
 Distributed mode, allows pooling multiple drives, even on different systems, into a single object storage server.
 
-The **enterprise** train version of MinIO provides two options for clustering, Single Node Multi-Disk (SNMD) and Multi-Node Multi-Disk (MNMD) configurations. See [MinIO Enterprise]({{< relref "/Enterprise-Apps/MinIO/_index.md" >}}) for more information.
+The **enterprise** train version of MinIO provides two options for clustering, Single Node Multi-Disk (SNMD) and Multi-Node Multi-Disk (MNMD) configurations.
+See [MinIO Enterprise]({{< relref "/catalog/minio_enterprise.md" >}}) for more information.
 
 The examples below use four TrueNAS systems to create a distributed cluster.
 For more information on MinIO distributed setups, refer to the [MinIO documentation](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).

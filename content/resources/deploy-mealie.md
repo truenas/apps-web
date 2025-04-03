@@ -1,7 +1,7 @@
 ---
 title: "Mealie Deployment Notes"
 description: "Provides installation instructions for the Mealie application in TrueNAS."
-related_app: "/community-apps/mealie"
+related_app: "/catalog/mealie"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-mealie.md"
 tags:

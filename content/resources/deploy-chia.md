@@ -1,7 +1,7 @@
 ---
 title: "Chia Deployment Notes"
 description: "Provides basic installation instructions for the Chia application in TrueNAS."
-related_app: "/community-apps/chia"
+related_app: "/catalog/chia"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-chia.md"
 tags: 

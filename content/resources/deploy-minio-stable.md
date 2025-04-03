@@ -1,7 +1,7 @@
 ---
 title: "MinIO (Stable) Deployments"
 description: "Tutorials for installing and using the MinIO charts application available in the stable train in TrueNAS."
-related_app: "/stable-apps/minio"
+related_app: "/catalog/minio-stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-minio-stable.md"
 tags:
@@ -60,7 +60,7 @@ Start any sharing services after MinIO completes the installation and starts.</d
 
 ## Installing MinIO (S3) App
 This procedure covers the basic requirements and installation and configuration instructions for the **stable** train version of the MinIO application.
-For instructions on installing the Enterprise version of the MinIO application see [Configuring Enterprise MinIO]({{< relref "/content/Enterprise-Apps/_index.md" >}}).
+For instructions on installing the Enterprise version of the MinIO application see [Configuring Enterprise MinIO]({{< relref "/catalog/minio_enterprise.md" >}}).
 
 {{< hint info >}}
 This basic procedure covers the required MinIO app settings.

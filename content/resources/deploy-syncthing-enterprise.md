@@ -1,7 +1,7 @@
 ---
 title: "Deploying Enterprise Syncthing"
 description: "Provides general information, guidelines, installation instructions, and use scenarios for the Enterprise version of the Syncthing app."
-related_app: "/enterprise-apps/syncthing"
+related_app: "/catalog/syncthing"
 tags:
 - syncthing
 - apps

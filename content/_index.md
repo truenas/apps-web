@@ -12,9 +12,12 @@ These range from professional-minded containers for security and data management
 
 TrueNAS Apps are provided by both the TrueNAS team and our amazing user Community.
 
-## New to TrueNAS Apps?
+## Discover TrueNAS Applications
 
 <div class="docs-sections">
+
+{{< doc-card title="Catalog" link="/catalog"
+descr="Browse the full catalog of applications available in TrueNAS!" >}}
 
 {{< doc-card title="Starting with Apps" link="https://www.truenas.com/docs/truenasapps/"
 descr="How to prepare TrueNAS and configure the Apps service." >}}

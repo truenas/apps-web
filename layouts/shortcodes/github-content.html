@@ -1,16 +1,13 @@
 <!-- Define variables -->
 {{ $path := .Get "path" }}
 {{ $localBaseDir := "Apps_Temp" }}
-{{ $localFilePath := printf "%s/%s" $localBaseDir $path }}
+{{ $localFilePath := printf "%s/catalog/%s" $localBaseDir $path }}
 {{ $includeFile := .Get "includeFile" }}
-{{ $editUrl := printf "https://github.com/truenas/apps/edit/master/%s" $path }}
+{{ $editUrl := printf "https://github.com/truenas/apps/edit/master/catalog/%s" $path }}
 
 <!-- Fetch Telemetry Data -->
 {{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
 {{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal }}
-
-<!-- Define categories -->
-{{ $categories := slice "Enterprise" "Stable" "Community" }}
 
 <!-- Initialize deployment count -->
 {{ $deploymentCount := 0 }}
@@ -32,37 +29,21 @@
     {{ $versionData := index $jsonData $firstKey }}
     <!-- Extract keywords -->
     {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
-	<!-- Add keywords to the page metadata -->
+    <!-- Add keywords to the page metadata -->
     {{ .Page.Scratch.Set "keywords" $keywords }}
-	
-  <!-- Determine the app's category -->
-    {{ $appCategory := "" }}
-    {{ $name := $versionData.app_metadata.name }}
-    {{ range $categories }}
-      {{ $category := . }}
-      {{ $apps := index $telemetryData $category }}
-      {{ if $apps }}
-        {{ $appCount := index $apps $name }}
-        {{ if $appCount }}
-          {{ $appCategory = $category }}
-          {{ break }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
 
-    <!-- Evaluate deployment count only for the app's category -->
-    {{ if and $appCategory $telemetryData }}
-      {{ $apps := index $telemetryData $appCategory }}
-      {{ if $apps }}
-        {{ $deploymentCount = index $apps $name | default 0 }}
-      {{ end }}
+    <!-- Get deployment count from telemetry data -->
+    {{ $name := $versionData.app_metadata.name }}
+    {{ $telemetryGroup := index $telemetryData "catalog" }}
+    {{ if $telemetryGroup }}
+      {{ $deploymentCount = index $telemetryGroup $name | default 0 }}
     {{ end }}
 
     <!-- Render the content -->
     <div class="apps-docs-sections">
       <!-- First Card -->
       <div class="section-box">
-	    <!-- Inline Award for active use callouts -->
+        <!-- Inline Award for active use callouts -->
         {{ if gt $deploymentCount 0 }}
         <div class="popular-app">
           {{ if gt $deploymentCount 20000 }}
@@ -85,19 +66,19 @@
           <div class="app-info">
             <small>App Version: <b>{{ $versionData.app_metadata.app_version }}</b>
             {{ with $versionData.app_metadata.home }}
-				{{ if strings.HasPrefix . "https://github.com" }}
-					{{ if strings.Contains . "truenas/containers" }}
-						<!-- Special handling for truenas/containers repository -->
-						{{ $fixedURL := strings.Replace . "/main/" "/master/" 1 }} <!-- Replace 'main' with 'master' -->
-						(<a href="{{ $fixedURL }}" target="_blank">Repository</a>)
-					{{ else }}
-					<!-- Default behavior for other GitHub repositories -->
-					(<a href="{{ . }}/releases/tag/{{ $versionData.app_metadata.app_version }}" target="_blank">Release</a>)
-					{{ end }}
-				{{ end }}
-			{{ end }}
+              {{ if strings.HasPrefix . "https://github.com" }}
+                {{ if strings.Contains . "truenas/containers" }}
+                  <!-- Special handling for truenas/containers repository -->
+                  {{ $fixedURL := strings.Replace . "/main/" "/master/" 1 }} <!-- Replace 'main' with 'master' -->
+                  (<a href="{{ $fixedURL }}" target="_blank">Repository</a>)
+                {{ else }}
+                <!-- Default behavior for other GitHub repositories -->
+                (<a href="{{ . }}/releases/tag/{{ $versionData.app_metadata.app_version }}" target="_blank">Release</a>)
+                {{ end }}
+              {{ end }}
+            {{ end }}
             <br>
-            Version: <b>{{ $versionData.version }}</b> (<a href="https://github.com/truenas/apps/blame/master/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 }}</a>)<br>
+            Version: <b>{{ $versionData.version }}</b> (<a href="https://github.com/truenas/apps/blame/master/catalog/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 }}</a>)<br>
             {{ with $versionData.app_metadata.keywords }}
               Keywords: {{ delimit . ", " }}<br>
             {{ end }}
@@ -136,16 +117,16 @@
         </div>
       </div>
     </div>
-	
-	{{ if $includeFile }}
-	<details>
-		<summary><small>Understanding App Versioning</small></summary>
-			<div>
-				{{ $fileContent := readFile $includeFile }}
-				{{ $fileContent | markdownify }}
-			</div>
-	</details>
-	{{ end }}
+
+    {{ if $includeFile }}
+    <details>
+      <summary><small>Understanding App Versioning</small></summary>
+        <div>
+          {{ $fileContent := readFile $includeFile }}
+          {{ $fileContent | markdownify }}
+        </div>
+    </details>
+    {{ end }}
 
     <!-- Screenshots Section -->
     {{ if $versionData.app_metadata.screenshots }}
@@ -159,7 +140,7 @@
       </div>
     </div>
     {{ end }}
-	<!-- Lightbox Modal -->
+    <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
       <span class="lightbox-close">&times;</span>
       <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
@@ -185,10 +166,9 @@
       </details>
       {{ end }}
     {{ end }}
-	<!-- App_Versions File Expand -->
+    <!-- App_Versions File Expand -->
     <br>
     <details>
-      <!--<a href="{{ $editUrl }}" style="float:inline-end;">Submit changes to this app</a> This needs a rework to become a link to the yaml files controlling the app.-->
       <summary>App Metadata (Raw File)</summary>
       <pre><code>{{ $fileContent }}</code></pre>
     </details>

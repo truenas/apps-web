@@ -1,7 +1,7 @@
 ---
 title: "Rsync Daemon Deployment"
 description: "Installation and basic usage instructions for the Rsync Daemon application in TrueNAS."
-related_app: "/community-apps/rsyncd"
+related_app: "/catalog/rsyncd"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-rsyncd.md"
 tags:

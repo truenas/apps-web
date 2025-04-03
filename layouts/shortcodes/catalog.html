@@ -1,5 +1,11 @@
 <!-- Search and Filter Controls -->
 <div class="catalog-search-container">
+  <select id="catalog-train-filter">
+    <option value="">Trains: All</option>
+    <option value="community">Community</option>
+    <option value="stable">Stable</option>
+    <option value="enterprise">Enterprise</option>
+  </select>
   <select id="catalog-filter">
     <option value="">Categories: All</option>
   </select>
@@ -15,75 +21,92 @@
 <div class="docs-sections" id="catalog-cards">
   {{- $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" -}} <!-- Telemetry data URL -->
   {{- $rawData := resources.GetRemote $telemetryURL -}} <!-- Fetch telemetry data -->
-  {{- $telemetryData := $rawData | transform.Unmarshal -}} <!-- Parse telemetry data -->
+  {{- $telemetryData := $rawData | transform.Unmarshal | default dict -}} <!-- Parse telemetry data -->
   {{- $localBaseDir := "Apps_Temp/trains" -}} <!-- Base directory for temporary files -->
-  {{- $categories := dict "Community-Apps" "community" "Enterprise-Apps" "enterprise" "Stable-Apps" "stable" -}} <!-- Map categories to subdirectories -->
   {{- $allCategories := slice -}} <!-- Initialize a slice to collect all categories -->
 
-  {{- range .Page.Pages -}} <!-- Loop through all pages under the current directory -->
-    {{- $category := .Section -}} <!-- Get the section name (e.g., Community-Apps, Enterprise-Apps, Stable-Apps) -->
-    {{- $subDir := index $categories $category -}} <!-- Map the section to the corresponding subdirectory -->
-    {{- $path := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir .File.BaseFileName -}} <!-- Construct the file path -->
-    {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
-    {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
-    {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
-    {{- $deploymentCount := 0 -}} <!-- Initialize deployment count -->
-    {{- $appCategories := slice -}} <!-- Initialize app categories -->
-
-    <!-- Check if the file exists -->
-    {{- if fileExists $path -}}
-      {{- $fileContent := readFile $path -}} <!-- Read the JSON file -->
-      {{- $jsonData := transform.Unmarshal $fileContent -}} <!-- Parse the JSON file -->
-
-      <!-- Extract app metadata -->
-      {{- $firstKey := "" -}}
-      {{- range $key, $value := $jsonData -}}
-        {{- $firstKey = $key -}}
-        {{- break -}}
+  <!-- Get the catalog section -->
+  {{- $catalogSection := .Site.GetPage "section" "catalog" -}}
+  {{- if not $catalogSection -}}
+    <p>Error: Catalog section not found.</p>
+  {{- else -}}
+    {{- range $catalogSection.Pages -}} <!-- Loop through all pages in the catalog section -->
+      <!-- Skip the _index.md file -->
+      {{- if eq .File.BaseFileName "_index" -}}
+        {{- continue -}}
       {{- end -}}
-      {{- $versionData := index $jsonData $firstKey -}}
-      {{- $appMetadata = index $versionData "app_metadata" -}}
-      {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
-      {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
-      {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
 
-      <!-- Collect categories for the dropdown -->
-      {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
+      {{- $fileName := .File.BaseFileName | default "" -}} <!-- Get the base filename of the .md file -->
+      {{- $appName := index (split $fileName "_") 0 | lower -}} <!-- Extract the app name (everything before the underscore) -->
+      {{- $train := (or .Params.train "community") | lower -}} <!-- Extract the train from the front matter, default to "community" -->
 
-      <!-- Get deployment count from telemetry data -->
-      {{- $appName := index $appMetadata "name" -}}
-      {{- $telemetryGroup := index $telemetryData $category -}}
-      {{- if $telemetryGroup -}}
-        {{- $deploymentCount = index $telemetryGroup $appName | default 0 -}}
+      <!-- Construct the path -->
+      {{- $path := printf "%s/%s/%s/app_versions.json" $localBaseDir $train $appName -}}
+
+      {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
+      {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
+      {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
+      {{- $deploymentCount := 0 -}} <!-- Initialize deployment count -->
+      {{- $appCategories := slice -}} <!-- Initialize app categories -->
+
+      <!-- Check if the file exists -->
+      {{- if fileExists $path -}}
+        {{- $fileContent := readFile $path -}} <!-- Read the JSON file -->
+        {{- $jsonData := transform.Unmarshal $fileContent | default dict -}} <!-- Parse the JSON file -->
+
+        <!-- Process the first version data directly -->
+        {{- if and $jsonData (gt (len $jsonData) 0) -}} <!-- Check if $jsonData is valid and not empty -->
+          {{- range $key, $value := $jsonData -}}
+            {{- $appMetadata = index $value "app_metadata" | default dict -}}
+            {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
+            {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
+            {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
+
+            <!-- Collect categories for the dropdown -->
+            {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
+
+            <!-- Get deployment count from telemetry data -->
+            {{- $telemetryGroup := index $telemetryData $train | default dict -}} <!-- Get the telemetry group for the train -->
+            {{- $deploymentCount = index $telemetryGroup $appName | default 0 -}} <!-- Get the deployment count, default to 0 -->
+
+            <!-- Break after processing the first version data -->
+            {{- break -}}
+          {{- end -}}
+        {{- else -}}
+          {{ warnf "No version data found in JSON for app: %s" $appName }}
+        {{- end -}}
+      {{- else -}}
+        {{ warnf "File not found: %s" $path }}
       {{- end -}}
-    {{- else -}}
-      {{ warnf "File not found: %s" $path }}
-    {{- end -}}
 
-    <!-- Render the app card -->
-    <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}">
-      <!-- Inline Award for active use callouts -->
-      {{ if gt $deploymentCount 0 }}
-      <div class="popular-app">
-        {{ if gt $deploymentCount 20000 }}
-          <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $deploymentCount 10000 }}
-          <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $deploymentCount 5000 }}
-          <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $deploymentCount 1000 }}
-          <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+      <!-- Render the app card -->
+      <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $train }}">
+        <!-- Inline Award for active use callouts -->
+        {{ if gt $deploymentCount 0 }}
+        <div class="popular-app">
+          {{ if gt $deploymentCount 20000 }}
+            <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          {{ else if gt $deploymentCount 10000 }}
+            <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          {{ else if gt $deploymentCount 5000 }}
+            <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          {{ else if gt $deploymentCount 1000 }}
+            <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          {{ end }}
+        </div>
         {{ end }}
-      </div>
-      {{ end }}
-      <div class="box-image">
-        <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ .Title }} Logo">
-      </div>
-      <div class="section-tab-content ixprods">
-        <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .Title }}</b>
-        <p>{{ $appDescription }}</p>
-      </div>
-    </a>
+        <div class="box-image">
+          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ .Title }} Logo">
+        </div>
+        <div class="section-tab-content ixprods">
+          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .Title }}</b>
+          <p>
+            Train: {{ $train }}<br>
+            {{ $appDescription }}
+          </p>
+        </div>
+      </a>
+    {{- end -}}
   {{- end -}}
 </div>
 
@@ -111,6 +134,7 @@
     // Add event listeners for filtering
     const searchInput = document.getElementById("catalog-search");
     const filterDropdown = document.getElementById("catalog-filter");
+    const trainDropdown = document.getElementById("catalog-train-filter");
 
     if (searchInput) {
       searchInput.addEventListener("keyup", filterCatalog);
@@ -123,11 +147,18 @@
     } else {
       console.error("Filter dropdown not found in the DOM.");
     }
+
+    if (trainDropdown) {
+      trainDropdown.addEventListener("change", filterCatalog);
+    } else {
+      console.error("Train dropdown not found in the DOM.");
+    }
   });
 
   function filterCatalog() {
     const input = document.getElementById("catalog-search")?.value.toLowerCase() || "";
     const filter = document.getElementById("catalog-filter")?.value.toLowerCase() || "";
+    const trainFilter = document.getElementById("catalog-train-filter")?.value.toLowerCase() || "";
     const cards = document.querySelectorAll(".catalog-card");
   
     if (!cards || cards.length === 0) {
@@ -143,11 +174,13 @@
   
       const title = card.getAttribute("data-title") || "";
       const categories = card.getAttribute("data-categories") || "";
-  
+      const train = card.getAttribute("data-train") || "";
+
       const matchesSearch = title.toLowerCase().includes(input);
       const matchesFilter = !filter || categories.toLowerCase().includes(filter);
-  
-      if (matchesSearch && matchesFilter) {
+      const matchesTrain = !trainFilter || train.toLowerCase() === trainFilter;
+
+      if (matchesSearch && matchesFilter && matchesTrain) {
         card.style.display = "block";
       } else {
         card.style.display = "none";

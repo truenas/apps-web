@@ -1,7 +1,7 @@
 ---
 title: "Collabora Deployment Notes"
 description: "Provides basic configuration instructions for adding the Collabora app using the TrueNAS webUI."
-related_app: "/stable-apps/collabora"
+related_app: "/catalog/collabora"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-ccollabora.md"
 tags:

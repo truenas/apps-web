@@ -1,7 +1,7 @@
 ---
 title: "Diskover Data Deployment Notes"
 description: "Provides instructions to configure TrueNAS and install Diskover Data."
-related_app: "/stable-apps/diskoverdata"
+related_app: "/catalog/diskoverdata"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-diskoverdata.md"
 tags:

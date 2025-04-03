@@ -15,29 +15,9 @@
         {{ $appList = $appList | append (dict "name" $name "count" $count) }}
       {{ end }}
       {{ $sortedApps := sort $appList "count" "desc" }}
-      {{ range first 4 $sortedApps }}
-        <!-- Define subdirectory for metadata fetching -->
-        {{ $subDir := "" }}
-        {{ if eq $category "Enterprise" }}
-          {{ $subDir = "enterprise" }}
-        {{ else if eq $category "Stable" }}
-          {{ $subDir = "stable" }}
-        {{ else if eq $category "Community" }}
-          {{ $subDir = "community" }}
-        {{ end }}
-
-        <!-- Define subdirectory for website URL -->
-        {{ $urlSubDir := "" }}
-        {{ if eq $category "Enterprise" }}
-          {{ $urlSubDir = "enterprise-apps" }}
-        {{ else if eq $category "Stable" }}
-          {{ $urlSubDir = "stable-apps" }}
-        {{ else if eq $category "Community" }}
-          {{ $urlSubDir = "community-apps" }}
-        {{ end }}
-
+      {{ range first 8 $sortedApps }}
         <!-- Construct the local file path -->
-        {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir $subDir .name }}
+        {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $category) .name }}
         
         <!-- Initialize deployment count -->
         {{ $deploymentCount := 0 }}
@@ -59,17 +39,19 @@
           {{ $appTitle := "" }}
           {{ $appDescription := "" }}
           {{ $appIcon := "" }}
+          {{ $appTrain := "" }} <!-- Initialize app train -->
           
           <!-- Iterate over the keys in the JSON data to find the version -->
           {{ range $version, $data := $jsonData }}
             {{ $appTitle = index $data "app_metadata" "title" }}
             {{ $appDescription = index $data "app_metadata" "description" }}
             {{ $appIcon = index $data "app_metadata" "icon" }}
+            {{ $appTrain = index $data "app_metadata" "train" }} <!-- Extract train -->
             {{ break }}
           {{ end }}
           
           <!-- Render the app card -->
-          <a class="section-box" href="/{{ $urlSubDir }}/{{ .name | urlize }}/">
+          <a class="section-box" href="/catalog/{{ .name | urlize }}/">
             <!-- Inline Award for active use callouts -->
             {{ if gt $deploymentCount 0 }}
             <div class="popular-app">
@@ -89,12 +71,13 @@
             </div>
             <div class="section-tab-content ixprods">
               <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle | default (.name | title) }}</b>
+			  <br>Train: {{ $appTrain | default "Unknown" }}<br>
               <p>{{ $appDescription | default (printf "Learn more about %s and its features." (.name | title)) }}</p>
             </div>
           </a>
         {{ else }}
           <!-- Fallback if the file does not exist -->
-          <a class="section-box" href="/truenasapps/{{ $urlSubDir }}/{{ .name | urlize }}/">
+          <a class="section-box" href="/catalog/{{ .name | urlize }}/">
             <div class="box-image">
               <img class="app-card-img" src="/images/default-icon.png" aria-label="{{ .name | title }} Logo">
             </div>
