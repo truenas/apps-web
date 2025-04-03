@@ -1,15 +1,16 @@
 <!-- Search and Filter Controls -->
 <div class="catalog-search-container">
-  <select id="catalog-train-filter">
+  <select id="catalog-train-filter" class="filter-apps">
     <option value="">Trains: All</option>
     <option value="community">Community</option>
     <option value="stable">Stable</option>
     <option value="enterprise">Enterprise</option>
   </select>
-  <select id="catalog-filter">
+  <select id="catalog-filter" class="filter-apps">
     <option value="">Categories: All</option>
   </select>
   <input
+    class="filter-apps"
     type="text"
     id="catalog-search"
     placeholder="Filter apps..."
@@ -30,84 +31,91 @@
   {{- if not $catalogSection -}}
     <p>Error: Catalog section not found.</p>
   {{- else -}}
-    {{- range $catalogSection.Pages -}} <!-- Loop through all pages in the catalog section -->
-      <!-- Skip the _index.md file -->
-      {{- if eq .File.BaseFileName "_index" -}}
-        {{- continue -}}
-      {{- end -}}
+    <!-- Render catalog cards -->
+    {{- range $catalogSection.Pages }}
+      <!-- Extract app details from the .md file -->
+      {{- $appPage := . }}
+      {{- $appName := $appPage.File.BaseFileName }}
+      {{- $mdTrain := $appPage.Params.train | lower }}
 
-      {{- $fileName := .File.BaseFileName | default "" -}} <!-- Get the base filename of the .md file -->
-      {{- $appName := index (split $fileName "_") 0 | lower -}} <!-- Extract the app name (everything before the underscore) -->
-      {{- $train := (or .Params.train "community") | lower -}} <!-- Extract the train from the front matter, default to "community" -->
+      <!-- Map train names to telemetry keys -->
+      {{- $telemetryTrain := cond (eq $mdTrain "enterprise") "Enterprise" (cond (eq $mdTrain "stable") "Stable" "Community") }}
 
-      <!-- Construct the path -->
-      {{- $path := printf "%s/%s/%s/app_versions.json" $localBaseDir $train $appName -}}
+      <!-- Extract the base app name by removing the _train suffix -->
+      {{- $baseAppName := index (split $appName "_") 0 }}
 
-      {{- $appMetadata := dict -}} <!-- Initialize app metadata -->
-      {{- $appIcon := "/images/default-icon.png" -}} <!-- Default icon -->
-      {{- $appDescription := "Learn more about this app." -}} <!-- Default description -->
-      {{- $deploymentCount := 0 -}} <!-- Initialize deployment count -->
-      {{- $appCategories := slice -}} <!-- Initialize app categories -->
+      <!-- Telemetry Data Matching -->
+      {{- $telemetryMatches := index $telemetryData $telemetryTrain }}
+      {{- $deploymentCount := 0 }}
+      {{- if $telemetryMatches }}
+        {{- $deploymentCount = index $telemetryMatches $baseAppName | default 0 }}
+      {{- end }}
+
+      <!-- Debug: Log missing telemetry data -->
+      {{ if eq $deploymentCount 0 }}
+        {{ warnf "No telemetry data found for app: %s in train: %s" $baseAppName $telemetryTrain }}
+      {{ end }}
+
+      <!-- Initialize app metadata -->
+      {{- $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir $mdTrain $baseAppName }}
+      {{- $appTitle := $baseAppName | title }}
+      {{- $appDescription := printf "Learn more about %s and its features." ($baseAppName | title) }}
+      {{- $appIcon := "/images/default-icon.png" }}
+      {{- $appCategories := slice }}
 
       <!-- Check if the file exists -->
-      {{- if fileExists $path -}}
-        {{- $fileContent := readFile $path -}} <!-- Read the JSON file -->
-        {{- $jsonData := transform.Unmarshal $fileContent | default dict -}} <!-- Parse the JSON file -->
+      {{- if fileExists $localFilePath }}
+        <!-- Read and parse the JSON file -->
+        {{- $fileContent := readFile $localFilePath }}
+        {{- $jsonData := transform.Unmarshal $fileContent }}
 
-        <!-- Process the first version data directly -->
-        {{- if and $jsonData (gt (len $jsonData) 0) -}} <!-- Check if $jsonData is valid and not empty -->
-          {{- range $key, $value := $jsonData -}}
-            {{- $appMetadata = index $value "app_metadata" | default dict -}}
-            {{- $appIcon = index $appMetadata "icon" | default "/images/default-icon.png" -}}
-            {{- $appDescription = index $appMetadata "description" | default "Learn more about this app." -}}
-            {{- $appCategories = index $appMetadata "categories" | default (slice) -}} <!-- Extract categories -->
+        <!-- Extract app metadata -->
+        {{- range $version, $data := $jsonData }}
+          {{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
+          {{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
+          {{- $iconField := index $data "app_metadata" "icon" }}
+          {{- if and $iconField (ne $iconField "") }}
+            {{- $appIcon = $iconField }}
+          {{- else }}
+            {{ warnf "Missing or invalid icon for app: %s" $baseAppName }}
+          {{- end }}
+          {{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
+          {{- break }}
+        {{- end }}
+      {{- else }}
+        {{ warnf "File not found: %s" $localFilePath }}
+      {{- end }}
 
-            <!-- Collect categories for the dropdown -->
-            {{- $allCategories = $allCategories | union $appCategories -}} <!-- Add categories to the global list -->
-
-            <!-- Get deployment count from telemetry data -->
-            {{- $telemetryGroup := index $telemetryData $train | default dict -}} <!-- Get the telemetry group for the train -->
-            {{- $deploymentCount = index $telemetryGroup $appName | default 0 -}} <!-- Get the deployment count, default to 0 -->
-
-            <!-- Break after processing the first version data -->
-            {{- break -}}
-          {{- end -}}
-        {{- else -}}
-          {{ warnf "No version data found in JSON for app: %s" $appName }}
-        {{- end -}}
-      {{- else -}}
-        {{ warnf "File not found: %s" $path }}
-      {{- end -}}
+      <!-- Collect categories for the dropdown -->
+      {{- $allCategories = $allCategories | union $appCategories }}
 
       <!-- Render the app card -->
-      <a class="section-box catalog-card" href="{{ .RelPermalink }}" data-title="{{ .Title | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $train }}">
+      <a class="section-box catalog-card" href="{{ $appPage.RelPermalink }}" data-title="{{ $baseAppName | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $mdTrain }}">
         <!-- Inline Award for active use callouts -->
         {{ if gt $deploymentCount 0 }}
         <div class="popular-app">
           {{ if gt $deploymentCount 20000 }}
-            <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
           {{ else if gt $deploymentCount 10000 }}
-            <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
           {{ else if gt $deploymentCount 5000 }}
-            <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
           {{ else if gt $deploymentCount 1000 }}
-            <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+          <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
           {{ end }}
         </div>
         {{ end }}
         <div class="box-image">
-          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ .Title }} Logo">
+          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo">
         </div>
         <div class="section-tab-content ixprods">
-          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ .Title }}</b>
-          <p>
-            Train: {{ $train }}<br>
-            {{ $appDescription }}
-          </p>
+          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle }}</b>
+          <br>Train: {{ $mdTrain }}<br>
+          <p>{{ $appDescription }}</p>
         </div>
       </a>
-    {{- end -}}
-  {{- end -}}
+    {{- end }}
+  {{- end }}
 </div>
 
 <!-- Populate the Dropdown with Categories -->

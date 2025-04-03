@@ -97,37 +97,37 @@
 
 <!-- Script to prevent footer overlapping with side nav elements -->
 <script>
-var options = {
-	root: null, // Use the viewport as the root
-	rootMargin: "0px",
-	threshold: 0, // When 0% of the element is visible
-};
-
-var observer = new IntersectionObserver(callback, options);
-var linksrow = document.querySelector(".linksrow");
-var nav = document.getElementById("sitenav");
-var isSticky = false; // Track if the element is sticky
-
-observer.observe(linksrow);
-
-function callback(entries, observer) {
-	entries.forEach((entry) => {
-		if (entry.isIntersecting) {
-			// The .linksrow element is in view, so remove sticky
-			if (isSticky) {
-				nav.classList.remove("sticky");
-				isSticky = false;
-			}
-		} else {
-			// The .linksrow element is out of view, so make it sticky
-			if (!isSticky) {
-				nav.classList.add("sticky");
-				isSticky = true;
-			}
-		}
-	});
-}
-
+//var options = {
+//	root: null, // Use the viewport as the root
+//	rootMargin: "0px",
+//	threshold: 0, // When 0% of the element is visible
+//};
+//
+//var observer = new IntersectionObserver(callback, options);
+//var linksrow = document.querySelector(".linksrow");
+//var nav = document.getElementById("sitenav");
+//var isSticky = false; // Track if the element is sticky
+//
+//observer.observe(linksrow);
+//
+//function callback(entries, observer) {
+//	entries.forEach((entry) => {
+//		if (entry.isIntersecting) {
+//			// The .linksrow element is in view, so remove sticky
+//			if (isSticky) {
+//				nav.classList.remove("sticky");
+//				isSticky = false;
+//			}
+//		} else {
+//			// The .linksrow element is out of view, so make it sticky
+//			if (!isSticky) {
+//				nav.classList.add("sticky");
+//				isSticky = true;
+//			}
+//		}
+//	});
+//}
+//
 // Existing behavior for right-side TOC panel on small screens
 //document.addEventListener('DOMContentLoaded', function() {
 //		var sidebarRight = document.querySelector('.sidebar-right');

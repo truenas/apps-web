@@ -1541,12 +1541,11 @@ a.section-box:hover {
 }
 /* End adjust section-box for TrueNAS Systems page cards */
 .box-image {
-	padding: .5rem 2rem .5rem 2rem;
+	padding: .5rem 1rem .5rem 1rem;
 	text-align: center;
 }
 .prod-card-img {
-	width: 10em;
-	height: 15em!important;
+	width: 5em;
 	object-fit: contain;
 }
 .box-image > img:hover {
@@ -2778,13 +2777,12 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   margin-bottom: 1rem;
   justify-content: center;
 }
-
-#catalog-search,
-#catalog-filter {
+.filter-apps {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: var(--accent-color-light);
 }
 
 #catalog-search {
@@ -2794,4 +2792,5 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 #catalog-filter {
   width: 200px;
 }
+
 /* End Styling */
