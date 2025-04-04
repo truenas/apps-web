@@ -2578,6 +2578,12 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   }
 
 /* End Styling for Version Selector Sections */
+/* Apps Website show breadcrumb on mobile view */
+@media screen and (max-width: 41rem) {
+	.gdoc-page__header .breadcrumb, .hidden-mobile {
+		display: contents;
+	}
+}
 /* Apps Docs Boxes */
 .apps-docs-sections {
   display: grid;
@@ -2786,11 +2792,22 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 }
 
 #catalog-search {
-  width: 300px;
+  min-width: 3rem;
 }
 
 #catalog-filter {
-  width: 200px;
+  min-width: 4rem;
+}
+@media (max-width: 45rem) {
+  .catalog-search-container {
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+  }
+
+  #catalog-search {
+    flex-basis: 100%; /* Make the search input take up the full width of its row */
+    margin-top: .5rem; /* Add some spacing between rows */
+	max-width: 50%;
+  }
 }
 
 /* End Styling */
