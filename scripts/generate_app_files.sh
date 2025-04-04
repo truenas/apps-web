@@ -38,7 +38,6 @@ check_unmatched_subdirs() {
   local train="$1"
   local train_dir="$TRAINS_DIR/$train"
   local unmatched=()
-  local SEND_PR="$2"
 
   # Ensure the train directory exists
   if [[ ! -d "$train_dir" ]]; then
@@ -152,7 +151,7 @@ EOF
 
 # Iterate through each train and check for unmatched subdirectories
 for train in "${TRAINS[@]}"; do
-  check_unmatched_subdirs "$train" "$SEND_PR"
+  check_unmatched_subdirs "$train"
 done
 
 if [ -n "$SEND_PR" ] ; then
