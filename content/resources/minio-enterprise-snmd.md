@@ -1,7 +1,7 @@
 ---
 title: "Installing MinIO Enterprise SNMD"
 description: "Provides instructions on installing and configuring MinIO Enterprise in a Single-Node Multi-Disk (SNMD) configuration."
-related_app: "/catalog/minio"
+related_app: "/catalog/minio_enterprise"
 tags:
 - s3
 - enterprise
