@@ -2809,5 +2809,15 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	max-width: 50%;
   }
 }
+@media (prefers-color-scheme: dark) {
+  .filter-apps {
+    background-color: #333; /* Dark background for dropdowns */
+    color: #fff; /* Light text color for contrast */
+    border: 1px solid #555; /* Subtle border for better visibility */
+  }
 
+  .filter-apps option {
+    background-color: #333; /* Match dropdown options background */
+    color: #fff; /* Match dropdown options text color */
+  }
 /* End Styling */
