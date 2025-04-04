@@ -143,11 +143,13 @@ EOF
 	fi
       else
         echo "$md_file_abs_path already exists. Skipping creation." >> "$LOG_FILE"
+        echo "$md_file_abs_path already exists. Skipping creation."
       fi
     done
     echo "" >> "$LOG_FILE"
   else
     echo "All subdirectories in $train have matching .md files." >> "$LOG_FILE"
+    echo "All subdirectories in $train have matching .md files."
     echo "" >> "$LOG_FILE"
   fi
 }
