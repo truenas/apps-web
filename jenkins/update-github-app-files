@@ -1,0 +1,20 @@
+/*
+Our default Jenkins pipeline we use to update apps site
+*/
+
+pipeline {
+  agent { label 'hugo-pr' }
+
+  environment {
+        HUGO_ENV = "production"
+  }
+
+  stages {
+    stage('Create-PR') {
+        steps {
+    	    sh 'bash ./scripts/download_apps_repo.sh'
+	    sh 'bash ./scripts/generate_app_files.sh send-pr'
+        }
+    }
+  }
+}
