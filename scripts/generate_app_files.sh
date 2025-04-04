@@ -4,11 +4,22 @@ if [ "$1" == "send-pr" ] ; then
    SEND_PR="TRUE"
    GIT_CHANGES_PENDING="FALSE"
    timestamp=$(date +%s)
-   BRANCH_NAME="apps-content-pr-${timestamp}"
-   git checkout -b ${BRANCH_NAME}
+   BRANCH_NAME="apps-content-pr"
+   BASE_BRANCH="main"
+   git checkout ${BRANCH_NAME}
    if [ $? -ne 0 ] ; then
-	echo "Failed creating ${BRANCH_NAME} branch"
-	exit 1
+	echo "Creating ${BRANCH_NAME} branch"
+        git checkout -b ${BRANCH_NAME}
+        if [ $? -ne 0 ] ; then
+	  echo "Failed creating ${BRANCH_NAME} branch"
+	  exit 1
+	fi
+   else
+	git pull origin ${BASE_BRANCH}
+        if [ $? -ne 0 ] ; then
+	  echo "Failed updating ${BRANCH_NAME} branch"
+	  exit 1
+	fi
    fi
 fi
 
@@ -166,7 +177,6 @@ if [ -n "$SEND_PR" ] ; then
 	   echo "No pending git changes to push, exiting..."
 	   exit 0
    fi
-   BASE_BRANCH="main"
    PR_TITLE="Auto-Generated new Apps Pages"
    PR_DESCRIPTION="Auto-generated list of new Apps Content Pages"
 
