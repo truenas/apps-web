@@ -14,18 +14,10 @@ pipeline {
         steps {
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
-			sh '''
-            if ! command -v jq &> /dev/null; then
-                echo "jq not found, installing..."
-                sudo apt-get update && sudo apt-get install -y jq
-            else
-                echo "jq is already installed"
-            fi
-            '''
-	    sh 'bash ./scripts/download_apps_repo.sh'
+			sh 'bash ./scripts/download_apps_repo.sh'
 		    sh 'bash ./scripts/generate_app_files.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
-	    sh 'bash ./scripts/cleanup_apps_repo.sh'
+			sh 'bash ./scripts/cleanup_apps_repo.sh'
         }
     }
     stage('Publish') {

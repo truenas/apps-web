@@ -16,6 +16,12 @@ TRAINS=("community" "enterprise" "stable")
 echo "Review Log - $(date)" > "$LOG_FILE"
 echo "======================" >> "$LOG_FILE"
 
+which jq >/dev/null 2>/dev/null
+if [ $? -ne 0 ]; then
+	echo "jq not found"
+	exit 1
+fi
+
 # Function to check for unmatched subdirectories and create .md files
 check_unmatched_subdirs() {
   local train="$1"
