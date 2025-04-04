@@ -126,12 +126,15 @@ icon: "$icon"
 $expand_include
 EOF
         echo "Created $md_file_abs_path" >> "$LOG_FILE"
+        echo "Created $md_file_abs_path"
         if [ -n "$SEND_PR" ] ; then
+                echo "git add $md_file_abs_path"
 		git add ${md_file_abs_path}
 		if [ $? -ne 0 ] ; then
 			echo "Failed adding ${md_file_abs_path} to git"
 			exit 1
 		fi
+                echo "git commit $md_file_abs_path"
                 git commit -m "Added ${md_file_rel_path}"
 		if [ $? -ne 0 ] ; then
 			echo "Failed committing ${md_file_abs_path} to git"
