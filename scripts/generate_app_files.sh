@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [ "$1" == "send-pr" ] ; then
+   SEND_PR="TRUE"
+   timestamp=$(date +%s)
+   BRANCH_NAME="apps-content-pr-${timestamp}"
+   git checkout -b ${BRANCH_NAME}
+   if [ $? -ne 0 ] ; then
+	echo "Failed creating ${BRANCH_NAME} branch"
+	exit 1
+   fi
+fi
+
 # Determine the script's root directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HUGO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -91,10 +102,11 @@ check_unmatched_subdirs() {
       fi
 
       # Create the .md file in the catalog directory
-      md_file_path="$CATALOG_DIR/$subdir.md"
-      if [[ ! -f "$md_file_path" ]]; then
+      md_file_abs_path="$CATALOG_DIR/$subdir.md"
+      md_file_rel_path="./content/catalog/${subdir}.md"
+      if [[ ! -f "$md_file_abs_path" ]]; then
         # Generate the content for the .md file
-        cat <<EOF > "$md_file_path"
+        cat <<EOF > "$md_file_abs_path"
 ---
 title: "$title"
 description: "Description and resources for the TrueNAS $train application called $title."
@@ -113,9 +125,21 @@ icon: "$icon"
 
 $expand_include
 EOF
-        echo "Created $md_file_path" >> "$LOG_FILE"
+        echo "Created $md_file_abs_path" >> "$LOG_FILE"
+        if [ -n "$SEND_PR" ] ; then
+		git add ${md_file_abs_path}
+		if [ $? -ne 0 ] ; then
+			echo "Failed adding ${md_file_abs_path} to git"
+			exit 1
+		fi
+                git commit -m "Added ${md_file_rel_path}"
+		if [ $? -ne 0 ] ; then
+			echo "Failed committing ${md_file_abs_path} to git"
+			exit 1
+		fi
+	fi
       else
-        echo "$md_file_path already exists. Skipping creation." >> "$LOG_FILE"
+        echo "$md_file_abs_path already exists. Skipping creation." >> "$LOG_FILE"
       fi
     done
     echo "" >> "$LOG_FILE"
@@ -129,6 +153,33 @@ EOF
 for train in "${TRAINS[@]}"; do
   check_unmatched_subdirs "$train"
 done
+
+if [ -n "$SEND_PR" ] ; then
+   BASE_BRANCH="main"
+   PR_TITLE="Auto-Generated new Apps Pages"
+   PR_DESCRIPTION="Auto-generated list of new Apps Content Pages"
+
+   # Format PR title
+   FINAL_PR_TITLE="$PR_TYPE: $PR_TITLE"
+
+   # Predefined Reviewers (Modify with actual GitHub usernames)
+   PREDEFINED_REVIEWERS=("docs-team")
+
+   # Convert array to comma-separated string
+   REVIEWERS_LIST=$(IFS=, ; echo "${PREDEFINED_REVIEWERS[*]}")
+
+   # Push the current branch (if not already pushed)
+   git push origin "$BRANCH_NAME"
+
+   # Create the Pull Request using GitHub CLI with assigned reviewers
+   gh pr create --base "$BASE_BRANCH" --head "$BRANCH_NAME" --title "$FINAL_PR_TITLE" --body "$PR_DESCRIPTION" --reviewer "$REVIEWERS_LIST"
+   # Confirm the PR was created
+   if [ $? -eq 0 ]; then
+       echo "✅ Pull request successfully created and assigned to reviewers: $REVIEWERS_LIST"
+   else
+       echo "❌ Failed to create pull request."
+   fi
+fi
 
 # Notify the user where the log file is located
 echo "Review log has been generated at: $LOG_FILE"
