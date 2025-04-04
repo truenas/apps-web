@@ -41,6 +41,18 @@
       {{ $deploymentCount = index $telemetryGroup $name | default 0 }}
     {{ end }}
 
+    <!-- Extract min_scale_version -->
+    {{ $minScaleVersion := "" }}
+    {{ with $versionData.app_metadata.annotations.min_scale_version }}
+      {{ $minScaleVersion = . }}
+    {{ end }}
+
+    <!-- Extract changelog -->
+    {{ $changelog := "" }}
+    {{ with $versionData.app_metadata.annotations.changelog }}
+      {{ $changelog = . }}
+    {{ end }}
+
     <!-- Render the content -->
     <div class="apps-docs-sections">
       <!-- First Card -->
@@ -66,9 +78,15 @@
           <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $versionData.app_metadata.title | default "App Title" }}</b><br>
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
-            <small>App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+            <small>
+            {{ if $minScaleVersion }}
+              Requires TrueNAS <b>{{ $minScaleVersion }}</b> or newer to deploy<br>
+            {{ end }}
+            App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+            {{ if $changelog }}
+              (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+            {{ end }}
             <br>
-            Version: <b>{{ $versionData.version | default "Unknown" }}</b> (<a href="https://github.com/truenas/apps/blame/master/trains/{{ $path }}" target="_blank">Updated {{ substr $versionData.last_update 0 10 | default "Unknown" }}</a>)<br>
             {{ with $versionData.app_metadata.keywords }}
               Keywords: {{ delimit . ", " }}<br>
             {{ end }}
@@ -86,8 +104,8 @@
           <p class="app-descr">
             {{ $versionData.app_metadata.description | default "No description available." }}
           </p>
-		  <!-- Context Section -->
-		  {{ if $versionData.app_metadata.run_as_context }}
+          <!-- Context Section -->
+          {{ if $versionData.app_metadata.run_as_context }}
           <b>Run as Context</b>
           <ul style="list-style-type:none;padding-left:0;">
             {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
@@ -100,20 +118,9 @@
             </li>
             {{ end }}
           </ul>
-      {{ end }}
+          {{ end }}
         </div>
       </div>
-
-    <!-- Include Additional File -->
-    {{ if $includeFile }}
-    <details>
-      <summary><small>Understanding App Versioning</small></summary>
-        <div>
-          {{ $fileContent := readFile $includeFile }}
-          {{ $fileContent | markdownify }}
-        </div>
-    </details>
-    {{ end }}
   </div>
 
   <!-- Screenshots Section -->
@@ -137,6 +144,23 @@
       <button id="next-button" onclick="nextImage(event)">&#10095;</button>
     </div>
   </div>
+
+ <!-- Host Mounts Section -->
+ {{ if $versionData.app_metadata.host_mounts }}
+   {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
+   <br>
+   <details>
+     <summary>Host Mounts</summary>
+     <ul>
+       {{ range $host_mount := $versionData.app_metadata.host_mounts }}
+       <li>
+         {{ $host_mount.host_path }} : {{ $host_mount.description }}
+       </li>
+       {{ end }}
+     </ul>
+   </details>
+   {{ end }}
+ {{ end }}
 
  <!-- Security Capabilities Section -->
    {{ if $versionData.app_metadata.capabilities }}
