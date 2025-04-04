@@ -1,7 +1,7 @@
 ---
 title: "Setting Up MinIO Clustering"
 description: "Provides configuration instructions using the MinIO Offical Charts application widget. It includes instructions on setting up a distributed cluster configuration."
-related_app: "/catalog/minio-stable"
+related_app: "/catalog/minio_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/minio-clustering.md"
 tags:
