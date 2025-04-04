@@ -2617,6 +2617,7 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 }
 .app-card-img {
 	width: 10em;
+	height: 10rem !important;
 	object-fit: contain;
 	padding: 1em 1em 1em 1em;
 }
