@@ -13,7 +13,7 @@ pipeline {
     stage('Create-PR') {
         steps {
     	    sh 'bash ./scripts/download_apps_repo.sh'
-	    sh 'bash ./scripts/generate_app_files.sh'
+	    sh 'bash ./scripts/generate_app_files.sh send-pr'
         }
     }
   }
