@@ -38,7 +38,6 @@ check_unmatched_subdirs() {
   local train="$1"
   local train_dir="$TRAINS_DIR/$train"
   local unmatched=()
-  local SEND_PR="$2"
 
   # Ensure the train directory exists
   if [[ ! -d "$train_dir" ]]; then
@@ -127,12 +126,15 @@ icon: "$icon"
 $expand_include
 EOF
         echo "Created $md_file_abs_path" >> "$LOG_FILE"
+        echo "Created $md_file_abs_path"
         if [ -n "$SEND_PR" ] ; then
+                echo "git add $md_file_abs_path"
 		git add ${md_file_abs_path}
 		if [ $? -ne 0 ] ; then
 			echo "Failed adding ${md_file_abs_path} to git"
 			exit 1
 		fi
+                echo "git commit $md_file_abs_path"
                 git commit -m "Added ${md_file_rel_path}"
 		if [ $? -ne 0 ] ; then
 			echo "Failed committing ${md_file_abs_path} to git"
@@ -152,7 +154,7 @@ EOF
 
 # Iterate through each train and check for unmatched subdirectories
 for train in "${TRAINS[@]}"; do
-  check_unmatched_subdirs "$train" "$SEND_PR"
+  check_unmatched_subdirs "$train"
 done
 
 if [ -n "$SEND_PR" ] ; then
