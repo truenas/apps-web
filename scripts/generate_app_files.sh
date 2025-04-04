@@ -2,6 +2,7 @@
 
 if [ "$1" == "send-pr" ] ; then
    SEND_PR="TRUE"
+   GIT_CHANGES_PENDING="FALSE"
    timestamp=$(date +%s)
    BRANCH_NAME="apps-content-pr-${timestamp}"
    git checkout -b ${BRANCH_NAME}
@@ -128,18 +129,19 @@ EOF
         echo "Created $md_file_abs_path" >> "$LOG_FILE"
         echo "Created $md_file_abs_path"
         if [ -n "$SEND_PR" ] ; then
-                echo "git add $md_file_abs_path"
-		git add ${md_file_abs_path}
-		if [ $? -ne 0 ] ; then
-			echo "Failed adding ${md_file_abs_path} to git"
-			exit 1
-		fi
-                echo "git commit $md_file_abs_path"
-                git commit -m "Added ${md_file_rel_path}"
-		if [ $? -ne 0 ] ; then
-			echo "Failed committing ${md_file_abs_path} to git"
-			exit 1
-		fi
+           GIT_CHANGES_PENDING="TRUE"
+           echo "git add $md_file_abs_path"
+	   git add ${md_file_abs_path}
+	   if [ $? -ne 0 ] ; then
+		echo "Failed adding ${md_file_abs_path} to git"
+		exit 1
+           fi
+           echo "git commit $md_file_abs_path"
+           git commit -m "Added ${md_file_rel_path}"
+	   if [ $? -ne 0 ] ; then
+		echo "Failed committing ${md_file_abs_path} to git"
+		exit 1
+  	   fi
 	fi
       else
         echo "$md_file_abs_path already exists. Skipping creation." >> "$LOG_FILE"
@@ -160,6 +162,10 @@ for train in "${TRAINS[@]}"; do
 done
 
 if [ -n "$SEND_PR" ] ; then
+   if [ "${GIT_CHANGES_PENDING}" == "FALSE" ] ; then
+	   echo "No pending git changes to push, exiting..."
+	   exit 0
+   fi
    BASE_BRANCH="main"
    PR_TITLE="Auto-Generated new Apps Pages"
    PR_DESCRIPTION="Auto-generated list of new Apps Content Pages"
