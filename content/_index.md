@@ -14,7 +14,7 @@ TrueNAS Apps are provided by both the TrueNAS team and our amazing user Communit
 
 ## Discover TrueNAS Applications
 
-<div class="docs-sections">
+<div class="docs-sections" id="hompage-links">
 
 {{< doc-card title="Catalog" image="/images/catalog-icon.png" link="/catalog"
 descr="Browse the full catalog of applications available in TrueNAS!" >}}
