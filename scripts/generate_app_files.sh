@@ -184,7 +184,7 @@ if [ -n "$SEND_PR" ] ; then
    FINAL_PR_TITLE="$PR_TYPE: $PR_TITLE"
 
    # Predefined Reviewers (Modify with actual GitHub usernames)
-   PREDEFINED_REVIEWERS=("docs-team")
+   PREDEFINED_REVIEWERS=("truenas/docs-team")
 
    # Convert array to comma-separated string
    REVIEWERS_LIST=$(IFS=, ; echo "${PREDEFINED_REVIEWERS[*]}")
