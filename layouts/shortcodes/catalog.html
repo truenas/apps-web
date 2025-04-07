@@ -71,6 +71,7 @@
       {{- $appIcon := "/images/default-icon.png" }}
       {{- $appCategories := slice }}
       {{- $minScaleVersion := "" }}
+	  {{- $added := "" }}
 
       <!-- Check if the file exists -->
       {{- if fileExists $localFilePath }}
@@ -92,6 +93,7 @@
           {{- $annotations := index $data "app_metadata" "annotations" }}
           {{- if $annotations }}
             {{- $minScaleVersion = index $annotations "min_scale_version" | default "" }}
+			{{- $added = index $annotations "date_added" | default "" }}
           {{- end }}
           {{- break }}
         {{- end }}
@@ -123,12 +125,16 @@
         </div>
         <div class="section-tab-content ixprods">
           <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle }}</b>
-          <p>Train: {{ $mdTrain }}<br>
-		    {{ if $minScaleVersion }}
-              Requires TrueNAS {{ $minScaleVersion }} or newer
-            {{ end }}
+          <p>
+		    {{ if $added }}
+			  Added: {{ $added }}<br>
+			{{ end }}
+			Train: {{ $mdTrain }}<br>
 		  </p>
           <p>{{ $appDescription }}</p>
+		  {{ if $minScaleVersion }}
+              Requires TrueNAS {{ $minScaleVersion }} (or newer)
+          {{ end }}
         </div>
       </a>
     {{- end }}

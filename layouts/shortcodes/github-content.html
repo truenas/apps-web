@@ -49,8 +49,14 @@
 
     <!-- Extract changelog -->
     {{ $changelog := "" }}
-    {{ with $versionData.app_metadata.annotations.changelog }}
+    {{ with $versionData.app_metadata.annotations.changelog_url }}
       {{ $changelog = . }}
+    {{ end }}
+	
+	<!-- Extract App initial add date -->
+    {{ $added := "" }}
+    {{ with $versionData.app_metadata.annotations.date_added }}
+      {{ $added = . }}
     {{ end }}
 
     <!-- Render the content -->
@@ -79,6 +85,9 @@
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
             <small>
+			{{ if $added }}
+              Added {{ $added }}<br>
+            {{ end }}
             {{ if $minScaleVersion }}
               Requires TrueNAS <b>{{ $minScaleVersion }}</b> or newer to deploy<br>
             {{ end }}
