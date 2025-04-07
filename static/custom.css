@@ -2821,4 +2821,30 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     background-color: #333; /* Match dropdown options background */
     color: #fff; /* Match dropdown options text color */
   }
+}
+.popular-list-dropdown{
+	margin-top:1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+#app-count-select {
+    margin-left: auto;
+}
+@media (max-width: 50rem) {
+  .popular-list-dropdown {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .popular-list-dropdown > div {
+    margin-top: 0.5rem; /* Add spacing above the dropdown */
+    width: auto; /* Ensure the dropdown takes up the full width if needed */
+  }
+  #app-count-select {
+	margin-top: .5rem;
+    margin-left: 0; /* Remove any left margin to align it to the left */
+  }
+}
 /* End Styling */

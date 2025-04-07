@@ -30,6 +30,4 @@ descr="Support availability for different apps and catalogs." >}}
 
 </div>
 
-Here are some of the most popular apps actively used today!
-
 {{< popular-apps >}}

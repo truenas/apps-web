@@ -3,6 +3,9 @@
 {{ $telemetryData := $rawData | transform.Unmarshal }}
 {{ $localBaseDir := "Apps_Temp/trains" }}
 
+<!-- Capture the current date and time -->
+{{ $reviewedAt := now | time.Format "January 2, 2006" }}
+
 <!-- Flatten all apps across all trains -->
 {{ $allApps := slice }}
 {{ range $train, $apps := $telemetryData }}
@@ -14,13 +17,25 @@
 <!-- Sort all apps by deployment count in descending order -->
 {{ $sortedApps := sort $allApps "count" "desc" }}
 
-<!-- Display the top 8 apps -->
-<div class="docs-sections">
-  {{ range first 8 $sortedApps }}
-    <!-- Extract app details -->
-    {{ $appName := .name }}
-    {{ $deploymentCount := .count }}
-    {{ $appTrain := .train }}
+<!-- Dropdown for selecting the number of apps to display -->
+<div class="popular-list-dropdown">
+  <span>
+    Here are the most popular and active TrueNAS apps, as of {{ $reviewedAt }}!
+  </span>
+  <select id="app-count-select" onchange="updateAppDisplay()" class="filter-apps">
+    <option value="10" selected>Top 10</option>
+    <option value="25">Top 25</option>
+    <option value="50">Top 50</option>
+  </select>
+</div>
+
+<!-- Container for app cards -->
+<div id="app-cards-container" class="docs-sections">
+  <!-- Render all apps but hide them initially with a data attribute -->
+  {{ range $index, $app := $sortedApps }}
+    {{ $appName := $app.name }}
+    {{ $deploymentCount := $app.count }}
+    {{ $appTrain := $app.train }}
     {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $appTrain) $appName }}
 
     <!-- Initialize app metadata -->
@@ -44,7 +59,7 @@
     {{ end }}
 
     <!-- Render the app card -->
-    <a class="section-box" href="/catalog/{{ $appName | urlize }}/">
+    <a class="section-box app-card" href="/catalog/{{ $appName | urlize }}/" data-index="{{ $index }}">
       <!-- Inline Award for active use callouts -->
       {{ if gt $deploymentCount 0 }}
       <div class="popular-app">
@@ -70,3 +85,24 @@
     </a>
   {{ end }}
 </div>
+
+<!-- JavaScript to handle dropdown selection -->
+<script>
+  function updateAppDisplay() {
+    const selectedCount = parseInt(document.getElementById('app-count-select').value, 10);
+    const appCards = document.querySelectorAll('.app-card');
+
+    appCards.forEach((card, index) => {
+      if (index < selectedCount) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Initialize the display to show the default "Top 10"
+  document.addEventListener('DOMContentLoaded', () => {
+    updateAppDisplay();
+  });
+</script>

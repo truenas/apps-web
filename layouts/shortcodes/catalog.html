@@ -1,3 +1,11 @@
+<!-- Capture the current date and time -->
+{{ $reviewedAt := now | time.Format "January 2, 2006" }}
+
+<!-- Last Reviewed Date -->
+<div class="last-reviewed" style="text-align:center;">
+  <small>Catalog updated {{ $reviewedAt }}</small>
+</div>
+
 <!-- Search and Filter Controls -->
 <div class="catalog-search-container">
   <select id="catalog-train-filter" class="filter-apps">
