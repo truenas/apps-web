@@ -5,6 +5,8 @@ train: "stable"
 tags:
 - customapp
 - apps
+aliases:
+- /catalog/custom-app
 ---
 
 {{< github-content 
@@ -17,6 +19,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="iX App Deployment" link="/resources/deploy-ix-app"
-descr="How to deploy and configure a user-customized app." >}}
+descr="How to deploy and configure a user-customized application." >}}
 
 </div>

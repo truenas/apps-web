@@ -10,6 +10,10 @@
 {{ $allApps := slice }}
 {{ range $train, $apps := $telemetryData }}
   {{ range $name, $count := $apps }}
+    <!-- Skip "custom-app" to avoid duplicate cards -->
+    {{ if eq $name "custom-app" }}
+      {{ continue }}
+    {{ end }}
     {{ $allApps = $allApps | append (dict "name" $name "count" $count "train" $train) }}
   {{ end }}
 {{ end }}
