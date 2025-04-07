@@ -177,7 +177,8 @@ if [ -n "$SEND_PR" ] ; then
 	   echo "No pending git changes to push, exiting..."
 	   exit 0
    fi
-   PR_TITLE="Auto-Generated new Apps Pages"
+   PR_TYPE="Bot"
+   PR_TITLE="Auto-Generated New Apps Pages"
    PR_DESCRIPTION="Auto-generated list of new Apps Content Pages"
 
    # Format PR title
