@@ -18,6 +18,11 @@ mark {
     margin-right: auto;
     margin-left: auto;
 }
+@media only screen and (min-width: 2400px){
+	.container {
+		max-width: 125rem;
+	}
+}
 .flex {
   display: flex;
 }  
