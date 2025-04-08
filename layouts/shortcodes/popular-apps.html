@@ -82,6 +82,20 @@
   <!-- Render all apps but hide them initially with a data attribute -->
   {{ range $index, $app := $sortedApps }}
     <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="popular">
+      <!-- Inline Award for active use callouts -->
+      {{ if gt $app.count 0 }}
+      <div class="popular-app">
+        {{ if gt $app.count 20000 }}
+        <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 10000 }}
+        <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 5000 }}
+        <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 1000 }}
+        <img src="/images/Ribbon-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ end }}
+      </div>
+      {{ end }}
       <div class="box-image">
         <img class="app-card-img" src="{{ $app.icon | default "/images/default-icon.png" }}" aria-label="{{ $app.title | default ($app.name | title) }} Logo">
       </div>
@@ -96,6 +110,20 @@
   <!-- Render recent apps but hide them initially with a data attribute -->
   {{ range $index, $app := $sortedRecentApps }}
     <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="recent">
+      <!-- Inline Award for active use callouts -->
+      {{ if gt $app.count 0 }}
+      <div class="popular-app">
+        {{ if gt $app.count 20000 }}
+        <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 10000 }}
+        <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 5000 }}
+        <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ else if gt $app.count 1000 }}
+        <img src="/images/Ribbon-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
+        {{ end }}
+      </div>
+      {{ end }}
       <div class="box-image">
         <img class="app-card-img" src="{{ $app.icon | default "/images/default-icon.png" }}" aria-label="{{ $app.title | default ($app.name | title) }} Logo">
       </div>
