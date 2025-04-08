@@ -126,14 +126,11 @@
         <div class="section-tab-content ixprods">
           <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle }}</b>
           <p>
-		    {{ if $added }}
-			  Added: {{ $added }}<br>
-			{{ end }}
 			Train: {{ $mdTrain }}<br>
 		  </p>
           <p>{{ $appDescription }}</p>
 		  {{ if $minScaleVersion }}
-              Requires TrueNAS {{ $minScaleVersion }} (or newer)
+              Requires TrueNAS {{ $minScaleVersion }} or newer
           {{ end }}
         </div>
       </a>
