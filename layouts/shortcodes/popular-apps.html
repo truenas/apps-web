@@ -155,8 +155,12 @@
     });
   }
 
-  // Initialize the display to show the default "Top 10"
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize the display to show the correct apps based on the dropdown selection
+  function initializeAppDisplay() {
     updateAppDisplay();
-  });
+  }
+
+  // Listen for both DOMContentLoaded and pageshow events
+  document.addEventListener('DOMContentLoaded', initializeAppDisplay);
+  window.addEventListener('pageshow', initializeAppDisplay);
 </script>

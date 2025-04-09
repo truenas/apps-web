@@ -138,7 +138,10 @@
   {{- end }}
   <!-- Populate the Dropdown with Categories -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", initializeCatalogFilters);
+  window.addEventListener("pageshow", initializeCatalogFilters);
+
+  function initializeCatalogFilters() {
     try {
       // Populate the dropdown with categories
       const categories = JSON.parse('{{ $allCategories | jsonify }}');
@@ -153,51 +156,54 @@
       } else {
         console.error("Categories is not an array:", categories);
       }
+
+      // Add event listeners for filtering
+      const searchInput = document.getElementById("catalog-search");
+      const filterDropdown = document.getElementById("catalog-filter");
+      const trainDropdown = document.getElementById("catalog-train-filter");
+
+      if (searchInput) {
+        searchInput.addEventListener("keyup", filterCatalog);
+      } else {
+        console.error("Search input not found in the DOM.");
+      }
+
+      if (filterDropdown) {
+        filterDropdown.addEventListener("change", filterCatalog);
+      } else {
+        console.error("Filter dropdown not found in the DOM.");
+      }
+
+      if (trainDropdown) {
+        trainDropdown.addEventListener("change", filterCatalog);
+      } else {
+        console.error("Train dropdown not found in the DOM.");
+      }
+
+      // Apply the current filters on page load or restore
+      filterCatalog();
     } catch (error) {
-      console.error("Error parsing categories:", error);
+      console.error("Error initializing catalog filters:", error);
     }
-
-    // Add event listeners for filtering
-    const searchInput = document.getElementById("catalog-search");
-    const filterDropdown = document.getElementById("catalog-filter");
-    const trainDropdown = document.getElementById("catalog-train-filter");
-
-    if (searchInput) {
-      searchInput.addEventListener("keyup", filterCatalog);
-    } else {
-      console.error("Search input not found in the DOM.");
-    }
-
-    if (filterDropdown) {
-      filterDropdown.addEventListener("change", filterCatalog);
-    } else {
-      console.error("Filter dropdown not found in the DOM.");
-    }
-
-    if (trainDropdown) {
-      trainDropdown.addEventListener("change", filterCatalog);
-    } else {
-      console.error("Train dropdown not found in the DOM.");
-    }
-  });
+  }
 
   function filterCatalog() {
     const input = document.getElementById("catalog-search")?.value.toLowerCase() || "";
     const filter = document.getElementById("catalog-filter")?.value.toLowerCase() || "";
     const trainFilter = document.getElementById("catalog-train-filter")?.value.toLowerCase() || "";
     const cards = document.querySelectorAll(".catalog-card");
-  
+
     if (!cards || cards.length === 0) {
       console.error("No catalog cards found for filtering.");
       return;
     }
-  
+
     cards.forEach((card) => {
       if (!card || !(card instanceof HTMLElement)) {
         console.error("Invalid card element:", card);
         return;
       }
-  
+
       const title = card.getAttribute("data-title") || "";
       const categories = card.getAttribute("data-categories") || "";
       const train = card.getAttribute("data-train") || "";
