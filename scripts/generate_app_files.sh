@@ -205,3 +205,4 @@ fi
 
 # Notify the user where the log file is located
 echo "Review log has been generated at: $LOG_FILE"
+
