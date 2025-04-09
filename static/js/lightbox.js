@@ -17,28 +17,59 @@ function openLightbox(imageSrc) {
 
   // Find the index of the current image
   currentImageIndex = images.indexOf(imageSrc);
+
+  // Add keyboard navigation event listener
+  document.addEventListener("keydown", handleKeyNavigation);
 }
 
 function closeLightbox() {
   const lightbox = document.getElementById("lightbox");
   lightbox.style.display = "none";
+
+  // Remove keyboard navigation event listener
+  document.removeEventListener("keydown", handleKeyNavigation);
 }
 
 function prevImage(event) {
-  event.stopPropagation(); // Prevent closing the lightbox
+  if (event) event.stopPropagation(); // Prevent closing the lightbox
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   document.getElementById("lightbox-image").src = images[currentImageIndex];
 }
 
 function nextImage(event) {
-  event.stopPropagation(); // Prevent closing the lightbox
+  if (event) event.stopPropagation(); // Prevent closing the lightbox
   currentImageIndex = (currentImageIndex + 1) % images.length;
   document.getElementById("lightbox-image").src = images[currentImageIndex];
 }
 
-// Initialize the images array
+function handleKeyNavigation(event) {
+  if (event.key === "ArrowLeft") {
+    prevImage();
+  } else if (event.key === "ArrowRight") {
+    nextImage();
+  } else if (event.key === "Escape") {
+    closeLightbox();
+  }
+}
+
+// Initialize the images array and add event listeners
 document.addEventListener("DOMContentLoaded", () => {
   images = Array.from(document.querySelectorAll(".screenshot-thumbnail")).map(
     (img) => img.src
   );
+
+  const lightbox = document.getElementById("lightbox");
+
+  // Close the lightbox when clicking outside the image
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Prevent closing the lightbox when clicking on the image
+  const lightboxImage = document.getElementById("lightbox-image");
+  lightboxImage.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
 });
