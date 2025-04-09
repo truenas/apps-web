@@ -49,13 +49,13 @@
 
     <!-- Extract changelog -->
     {{ $changelog := "" }}
-    {{ with $versionData.app_metadata.annotations.changelog_url }}
+    {{ with $versionData.app_metadata.changelog_url }}
       {{ $changelog = . }}
     {{ end }}
 	
 	<!-- Extract App initial add date -->
     {{ $added := "" }}
-    {{ with $versionData.app_metadata.annotations.date_added }}
+    {{ with $versionData.app_metadata.date_added }}
       {{ $added = . }}
     {{ end }}
 
