@@ -59,7 +59,7 @@
         {{- $deploymentCount = index $telemetryMatches $baseAppName | default 0 }}
       {{- end }}
 
-      <!-- Debug: Log missing telemetry data -->
+      <!-- Log missing telemetry data -->
       {{ if eq $deploymentCount 0 }}
         {{ warnf "No telemetry data found for app: %s in train: %s" $baseAppName $telemetryTrain }}
       {{ end }}
@@ -102,7 +102,7 @@
       {{- end }}
 
       <!-- Collect categories for the dropdown -->
-      {{- $allCategories = $allCategories | union $appCategories }}
+	  {{- $allCategories = $allCategories | union $appCategories }}
 
       <!-- Render the app card -->
       <a class="section-box catalog-card" href="{{ $appPage.RelPermalink }}" data-title="{{ $baseAppName | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $mdTrain }}">
@@ -136,21 +136,28 @@
       </a>
     {{- end }}
   {{- end }}
-  <!-- Populate the Dropdown with Categories -->
 <script>
   document.addEventListener("DOMContentLoaded", initializeCatalogFilters);
   window.addEventListener("pageshow", initializeCatalogFilters);
 
   function initializeCatalogFilters() {
     try {
-      // Populate the dropdown with categories
+      // Parse the categories passed from Hugo
       const categories = JSON.parse('{{ $allCategories | jsonify }}');
       const dropdown = document.getElementById("catalog-filter");
+    
       if (Array.isArray(categories)) {
-        categories.forEach((category) => {
+        // Use a Set to ensure unique categories
+        const uniqueCategories = new Set(categories.map((category) => category.toLowerCase()));
+    
+        // Clear existing options to avoid duplicates
+        dropdown.innerHTML = '<option value="">Categories: All</option>';
+    
+        // Populate the dropdown with unique categories
+        uniqueCategories.forEach((category) => {
           const option = document.createElement("option");
-          option.value = category.toLowerCase();
-          option.textContent = category;
+          option.value = category;
+          option.textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize first letter
           dropdown.appendChild(option);
         });
       } else {

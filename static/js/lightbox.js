@@ -54,21 +54,24 @@ function handleKeyNavigation(event) {
 
 // Initialize the images array and add event listeners
 document.addEventListener("DOMContentLoaded", () => {
-  images = Array.from(document.querySelectorAll(".screenshot-thumbnail")).map(
-    (img) => img.src
-  );
-
   const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const thumbnails = document.querySelectorAll(".screenshot-thumbnail");
 
-  // Close the lightbox when clicking outside the image
+  if (!lightbox || !lightboxImage || thumbnails.length === 0) {
+    console.warn("Lightbox elements not found. Skipping lightbox initialization.");
+    return;
+  }
+
+  // Initialize the lightbox functionality
+  images = Array.from(thumbnails).map((img) => img.src);
+
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Prevent closing the lightbox when clicking on the image
-  const lightboxImage = document.getElementById("lightbox-image");
   lightboxImage.addEventListener("click", (event) => {
     event.stopPropagation();
   });

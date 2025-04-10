@@ -60,7 +60,9 @@
     {{ partial "foot" . }}
   </body>
 </html>
+{{ if strings.HasPrefix .File.Dir "catalog" }}
 <script src="/js/lightbox.js"></script>
+{{ end }}
 <script>
   function loadtheme(){
     let html = document.documentElement;
