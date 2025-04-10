@@ -73,33 +73,29 @@
       {{- $minScaleVersion := "" }}
 	  {{- $added := "" }}
 
-      <!-- Check if the file exists -->
-      {{- if fileExists $localFilePath }}
-        <!-- Read and parse the JSON file -->
-        {{- $fileContent := readFile $localFilePath }}
-        {{- $jsonData := transform.Unmarshal $fileContent }}
-
-        <!-- Extract app metadata -->
-        {{- range $version, $data := $jsonData }}
-          {{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
-          {{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
-          {{- $iconField := index $data "app_metadata" "icon" }}
-          {{- if and $iconField (ne $iconField "") }}
-            {{- $appIcon = $iconField }}
-          {{- else }}
-            {{ warnf "Missing or invalid icon for app: %s" $baseAppName }}
-          {{- end }}
-          {{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
-          {{- $annotations := index $data "app_metadata" "annotations" }}
-          {{- if $annotations }}
-            {{- $minScaleVersion = index $annotations "min_scale_version" | default "" }}
-			{{- $added = index $annotations "date_added" | default "" }}
-          {{- end }}
-          {{- break }}
-        {{- end }}
-      {{- else }}
-        {{ warnf "File not found: %s" $localFilePath }}
-      {{- end }}
+	  <!-- Check if the file exists -->
+	  {{- if fileExists $localFilePath }}
+	  	{{- $fileContent := readFile $localFilePath }}
+		{{- $jsonData := transform.Unmarshal $fileContent }}
+	  
+		<!-- Extract app metadata -->
+		{{- range $version, $data := $jsonData }}
+			{{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
+			{{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
+			{{- $iconField := index $data "app_metadata" "icon" }}
+			{{- if and $iconField (ne $iconField "") }}
+				{{- $appIcon = $iconField }}
+			{{- else }}
+				{{ warnf "Missing or invalid icon for app: %s" $baseAppName }}
+			{{- end }}
+			{{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
+			{{- $added = index $data "app_metadata" "date_added" | default "" }}
+			{{- $minScaleVersion = index $data "app_metadata" "annotations" "min_scale_version" | default "" }}
+			{{- break }}
+		  {{- end }}
+		{{- else }}
+		  {{ warnf "File not found: %s" $localFilePath }}
+		{{- end }}
 
       <!-- Collect categories for the dropdown -->
 	  {{- $allCategories = $allCategories | union $appCategories }}
@@ -127,6 +123,9 @@
           <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle }}</b>
           <p>
 			Train: {{ $mdTrain }}<br>
+			{{ if $added }}
+			Added: {{ $added }}<br>
+			{{ end }}
 		  </p>
           <p>{{ $appDescription }}</p>
 		  {{ if $minScaleVersion }}
