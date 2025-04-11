@@ -5,7 +5,7 @@
 {{ $localBaseDir := "Apps_Temp/trains" }}
 
 <!-- Capture the current date -->
-{{ $currentDate := now }}
+{{ $currentDate := now.UTC }}
 {{ $reviewedAt := $currentDate.Format "January 2, 2006" }}
 
 <!-- Initialize slices for all apps and recent apps -->
@@ -46,17 +46,17 @@
 
     <!-- Parse and compare date_added if it exists -->
     {{ $parsedDateAdded := "" }}
-    {{ if $dateAdded }}
-      {{ $parsedDateAdded = time $dateAdded }}
-    {{ end }}
+	{{ if $dateAdded }}
+		{{ $parsedDateAdded = time (printf "%sT00:00:00Z" $dateAdded) }}
+	{{ end }}
 
     <!-- Add to all apps -->
     {{ $allApps = $allApps | append (dict "name" $name "count" $count "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
 
     <!-- Add to recent apps if date_added is valid and within the last 30 days -->
     {{ if and $parsedDateAdded (lt ($currentDate.Sub $parsedDateAdded).Hours 720) }}
-      {{ $recentApps = $recentApps | append (dict "name" $name "count" $count "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
-    {{ end }}
+	{{ $recentApps = $recentApps | append (dict "name" $name "count" $count "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" 	$appDescription "icon" $appIcon) }}
+	{{ end }}
   {{ end }}
 {{ end }}
 
@@ -102,6 +102,9 @@
       <div class="section-tab-content ixprods">
         <b class="app-title">{{ $app.title }}</b>
         <br>Train: {{ $app.train | default "Unknown" }}<br>
+		{{ if $app.date_added }}
+			Added: {{ $app.date_added.UTC.Format "2006-01-02" }}<br><br>
+		{{ end }}
         <p>{{ $app.description }}</p>
       </div>
     </a>
@@ -126,6 +129,9 @@
       <div class="section-tab-content ixprods">
         <b class="app-title">{{ $app.title }}</b>
         <br>Train: {{ $app.train | default "Unknown" }}<br>
+		{{ if $app.date_added }}
+			Added: {{ $app.date_added.UTC.Format "2006-01-02" }}<br><br>
+		{{ end }}
         <p>{{ $app.description }}</p>
       </div>
     </a>
