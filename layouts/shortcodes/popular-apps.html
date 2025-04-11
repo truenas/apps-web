@@ -85,7 +85,15 @@
 <div id="app-cards-container" class="docs-sections">
   <!-- Render all apps -->
   {{ range $index, $app := $sortedApps }}
-    <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="popular">
+    <!-- Determine the correct URL -->
+    {{ $url := "" }}
+    {{ if or (eq $app.name "syncthing") (eq $app.name "minio") }}
+      {{ $url = printf "/catalog/%s_%s/" $app.name (lower $app.train) | urlize }}
+    {{ else }}
+      {{ $url = printf "/catalog/%s/" $app.name | urlize }}
+    {{ end }}
+
+    <a class="section-box app-card" href="{{ $url }}" data-index="{{ $index }}" data-type="popular">
       <!-- Include telemetry and awards -->
       {{ partial "telemetry-awards.html" (dict "appName" ($app.name | lower | urlize) "appTrain" ($app.train | lower)) }}
       <div class="box-image">
@@ -101,7 +109,15 @@
 
   <!-- Render recent apps -->
   {{ range $index, $app := $sortedRecentApps }}
-    <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="recent">
+    <!-- Determine the correct URL -->
+    {{ $url := "" }}
+    {{ if or (eq $app.name "syncthing") (eq $app.name "minio") }}
+      {{ $url = printf "/catalog/%s_%s/" $app.name (lower $app.train) | urlize }}
+    {{ else }}
+      {{ $url = printf "/catalog/%s/" $app.name | urlize }}
+    {{ end }}
+
+    <a class="section-box app-card" href="{{ $url }}" data-index="{{ $index }}" data-type="recent">
       <!-- Include telemetry and awards -->
       {{ partial "telemetry-awards.html" (dict "appName" $app.name "appTrain" $app.train) }}
       <div class="box-image">
