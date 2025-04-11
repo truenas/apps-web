@@ -2852,4 +2852,9 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     margin-left: 0; /* Remove any left margin to align it to the left */
   }
 }
+.app-title {
+	justify-content:center;
+	font-size:1.5rem;
+	font-weight:600;
+}
 /* End Styling */

@@ -58,11 +58,9 @@
     </div>
 
     {{ partial "foot" . }}
+	<script src="/js/lightbox.js"></script>
   </body>
 </html>
-{{ if strings.HasPrefix .File.Dir "catalog" }}
-<script src="/js/lightbox.js"></script>
-{{ end }}
 <script>
   function loadtheme(){
     let html = document.documentElement;

@@ -58,8 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImage = document.getElementById("lightbox-image");
   const thumbnails = document.querySelectorAll(".screenshot-thumbnail");
 
+  // Check if the required elements exist
   if (!lightbox || !lightboxImage || thumbnails.length === 0) {
-    console.warn("Lightbox elements not found. Skipping lightbox initialization.");
+    console.warn("Lightbox elements not found on this page. Skipping initialization.");
     return;
   }
 

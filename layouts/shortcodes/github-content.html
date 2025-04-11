@@ -2,15 +2,7 @@
 {{ $path := .Get "path" }}
 {{ $localBaseDir := "Apps_Temp" }} <!-- Base directory for trains -->
 {{ $localFilePath := printf "%s/%s" $localBaseDir $path }} <!-- Corrected file path -->
-{{ $includeFile := .Get "includeFile" }}
 {{ $editUrl := printf "https://github.com/truenas/apps/edit/master/trains/%s" $path }}
-
-<!-- Fetch Telemetry Data -->
-{{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
-{{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal | default dict }}
-
-<!-- Initialize deployment count -->
-{{ $deploymentCount := 0 }}
 
 <!-- Check if the file exists locally -->
 {{ if fileExists $localFilePath }}
@@ -28,76 +20,43 @@
     {{ end }}
     {{ $versionData := index $jsonData $firstKey | default dict }}
 
-    <!-- Extract keywords -->
-    {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
-    {{ .Page.Scratch.Set "keywords" $keywords }}
-
-    <!-- Telemetry Data Matching -->
+    <!-- Extract metadata -->
     {{ $name := $versionData.app_metadata.name | default "" }}
     {{ $train := $versionData.app_metadata.train | lower | default "" }}
-    {{ $telemetryTrain := cond (eq $train "enterprise") "Enterprise" (cond (eq $train "stable") "Stable" "Community") }}
-    {{ $telemetryGroup := index $telemetryData $telemetryTrain | default dict }}
-    {{ if $telemetryGroup }}
-      {{ $deploymentCount = index $telemetryGroup $name | default 0 }}
-    {{ end }}
-
-    <!-- Extract min_scale_version -->
-    {{ $minScaleVersion := "" }}
-    {{ with $versionData.app_metadata.annotations.min_scale_version }}
-      {{ $minScaleVersion = . }}
-    {{ end }}
-
-    <!-- Extract changelog -->
-    {{ $changelog := "" }}
-    {{ with $versionData.app_metadata.changelog_url }}
-      {{ $changelog = . }}
-    {{ end }}
-	
-	<!-- Extract App initial add date -->
-    {{ $added := "" }}
-    {{ with $versionData.app_metadata.date_added }}
-      {{ $added = . }}
-    {{ end }}
+    {{ $appTitle := $versionData.app_metadata.title | default "App Title" }}
+    {{ $appDescription := $versionData.app_metadata.description | default "No description available." }}
+    {{ $appIcon := $versionData.app_metadata.icon | default "/images/default-icon.png" }}
+    {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
+    {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
+    {{ $added := $versionData.app_metadata.date_added | default "" }}
 
     <!-- Render the content -->
     <div class="apps-docs-sections">
       <!-- First Card -->
       <div class="section-box">
-        <!-- Inline Award for active use callouts -->
-        {{ if gt $deploymentCount 0 }}
-        <div class="popular-app">
-          {{ if gt $deploymentCount 20000 }}
-            <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 10000 }}
-            <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 5000 }}
-            <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 1000 }}
-            <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ end }}
-        </div>
-        {{ end }}
+        <!-- Include telemetry and awards -->
+        {{ partial "telemetry-awards.html" (dict "appName" $name "appTrain" $train) }}
         <div class="box-image">
-          <img class="app-card-img" src="{{ $versionData.app_metadata.icon | default "/images/default-icon.png" }}" aria-label="{{ $versionData.app_metadata.name | default "App" }} Logo">
+          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo">
         </div>
         <div class="section-tab-content ixprods">
-          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $versionData.app_metadata.title | default "App Title" }}</b><br>
+          <b class="app-title">{{ $appTitle }}</b><br>
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
             <small>
-			{{ if $minScaleVersion }}
-              Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
-            {{ end }}
-            App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
-            {{ if $changelog }}
-              (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
-            {{ end }}
-            <br>
-            {{ with $versionData.app_metadata.keywords }}
-              Keywords: {{ delimit . ", " }}<br>
-            {{ end }}
-            Train: {{ $versionData.app_metadata.train | default "Unknown" }}<br>
-            Home Page: <a href="{{ $versionData.app_metadata.home | default "#" }}" target="_blank">{{ $versionData.app_metadata.home | default "N/A" }}</a><br>
+              {{ if $minScaleVersion }}
+                Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
+              {{ end }}
+              App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+              {{ if $changelog }}
+                (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+              {{ end }}
+              <br>
+              {{ with $versionData.app_metadata.keywords }}
+                Keywords: {{ delimit . ", " }}<br>
+              {{ end }}
+              Train: {{ $train | default "Unknown" }}<br>
+              Home Page: <a href="{{ $versionData.app_metadata.home | default "#" }}" target="_blank">{{ $versionData.app_metadata.home | default "N/A" }}</a><br>
             </small>
           </div>
         </div>
@@ -106,13 +65,15 @@
       <!-- Second Card -->
       <div class="section-box">
         <div class="box-image">
-          <b>{{ $versionData.app_metadata.title | default "App Details" }} Details</b><br>
-		  {{ if $added }}
+          <b>{{ $appTitle }} Details</b><br>
+          {{ if $added }}
             Added: {{ $added }}<br>
           {{ end }}
-		    Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+          {{ if $versionData.last_update }}
+            Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+          {{ end }}
           <p class="app-descr">
-            {{ $versionData.app_metadata.description | default "No description available." }}
+            {{ $appDescription }}
           </p>
           <!-- Context Section -->
           {{ if $versionData.app_metadata.run_as_context }}
@@ -121,9 +82,9 @@
             {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
             <li>
               <small>
-              {{ $run_as_context.description }}<br>
-              <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
-              <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
+                {{ $run_as_context.description }}<br>
+                <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
+                <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
               </small>
             </li>
             {{ end }}
@@ -131,72 +92,73 @@
           {{ end }}
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Screenshots Section -->
-  {{ if $versionData.app_metadata.screenshots }}
-  <br>
-  <div class="screenshots-section">
-    <b>Screenshots</b>
-    <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-      {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
-      <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+    <!-- Screenshots Section -->
+    {{ if $versionData.app_metadata.screenshots }}
+    <br>
+    <div class="screenshots-section">
+      <b>Screenshots</b>
+      <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+        <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
+      <div class="lightbox-controls">
+        <button id="prev-button" onclick="prevImage(event)">&#10094;</button>
+        <button id="next-button" onclick="nextImage(event)">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Host Mounts Section -->
+    {{ if $versionData.app_metadata.host_mounts }}
+      {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
+      <br>
+      <details>
+        <summary>Host Mounts</summary>
+        <ul>
+          {{ range $host_mount := $versionData.app_metadata.host_mounts }}
+          <li>
+            {{ $host_mount.host_path }} : {{ $host_mount.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
       {{ end }}
-    </div>
-  </div>
-  {{ end }}
- <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
-    <div class="lightbox-controls">
-      <button id="prev-button" onclick="prevImage(event)">&#10094;</button>
-      <button id="next-button" onclick="nextImage(event)">&#10095;</button>
-    </div>
-  </div>
+    {{ end }}
 
- <!-- Host Mounts Section -->
- {{ if $versionData.app_metadata.host_mounts }}
-   {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
-   <br>
-   <details>
-     <summary>Host Mounts</summary>
-     <ul>
-       {{ range $host_mount := $versionData.app_metadata.host_mounts }}
-       <li>
-         {{ $host_mount.host_path }} : {{ $host_mount.description }}
-       </li>
-       {{ end }}
-     </ul>
-   </details>
-   {{ end }}
- {{ end }}
+    <!-- Security Capabilities Section -->
+    {{ if $versionData.app_metadata.capabilities }}
+      {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
+      <br>
+      <details>
+        <summary>Security Capabilities</summary>
+        <ul>
+          {{ range $capability := $versionData.app_metadata.capabilities }}
+          <li>
+            {{ $capability.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+      {{ end }}
+    {{ end }}
 
- <!-- Security Capabilities Section -->
-   {{ if $versionData.app_metadata.capabilities }}
-     {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
-     <br>
-     <details>
-       <summary>Security Capabilities</summary>
-       <ul>
-         {{ range $capability := $versionData.app_metadata.capabilities }}
-         <li>
-           {{ $capability.description }}
-         </li>
-         {{ end }}
-       </ul>
-     </details>
-     {{ end }}
-   {{ end }}
-   <!-- App_Versions File Expand -->
-   <br>
-   <details>
-     <summary>App Metadata (Raw File)</summary>
-     <pre><code>{{ $fileContent }}</code></pre>
-   </details>
-   <br>
-   <hr>
-	
+    <!-- App_Versions File Expand -->
+    <br>
+    <details>
+      <summary>App Metadata (Raw File)</summary>
+      <pre><code>{{ $fileContent }}</code></pre>
+    </details>
+    <br>
+    <hr>
   {{ else }}
     <p>Error: Invalid JSON data in <code>{{ $localFilePath }}</code>.</p>
   {{ end }}

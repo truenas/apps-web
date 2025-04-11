@@ -1,41 +1,45 @@
+{{/* Define constants and variables */}}
 {{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
 {{ $rawData := resources.GetRemote $telemetryURL }}
-{{ $telemetryData := $rawData | transform.Unmarshal }}
+{{ $telemetryData := $rawData | transform.Unmarshal | default dict }}
 {{ $localBaseDir := "Apps_Temp/trains" }}
 
 <!-- Capture the current date -->
 {{ $currentDate := now }}
 {{ $reviewedAt := $currentDate.Format "January 2, 2006" }}
 
-<!-- Flatten all apps across all trains -->
+<!-- Initialize slices for all apps and recent apps -->
 {{ $allApps := slice }}
 {{ $recentApps := slice }}
+
+<!-- Process telemetry data -->
 {{ range $train, $apps := $telemetryData }}
   {{ range $name, $count := $apps }}
     <!-- Skip "custom-app" to avoid duplicate cards -->
     {{ if eq $name "custom-app" }}
       {{ continue }}
     {{ end }}
+
+    <!-- Define the local file path for the app -->
     {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $train) $name }}
 
     <!-- Initialize app metadata -->
     {{ $appTitle := "" }}
     {{ $appDescription := "" }}
-    {{ $appIcon := "" }}
+    {{ $appIcon := "/images/default-icon.png" }}
     {{ $dateAdded := "" }}
 
-    <!-- Check if the file exists -->
+    <!-- Check if the app_versions.json file exists -->
     {{ if fileExists $localFilePath }}
-      <!-- Read and parse the JSON file -->
       {{ $fileContent := readFile $localFilePath }}
-      {{ $jsonData := transform.Unmarshal $fileContent }}
+      {{ $jsonData := transform.Unmarshal $fileContent | default dict }}
 
       <!-- Extract app metadata -->
       {{ range $version, $data := $jsonData }}
-        {{ $appTitle = index $data "app_metadata" "title" }}
-        {{ $appDescription = index $data "app_metadata" "description" }}
-        {{ $appIcon = index $data "app_metadata" "icon" }}
-        {{ $dateAdded = index $data "app_metadata" "date_added" }}
+        {{ $appTitle = index $data "app_metadata" "title" | default $name | title }}
+        {{ $appDescription = index $data "app_metadata" "description" | default (printf "Learn more about %s and its features." ($name | title)) }}
+        {{ $appIcon = index $data "app_metadata" "icon" | default $appIcon }}
+        {{ $dateAdded = index $data "app_metadata" "date_added" | default "" }}
         {{ break }}
       {{ end }}
     {{ end }}
@@ -79,58 +83,34 @@
 
 <!-- Container for app cards -->
 <div id="app-cards-container" class="docs-sections">
-  <!-- Render all apps but hide them initially with a data attribute -->
+  <!-- Render all apps -->
   {{ range $index, $app := $sortedApps }}
     <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="popular">
-      <!-- Inline Award for active use callouts -->
-      {{ if gt $app.count 0 }}
-      <div class="popular-app">
-        {{ if gt $app.count 20000 }}
-        <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 10000 }}
-        <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 5000 }}
-        <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 1000 }}
-        <img src="/images/Ribbon-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ end }}
-      </div>
-      {{ end }}
+      <!-- Include telemetry and awards -->
+      {{ partial "telemetry-awards.html" (dict "appName" ($app.name | lower | urlize) "appTrain" ($app.train | lower)) }}
       <div class="box-image">
-        <img class="app-card-img" src="{{ $app.icon | default "/images/default-icon.png" }}" aria-label="{{ $app.title | default ($app.name | title) }} Logo">
+        <img class="app-card-img" src="{{ $app.icon }}" aria-label="{{ $app.title }} Logo">
       </div>
       <div class="section-tab-content ixprods">
-        <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $app.title | default ($app.name | title) }}</b>
+        <b class="app-title">{{ $app.title }}</b>
         <br>Train: {{ $app.train | default "Unknown" }}<br>
-        <p>{{ $app.description | default (printf "Learn more about %s and its features." ($app.name | title)) }}</p>
+        <p>{{ $app.description }}</p>
       </div>
     </a>
   {{ end }}
 
-  <!-- Render recent apps but hide them initially with a data attribute -->
+  <!-- Render recent apps -->
   {{ range $index, $app := $sortedRecentApps }}
     <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}/" data-index="{{ $index }}" data-type="recent">
-      <!-- Inline Award for active use callouts -->
-      {{ if gt $app.count 0 }}
-      <div class="popular-app">
-        {{ if gt $app.count 20000 }}
-        <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 10000 }}
-        <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 5000 }}
-        <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ else if gt $app.count 1000 }}
-        <img src="/images/Ribbon-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-        {{ end }}
-      </div>
-      {{ end }}
+      <!-- Include telemetry and awards -->
+      {{ partial "telemetry-awards.html" (dict "appName" $app.name "appTrain" $app.train) }}
       <div class="box-image">
-        <img class="app-card-img" src="{{ $app.icon | default "/images/default-icon.png" }}" aria-label="{{ $app.title | default ($app.name | title) }} Logo">
+        <img class="app-card-img" src="{{ $app.icon }}" aria-label="{{ $app.title }} Logo">
       </div>
       <div class="section-tab-content ixprods">
-        <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $app.title | default ($app.name | title) }}</b>
+        <b class="app-title">{{ $app.title }}</b>
         <br>Train: {{ $app.train | default "Unknown" }}<br>
-        <p>{{ $app.description | default (printf "Learn more about %s and its features." ($app.name | title)) }}</p>
+        <p>{{ $app.description }}</p>
       </div>
     </a>
   {{ end }}
@@ -156,11 +136,6 @@
   }
 
   // Initialize the display to show the correct apps based on the dropdown selection
-  function initializeAppDisplay() {
-    updateAppDisplay();
-  }
-
-  // Listen for both DOMContentLoaded and pageshow events
-  document.addEventListener('DOMContentLoaded', initializeAppDisplay);
-  window.addEventListener('pageshow', initializeAppDisplay);
+  document.addEventListener('DOMContentLoaded', updateAppDisplay);
+  window.addEventListener('pageshow', updateAppDisplay);
 </script>

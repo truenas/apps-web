@@ -1,0 +1,70 @@
+{{ $localBaseDir := "Apps_Temp/trains" }}
+
+<!-- Get the list of apps from the shortcode parameter -->
+{{ $appPaths := split (index .Params "apps") "," }}
+
+<!-- Container for app cards -->
+<div id="featured-apps-container" class="docs-sections">
+  {{ range $appPaths }}
+    {{ $appPath := trim . " " }}
+    {{ $appFilePath := printf "%s/%s/app_versions.json" $localBaseDir $appPath }}
+
+    <!-- Initialize app metadata with defaults -->
+    {{ $appTitle := "" }}
+    {{ $appDescription := "" }}
+    {{ $appIcon := "/images/default-icon.png" }}
+    {{ $appTrain := "Unknown" }}
+    {{ $minScaleVersion := "" }}
+    {{ $added := "" }}
+    {{ $appName := (index (split $appPath "/") 1) }}
+
+    <!-- Check if the app_versions.json file exists -->
+    {{ if fileExists $appFilePath }}
+      {{ $fileContent := readFile $appFilePath }}
+      {{ $jsonData := transform.Unmarshal $fileContent | default dict }}
+
+      <!-- Extract app metadata from the JSON -->
+      {{ range $version, $data := $jsonData }}
+        {{ $appTitle = index $data "app_metadata" "title" | default (printf "App at %s" $appPath) }}
+        {{ $appDescription = index $data "app_metadata" "description" | default (printf "Learn more about the app at %s." $appPath) }}
+        {{ $appIcon = index $data "app_metadata" "icon" | default $appIcon }}
+        {{ $appTrain = index $data "app_metadata" "train" | default $appTrain }}
+        {{ $minScaleVersion = index $data "app_metadata" "annotations" "min_scale_version" | default $minScaleVersion }}
+        {{ $added = index $data "app_metadata" "date_added" | default $added }}
+        {{ break }}
+      {{ end }}
+    {{ else }}
+      {{ warnf "File not found: %s" $appFilePath }}
+    {{ end }}
+
+    <!-- Determine the correct URL -->
+    {{ $url := "" }}
+    {{ if or (eq $appName "syncthing") (eq $appName "minio") }}
+      {{ $url = printf "/catalog/%s_%s/" $appName (lower $appTrain) | urlize }}
+    {{ else }}
+      {{ $url = printf "/catalog/%s/" $appName | urlize }}
+    {{ end }}
+
+    <!-- Render the app card -->
+    <a class="section-box catalog-card" href="{{ $url }}">
+      <div class="box-image">
+        <img class="app-card-img" src="{{ $appIcon }}" alt="{{ $appTitle }} Logo" aria-label="{{ $appTitle }} Logo">
+      </div>
+      <div class="section-tab-content ixprods">
+        <b class="app-title">{{ $appTitle }}</b>
+        <p class="app-details">
+          Train: {{ $appTrain }}<br>
+          {{ if $added }}
+            Added: {{ $added }}<br>
+          {{ end }}
+          {{ if $minScaleVersion }}
+            Requires TrueNAS {{ $minScaleVersion }} or newer
+          {{ end }}
+        </p>
+        <p class="app-description">{{ $appDescription }}</p>
+      </div>
+      <!-- Include telemetry and awards -->
+      {{ partial "telemetry-awards.html" (dict "appName" $appName "appTrain" $appTrain) }}
+    </a>
+  {{ end }}
+</div>

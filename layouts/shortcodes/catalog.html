@@ -52,18 +52,6 @@
       <!-- Extract the base app name by removing the _train suffix -->
       {{- $baseAppName := index (split $appName "_") 0 }}
 
-      <!-- Telemetry Data Matching -->
-      {{- $telemetryMatches := index $telemetryData $telemetryTrain }}
-      {{- $deploymentCount := 0 }}
-      {{- if $telemetryMatches }}
-        {{- $deploymentCount = index $telemetryMatches $baseAppName | default 0 }}
-      {{- end }}
-
-      <!-- Log missing telemetry data -->
-      {{ if eq $deploymentCount 0 }}
-        {{ warnf "No telemetry data found for app: %s in train: %s" $baseAppName $telemetryTrain }}
-      {{ end }}
-
       <!-- Initialize app metadata -->
       {{- $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir $mdTrain $baseAppName }}
       {{- $appTitle := $baseAppName | title }}
@@ -71,70 +59,59 @@
       {{- $appIcon := "/images/default-icon.png" }}
       {{- $appCategories := slice }}
       {{- $minScaleVersion := "" }}
-	  {{- $added := "" }}
+      {{- $added := "" }}
 
-	  <!-- Check if the file exists -->
-	  {{- if fileExists $localFilePath }}
-	  	{{- $fileContent := readFile $localFilePath }}
-		{{- $jsonData := transform.Unmarshal $fileContent }}
-	  
-		<!-- Extract app metadata -->
-		{{- range $version, $data := $jsonData }}
-			{{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
-			{{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
-			{{- $iconField := index $data "app_metadata" "icon" }}
-			{{- if and $iconField (ne $iconField "") }}
-				{{- $appIcon = $iconField }}
-			{{- else }}
-				{{ warnf "Missing or invalid icon for app: %s" $baseAppName }}
-			{{- end }}
-			{{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
-			{{- $added = index $data "app_metadata" "date_added" | default "" }}
-			{{- $minScaleVersion = index $data "app_metadata" "annotations" "min_scale_version" | default "" }}
-			{{- break }}
-		  {{- end }}
-		{{- else }}
-		  {{ warnf "File not found: %s" $localFilePath }}
-		{{- end }}
+      <!-- Check if the file exists -->
+      {{- if fileExists $localFilePath }}
+        {{- $fileContent := readFile $localFilePath }}
+        {{- $jsonData := transform.Unmarshal $fileContent }}
+
+        <!-- Extract app metadata -->
+        {{- range $version, $data := $jsonData }}
+          {{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
+          {{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
+          {{- $iconField := index $data "app_metadata" "icon" }}
+          {{- if and $iconField (ne $iconField "") }}
+            {{- $appIcon = $iconField }}
+          {{- else }}
+            {{ warnf "Missing or invalid icon for app: %s" $baseAppName }}
+          {{- end }}
+          {{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
+          {{- $added = index $data "app_metadata" "date_added" | default "" }}
+          {{- $minScaleVersion = index $data "app_metadata" "annotations" "min_scale_version" | default "" }}
+          {{- break }}
+        {{- end }}
+      {{- else }}
+        {{ warnf "File not found: %s" $localFilePath }}
+      {{- end }}
 
       <!-- Collect categories for the dropdown -->
-	  {{- $allCategories = $allCategories | union $appCategories }}
+      {{- $allCategories = $allCategories | union $appCategories }}
 
       <!-- Render the app card -->
       <a class="section-box catalog-card" href="{{ $appPage.RelPermalink }}" data-title="{{ $baseAppName | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $mdTrain }}">
-        <!-- Inline Award for active use callouts -->
-        {{ if gt $deploymentCount 0 }}
-        <div class="popular-app">
-          {{ if gt $deploymentCount 20000 }}
-          <img src="/images/Gold-Labeled.png" alt="20,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 10000 }}
-          <img src="/images/Silver-Labeled.png" alt="10,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 5000 }}
-          <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ else if gt $deploymentCount 1000 }}
-          <img src="/images/Ribbon-Labeled.png" alt="1000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-          {{ end }}
-        </div>
-        {{ end }}
+        <!-- Include telemetry and awards -->
+        {{ partial "telemetry-awards.html" (dict "appName" $baseAppName "appTrain" $mdTrain) }}
         <div class="box-image">
           <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo">
         </div>
         <div class="section-tab-content ixprods">
-          <b style="justify-content:center;font-size:1.5rem;font-weight:600;">{{ $appTitle }}</b>
+          <b class="app-title">{{ $appTitle }}</b>
           <p>
-			Train: {{ $mdTrain }}<br>
-			{{ if $added }}
-			Added: {{ $added }}<br>
-			{{ end }}
-		  </p>
+            Train: {{ $mdTrain }}<br>
+            {{ if $added }}
+              Added: {{ $added }}<br>
+            {{ end }}
+          </p>
           <p>{{ $appDescription }}</p>
-		  {{ if $minScaleVersion }}
-              Requires TrueNAS {{ $minScaleVersion }} or newer
+          {{ if $minScaleVersion }}
+            Requires TrueNAS {{ $minScaleVersion }} or newer
           {{ end }}
         </div>
       </a>
     {{- end }}
   {{- end }}
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", initializeCatalogFilters);
   window.addEventListener("pageshow", initializeCatalogFilters);
@@ -226,4 +203,3 @@
     });
   }
 </script>
-</div>
