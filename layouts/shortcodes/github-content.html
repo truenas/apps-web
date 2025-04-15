@@ -29,6 +29,8 @@
     {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
     {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
     {{ $added := $versionData.app_metadata.date_added | default "" }}
+	{{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
+    {{ .Page.Scratch.Set "keywords" $keywords }}
 
     <!-- Render the content -->
     <div class="apps-docs-sections">
@@ -55,7 +57,7 @@
               {{ with $versionData.app_metadata.keywords }}
                 Keywords: {{ delimit . ", " }}<br>
               {{ end }}
-              Train: {{ $train | default "Unknown" }}<br>
+              Train: {{ title $train | default "Unknown" }}<br>
               Home Page: <a href="{{ $versionData.app_metadata.home | default "#" }}" target="_blank">{{ $versionData.app_metadata.home | default "N/A" }}</a><br>
             </small>
           </div>
