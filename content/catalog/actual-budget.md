@@ -6,7 +6,10 @@ tags:
 - apps
 ---
 
-{{< github-content path="trains/community/actual-budget/app_versions.json" >}}
+{{< github-content 
+    path="trains/community/actual-budget/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
 
 ## Resources
 

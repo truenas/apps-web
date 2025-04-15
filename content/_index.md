@@ -4,8 +4,6 @@ description: "This website describes the standalone applications that are availa
 linkTitle: "Home"
 keywords:
  - TrueNAS Apps
- - Enhanced TrueNAS
- - TrueNAS docker containers
 ---
 
 Welcome to TrueNAS Apps!
