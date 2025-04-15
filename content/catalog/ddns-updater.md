@@ -18,7 +18,7 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="DDNS-Updater Deployment" link="/resources/deploy-ddns-updater"
+{{< doc-card title="DDNS Updater Deployment" link="/resources/deploy-ddns-updater"
 descr="How to deploy and configure the community DDNS-Updater app." >}}
 
 </div>

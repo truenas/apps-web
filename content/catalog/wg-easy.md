@@ -18,7 +18,7 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="Diskoverdata Deployment" link="/resources/deploy-wg-easy"
+{{< doc-card title="WG Easy Deployment" link="/resources/deploy-wg-easy"
 descr="How to deploy and configure the Stable WG Easy app." >}}
 
 </div>

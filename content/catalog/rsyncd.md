@@ -18,7 +18,7 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="Rsyncd Deployment" link="/resources/deploy-rsyncd"
+{{< doc-card title="Rsync Daemon Deployment" link="/resources/deploy-rsyncd"
 descr="How to deploy and configure the community Rsyncd app." >}}
 
 </div>
