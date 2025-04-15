@@ -6,10 +6,7 @@ tags:
 - apps
 ---
 
-{{< github-content 
-    path="trains/community/adguard-home/app_versions.json"
-	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
->}}
+{{< github-content path="trains/community/adguard-home/app_versions.json" >}}
 
 ## Resources
 
