@@ -1,16 +1,11 @@
 ---
 title: "TrueNAS Apps"
+hideTitle: true
 description: "This website describes the standalone applications that are available to deploy within TrueNAS for an enhanced user experience and functionality."
 linkTitle: "Home"
 keywords:
  - TrueNAS Apps
 ---
-
-Welcome to TrueNAS Apps!
-Applications are stand-alone containers that you can use to dramatically enhance your TrueNAS experience!
-These range from professional-minded containers for security and data management to home user tools for network file sharing and media management.
-
-TrueNAS Apps are provided by both the TrueNAS team and our amazing user Community.
 
 ## Discover TrueNAS Applications
 

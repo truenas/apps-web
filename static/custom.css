@@ -2583,6 +2583,119 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   }
 
 /* End Styling for Version Selector Sections */
+/* Apps Website Banner */
+.apps-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-image: url('/images/Apps-Hero-Bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 5;
+  padding: 2rem 0;
+}
+
+.apps-banner-content-sizing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+}
+
+.apps-banner-image {
+  flex: 0 1 40%;
+  max-width: 40%;
+  height: auto;
+  object-fit: contain;
+  padding-left: 1rem;
+}
+
+.apps-banner-content {
+  flex: 1;
+  color: #ffffff;
+  text-align: left;
+  font-family: 'Inter iX', Helvetica, Arial, Lucida, sans-serif;
+  line-height: 1.2;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.apps-banner-head {
+  font-family: 'Inter iX', Helvetica, Arial, Lucida, sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: #ffffff;
+}
+
+.apps-banner-text {
+  margin-bottom: 1rem;
+  max-width: 80%;
+}
+
+.apps-banner-download {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 19px;
+  color: #ffffff;
+  background-color: #71bf44;
+  border: 1px solid #71bf44;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.apps-banner-download:visited {
+	color: #ffffff;
+}
+.apps-banner-download:hover {
+  color: #71bf44;
+  background-color: #ffffff;
+  border: 1px solid #71bf44;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.apps-banner-download:active {
+  background-color: #f0f0f0;
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .apps-banner-content-sizing {
+    flex-direction: column;
+  }
+
+  .apps-banner-image {
+    max-width: 70%;
+    margin: 1rem auto;
+  }
+
+  .apps-banner-content {
+	max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .apps-banner-image {
+    max-width: 90%;
+  }
+
+  .apps-banner-head {
+    font-size: 32px;
+  }
+
+  .apps-banner-content {
+    font-size: 20px;
+  }
+}
 /* Apps Website show breadcrumb on mobile view */
 @media screen and (max-width: 41rem) {
 	.gdoc-page__header .breadcrumb, .hidden-mobile {
