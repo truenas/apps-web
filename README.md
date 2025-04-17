@@ -10,11 +10,11 @@ Home page, catalog view, and app details pages are populated with content automa
 Content is ingested from the metadata for individual apps and is thus kept consistent with the day-to-day changes in the TrueNAS project, provided the site is refreshed at regular intervals.
 The publicly available anonymous telemetry for TrueNAS apps is also ingested and used to measure applications' popularity.
 
-New markdown files for app details are automatically generated from a comparison check with the primary TrueNAS apps repository: https://www.github.com/truenas/apps
+New markdown files for app details are automatically generated from a comparison check with the primary TrueNAS apps repository: https://www.github.com/truenas/apps.
 Automation opens pull requests to add new app markdown files that are prepopulated with the logic and pathing to dynamically fill themselves with content from the relevant app metadata and telemetry.
 
-Static content like deployment articles follows a diataxis approach, with autopopulated catalog entries functioning as landing pages and static articles filed under "Resources" subheader for each app.
-Shortcodes are used to single-source common messages that apply to many content locations.
+Static content from the resources section follows a diataxis approach, with autopopulated catalog entries functioning as landing pages and static articles filed under a "Resources" subheader for each app.
+Hugo shortcodes are used to single-source common messages that apply to many content locations.
 This is still a work in progress with content from https://www.truenas.com/docs/truenasapps/ planned to fully redirect to this website and be further polished.
 
 ## Layout
