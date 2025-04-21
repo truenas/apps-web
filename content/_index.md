@@ -1,5 +1,5 @@
 ---
-title: "{{ site.Title }}"
+title: "TrueNAS Apps Gateway"
 hideTitle: true
 description: "This website describes the standalone applications that are available to deploy within TrueNAS for an enhanced user experience and functionality."
 linkTitle: "Home"
