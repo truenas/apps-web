@@ -3,10 +3,13 @@
 {{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal | default dict }}
 
 <!-- Extract telemetry data for the app -->
-{{ $appName := .appName }}
-{{ $appTrain := .appTrain }}
+{{ $appName := .appName | lower }} <!-- Normalize app name to lowercase -->
+{{ $appTrain := .appTrain | lower }} <!-- Normalize train name to lowercase -->
 {{ $telemetryTrain := cond (eq $appTrain "enterprise") "Enterprise" (cond (eq $appTrain "stable") "Stable" "Community") }}
 {{ $deploymentCount := 0 }}
+
+<!-- Debugging: Log telemetry train and app name -->
+{{ warnf "Telemetry lookup: Train=%s, App=%s" $telemetryTrain $appName }}
 
 {{ with index $telemetryData $telemetryTrain }}
   {{ $deploymentCount = index . $appName | default 0 }}
@@ -23,7 +26,7 @@
       <img src="/images/Bronze-Labeled.png" alt="5,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
     {{ else if gt $deploymentCount 2500 }}
       <img src="/images/Blue-Ribbon-Labeled.png" alt="2,500 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
-	{{ else if gt $deploymentCount 1000 }}
+    {{ else if gt $deploymentCount 1000 }}
       <img src="/images/Ribbon-Labeled.png" alt="1,000 active deployments icon" style="width: 5rem; vertical-align: middle;"><br>
     {{ end }}
   </div>

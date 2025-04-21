@@ -45,8 +45,11 @@
       {{ end }}
     {{ end }}
 
+    <!-- Normalize app name for telemetry matching -->
+    {{ $normalizedAppName := lower $name }}
+
     <!-- Add to telemetry-based apps -->
-    {{ $telemetryApps = $telemetryApps | append (dict "name" $name "count" $count "train" $train "date_added" $dateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
+    {{ $telemetryApps = $telemetryApps | append (dict "name" $normalizedAppName "count" $count "train" $train "date_added" $dateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
   {{ end }}
 {{ end }}
 
