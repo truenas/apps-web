@@ -9,7 +9,7 @@ keywords:
 
 ## Discover TrueNAS Applications
 
-<div class="docs-sections" id="hompage-links">
+<div class="docs-sections" id="homepage-links">
 
 {{< doc-card title="Catalog" image="/images/catalog-icon.png" link="/catalog"
 descr="Browse the full catalog of applications available in TrueNAS!" >}}
