@@ -15,13 +15,13 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
-
 <!--
+{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+-->
+
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< doc-card title="Community Guide: Setting up qBitTorrent" link="https://forums.truenas.com/t/truenas-scale-setting-up-qbittorrent-including-finding-the-login-password/544"
+descr="Notes about configuring the qBitTorrent app." >}}
 
 </div>
--->

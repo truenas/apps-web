@@ -18,6 +18,8 @@ tags:
 
 <div class="docs-sections">
 
+{{< youtube PCYvsLSStbA >}}
+
 {{< doc-card title="Syncthing Deployment" link="/resources/deploy-syncthing-stable"
 descr="How to deploy and configure the Stable Syncthing app." >}}
 
