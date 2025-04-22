@@ -17,6 +17,8 @@ tags:
 
 <div class="docs-sections">
 
+{{< youtube o0Py62k63_c >}}
+
 {{< doc-card title="Tailscale Deployment" link="/resources/deploy-tailscale"
 descr="How to deploy and configure the community Tailscale app." >}}
 

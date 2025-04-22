@@ -20,4 +20,6 @@ tags:
 {{< doc-card title="Nginx Proxy Manager Deployment" link="/resources/deploy-nginx-proxy-manager"
 descr="How to deploy and configure the community Nginx Proxy Manager app." >}}
 
+{{< youtube jx6T6lqX-QM >}}
+
 </div>
