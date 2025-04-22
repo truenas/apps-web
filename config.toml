@@ -1,5 +1,5 @@
 #baseURL = ""
-title = "TrueNAS Apps"
+title = "TrueNAS Apps Market"
 theme = ["hugo-geekdoc"]
 
 # Required to get well formatted code blocks

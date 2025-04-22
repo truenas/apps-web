@@ -3,16 +3,17 @@
 {{ $rawData := resources.GetRemote $telemetryURL }}
 {{ $telemetryData := $rawData | transform.Unmarshal | default dict }}
 {{ $localBaseDir := "Apps_Temp/trains" }}
+{{ $trains := slice "stable" "enterprise" "community" }}
 
 <!-- Capture the current date -->
 {{ $currentDate := now.UTC }}
 {{ $reviewedAt := $currentDate.Format "January 2, 2006" }}
 
-<!-- Initialize slices for all apps and recent apps -->
-{{ $allApps := slice }}
+<!-- Initialize slices for telemetry-based apps and recent apps -->
+{{ $telemetryApps := slice }}
 {{ $recentApps := slice }}
 
-<!-- Process telemetry data -->
+<!-- Process telemetry data for popular apps -->
 {{ range $train, $apps := $telemetryData }}
   {{ range $name, $count := $apps }}
     <!-- Skip "custom-app" to avoid duplicate cards -->
@@ -44,24 +45,58 @@
       {{ end }}
     {{ end }}
 
-    <!-- Parse and compare date_added if it exists -->
-    {{ $parsedDateAdded := "" }}
-	{{ if $dateAdded }}
-		{{ $parsedDateAdded = time (printf "%sT00:00:00Z" $dateAdded) }}
-	{{ end }}
+    <!-- Normalize app name for telemetry matching -->
+    {{ $normalizedAppName := lower $name }}
 
-    <!-- Add to all apps -->
-    {{ $allApps = $allApps | append (dict "name" $name "count" $count "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
-
-    <!-- Add to recent apps if date_added is valid and within the last 30 days -->
-    {{ if and $parsedDateAdded (lt ($currentDate.Sub $parsedDateAdded).Hours 720) }}
-	{{ $recentApps = $recentApps | append (dict "name" $name "count" $count "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" 	$appDescription "icon" $appIcon) }}
-	{{ end }}
+    <!-- Add to telemetry-based apps -->
+    {{ $telemetryApps = $telemetryApps | append (dict "name" $normalizedAppName "count" $count "train" $train "date_added" $dateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
   {{ end }}
 {{ end }}
 
-<!-- Sort all apps by deployment count in descending order -->
-{{ $sortedApps := sort $allApps "count" "desc" }}
+<!-- Process app_versions.json files for recent apps -->
+{{ range $train := $trains }}
+  {{ $trainDir := printf "%s/%s" $localBaseDir $train }}
+  {{ if fileExists $trainDir }}
+    {{ $apps := readDir $trainDir }}
+    {{ range $app := $apps }}
+      {{ $appName := $app.Name }}
+      {{ $appFilePath := printf "%s/%s/app_versions.json" $trainDir $appName }}
+
+      <!-- Initialize app metadata -->
+      {{ $appTitle := "" }}
+      {{ $appDescription := "" }}
+      {{ $appIcon := "/images/default-icon.png" }}
+      {{ $dateAdded := "" }}
+
+      <!-- Check if the app_versions.json file exists -->
+      {{ if fileExists $appFilePath }}
+        {{ $fileContent := readFile $appFilePath }}
+        {{ $jsonData := transform.Unmarshal $fileContent | default dict }}
+
+        <!-- Extract app metadata -->
+        {{ range $version, $data := $jsonData }}
+          {{ $appTitle = index $data "app_metadata" "title" | default $appName | title }}
+          {{ $appDescription = index $data "app_metadata" "description" | default (printf "Learn more about %s and its features." ($appName | title)) }}
+          {{ $appIcon = index $data "app_metadata" "icon" | default $appIcon }}
+          {{ $dateAdded = index $data "app_metadata" "date_added" | default "" }}
+          {{ break }}
+        {{ end }}
+      {{ end }}
+
+      <!-- Parse and compare date_added -->
+      {{ $parsedDateAdded := "" }}
+      {{ if $dateAdded }}
+        {{ $parsedDateAdded = time $dateAdded | default "" }}
+        {{ if and $parsedDateAdded (lt ($currentDate.Sub $parsedDateAdded).Hours 720) }}
+          {{ $recentApps = $recentApps | append (dict "name" $appName "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- Sort telemetry-based apps by deployment count in descending order -->
+{{ $sortedTelemetryApps := sort $telemetryApps "count" "desc" }}
 
 <!-- Sort recent apps by date_added in descending order -->
 {{ $sortedRecentApps := sort $recentApps "date_added" "desc" }}
@@ -69,7 +104,7 @@
 <!-- Dropdown for selecting popular or recent apps -->
 <div class="popular-list-dropdown">
   <span>
-    Here are the most active or recent TrueNAS apps, as of {{ $reviewedAt }}!
+    Here are the most active or recent TrueNAS Apps, as of {{ $reviewedAt }}!
   </span>
   <select id="app-count-select" onchange="updateAppDisplay()" class="filter-apps">
     <option value="10" selected>Top 10</option>
@@ -83,56 +118,42 @@
 
 <!-- Container for app cards -->
 <div id="app-cards-container" class="docs-sections">
-  <!-- Render all apps -->
-  {{ range $index, $app := $sortedApps }}
-    <!-- Determine the correct URL -->
-    {{ $url := "" }}
-    {{ if or (eq $app.name "syncthing") (eq $app.name "minio") }}
-      {{ $url = printf "/catalog/%s_%s/" $app.name (lower $app.train) | urlize }}
-    {{ else }}
-      {{ $url = printf "/catalog/%s/" $app.name | urlize }}
-    {{ end }}
-
-    <a class="section-box app-card" href="{{ $url }}" data-index="{{ $index }}" data-type="popular">
-      <!-- Include telemetry and awards -->
-      {{ partial "telemetry-awards.html" (dict "appName" ($app.name | lower | urlize) "appTrain" ($app.train | lower)) }}
+  <!-- Render telemetry-based apps -->
+  {{ range $index, $app := $sortedTelemetryApps }}
+    <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}" data-index="{{ $index }}" data-type="popular">
       <div class="box-image">
         <img class="app-card-img" src="{{ $app.icon }}" aria-label="{{ $app.title }} Logo">
       </div>
       <div class="section-tab-content ixprods">
         <b class="app-title">{{ $app.title }}</b>
-        <br>Train: {{ $app.train | default "Unknown" }}<br>
-		{{ if $app.date_added }}
-			Added: {{ $app.date_added.UTC.Format "2006-01-02" }}<br><br>
-		{{ end }}
-        <p>{{ $app.description }}</p>
+        <p class="app-details">
+          Train: {{ title $app.train }}<br>
+          {{ if $app.date_added }}
+            Added: {{ $app.date_added }}<br>
+          {{ end }}
+        </p>
+        <p class="app-description">{{ $app.description }}</p>
       </div>
+      <!-- Include telemetry and awards -->
+      {{ partial "telemetry-awards.html" (dict "appName" $app.name "appTrain" $app.train) }}
     </a>
   {{ end }}
 
   <!-- Render recent apps -->
   {{ range $index, $app := $sortedRecentApps }}
-    <!-- Determine the correct URL -->
-    {{ $url := "" }}
-    {{ if or (eq $app.name "syncthing") (eq $app.name "minio") }}
-      {{ $url = printf "/catalog/%s_%s/" $app.name (lower $app.train) | urlize }}
-    {{ else }}
-      {{ $url = printf "/catalog/%s/" $app.name | urlize }}
-    {{ end }}
-
-    <a class="section-box app-card" href="{{ $url }}" data-index="{{ $index }}" data-type="recent">
-      <!-- Include telemetry and awards -->
-      {{ partial "telemetry-awards.html" (dict "appName" $app.name "appTrain" $app.train) }}
+    <a class="section-box app-card" href="/catalog/{{ $app.name | urlize }}" data-index="{{ $index }}" data-type="recent">
       <div class="box-image">
         <img class="app-card-img" src="{{ $app.icon }}" aria-label="{{ $app.title }} Logo">
       </div>
       <div class="section-tab-content ixprods">
         <b class="app-title">{{ $app.title }}</b>
-        <br>Train: {{ $app.train | default "Unknown" }}<br>
-		{{ if $app.date_added }}
-			Added: {{ $app.date_added.UTC.Format "2006-01-02" }}<br><br>
-		{{ end }}
-        <p>{{ $app.description }}</p>
+        <p class="app-details">
+          Train: {{ title $app.train }}<br>
+          {{ if $app.date_added }}
+            Added: {{ $app.date_added.UTC.Format "2006-01-02" }}<br>
+          {{ end }}
+        </p>
+        <p class="app-description">{{ $app.description }}</p>
       </div>
     </a>
   {{ end }}
