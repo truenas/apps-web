@@ -1,21 +1,14 @@
-<!-- Initialize telemetry data -->
 {{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
 {{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal | default dict }}
-
-<!-- Extract telemetry data for the app -->
-{{ $appName := .appName | lower }} <!-- Normalize app name to lowercase -->
-{{ $appTrain := .appTrain | lower }} <!-- Normalize train name to lowercase -->
+{{ $appName := .appName | lower }}
+{{ $appTrain := .appTrain | lower }}
 {{ $telemetryTrain := cond (eq $appTrain "enterprise") "Enterprise" (cond (eq $appTrain "stable") "Stable" "Community") }}
 {{ $deploymentCount := 0 }}
-
-<!-- Debugging: Log telemetry train and app name -->
-{{ warnf "Telemetry lookup: Train=%s, App=%s" $telemetryTrain $appName }}
 
 {{ with index $telemetryData $telemetryTrain }}
   {{ $deploymentCount = index . $appName | default 0 }}
 {{ end }}
 
-<!-- Render telemetry awards -->
 {{ if gt $deploymentCount 0 }}
   <div class="popular-app">
     {{ if gt $deploymentCount 20000 }}
