@@ -60,12 +60,13 @@
       {{- $appCategories := slice }}
       {{- $minScaleVersion := "" }}
       {{- $added := "" }}
-
+      {{- $keywords := slice }} <!-- Initialize keywords as an empty slice -->
+      
       <!-- Check if the file exists -->
       {{- if fileExists $localFilePath }}
         {{- $fileContent := readFile $localFilePath }}
         {{- $jsonData := transform.Unmarshal $fileContent }}
-
+      
         <!-- Extract app metadata -->
         {{- range $version, $data := $jsonData }}
           {{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
@@ -79,17 +80,22 @@
           {{- $appCategories = index $data "app_metadata" "categories" | default $appCategories }}
           {{- $added = index $data "app_metadata" "date_added" | default "" }}
           {{- $minScaleVersion = index $data "app_metadata" "annotations" "min_scale_version" | default "" }}
+          {{- $keywords = index $data "app_metadata" "keywords" | default slice }} <!-- Extract keywords -->
           {{- break }}
         {{- end }}
       {{- else }}
         {{ warnf "File not found: %s" $localFilePath }}
       {{- end }}
-
+      
       <!-- Collect categories for the dropdown -->
       {{- $allCategories = $allCategories | union $appCategories }}
-
+      
       <!-- Render the app card -->
-      <a class="section-box catalog-card" href="{{ $appPage.RelPermalink }}" data-title="{{ $baseAppName | lower }}" data-categories="{{ delimit $appCategories "," }}" data-train="{{ $mdTrain }}">
+      <a class="section-box catalog-card" href="{{ $appPage.RelPermalink }}" 
+         data-title="{{ $baseAppName | lower }}" 
+         data-categories="{{ delimit $appCategories "," }}" 
+         data-train="{{ $mdTrain }}" 
+         {{- if gt (len $keywords) 0 }} data-keywords="{{ delimit $keywords "," }}"{{- end }}>
         <!-- Include telemetry and awards -->
         {{ partial "telemetry-awards.html" (dict "appName" $baseAppName "appTrain" $mdTrain) }}
         <div class="box-image">
@@ -111,6 +117,9 @@
       </a>
     {{- end }}
   {{- end }}
+</div>
+<div id="no-results" style="display: none; text-align: center; margin-top: 20px;">
+  <p>No results found. Please adjust your filters or search terms.</p>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", initializeCatalogFilters);
@@ -175,31 +184,43 @@
     const filter = document.getElementById("catalog-filter")?.value.toLowerCase() || "";
     const trainFilter = document.getElementById("catalog-train-filter")?.value.toLowerCase() || "";
     const cards = document.querySelectorAll(".catalog-card");
-
+    const noResults = document.getElementById("no-results");
+  
     if (!cards || cards.length === 0) {
       console.error("No catalog cards found for filtering.");
       return;
     }
-
+  
+    let visibleCount = 0;
+  
     cards.forEach((card) => {
       if (!card || !(card instanceof HTMLElement)) {
         console.error("Invalid card element:", card);
         return;
       }
-
+  
       const title = card.getAttribute("data-title") || "";
       const categories = card.getAttribute("data-categories") || "";
       const train = card.getAttribute("data-train") || "";
-
-      const matchesSearch = title.toLowerCase().includes(input);
+      const keywords = card.getAttribute("data-keywords") || "";
+  
+      const matchesSearch = title.toLowerCase().includes(input) || keywords.toLowerCase().includes(input);
       const matchesFilter = !filter || categories.toLowerCase().includes(filter);
       const matchesTrain = !trainFilter || train.toLowerCase() === trainFilter;
-
+  
       if (matchesSearch && matchesFilter && matchesTrain) {
         card.style.display = "block";
+        visibleCount++;
       } else {
         card.style.display = "none";
       }
     });
+  
+    // Show or hide the fallback text based on the visible card count
+    if (visibleCount === 0) {
+      noResults.style.display = "block";
+    } else {
+      noResults.style.display = "none";
+    }
   }
 </script>
