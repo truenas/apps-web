@@ -31,6 +31,9 @@ This repository accepts contributions!
 
 An update to the https://www.truenas.com/docs/contributing/applications/ TrueNAS Contributor Guide with more details is forthcoming, but here are some brief notes:
 
+The Resources category for an app article under _content/catalog_ can include youtube video embedding or direct links to TrueNAS Community Forum tutorials about an app!
+See the content/catalog/syncthing_stable.md article for an example of youtube embedding.
+
 Contributors can propose a new .md file to the content/resources location to create deeper tutorials and other direct content for an app.
 The file needs to follow a consistent front matter layout for better integration with the site.
 A pointer to the file also needs to be added to the related catalog/ entry for that particular app.
