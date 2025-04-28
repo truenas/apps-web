@@ -18,8 +18,6 @@ The TrueNAS Home Assistant app provides a streamlined way to install, manage, an
 
 Home Assistant provides a [Quickstart Setup Guide](https://www.home-assistant.io/getting-started/) with step-by-step instructions to help users get started.
 
-{{< toc >}}
-
 ## Before You Begin
 
 Prepare TrueNAS before installing Home Assistant by:

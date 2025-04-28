@@ -28,8 +28,6 @@ The **stables** and **enterprise** train versions of the Syncthing app widget di
 
 {{< /expand >}}
 
-{{< toc >}}
-
 ## Before Installing Syncthing
 
 Before launching the app installation wizard, do the following:

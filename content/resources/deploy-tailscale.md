@@ -16,8 +16,6 @@ tags:
 
 [Tailscale](https://tailscale.com)
 
-{{< toc >}}
-
 ## Connecting to a custom headscale server
 
 Add the following to **Extra Arguments**:

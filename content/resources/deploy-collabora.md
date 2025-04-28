@@ -19,8 +19,6 @@ The TrueNAS Collabora app offers an efficient solution for deploying and managin
 
 Collabora provides a [Quickstart Setup Guide](https://collabora-online-for-nextcloud.readthedocs.io/en/latest/install/) with step-by-step instructions to help users get started.
 
-{{< toc >}}
-
 ## Before You Begin
 
 Prepare TrueNAS before installing Collabora by:

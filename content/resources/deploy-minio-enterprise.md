@@ -16,8 +16,6 @@ This article applies to the TrueNAS MinIO application in the **enterprise** trai
 This smaller version of MinIO is tested and polished for a safe and supportable experience for TrueNAS Enterprise customers.
 The enterprise MinIO application is tested and verified as an immutable target for Veeam Backup and Replication.
 
-{{< toc >}}
-
 ## Before You Begin
 To install the MinIO **enterprise** train app, do the following:
 * Acquire and apply the Enterprise VM & Apps license to the Enterprise system.

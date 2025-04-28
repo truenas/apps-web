@@ -23,8 +23,6 @@ It is always recommended to use rsync with SSH as a security best practice.
 
 You do not need this application to schedule or run rsync tasks from the **Data Protections** screen using the **Rsync Task** widget.
 
-{{< toc >}}
-
 ## Installing the Rsync Daemon Application
 
 The before installing the Rsync Daemon application (rsyncd) add a dataset the application can use for storage.

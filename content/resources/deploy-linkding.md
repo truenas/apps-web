@@ -16,8 +16,6 @@ tags:
 
 [Linkding](https://github.com/sissbruecker/linkding) is a web bookmarking application supporting tags, search, multi-users, page snapshots, and more.
 
-{{< toc >}}
-
 ## Before you begin
 
 Before you install Linkding:

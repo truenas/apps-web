@@ -32,8 +32,6 @@ See [MinIO Enterprise]({{< relref "/catalog/minio_enterprise.md" >}}) for more i
 The examples below use four TrueNAS systems to create a distributed cluster.
 For more information on MinIO distributed setups, refer to the [MinIO documentation](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
 
-{{< toc >}}
-
 ## Before You Begin
 Before you install the **stable** version of the MinIO app:
 

@@ -21,8 +21,6 @@ Jellyfin enables you to collect, manage, and stream media files. Official and th
 
 TrueNAS makes installing Jellyfin easy, but you must use the Jellyfin web portal to configure accounts and manage libraries.
 
-{{< toc >}}
-
 ## First Steps
 
 The Jellyfin app in TrueNAS installs, completes the initial configuration, then starts the Jellyfin web portal.

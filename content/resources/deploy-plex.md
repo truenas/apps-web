@@ -17,8 +17,6 @@ tags:
 
 Plex is a media server that allows you to manage and stream your media (music, movies, live TV, etc.) to any Plex client.
 
-{{< toc >}}
-
 ## Before You Begin
 
 Before you install the Plex app:
