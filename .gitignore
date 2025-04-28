@@ -1,6 +1,7 @@
 deploy.py
 jenkins/
 public/
+apps_temp/
 resources/
 node_modules/
 tech-doc-hugo
