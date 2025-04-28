@@ -19,8 +19,9 @@ languageCode = "en-us"
 copyright = "Content distributed under CC BY-SA 4.0"
 timeout = "30s"
 
-[author]
-name = "TrueNAS"
+[params.authors]
+  "TrueNAS" = {}
+
 [outputs]
 section = ["HTML","RSS","print"]
 [outputFormats.PRINT]
