@@ -620,7 +620,6 @@ mark {
   cursor: pointer;
 }
 .toc-panel {
-	position: fixed;
 	max-height: 50vh;
 	overflow-y: auto;
 	padding: 1rem 1rem 1rem 0rem;
@@ -628,6 +627,17 @@ mark {
 	background-color: var(--body-background);
     scrollbar-width: thin;
 }
+/* When below the header */
+.toc-absolute {
+    position: absolute;
+    top: auto;
+  }
+  
+  /* When fixed to the viewport */
+  .toc-fixed {
+    position: fixed;
+    top: 0;
+  }  
 @media screen and (max-width: 68rem) {
   .sidebar-right {
     transition: transform 0.3s ease;
@@ -1551,7 +1561,7 @@ a.section-box:hover {
 	text-align: center;
 }
 .prod-card-img {
-	width: 5em;
+	width: 80px;
 	object-fit: contain;
 }
 .box-image > img:hover {
@@ -2519,7 +2529,6 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   .support-card {
     background-color: var(--card-background);
     width: 100%;
-    max-width: 900px;
     margin: 1rem auto;
     padding: 1.5rem;
     border-radius: 15px;
@@ -2532,15 +2541,15 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   }
   
   .community {
-    border-left: 5px solid #71BF44;
+    border-left: 5px solid #AEADAE;
   }
   
   .enterprise-deployment {
-    border-left: 5px solid #31BEEC;
+    border-left: 5px solid #0095D5;
   }
   
   .enterprise-application {
-    border-left: 5px solid #0095D5;
+    border-left: 5px solid #71bf44;
   }  
 
   .support-title {
