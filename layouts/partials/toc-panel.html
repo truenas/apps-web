@@ -35,6 +35,36 @@
           }
         });
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const tocPanel = document.querySelector('.toc-panel');
+          const header = document.querySelector('header');
+          const banner = document.querySelector('.apps-banner');
+      
+          function getOffsetBottom(el) {
+            return el ? el.offsetTop + el.offsetHeight : 0;
+          }
+      
+          function updateTocPosition() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const headerBottom = getOffsetBottom(header);
+            const bannerBottom = getOffsetBottom(banner);
+            const threshold = Math.max(headerBottom, bannerBottom);
+      
+            if (scrollY > threshold) {
+              tocPanel.classList.add('toc-fixed');
+              tocPanel.classList.remove('toc-absolute');
+            } else {
+              tocPanel.classList.remove('toc-fixed');
+              tocPanel.classList.add('toc-absolute');
+            }
+          }
+      
+          updateTocPosition(); // initial check
+          window.addEventListener('scroll', updateTocPosition);
+        });
+      </script>            
     </ul>
   </div>
 </nav>
+
