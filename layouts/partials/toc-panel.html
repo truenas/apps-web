@@ -40,30 +40,43 @@
           const tocPanel = document.querySelector('.toc-panel');
           const header = document.querySelector('header');
           const banner = document.querySelector('.apps-banner');
+          const footer = document.querySelector('.container.gdoc-footer');
+          const footerPadding = 20; 
       
           function getOffsetBottom(el) {
             return el ? el.offsetTop + el.offsetHeight : 0;
           }
       
-          function updateTocPosition() {
+          function clampTocPanel() {
             const scrollY = window.scrollY || window.pageYOffset;
             const headerBottom = getOffsetBottom(header);
             const bannerBottom = getOffsetBottom(banner);
             const threshold = Math.max(headerBottom, bannerBottom);
+            const tocHeight = tocPanel.offsetHeight;
+            const footerTop = footer.getBoundingClientRect().top + window.scrollY - footerPadding;
+      
+            const tocBottom = scrollY + tocHeight;
       
             if (scrollY > threshold) {
-              tocPanel.classList.add('toc-fixed');
-              tocPanel.classList.remove('toc-absolute');
+              tocPanel.style.position = 'fixed';
+      
+              if (tocBottom > footerTop) {
+                const overlap = tocBottom - footerTop;
+                tocPanel.style.top = `-${overlap}px`;
+              } else {
+                tocPanel.style.top = '0px';
+              }
             } else {
-              tocPanel.classList.remove('toc-fixed');
-              tocPanel.classList.add('toc-absolute');
+              tocPanel.style.position = 'absolute';
+              tocPanel.style.top = '';
             }
           }
       
-          updateTocPosition(); // initial check
-          window.addEventListener('scroll', updateTocPosition);
+          window.addEventListener('scroll', clampTocPanel);
+          window.addEventListener('resize', clampTocPanel);
+          clampTocPanel();
         });
-      </script>            
+      </script>                  
     </ul>
   </div>
 </nav>
