@@ -620,24 +620,30 @@ mark {
   cursor: pointer;
 }
 .toc-panel {
-	max-height: 50vh;
-	overflow-y: auto;
-	padding: 1rem 1rem 1rem 0rem;
-	font-size: 14px;
-	background-color: var(--body-background);
+    position: absolute;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 1rem 1rem 1rem 0rem;
+    font-size: 14px;
+    background-color: var(--body-background);
     scrollbar-width: thin;
-}
-/* When below the header */
-.toc-absolute {
+  }
+  
+.toc-fixed {
+    position: fixed;
+    top: 0;
+  }
+  
+  .toc-absolute {
     position: absolute;
     top: auto;
   }
   
-  /* When fixed to the viewport */
-  .toc-fixed {
-    position: fixed;
-    top: 0;
-  }  
+  .toc-footer-overlap {
+    position: absolute;
+    top: 90px; /* or however much space you want above the footer */
+  }
+  
 @media screen and (max-width: 68rem) {
   .sidebar-right {
     transition: transform 0.3s ease;
