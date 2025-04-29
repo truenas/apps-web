@@ -104,7 +104,7 @@
 <!-- Dropdown for selecting popular or recent apps -->
 <div class="popular-list-dropdown">
   <span>
-    Here are the most active or recent TrueNAS Apps, as of {{ $reviewedAt }}!
+    &emsp;Here are the most active or recent TrueNAS Apps, as of {{ $reviewedAt }}!
   </span>
   <select id="app-count-select" onchange="updateAppDisplay()" class="filter-apps">
     <option value="10" selected>Top 10</option>
@@ -114,6 +114,11 @@
       <option value="recent">Newest</option>
     {{ end }}
   </select>
+  <span>
+    <span>
+      &emsp;
+    </span>
+  </span>
 </div>
 
 <!-- Container for app cards -->
