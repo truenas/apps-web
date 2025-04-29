@@ -14,13 +14,13 @@ keywords:
 {{< doc-card title="Catalog" image="/images/Catalog.svg" link="/catalog"
 descr="Browse the full catalog of applications available in TrueNAS!" >}}
 
-{{< doc-card title="Starting with Apps" image="/images/GSApplications.svg" link="https://www.truenas.com/docs/truenasapps/"
+{{< doc-card title="Starting with Apps" image="/images/GSApplications.svg" link="/getting-started"
 descr="How to prepare TrueNAS and configure the Apps service." >}}
 
 {{< doc-card title="Managing Apps" image="/images/ManagingApplications.svg" link="https://www.truenas.com/docs/truenasapps/managingapps/"
 descr="How to find, install, and manage Apps in TrueNAS." >}}
 
-{{< doc-card title="App Support Definitions" image="/images/SupportDefinitions.svg" link="https://www.truenas.com/docs/truenasapps/#app-support-definitions"
+{{< doc-card title="App Support Definitions" image="/images/SupportDefinitions.svg" link="/resources/app-support-definitions/"
 descr="Support availability for different apps and catalogs." >}}
 
 </div>
@@ -29,8 +29,8 @@ descr="Support availability for different apps and catalogs." >}}
 
 {{< featured-apps apps="enterprise/asigra-ds-system, enterprise/minio, stable/plex, enterprise/syncthing " >}}
 
-[View All](/catalog)
+&emsp;[View All](/catalog)
 
 {{< popular-apps >}}
 
-[View All](/catalog)
+&emsp;[View All](/catalog)
