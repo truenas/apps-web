@@ -621,7 +621,6 @@ mark {
 }
 .toc-panel {
     position: absolute;
-    max-height: 50vh;
     overflow-y: auto;
     padding: 1rem 1rem 1rem 0rem;
     font-size: 14px;
