@@ -1,0 +1,26 @@
+---
+title: "Understanding App Storage Volumes"
+description: "Information about the different types of storage volumes used for TrueNAS Apps: the ix-apps dataset, ixVolume datasets, host path datasets, SMB share volumes, and Tmpfs. "
+related_app:
+GeekdocShowEdit: false
+tags:
+- apps
+keywords:
+- application storage
+---
+
+The **ix-apps** dataset is the base-level storage volume for app data.
+Additionally, configuration options for individual apps include one or more of the following storage types: ixVolume datasets, host path datasets, SMB share volumes, and Tmpfs.
+
+If an application requires specific host path datasets, create the datasets before installing the application.
+For example, the [Nextcloud](/catalog/nextcloud) app requires three datasets: **html** for app data, **data** for user data, and **postgres_data** for the database data storage volume.
+[Create these datasets](https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/) before installing the app.
+See individual app information screens and app tutorials for more information.
+
+{{< include file="/static/includes/apps/AppsDatasets.md" >}}
+
+## Next Steps
+
+{{< include file="/static/includes/getting-started-next-steps.md" >}}
+
+{{< getting-started-return-button >}}
