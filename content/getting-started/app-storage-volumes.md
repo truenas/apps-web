@@ -6,7 +6,13 @@ GeekdocShowEdit: false
 tags:
 - apps
 keywords:
-- application storage
+- truenas app storage
+- truenas ix-apps dataset
+- container storage truenas
+- persistent storage truenas apps
+- host path truenas configuration
+- docker volumes truenas
+- truenas app data management
 ---
 
 The **ix-apps** dataset is the base-level storage volume for app data.
