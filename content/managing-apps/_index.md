@@ -4,8 +4,13 @@ description: "Articles in this section provide information on discovering, insta
 tags:
 - apps
 keywords:
-- nas data storage
-- software storage solutions
+- truenas app management
+- install apps on truenas
+- truenas custom applications
+- manage installed apps truenas
+- discover apps truenas scale
+- truenas app catalog guide
+- how to use truenas apps
 ---
 
 {{< include file="/static/includes/apps/AppsIntro.md" >}}
@@ -22,10 +27,10 @@ descr="How to to browse the app catalog using the TrueNAS Apps Discover screen."
 descr="How to install applications from the TrueNAS Apps catalog." >}}
 
 {{< doc-card title="Installing Custom Apps" link="/managing-apps/installing-custom-apps"
-descr="" >}}
+descr="How to install and configure custom or third-party applications in TrueNAS." >}}
 
-{{< doc-card title="Managing Installed Applications" link="/managing-apps/managing-installed-applications"
-descr="" >}}
+{{< doc-card title="Managing Installed Applications" link="/managing-apps/managing-installed-apps"
+descr="How to manage installed apps. Includes upgrading, deleting, stopping and starting, and managing container images." >}}
 
 </div>
 
