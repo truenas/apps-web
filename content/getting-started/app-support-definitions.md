@@ -7,8 +7,11 @@ tags:
 - TrueNAS Enterprise Support
 - apps
 keywords:
-- application system support
-- TrueNAS Enterprise
+- truenas app support levels
+- enterprise application support
+- truenas community apps
+- supported apps truenas scale
+- truenas enterprise catalog
 ---
 
 TrueNAS offers three distinct classes of support for applications, each tailored to provide varying levels of assistance depending on the specific needs and requirements.
