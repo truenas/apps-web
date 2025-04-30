@@ -4,8 +4,13 @@ description: "How to browse the app catalog using the TrueNAS Apps Discover scre
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/managing-apps/discovering-apps.md"
 keywords:
-- nas data storage
-- software storage solutions
+- discover apps truenas scale
+- truenas app catalog
+- browse apps truenas
+- truenas discover screen guide
+- how to find apps in truenas
+- refresh truenas app catalog
+- truenas app version info
 ---
 
 The **Discover** screen shows application widgets based on the trains selected on the **Train Settings** screen.
@@ -15,7 +20,7 @@ The **Discover** screen shows application widgets based on the trains selected o
 Use the **Discover** screen links to access other functions.
 
 * [**Refresh Catalog**](#refreshing-the-apps-catalog) - Refreshes the list of app widgets after changing train settings or changes to the catalog.
-* [**Manage Installed Apps**](/managing-apps/mananging-installed-apps.md) - Opens the **Installed** apps screen where you access the **Configuration** menu to manage general application settings.
+* [**Manage Installed Apps**](/managing-apps/managing-installed-apps.md) - Opens the **Installed** apps screen where you access the **Configuration** menu to manage general application settings.
 * [**Custom App**](/managing-apps/installing-custom-apps.md) - Allows users to deploy custom applications.
 
 Click on an app widget to open the app information screen with details about the selected application.
