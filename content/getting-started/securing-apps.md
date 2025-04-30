@@ -6,6 +6,14 @@ geekdocEditPath: "edit/main/content/getting-started/securing-apps.md"
 tags:
 - apps
 - vpn
+keywords:
+  - TrueNAS app security
+  - Cloudflare Tunnel TrueNAS
+  - secure TrueNAS apps
+  - VPN for TrueNAS
+  - Zero Trust TrueNAS
+  - reverse proxy TrueNAS
+  - Nextcloud Cloudflare setup
 author: 
 - Fabian Mühlberger
 ---
