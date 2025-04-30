@@ -19,7 +19,7 @@ For details on setting up the TrueNAS Apps service, configuring global settings,
 descr="How to to browse the app catalog using the TrueNAS Apps Discover screen." >}}
 
 {{< doc-card title="Installing Apps" link="/managing-apps/installing-apps"
-descr="" >}}
+descr="How to install applications from the TrueNAS Apps catalog." >}}
 
 {{< doc-card title="Installing Custom Apps" link="/managing-apps/installing-custom-apps"
 descr="" >}}
