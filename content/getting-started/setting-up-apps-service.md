@@ -4,8 +4,13 @@ description: "How to configure the TrueNAS Apps Service storage pool and global 
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/getting-started/setting-up-apps-service.md"
 keywords:
-- nas data storage
-- software storage solutions
+- truenas apps setup
+- configure apps service truenas
+- truenas docker container apps
+- how to install apps truenas scale
+- truenas app settings
+- manage docker registries truenas
+- truenas apps network configuration
 ---
 
 {{< getting-started-return-button >}}
