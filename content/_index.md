@@ -17,10 +17,10 @@ descr="Browse the full catalog of applications available in TrueNAS!" >}}
 {{< doc-card title="Starting with Apps" image="/images/GSApplications.svg" link="/getting-started"
 descr="How to prepare TrueNAS and configure the Apps service." >}}
 
-{{< doc-card title="Managing Apps" image="/images/ManagingApplications.svg" link="https://www.truenas.com/docs/truenasapps/managingapps/"
-descr="How to find, install, and manage Apps in TrueNAS." >}}
+{{< doc-card title="Managing Apps" image="/images/ManagingApplications.svg" link="/managing-apps"
+descr="How to find, install, and manage applications in TrueNAS." >}}
 
-{{< doc-card title="App Support Definitions" image="/images/SupportDefinitions.svg" link="/resources/app-support-definitions/"
+{{< doc-card title="App Support Definitions" image="/images/SupportDefinitions.svg" link="/getting-started/app-support-definitions"
 descr="Support availability for different apps and catalogs." >}}
 
 </div>
