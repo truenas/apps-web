@@ -1,8 +1,8 @@
 ---
 title: "Discovering Apps"
-description: "How to to browse the app catalog using the TrueNAS Apps Discover screen."
+description: "How to browse the app catalog using the TrueNAS Apps Discover screen."
 GeekdocShowEdit: true
-geekdocEditPath: "edit/main/content/content/managing-apps/discovering-apps.md"
+geekdocEditPath: "edit/main/content/managing-apps/discovering-apps.md"
 keywords:
 - nas data storage
 - software storage solutions
