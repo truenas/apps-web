@@ -4,8 +4,13 @@ description: "How to prepare TrueNAS and configure the Apps Service"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/getting-started/index.md"
 keywords:
-- nas data storage
-- software storage solutions
+- truenas apps setup
+- configure truenas applications
+- self-hosted apps on truenas
+- truenas app service guide
+- home lab application storage
+- open source app deployment
+- secure apps with truenas
 ---
 
 {{< include file="/static/includes/apps/AppsIntro.md" >}}
