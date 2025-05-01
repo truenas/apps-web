@@ -3007,7 +3007,7 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     right: 0.5rem;
   }
   
-  /* Default inline label style (used elsewhere like in H1) */
+  /* Default inline label style (used elsewhere like in article headers) */
   .doctype-label {
     display: inline-block;
     padding: 0.2rem 0.6rem;
@@ -3096,5 +3096,26 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     right: 0;
     left: auto;
   }
+
+  .article-header-row {
+  display: flex;
+  justify-content: space-between; /* h1 on the left, label on the right */
+  align-items: center; /* vertically center them */
+  gap: 1rem; /* optional spacing between them */
+  flex-wrap: wrap; /* allows wrapping on narrow screens */
+  padding-bottom: 1rem;
+  padding-top:.5rem;
+}
+
+.article-header-row h1 {
+  margin: 0;
+  flex: 1;
+}
+
+.article-header-row .doctype-label {
+  flex-shrink: 0;
+  margin-top: 0.2rem; /* fine-tune vertical alignment if needed */
+}
+
     
 /* End Diataxis Labels */
