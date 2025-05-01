@@ -3,6 +3,7 @@ title: "Managing Installed Apps"
 description: "Provides information on managing apps in TrueNAS including upgrading, deleting, stopping and starting, and managing container images."
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/managing-apps/managing-installed-apps.md"
+doctype: tutorial
 tags:
 - apps
 keywords:
@@ -14,6 +15,8 @@ keywords:
   - app installation tutorial
   - TrueNAS workloads management
 ---
+
+{{< managing-apps-return-button >}}
 
 Installed applications appear on the **Installed** applications screen.
 Click on an app row to view **Details**, including the **Application Info**, **Workloads**, **Notes**, and **Application Metadata** widgets.
