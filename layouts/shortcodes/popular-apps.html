@@ -104,8 +104,8 @@
 <!-- Dropdown for selecting popular or recent apps -->
 <div class="popular-list-dropdown">
   <span>
-    &emsp;Here are the most active or recent TrueNAS Apps, as of {{ $reviewedAt }}!
-  </span>
+    &emsp;<span id="app-list-status">Here are the 10 most active TrueNAS Apps, as of {{ $reviewedAt }}!</span>
+  </span>  
   <select id="app-count-select" onchange="updateAppDisplay()" class="filter-apps">
     <option value="10" selected>Top 10</option>
     <option value="25">Top 25</option>
@@ -169,19 +169,22 @@
   function updateAppDisplay() {
     const selectedValue = document.getElementById('app-count-select').value;
     const appCards = document.querySelectorAll('.app-card');
-
+    const statusText = document.getElementById('app-list-status');
+  
     appCards.forEach((card) => {
       const type = card.getAttribute('data-type');
       const index = parseInt(card.getAttribute('data-index'), 10);
-
+  
       if (selectedValue === 'recent') {
         card.style.display = type === 'recent' ? 'block' : 'none';
+        statusText.textContent = 'Here are the most recent TrueNAS Apps, as of {{ $reviewedAt }}!';
       } else {
         const selectedCount = parseInt(selectedValue, 10);
         card.style.display = type === 'popular' && index < selectedCount ? 'block' : 'none';
+        statusText.textContent = `Here are the ${selectedCount} most active TrueNAS Apps, as of {{ $reviewedAt }}!`;
       }
     });
-  }
+  }  
 
   // Initialize the display to show the correct apps based on the dropdown selection
   document.addEventListener('DOMContentLoaded', updateAppDisplay);
