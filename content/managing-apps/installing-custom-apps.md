@@ -1,5 +1,5 @@
 ---
-title: "Installing Custom Applications"
+title: "Installing Custom Apps"
 description: "Provides information on installing and configuring custom or third-party applications in TrueNAS."
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/managing-apps/installing-custom-apps.md"
@@ -18,6 +18,10 @@ keywords:
 ---
 
 {{< managing-apps-return-button >}}
+
+This article covers installing custom applications in TrueNAS.
+For details on how to set up app storage, configure global settings, and prepare TrueNAS to deploy applications, see [Initial Setup](/getting-started/initial-setup).
+For installing applications from the TrueNAS catalog, see [Installing Apps](/managing-apps/installing-apps).
 
 {{< include file="/static/includes/apps/CustomAppIntro.md" >}}
 
