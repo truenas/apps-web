@@ -13,11 +13,6 @@ keywords:
 - how to use truenas apps
 ---
 
-{{< include file="/static/includes/apps/AppsIntro.md" >}}
-
-The articles in this section cover how to discover, install, and manage applications.
-For details on setting up the TrueNAS Apps service, configuring global settings, and other general information, see [Getting Started with Apps](/getting-started) and individual app resources in the [Catalog](/catalog).
-
 <div class="docs-sections" id="managing-apps-links">
 
 {{< doc-card title="Discovering Apps" link="/managing-apps/discovering-apps"
@@ -29,12 +24,25 @@ descr="How to install applications from the TrueNAS Apps catalog." >}}
 {{< doc-card title="Installing Custom Apps" link="/managing-apps/installing-custom-apps"
 descr="How to install and configure custom or third-party applications in TrueNAS." >}}
 
-{{< doc-card title="Managing Installed Applications" link="/managing-apps/managing-installed-apps"
-descr="How to manage installed apps. Includes upgrading, deleting, stopping and starting, and managing container images." >}}
+{{< doc-card title="Managing Installed Apps" link="/managing-apps/managing-installed-apps"
+descr="How to manage installed apps. Includes upgrading, deleting, stopping, starting, and managing container images." >}}
 
 {{< doc-card title="Apps UI Reference" doctype="reference" link="https://www.truenas.com/docs/scale/scaleuireference/apps/"
 descr="Descriptions of the apps screens and fields. Use the version dropdown to select your installed TrueNAS version." >}}
 
 </div>
 
-{{< include file="/static/includes/managing-apps-next-steps.md" >}}
+&emsp;Ready to move on? Continue your TrueNAS Apps journey below.
+
+<div class="docs-sections" id="managing-apps-more-links">
+
+{{< doc-card title="Catalog" doctype="none" image="/images/Catalog.svg" link="/catalog"
+descr="Browse the full catalog of applications available in TrueNAS!" >}}
+
+{{< doc-card title="Back to Getting Started" doctype="none" image="/images/GSApplications.svg" link="/getting-started"
+descr="Review initial setup, securing apps, contributing apps and resources, and more." >}}
+
+{{< doc-card title="Back to Home" doctype="none" image="/images/home.svg" link="/"
+descr="View featured applications, the most deployed, and the newest applications available in TrueNAS." >}}
+
+</div>
