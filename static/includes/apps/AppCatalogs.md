@@ -25,7 +25,7 @@ TrueNAS applications are available in three catalogs (trains):
 
 Some apps proposed by community members might be adopted as official Stable train apps.
 
-See [App Support Definitions](/content/resources/app-support-definitions.md) for more information on application support levels.
+See [App Support Definitions](/getting-started/app-support-definitions) for more information on application support levels.
 
 TrueNAS Community Edition systems populate the **Discover** apps screen with the Stable and Community catalogs populate by default.
 TrueNAS Enterprise-licensed systems show the Enterprise catalog.
