@@ -32,6 +32,9 @@ descr="How to install and configure custom or third-party applications in TrueNA
 {{< doc-card title="Managing Installed Applications" link="/managing-apps/managing-installed-apps"
 descr="How to manage installed apps. Includes upgrading, deleting, stopping and starting, and managing container images." >}}
 
+{{< doc-card title="Apps UI Reference" doctype="reference" link="https://www.truenas.com/docs/scale/scaleuireference/apps/"
+descr="Descriptions of the apps screens and fields. Use the version dropdown to select your installed TrueNAS version." >}}
+
 </div>
 
 {{< include file="/static/includes/managing-apps-next-steps.md" >}}
