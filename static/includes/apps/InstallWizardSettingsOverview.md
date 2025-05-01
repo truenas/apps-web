@@ -24,7 +24,7 @@ TrueNAS applications generally include these basic setting sections:
 * **Network Configuration** shows network settings the app needs to communicate with TrueNAS and the Internet.
   Settings include the default port assignment, host name, IP addresses, and other network settings.
 
-  If changing the port number to something other than the default setting, refer to [Default Ports](https://www.truenas.com/docs/references/defaultports/) for a list of used and available port numbers.
+  If changing the port number to something other than the default setting, refer to [Default Ports](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) for a list of used and available port numbers.
 
   Some network configuration settings include the option to add a certificate. Create the certificate authority and certificate before using the installation wizard if using a certificate is required for the application.
 
