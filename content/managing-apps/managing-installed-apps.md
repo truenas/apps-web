@@ -18,6 +18,11 @@ keywords:
 
 {{< managing-apps-return-button >}}
 
+This article covers administering installed applications in TrueNAS.
+For details on how to set up app storage, configure global settings, and prepare TrueNAS to deploy applications, see [Initial Setup](/getting-started/initial-setup).
+For installing applications from the catalog, see [Installing Apps](/managing-apps/installing-apps).
+For custom applications, see [Installing Custom Apps](/managing-apps/installing-custom-apps).
+
 Installed applications appear on the **Installed** applications screen.
 Click on an app row to view **Details**, including the **Application Info**, **Workloads**, **Notes**, and **Application Metadata** widgets.
 
