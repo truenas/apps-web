@@ -3,6 +3,7 @@ title: "Securing Apps"
 description: "Securing TrueNAS applications with VPNs and Zero Trust or a Cloudflare Tunnel."
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/getting-started/securing-apps.md"
+doctype: tutorial
 tags:
 - apps
 - vpn
@@ -14,9 +15,12 @@ keywords:
   - Zero Trust TrueNAS
   - reverse proxy TrueNAS
   - Nextcloud Cloudflare setup
-author: 
+authors: 
 - Fabian Mühlberger
+- The TrueNAS Team
 ---
+
+{{< getting-started-return-button >}}
 
 {{< hint type=note >}}
 Enhancing app security is a multifaceted challenge and there are various effective approaches.
@@ -57,7 +61,7 @@ It uses a **Cloudflared** client that is installed on the TrueNAS system.
 
 This allows a secure and encrypted connection without the need to expose ports or the private IP of the TrueNAS system to the internet.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareTunnelOverview.jpg" alt="Cloudflare Tunnel Overview" id="Cloudflare Tunnel Overview" caption="Illustration via [Cloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) (CC BY)" >}}
+{{< trueimage src="/images/Apps/CloudflareTunnelOverview.jpg" alt="Cloudflare Tunnel Overview" id="Cloudflare Tunnel Overview" caption="Illustration via [Cloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) (CC BY)" >}}
 
 Register or log in to a [Cloudflare account](https://dash.cloudflare.com/sign-up).
 A free account is sufficient.
@@ -82,7 +86,7 @@ Choose a **Tunnel Name** and click **Save tunnel**.
 Copy the tunnel token from the **Install and run a connector** screen.
 This is needed to configure the **Cloudflared** app in TrueNAS.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareCreateToken.png" alt="Cloudflare Create Token" id="Cloudflare Create Token" >}}
+{{< trueimage src="/images/Apps/CloudflareCreateToken.png" alt="Cloudflare Create Token" id="Cloudflare Create Token" >}}
 
 The operating system selection does not matter as the same token is used for all options.
 For example, the command for a docker container is:
@@ -101,11 +105,11 @@ Add a public hostname for accessing Nextcloud, for example *nextcloud.example.co
 Set service **Type** to **HTTPS**.
 Enter the local TrueNAS IP with the Nextcloud container port, for example, *192.168.1.1:9001*.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareTunnelHostname.png" alt="Cloudflare Tunnel Hostname" id="Cloudflare Tunnel Hostname" >}}
+{{< trueimage src="/images/Apps/CloudflareTunnelHostname.png" alt="Cloudflare Tunnel Hostname" id="Cloudflare Tunnel Hostname" >}}
 
 Go to **Additional application Settings**, select **TLS** from the dropdown menu, and enable **No TLS Verify**.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareTunnelTLSSetting.png" alt="Cloudflare Tunnel TLS Setting" id="Cloudflare Tunnel TLS Setting" >}}
+{{< trueimage src="/images/Apps/CloudflareTunnelTLSSetting.png" alt="Cloudflare Tunnel TLS Setting" id="Cloudflare Tunnel TLS Setting" >}}
 
 Click **Save tunnel**.
 
@@ -124,13 +128,13 @@ Paste the token from Cloudflare, that you copied earlier, in the **Tunnel Token*
 
 All other settings can be left as default.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflaredApplicationInstall.png" alt="Install Cloudflared" id="Install Cloudflared" >}}
+{{< trueimage src="/images/Apps/CloudflaredApplicationInstall.png" alt="Install Cloudflared" id="Install Cloudflared" >}}
 
 Click **Save** and deploy the application.
 
 #### Nextcloud Configuration
 
-Install the [Nextcloud](/content/catalog/nextcloud.md) **stable** application.
+Install the [Nextcloud](/catalog/nextcloud) **stable** application.
 
 The first application deployment could take a while, and starts and stops multiple times.
 This is normal behavior.
@@ -152,7 +156,7 @@ With the Cloudflare connector and Nextcloud installed and configured, in your Cl
 
 The status of the tunnel should be **HEALTHY**.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareTunnelStateHealthy.png" alt="Cloudflare Tunnel Healthy" id="Cloudflare Tunnel Healthy" >}}
+{{< trueimage src="/images/Apps/CloudflareTunnelStateHealthy.png" alt="Cloudflare Tunnel Healthy" id="Cloudflare Tunnel Healthy" >}}
 
 Nextcloud should now be reachable via the Cloudflare Tunnel address, *nextcloud.example.com* in this example, using an HTTPS connection.
 
@@ -166,15 +170,15 @@ Go to **Access**, click **Add an Application**, and select **Self-Hosted**.
 
 Add your Nextcloud application and the domain configured in the Cloudflare tunnel.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareAddApplication.png" alt="Cloudflare Add Application" id="Cloudflare Add Application" >}}
+{{< trueimage src="/images/Apps/CloudflareAddApplication.png" alt="Cloudflare Add Application" id="Cloudflare Add Application" >}}
 
 Click **Next**.
 
 Create a new policy by entering a **Policy Name**. You can assign groups to this policy or add additional rules.
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareAddPolicy.png" alt="Cloudflare Add Policy" id="Cloudflare Add Policy" >}}
+{{< trueimage src="/images/Apps/CloudflareAddPolicy.png" alt="Cloudflare Add Policy" id="Cloudflare Add Policy" >}}
 
-{{< trueimage src="/images/SCALE/Apps/CloudflareCreateAdditionalRules.png" alt="Cloudflare Additional Rules" id="Cloudflare Additional Rules" >}}
+{{< trueimage src="/images/Apps/CloudflareCreateAdditionalRules.png" alt="Cloudflare Additional Rules" id="Cloudflare Additional Rules" >}}
 
 Click **Next** and **Save**.
 
