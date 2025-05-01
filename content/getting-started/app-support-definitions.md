@@ -57,5 +57,3 @@ Users should review these definitions carefully and consult with their support c
 ## Next Steps
 
 {{< include file="/static/includes/getting-started-next-steps.md" >}}
-
-{{< getting-started-return-button >}}
