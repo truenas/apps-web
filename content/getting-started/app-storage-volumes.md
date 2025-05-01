@@ -3,6 +3,7 @@ title: "Understanding App Storage Volumes"
 description: "Information about the different types of storage volumes used for TrueNAS Apps: the ix-apps dataset, ixVolume datasets, host path datasets, SMB share volumes, and Tmpfs. "
 related_app:
 GeekdocShowEdit: false
+doctype: explanation
 tags:
 - apps
 keywords:
@@ -14,6 +15,8 @@ keywords:
 - docker volumes truenas
 - truenas app data management
 ---
+
+{{< getting-started-return-button >}}
 
 The **ix-apps** dataset is the base-level storage volume for app data.
 Additionally, configuration options for individual apps include one or more of the following storage types: ixVolume datasets, host path datasets, SMB share volumes, and Tmpfs.
