@@ -189,5 +189,3 @@ There are additional options for policy configuration, but these are beyond the 
 ## Next Steps
 
 {{< include file="/static/includes/getting-started-next-steps.md" >}}
-
-{{< getting-started-return-button >}}
