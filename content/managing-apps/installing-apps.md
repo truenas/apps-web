@@ -3,6 +3,7 @@ title: "Installing Apps"
 description: "How to install applications from the TrueNAS Apps catalog."
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/managing-apps/installing-apps.md"
+doctype: tutorial
 keywords:
 - install apps truenas scale
 - truenas app installation guide
@@ -12,6 +13,8 @@ keywords:
 - gpu passthrough truenas
 - install custom applications truenas
 ---
+
+{{< managing-apps-return-button >}}
 
 The first time you go to **Apps**, a dialog prompts you to choose the pool for apps to use. You must set the app pool before you can install applications.
 Select the pool as described in [**Setting Up the Apps Service**](/getting-started/setting-up-apps-service/#choosing-the-apps-pool).
