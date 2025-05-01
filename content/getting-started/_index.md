@@ -32,7 +32,7 @@ descr="Learn about the different types of storage volumes used for TrueNAS Apps 
 {{< doc-card title="App Support Definitions" link="/getting-started/app-support-definitions"
 descr="Learn about the different kinds of informal or formal support offered for applications available within TrueNAS." >}}
 
-{{< doc-card title="Contributing to TrueNAS Apps" link="https://www.truenas.com/docs/contributing/applications/"
+{{< doc-card title="Contributing to TrueNAS Apps" doctype="how-to" link="https://www.truenas.com/docs/contributing/applications/"
 descr="How to submit code changes to TrueNAS application catalogs or contribute to application documentation and resources." >}}
 
 </div>
