@@ -3,6 +3,7 @@ title: "Installing Custom Applications"
 description: "Provides information on installing and configuring custom or third-party applications in TrueNAS."
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/managing-apps/installing-custom-apps.md"
+doctype: tutorial
 tags:
 - customapp
 - apps
@@ -15,6 +16,8 @@ keywords:
   - install custom apps tutorial
   - TrueNAS custom Docker containers
 ---
+
+{{< managing-apps-return-button >}}
 
 {{< include file="/static/includes/apps/CustomAppIntro.md" >}}
 
@@ -59,13 +62,13 @@ In most use cases, ixVolume storage is better suited to app testing, while host 
 
 ### Using SMB Shares
 
-Users can mount an SMB share for storage within the container using Docker [volumes](https://docs.docker.com/engine/storage/#volumes).
+Users can mount an SMB share for storage within the container using Docker [volumes](https://docs.docker.com/engine/storage/#volume-mounts).
 Volumes consume space from the pool chosen for application management.
 You need to define a path where the volume appears inside the container.
 
 ### Using Memory-Backed Storage
 
-Memory-backed [tmpfs](https://docs.docker.com/engine/storage/#tmpfs) storage provides a temporary, in-memory file system for storing data that only needs to persist for the lifetime of the container.
+Memory-backed [tmpfs](https://docs.docker.com/engine/storage/#tmpfs-mounts) storage provides a temporary, in-memory file system for storing data that only needs to persist for the lifetime of the container.
 It is mounted directly in RAM and automatically cleared when the container stops.
 
 Memory-backed storage can store ephemeral data, especially when performance speed is a concern, such as caching, processing data that does not need persistent storage, like transcoding data, or storing session data.
@@ -145,7 +148,7 @@ To deploy a third-party application using the **Install iX App** wizard, go to *
    See the [Docker documentation](https://docs.docker.com/engine/network/drivers/host/) for more details on host networking.
 
    Use **Ports** to reroute container ports that default to the same port number used by another system service or container.
-   See [Default Ports](https://www.truenas.com/docs/references/defaultports/) for a list of assigned ports in TrueNAS.
+   See [Default Ports](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) for a list of assigned ports in TrueNAS.
    See the Docker [Container Discovery](https://docs.docker.com/engine/network/drivers/overlay/#container-discovery) documentation for more on overlaying ports.
 
    Click **Add** to display a block of port configuration fields. Click again to add additional port mappings.
@@ -188,7 +191,7 @@ To deploy a third-party application using the **Install iX App** wizard, go to *
 
    Enter the **Port** number to use for portal access.
    Refer to the documentation provided by the application provider/developer for the port number the app uses.
-   Check the port number against the list of [Default Ports](https://www.truenas.com/docs/references/defaultports/) to make sure TrueNAS is not using it for some other purpose.
+   Check the port number against the list of [Default Ports](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) to make sure TrueNAS is not using it for some other purpose.
    If needed, you can map the default container port to an open host port under **Network Configuration** (see above).
 
    If needed, enter a custom **Path** for portal access, for example, */admin*. Defaults to */*. The path is appended to the host IP and port, as in **truenas.local:15000/admin**.
@@ -320,7 +323,7 @@ Click **Save** to begin deploying the app.
 The following examples represent some of the capabilities of Docker Compose and how it can be used to configure applications in TrueNAS.
 This is not an exhaustive collection of all capabilities, nor are the files below intended as production-ready deployment templates.
 
-Note that app storage in these examples is configured using [volumes](https://docs.docker.com/engine/storage/#volumes), which are managed by the Docker engine.
+Note that app storage in these examples is configured using [volumes](https://docs.docker.com/engine/storage/#volume-mounts), which are managed by the Docker engine.
 In a production deployment, configure [bind mounts](https://docs.docker.com/engine/storage/#bind-mounts) to TrueNAS storage locations.
 
 #### Installing a Multi-Container App with GPU Access
