@@ -3,6 +3,7 @@ title: "Setting Up the Apps Service"
 description: "How to configure the TrueNAS Apps Service storage pool and global settings"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/getting-started/setting-up-apps-service.md"
+doctype: how-to
 keywords:
 - truenas apps setup
 - configure apps service truenas
@@ -23,9 +24,10 @@ Docker is an open-source software that manages images and container deployments.
 
 The default system-level settings are found in **Apps > Settings**.
 
-For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/scaleuireference/apps/).
-
 Use the **Configuration** dropdown to access the **Choose Pool**, **Unset Pool**, **Manage Container Images**, and **Settings** options.
+
+For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/scaleuireference/apps/).
+Use the dropdown to select your installed TrueNAS version.
 
 ## Choosing the Apps Pool
 
@@ -70,7 +72,7 @@ To sign in to another registry, select **Other Registry** from the dropdown or c
 
 {{< trueimage src="/images/Apps/CreateDockerRegistryOther.png" alt="Create Docker Registry - Other Registry" id="Create Docker Registry - Other Registry" >}}
 
-Enter a valid Uniform Resource Identifier (URI) for the registry, for example *https://index.docker.io/v1/*.
+Enter a valid Uniform Resource Identifier (URI) for the registry, for example *`https://index.docker.io/v1/`*.
 Then enter a display name for the registry record in TrueNAS.
 
 Enter the user name and password of an existing account on the registry.
