@@ -3,6 +3,7 @@ title: "App Support Definitions"
 description: "Defines the different kinds of informal or formal support offered for applications available within TrueNAS."
 related_app:
 GeekdocShowEdit: false
+doctype: explanation
 tags:
 - TrueNAS Enterprise Support
 - apps
@@ -13,6 +14,8 @@ keywords:
 - supported apps truenas scale
 - truenas enterprise catalog
 ---
+
+{{< getting-started-return-button >}}
 
 TrueNAS offers three distinct classes of support for applications, each tailored to provide varying levels of assistance depending on the specific needs and requirements.
 
@@ -28,8 +31,7 @@ Users should review these definitions carefully and consult with their support c
       <a href="https://github.com/truenas/apps/issues">tracked separately</a> and addressed on a best-effort basis through 
       <a href="https://forums.truenas.com/">community forums</a> and user-driven resources.  
       There is no guaranteed resolution timeframe.</p>
-    <p><strong>Examples:</strong> Plex, Tailscale, Jellyfin, NextCloud, and any App available from the 
-      <a href="/truenasapps/stableapps/">Stable</a> or <a href="/truenasapps/communityapps/">Community</a> trains.</p>
+    <p><strong>Examples:</strong> Plex, Tailscale, Jellyfin, NextCloud, and any App available from the Stable or Community trains.</p>
   </div>
 
   <div class="support-card enterprise-deployment">
