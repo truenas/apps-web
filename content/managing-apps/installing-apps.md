@@ -16,8 +16,9 @@ keywords:
 
 {{< managing-apps-return-button >}}
 
-The first time you go to **Apps**, a dialog prompts you to choose the pool for apps to use. You must set the app pool before you can install applications.
-Select the pool as described in [**Setting Up the Apps Service**](/getting-started/setting-up-apps-service/#choosing-the-apps-pool).
+This article covers installing applications from the TrueNAS catalog.
+For details on how to set up app storage, configure global settings, and prepare TrueNAS to deploy applications, see [Initial Setup](/getting-started/initial-setup).
+For custom applications, see [Installing Custom Apps](/managing-apps/installing-custom-apps).
 
 The **Installed** applications screen displays **Check Available Apps** before you install the first application.
 
