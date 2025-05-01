@@ -2,6 +2,9 @@ Ready to move on? Continue your TrueNAS Apps journey below.
 
 <div class="docs-sections" id="getting-started-more-links">
 
+{{< doc-card title="Back to Getting Started" doctype="none" image="/images/GSApplications.svg" link="/getting-started"
+descr="Learn more about initial setup, securing apps, contributing apps and resources, and more." >}}
+
 {{< doc-card title="Managing Apps" doctype="none" image="/images/ManagingApplications.svg" link="/managing-apps"
 descr="How to find, install, and manage applications in TrueNAS." >}}
 
