@@ -28,6 +28,15 @@ Click on an app row to view **Details**, including the **Application Info**, **W
 
 {{< trueimage src="/images/Apps/InstalledAppsScreenWithApps.png" alt="Installed Applications Screen" id="Installed Applications Screen" >}}
 
+<!-- Placeholder for PD-2004
+## Editing Apps
+Click **Edit** to edit.
+
+[details on using the Edit screen]
+
+Click **Save** to apply changes and redeploy the application.
+-->
+
 ## Upgrading Apps
 
 Apps with available upgrades show a yellow circle with an exclamation point on the right side of the **Applications** table row, and the **Installed** application screen banner displays an **Update** or an **Update All** button.
@@ -43,6 +52,10 @@ Click on the down arrow to see the options available for each.
 
 Click **Upgrade** to begin the process. A counter dialog opens showing the upgrade progress.
 When complete, the update badge and buttons disappear and the application **Update** state on the **Installed** screen changes from **Update Available** to **Up to date**.
+
+<!-- Placeholder for PD-2004
+### Rolling Back to Previous Versions
+-->
 
 ## Deleting Apps
 
@@ -68,9 +81,35 @@ Apps on the **Installed** screen, showing either the **Deploying** or **Running*
 Running apps show the restart icon button that allows you to stop and then restart the application.
 Click the <span class="material-icons">restart_alt</span> icon button to stop then automatically restart the app.
 
+<!-- Placeholder for PD-2004
+## Viewing Workloads
+The **Workloads** widget shows ports and container information.
+Each container includes buttons to access a container shell, view volume mounts, and view logs.
+
+Click <span class="iconify" data-icon="mdi:console" title="Shell">Shell</span> and enter an option in the **Choose Shell Details** window to access a container shell.
+
+Click <i class="material-icons" aria-hidden="true" title="Volume Mounts">folder_open</i> to view configured storage mounts for the container.
+
+Click <span class="iconify" data-icon="mdi:text-box" title="Logs">Logs</span> to open the **Container Logs** window.
+Select options in **Logs Details** and click **Connect** to view logs for the container.
+-->
+
 ## Managing Container Images
 
 {{< include file="/static/includes/apps/AppsManageImages.md" >}}
+
+## Managing Custom Apps
+
+[Installed custom applications](/managing-apps/installing-custom-apps) show on the **Installed** applications screen.
+Many of the management options available for catalog applications are also available for custom apps.
+
+TrueNAS monitors upstream images and alerts when an updated version is available.
+Update custom applications using the [same procedure](/managing-apps/managing-installed-apps/#upgrading-apps) as catalog applications.
+
+{{< trueimage src="/images/Apps/CustomAppDetails.png" alt="App Details Widgets" id="App Details Widgets" >}}
+
+Custom applications installed via YAML do not include the **Web UI** button on the **Application Info** widget.
+To access the web UI for a custom app, navigate to the port on the TrueNAS system, for example, *hostname.domain:8080*.
 
 ## Next Steps
 
