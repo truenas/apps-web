@@ -3,7 +3,7 @@ title: "App Support Definitions"
 description: "Defines the different kinds of informal or formal support offered for applications available within TrueNAS."
 related_app:
 GeekdocShowEdit: false
-doctype: explanation
+doctype: foundations
 tags:
 - TrueNAS Enterprise Support
 - apps
