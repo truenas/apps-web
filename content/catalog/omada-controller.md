@@ -6,6 +6,8 @@ tags:
 - apps
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/omada-controller/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

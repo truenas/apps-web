@@ -26,8 +26,6 @@ Using TrueNAS in a multi-tenant solution architecture pattern is outside the sco
 Contact Storj support for assistance with their products and services not covered in the TrueNAS articles.
 {{< /hint >}}
 
-{{< toc >}}
-
 ## Before You Begin
 
 Before you can configure your system to act as a Storj node:

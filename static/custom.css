@@ -620,14 +620,29 @@ mark {
   cursor: pointer;
 }
 .toc-panel {
-	position: fixed;
-	max-height: 50vh;
-	overflow-y: auto;
-	padding: 1rem 1rem 1rem 0rem;
-	font-size: 14px;
-	background-color: var(--body-background);
+    position: absolute;
+    overflow-y: auto;
+    padding: 1rem 1rem 1rem 0rem;
+    font-size: 14px;
+    background-color: var(--body-background);
     scrollbar-width: thin;
-}
+  }
+  
+.toc-fixed {
+    position: fixed;
+    top: 0;
+  }
+  
+  .toc-absolute {
+    position: absolute;
+    top: auto;
+  }
+  
+  .toc-footer-overlap {
+    position: absolute;
+    top: 90px; /* or however much space you want above the footer */
+  }
+  
 @media screen and (max-width: 68rem) {
   .sidebar-right {
     transition: transform 0.3s ease;
@@ -1523,6 +1538,7 @@ pre.chroma {
 	transition: 0.3s;
 	background-color: rgb(248, 249, 250);
 	position: relative;
+    padding: 1rem;
 }
 .section-box:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -1550,7 +1566,7 @@ a.section-box:hover {
 	text-align: center;
 }
 .prod-card-img {
-	width: 5em;
+	width: 80px;
 	object-fit: contain;
 }
 .box-image > img:hover {
@@ -2518,7 +2534,6 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   .support-card {
     background-color: var(--card-background);
     width: 100%;
-    max-width: 900px;
     margin: 1rem auto;
     padding: 1.5rem;
     border-radius: 15px;
@@ -2531,15 +2546,15 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
   }
   
   .community {
-    border-left: 5px solid #71BF44;
+    border-left: 5px solid #AEADAE;
   }
   
   .enterprise-deployment {
-    border-left: 5px solid #31BEEC;
+    border-left: 5px solid #0095D5;
   }
   
   .enterprise-application {
-    border-left: 5px solid #0095D5;
+    border-left: 5px solid #71bf44;
   }  
 
   .support-title {
@@ -2983,3 +2998,124 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
 	font-weight:600;
 }
 /* End Styling */
+
+/* Diataxis Labels */
+/* Only apply absolute positioning inside section-tab-content (cards) */
+.section-tab-content .doctype-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  /* Default inline label style (used elsewhere like in article headers) */
+  .doctype-label {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: default;
+    background-color: transparent;
+  }
+  
+  /* Prevent floating in article headers */
+  .static-label {
+     position: relative;
+     margin: 0;
+     top: 0.5rem; 
+     display: inline-block;
+  }  
+  
+  .label-tutorial {
+    color: #75bf44; /* Text color */
+    border: 2px solid #75bf44; /* Outline color */
+    background-color: transparent; /* No background color */
+  }
+  
+  .label-howto {
+    color: #31BEEC; /* Text color */
+    border: 2px solid #31BEEC; /* Outline color */
+    background-color: transparent; /* No background color */
+  }
+  
+  .label-reference {
+    color: #A593E0; /* Text color */
+    border: 2px solid #A593E0; /* Outline color */
+    background-color: transparent; /* No background color */
+  }
+  
+  .label-foundations {
+    color: #FF9800; /* Text color */
+    border: 2px solid #FF9800; /* Outline color */
+    background-color: transparent; /* No background color */
+  }
+  
+/* Tooltip initial state (hidden) */
+.custom-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 120%;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.3rem;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-transform: initial;
+    white-space: nowrap;  /* Allow wrapping */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: auto; /* Allow dynamic width adjustment */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+/* Tooltip visible state (on hover) */
+.doctype-label:hover .custom-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Default positioning - position near the label */
+  .doctype-label {
+    position: relative; /* Ensure the tooltip is positioned relative to the label */
+  }
+  
+  /* Tooltip alignment based on dynamic JS class added */
+  .tooltip-left .custom-tooltip {
+    left: 0;
+    right: auto;
+  }
+  
+  .tooltip-right .custom-tooltip {
+    right: 0;
+    left: auto;
+  }
+
+  .article-header-row {
+  display: flex;
+  justify-content: space-between; /* h1 on the left, label on the right */
+  align-items: center; /* vertically center them */
+  gap: 1rem; /* optional spacing between them */
+  flex-wrap: wrap; /* allows wrapping on narrow screens */
+  padding-bottom: 1rem;
+  padding-top:.5rem;
+}
+
+.article-header-row h1 {
+  margin: 0;
+  flex: 1;
+}
+
+.article-header-row .doctype-label {
+  flex-shrink: 0;
+  margin-top: 0.2rem; /* fine-tune vertical alignment if needed */
+}
+
+    
+/* End Diataxis Labels */

@@ -8,6 +8,8 @@ tags:
 - enterprise
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/enterprise/syncthing/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

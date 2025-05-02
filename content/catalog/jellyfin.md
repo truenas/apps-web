@@ -7,6 +7,8 @@ tags:
 - media
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/jellyfin/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

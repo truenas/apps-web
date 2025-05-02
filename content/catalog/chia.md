@@ -7,6 +7,8 @@ tags:
  - crypto
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/chia/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

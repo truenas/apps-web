@@ -1,5 +1,5 @@
-<nav class="toc-panel">
-  <div class="toc-container">
+<nav class="toc-panel" style="direction: rtl; text-align: left;">
+  <div class="toc-container" style="direction: ltr; padding: 1em;">
     <b>Page Sections:</b>
     <ul class="toc-list" style="list-style: none; padding-left: 0;">
       <script>
@@ -30,11 +30,54 @@
           });
 
           var sidebarRight = document.querySelector('.sidebar-right');
-          if (document.querySelectorAll('.toc-list li').length < 2) {
+          if (document.querySelectorAll('.toc-list li').length < 3) {
             sidebarRight.style.display = 'none';
           }
         });
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const tocPanel = document.querySelector('.toc-panel');
+          const header = document.querySelector('header');
+          const banner = document.querySelector('.apps-banner');
+          const footer = document.querySelector('.container.gdoc-footer');
+          const footerPadding = 20; 
+      
+          function getOffsetBottom(el) {
+            return el ? el.offsetTop + el.offsetHeight : 0;
+          }
+      
+          function clampTocPanel() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const headerBottom = getOffsetBottom(header);
+            const bannerBottom = getOffsetBottom(banner);
+            const threshold = Math.max(headerBottom, bannerBottom);
+            const tocHeight = tocPanel.offsetHeight;
+            const footerTop = footer.getBoundingClientRect().top + window.scrollY - footerPadding;
+      
+            const tocBottom = scrollY + tocHeight;
+      
+            if (scrollY > threshold) {
+              tocPanel.style.position = 'fixed';
+      
+              if (tocBottom > footerTop) {
+                const overlap = tocBottom - footerTop;
+                tocPanel.style.top = `-${overlap}px`;
+              } else {
+                tocPanel.style.top = '0px';
+              }
+            } else {
+              tocPanel.style.position = 'absolute';
+              tocPanel.style.top = '';
+            }
+          }
+      
+          window.addEventListener('scroll', clampTocPanel);
+          window.addEventListener('resize', clampTocPanel);
+          clampTocPanel();
+        });
+      </script>                  
     </ul>
   </div>
 </nav>
+

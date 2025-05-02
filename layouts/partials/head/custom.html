@@ -101,3 +101,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   });
 </script>
+
+<!-- Position label tooltips -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const labels = document.querySelectorAll(".doctype-label");
+
+    labels.forEach((label) => {
+      const tooltip = label.querySelector(".custom-tooltip");
+
+      // Check if tooltip exists
+      if (!tooltip) return;
+
+      label.addEventListener("mouseenter", () => {
+        const rect = label.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+
+        // Check if tooltip would overflow the right side of the screen
+        if (rect.right + tooltip.offsetWidth > windowWidth) {
+          label.classList.add("tooltip-right");  // Move tooltip to the left
+          label.classList.remove("tooltip-left");
+        } else {
+          label.classList.add("tooltip-left"); // Keep tooltip on the right
+          label.classList.remove("tooltip-right");
+        }
+      });
+
+      // Reset tooltip position on mouse leave
+      label.addEventListener("mouseleave", () => {
+        label.classList.remove("tooltip-left", "tooltip-right");
+      });
+    });
+  });
+</script>

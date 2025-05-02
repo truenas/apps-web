@@ -6,6 +6,8 @@ tags:
 - apps
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/paperless-ngx/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

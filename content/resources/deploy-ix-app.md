@@ -11,8 +11,6 @@ tags:
 
 {{< include file="/static/includes/apps/CustomAppIntro.md" >}}
 
-{{< toc >}}
-
 ## Custom Docker Applications
 
 Custom Docker applications typically follow Open Container specifications and deploy in TrueNAS following the Custom Application deployment process described below.

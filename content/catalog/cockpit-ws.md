@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/cockpit-ws/icons/icon.png"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/cockpit-ws/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

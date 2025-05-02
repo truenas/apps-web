@@ -7,6 +7,8 @@ tags:
 - apps
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/influxdb/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

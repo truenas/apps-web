@@ -16,8 +16,6 @@ tags:
 
 [Nginx Proxy Manager](https://nginxproxymanager.com)
 
-{{< toc >}}
-
 ## Installation
 
 There is a notice when you install the app that it needs to run as the `root` user.

@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/kasm-workspaces/icons/icon.png"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/kasm-workspaces/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

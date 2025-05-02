@@ -34,8 +34,6 @@ Both the **stable** and **enterprise** train versions of the MinIO app widget di
 
 {{< /expand >}}
 
-{{< toc >}}
-
 ## Before You Begin
 Before you install the **stable** version of the MinIO app:
 
