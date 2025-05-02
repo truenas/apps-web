@@ -1,7 +1,7 @@
 ---
 title: "Deploying Enterprise MinIO: Basics"
 description: "Tutorial for a basic installation and configuration for the MinIO Enterprise application."
-related_app: "/catalog/minio"
+related_app: "/catalog/minio_enterprise"
 tags:
 - s3
 - enterprise
