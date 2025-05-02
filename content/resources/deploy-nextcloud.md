@@ -69,7 +69,7 @@ To change the permissions for the **data** and **html** datasets:
 1. Select the dataset (**data** or **html**), scroll down to the **Permissions** widget and click **Edit** to open the **Edit ACL** screen for the selected dataset.
 2. Change **root** to **apps** in the **Owner** and **Owner Group** fields, then click **Apply Owner** and **Apply Group**.
 
- {{< trueimage src="/images/SCALE/Apps/EditACLScreenForhtmlDataset.png" alt="Edit ACL Screen for Nextcloud html Dataset" id="Edit ACL Screen for Nextcloud html Dataset" >}}
+ {{< trueimage src="/images/SCALE/Apps/NextcloudEditACLScreenForhtmlDataset.png" alt="Edit ACL Screen for Nextcloud html Dataset" id="Edit ACL Screen for Nextcloud html Dataset" >}}
 
 3. Click **Save Access Control List**.
 4. Select the **data** dataset and repeat steps 1-3 above.
@@ -169,7 +169,7 @@ Set **Type** to **Host Path (Path that already exists on the system)**, then ent
 
 Select **Automatic Permissions**. This does not show if you selected **Enable ACL**.
 
-{{< trueimage src="/images/SCALE/Apps/InstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
+{{< trueimage src="/images/SCALE/Apps/NextcloudInstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
 
 See [Storage Configuration Settings](#storage-configuration-settings) below for more information.
 
