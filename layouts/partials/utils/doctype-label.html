@@ -11,9 +11,9 @@
     {{ $tooltip = "Step-by-step guides covering key operations and common tasks" }}
   {{- else if eq $doctype "reference" -}}
     {{ $labelColor = "label-reference" }}
-    {{ $tooltip = "Description of UI screens and fields, including technical information like requirements and specifications." }}
-  {{- else if eq $doctype "explanation" -}}
-    {{ $labelColor = "label-explanation" }}
+    {{ $tooltip = "Description of UI screens and fields, including technical information like requirements and specifications" }}
+  {{- else if eq $doctype "foundations" -}}
+    {{ $labelColor = "label-foundations" }}
     {{ $tooltip = "Overviews and deeper dives into key topics, concepts, and clarifications" }}
   {{- end }}
 
