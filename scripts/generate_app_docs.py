@@ -28,6 +28,8 @@ tags:
 - enterprise
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/enterprise/$name/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
@@ -55,6 +57,8 @@ tags:
 - apps
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/$name/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
@@ -81,6 +85,8 @@ tags:
 - $name
 - apps
 ---
+
+{{< catalog-return-button >}}
 
 {{< github-content 
     path="trains/community/$name/app_versions.json"

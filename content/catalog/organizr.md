@@ -6,6 +6,8 @@ tags:
 - apps
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/organizr/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

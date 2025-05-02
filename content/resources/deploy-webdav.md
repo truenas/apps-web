@@ -21,8 +21,6 @@ It serves as the replacement for the built-in TrueNAS WebDAV feature.
 
 When installed and configured with at least one share, a container launches with temporary root privileges to configure the shares and activate the service.
 
-{{< toc >}}
-
 ## First Steps
 
 To grant access to a specific user (and group) other than the default for the webdav user and group (**666**), add a new non-root administrative user and take note of the UID and GID for this user.

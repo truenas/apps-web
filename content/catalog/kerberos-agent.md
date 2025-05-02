@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/kerberos-agent/icons/icon.svg"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/kerberos-agent/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

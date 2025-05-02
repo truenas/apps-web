@@ -16,8 +16,6 @@ tags:
 
 [Mealie](https://docs.mealie.io) is a self-hosted recipe manager and meal planner.
 
-{{< toc >}}
-
 ## Configuration
 
 ### Mealie Configuration

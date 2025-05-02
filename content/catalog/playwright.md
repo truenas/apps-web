@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/playwright/icons/icon.svg"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/playwright/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

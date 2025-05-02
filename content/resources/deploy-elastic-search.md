@@ -22,8 +22,6 @@ This tutorial covers installing the TrueNAS Elastic Search app to deploy a node.
 It does not detail management of the node or integrating it with other containers.
 Elastic provides a basic primer, [What is Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/master/elasticsearch-intro-what-is-es.html), with further information about the app and its place within the Elastic Stack.
 
-{{< toc >}}
-
 ## Before You Begin
 
 Prepare TrueNAS before installing the app by:

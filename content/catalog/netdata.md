@@ -7,6 +7,8 @@ tags:
 - reporting
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/netdata/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

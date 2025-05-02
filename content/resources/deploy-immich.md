@@ -22,8 +22,6 @@ It includes features such as libraries, automatic backup, bulk upload, partner s
 
 TrueNAS makes installing Immich easy, but you must use the Immich web portal and mobile app to configure accounts and access libraries.
 
-{{< toc >}}
-
 ## First Steps
 
 The Immich app in TrueNAS installs, completes the initial configuration, then starts the Immich web portal.

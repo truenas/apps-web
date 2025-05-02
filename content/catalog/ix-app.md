@@ -9,6 +9,8 @@ aliases:
 - /catalog/custom-app
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/ix-app/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

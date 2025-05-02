@@ -1,0 +1,24 @@
+{{ with .Params.doctype }}
+  {{ $doctype := . | lower }}
+  {{ $labelColor := "" }}
+  {{ $tooltip := "" }}
+
+  {{- if eq $doctype "tutorial" -}}
+    {{ $labelColor = "label-tutorial" }}
+    {{ $tooltip = "Hands-on introduction for new users or those looking to deepen their knowledge" }}
+  {{- else if eq $doctype "how-to" -}}
+    {{ $labelColor = "label-howto" }}
+    {{ $tooltip = "Step-by-step guides covering key operations and common tasks" }}
+  {{- else if eq $doctype "reference" -}}
+    {{ $labelColor = "label-reference" }}
+    {{ $tooltip = "Description of UI screens and fields, including technical information like requirements and specifications" }}
+  {{- else if eq $doctype "foundations" -}}
+    {{ $labelColor = "label-foundations" }}
+    {{ $tooltip = "Overviews and deeper dives into key topics, concepts, and clarifications" }}
+  {{- end }}
+
+  <div class="doctype-label static-label {{ $labelColor }}" style="margin: 0;">
+    {{ $doctype | title }}
+    <span class="custom-tooltip">{{ $tooltip }}</span>
+  </div>
+{{ end }}

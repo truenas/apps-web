@@ -14,8 +14,6 @@ tags:
 
 {{< include file="/static/includes/apps/SyncthingArticleIntro.md" >}}
 
-{{< toc >}}
-
 ## Syncthing Overview
 
 {{< include file="/static/includes/apps/SyncthingOverview.md" >}}

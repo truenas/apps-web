@@ -4,7 +4,7 @@ The installation wizard configuration sections vary by application, with some in
 Click **Install** to review settings ahead of time to check for required settings.
 Click **Discover** on the breadcrumb at the top of the installation wizard to exit the screen without saving and until you are ready return and configure the app settings.
 
-All apps in the **stable** train, some **community** train apps, and all apps in the **enterprise** train generally include these basic setting sections:
+TrueNAS applications generally include these basic setting sections:
 
 * **Application Name** shows the default name for the application.
 
@@ -24,7 +24,7 @@ All apps in the **stable** train, some **community** train apps, and all apps in
 * **Network Configuration** shows network settings the app needs to communicate with TrueNAS and the Internet.
   Settings include the default port assignment, host name, IP addresses, and other network settings.
 
-  If changing the port number to something other than the default setting, refer to [Default Ports](https://www.truenas.com/docs/references/defaultports/) for a list of used and available port numbers.
+  If changing the port number to something other than the default setting, refer to [Default Ports](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) for a list of used and available port numbers.
 
   Some network configuration settings include the option to add a certificate. Create the certificate authority and certificate before using the installation wizard if using a certificate is required for the application.
 
@@ -44,13 +44,13 @@ All apps in the **stable** train, some **community** train apps, and all apps in
   Apps with these requirements indicate this in the wizard UI or details screen.
   Refer to tutorials for specifics.
 
-  Depending on the app, storage options include:
+  Depending on the app, storage options can include:
   * **ixVolume**
   * **Host path**
   * **SMB share**
   * **Tmpfs (Temporary directory created on the RAM)**
 
-  See [Understanding App Storage Volumes](/truenasapps/managingapps/#understanding-app-storage-volumes) for more information.
+  See [Understanding App Storage Volumes](/getting-started/app-storage-volumes) for more information.
 
   After configuring required storage volumes you can add additional storage volumes.
   To configure additional storage volumes for the application, click **Add** to select the type of storage to configure.
@@ -67,4 +67,5 @@ All apps in the **stable** train, some **community** train apps, and all apps in
 
 After installing an app, you can modify most settings by selecting the app on the **Installed** applications screen and then clicking the **Edit** button on the **Application Info** widget for that app.
 
-For more detailed information on application install wizard settings, see each of the tutorials provided in this section.
+Settings available for each individual app can differ.
+For more detailed information on application install wizard settings, see individual app resources in the [Catalog](/catalog).

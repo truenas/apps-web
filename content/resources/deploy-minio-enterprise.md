@@ -1,7 +1,7 @@
 ---
 title: "Deploying Enterprise MinIO: Basics"
 description: "Tutorial for a basic installation and configuration for the MinIO Enterprise application."
-related_app: "/catalog/minio"
+related_app: "/catalog/minio_enterprise"
 tags:
 - s3
 - enterprise
@@ -15,8 +15,6 @@ tags:
 This article applies to the TrueNAS MinIO application in the **enterprise** train.
 This smaller version of MinIO is tested and polished for a safe and supportable experience for TrueNAS Enterprise customers.
 The enterprise MinIO application is tested and verified as an immutable target for Veeam Backup and Replication.
-
-{{< toc >}}
 
 ## Before You Begin
 To install the MinIO **enterprise** train app, do the following:

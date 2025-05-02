@@ -7,6 +7,8 @@ tags:
  - cloud
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/collabora/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

@@ -31,8 +31,6 @@ TrueNAS Nextcloud app provides backward compatibility and migration of early dep
 TrueNAS offers one deployment option for setting up Nextcloud, a Linux Debian-based TrueNAS version application available in TrueNAS releases 24.10 and later.
 The instructions in this article apply to these TrueNAS 24.10 and later releases.
 
-{{< toc >}}
-
 ## Before You Begin
 
 Before you install the Nextcloud app:

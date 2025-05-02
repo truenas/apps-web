@@ -19,8 +19,6 @@ The DDNS-Updater application is a lightweight universal dynamic DNS (DDNS) updat
 When installed, a container launches with root privileges in order to apply the correct permissions to the DDNS-Updater directories.
 Afterwards, the container runs as a non-root user.
 
-{{< toc >}}
-
 ## First Steps
 
 Make sure to have account credentials ready with the chosen DNS provider before installing the application in TrueNAS.

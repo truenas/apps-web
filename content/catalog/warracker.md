@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/warracker/icons/icon.png"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/warracker/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

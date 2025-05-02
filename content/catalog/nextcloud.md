@@ -9,6 +9,8 @@ tags:
 - redis
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/nextcloud/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
