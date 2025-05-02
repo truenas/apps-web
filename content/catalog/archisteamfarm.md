@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/archisteamfarm/icons/icon.webp"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/archisteamfarm/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

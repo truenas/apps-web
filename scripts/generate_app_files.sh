@@ -126,6 +126,8 @@ train: "$train"
 icon: "$icon"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/$train/$subdir/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/tvheadend/icons/icon.svg"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/tvheadend/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

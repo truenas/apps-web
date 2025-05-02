@@ -7,6 +7,8 @@ tags:
 - syncthing
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/stable/syncthing/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"

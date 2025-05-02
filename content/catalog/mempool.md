@@ -5,6 +5,8 @@ train: "community"
 icon: "https://media.sys.truenas.net/apps/mempool/icons/icon.svg"
 ---
 
+{{< catalog-return-button >}}
+
 {{< github-content 
     path="trains/community/mempool/app_versions.json"
 	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
