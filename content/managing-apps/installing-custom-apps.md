@@ -1245,34 +1245,6 @@ services:
       retries: 5
       start_period: 30s{{< /codeblock >}}
 
-## Managing Custom Apps
-
-Installed custom applications show on the **Installed** applications screen.
-Many of the management options available for catalog applications are also available for custom apps.
-
-TrueNAS monitors upstream images and alerts when an updated version is available.
-Update custom applications using the same [Upgrading Apps](/managing-apps/managing-installed-apps/#upgrading-apps" >}}) procedure as catalog applications.
-
-{{< trueimage src="/images/Apps/CustomAppDetails.png" alt="App Details Widgets" id="App Details Widgets" >}}
-
-Custom applications installed via YAML do not include the **Web Portal** button on the **Application Info** widget.
-To access the web UI for a custom app, navigate to the port on the TrueNAS system, for example, *hostname.domain:8080*.
-
-Click **Edit** to edit and redeploy the application.
-
-Click **Delete** to remove the application.
-See [Deleting Apps](/managing-apps/managing-installed-apps/#deleting-apps) for more information.
-
-The **Workloads** widget shows ports and container information.
-Each container includes buttons to access a container shell, view volume mounts, and view logs.
-
-Click <span class="iconify" data-icon="mdi:console" title="Shell">Shell</span> and enter an option in the **Choose Shell Details** window to access a container shell.
-
-Click <i class="material-icons" aria-hidden="true" title="Volume Mounts">folder_open</i> to view configured storage mounts for the container.
-
-Click <span class="iconify" data-icon="mdi:text-box" title="Logs">Logs</span> to open the **Container Logs** window.
-Select options in **Logs Details** and click **Connect** to view logs for the container.
-
 ## Next Steps
 
 {{< include file="/static/includes/managing-apps-next-steps.md" >}}
