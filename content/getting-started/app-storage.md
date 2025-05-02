@@ -2,7 +2,7 @@
 title: "App Storage"
 description: "Information about the different types of storage volumes used for TrueNAS Apps: the ix-apps dataset, ixVolume datasets, host path datasets, SMB share volumes, and Tmpfs. "
 GeekdocShowEdit: false
-doctype: explanation
+doctype: foundations
 tags:
 - apps
 keywords:
