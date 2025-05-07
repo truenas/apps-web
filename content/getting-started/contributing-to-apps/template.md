@@ -184,7 +184,7 @@ Refer to [*AppName* documentation](URL for environment variables documentation p
 
 ### User and Group Configuration <!-- Optional section, include only if the Install Wizard has this section -->
 <!-- replace the image path and name:
-{{< trueimage src="/images/SCALE/Apps/InstallPlexUserAndGroupConfig.png" alt="Plex User and Group Configuration Settings" id="Plex User and Group Configuration Settings" >}} -->
+{{< trueimage src="/images/Apps/InstallPlexUserAndGroupConfig.png" alt="Plex User and Group Configuration Settings" id="Plex User and Group Configuration Settings" >}} -->
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -241,7 +241,7 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 
 ### Resources Configuration
 <!-- replace the image with one for the app
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}} -->
+{{< trueimage src="/images/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}} -->
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 <!-- include this snippet if the app Install wizard includes the GPU settings -->
