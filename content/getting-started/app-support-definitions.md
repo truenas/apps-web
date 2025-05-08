@@ -25,7 +25,7 @@ Users should review these definitions carefully and consult with their support c
 
 <div class="support-cards">
   <div class="support-card community">
-    <h3>Community Support</h3>
+    <h2>Community Support</h2>
     <p><strong>Definition:</strong> Applications classified under this tier receive no formal support from TrueNAS official support channels.</p>
     <p><strong>Scope:</strong> Issues related to these applications are 
       <a href="https://github.com/truenas/apps/issues">tracked separately</a> and addressed on a best-effort basis through 
@@ -35,7 +35,7 @@ Users should review these definitions carefully and consult with their support c
   </div>
 
   <div class="support-card enterprise-deployment">
-    <h3>Enterprise Deployment Support</h3>
+    <h2>Enterprise Deployment Support</h2>
     <p><strong>Definition:</strong> Applications listed in the TrueNAS Enterprise Catalog are supported for application deployment 
       and issues related to the TrueNAS application framework.</p>
     <p><strong>Scope:</strong> The TrueNAS Support team includes guidance on the initial deployment and setup of the application within the TrueNAS environment.  
@@ -46,7 +46,7 @@ Users should review these definitions carefully and consult with their support c
   </div>
 
   <div class="support-card enterprise-application">
-    <h3>Enterprise Application Support</h3>
+    <h2>Enterprise Application Support</h2>
     <p><strong>Definition:</strong> Applications in this category are fully supported by both the TrueNAS Support and Development teams.</p>
     <p><strong>Scope:</strong> Comprehensive assistance is provided for troubleshooting, bug fixes, compatibility issues, and integration with new system features.  
       Regular updates and maintenance are included to ensure optimal performance and functionality.</p>
