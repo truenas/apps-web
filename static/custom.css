@@ -1543,6 +1543,35 @@ pre.chroma {
 .section-box:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.section-box.external-link b span {
+  font-size: 0.9rem;
+  vertical-align: top;
+  color: inherit;
+}
+.section-box .material-icons {
+  font-size: 1rem;
+  vertical-align: text-top;
+}
+/* Ribbon for kind labels */
+.ribbon {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  background: #71bf44; /* Default green */
+  color: white;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 2;
+}
+
+.ribbon-official {
+  background: #0095d5; /* Blue for Official */
+}
+
+/* END Ribbon for kind labels */
 
 .section-divider {
     width: 80px;
@@ -3052,8 +3081,8 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     background-color: transparent; /* No background color */
   }
   
-/* Tooltip initial state (hidden) */
-.custom-tooltip {
+  /* Tooltip initial state (hidden) */
+  .custom-tooltip {
     visibility: hidden;
     opacity: 0;
     position: absolute;
@@ -3068,30 +3097,31 @@ pre.gdoc-mermaid.mermaid.mermaid_sizing {
     font-size: 0.7rem;
     line-height: 1.2;
     text-transform: initial;
-    white-space: nowrap;  /* Allow wrapping */
+    white-space: nowrap;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    width: auto; /* Allow dynamic width adjustment */
+    width: auto;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
-  
-/* Tooltip visible state (on hover) */
-.doctype-label:hover .custom-tooltip {
+
+  /* Tooltip visible state (on hover) */
+  .doctype-label:hover .custom-tooltip,
+  .ribbon:hover .custom-tooltip {
     visibility: visible;
     opacity: 1;
   }
-  
-  /* Default positioning - position near the label */
+
+  /* Tooltip positioning container */
   .doctype-label {
-    position: relative; /* Ensure the tooltip is positioned relative to the label */
+    position: relative;
   }
-  
-  /* Tooltip alignment based on dynamic JS class added */
+
+  /* Tooltip alignment (if using JS to toggle sides) */
   .tooltip-left .custom-tooltip {
     left: 0;
     right: auto;
   }
-  
+
   .tooltip-right .custom-tooltip {
     right: 0;
     left: auto;
