@@ -40,7 +40,7 @@ Before you install the **stable** version of the MinIO app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/Apps/MinIOS3AppInfoScreen.png" alt="Plex App Details Screen" id="Plex App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/MinIOS3AppInfoScreen.png" alt="MinIO App Details Screen" id="MinIO App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
