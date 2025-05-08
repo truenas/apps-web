@@ -29,8 +29,37 @@
     {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
     {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
     {{ $added := $versionData.app_metadata.date_added | default "" }}
-	{{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
+    {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
     {{ .Page.Scratch.Set "keywords" $keywords }}
+
+    <!-- Logging for missing fields -->
+    {{ if not $name }}
+      {{ warnf "Missing 'name' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not $train }}
+      {{ warnf "Missing 'train' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appTitle "App Title" }}
+      {{ warnf "Missing 'title' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appDescription "No description available." }}
+      {{ warnf "Missing 'description' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appIcon "/images/default-icon.png" }}
+      {{ warnf "Missing or default 'icon' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not $added }}
+      {{ warnf "Missing 'date_added' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "keywords") }}
+      {{ warnf "Missing 'keywords' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "changelog_url") }}
+      {{ warnf "Missing 'changelog_url' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "home") }}
+      {{ warnf "Missing 'home' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
 
     <!-- Render the content -->
     <div class="apps-docs-sections">
@@ -50,15 +79,27 @@
                 Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
               {{ end }}
               App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+              {{ if not (isset $versionData.app_metadata "app_version") }}
+                {{ warnf "Missing 'app_version' in app_metadata for file: %s" $localFilePath }}
+              {{ end }}
               {{ if $changelog }}
                 (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+              {{ else }}
+                {{ warnf "No changelog_url for %s in %s" $name $localFilePath }}
               {{ end }}
               <br>
               {{ with $versionData.app_metadata.keywords }}
                 Keywords: {{ delimit . ", " }}<br>
+              {{ else }}
+                {{ warnf "No keywords for %s in %s" $name $localFilePath }}
               {{ end }}
               Train: {{ title $train | default "Unknown" }}<br>
-              Home Page: <a href="{{ $versionData.app_metadata.home | default "#" }}" target="_blank">{{ $versionData.app_metadata.home | default "N/A" }}</a><br>
+              {{ if $versionData.app_metadata.home }}
+                Home Page: <a href="{{ $versionData.app_metadata.home }}" target="_blank">{{ $versionData.app_metadata.home }}</a><br>
+              {{ else }}
+                Home Page: <span style="color: #888;">N/A</span><br>
+                {{ warnf "No home page for %s in %s" $name $localFilePath }}
+              {{ end }}
             </small>
           </div>
         </div>
@@ -70,9 +111,13 @@
           <b>{{ $appTitle }} Details</b><br>
           {{ if $added }}
             Added: {{ $added }}<br>
+          {{ else }}
+            {{ warnf "No date_added for %s in %s" $name $localFilePath }}
           {{ end }}
           {{ if $versionData.last_update }}
             Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+          {{ else }}
+            {{ warnf "No last_update for %s in %s" $name $localFilePath }}
           {{ end }}
           <p class="app-descr">
             {{ $appDescription }}
@@ -98,15 +143,17 @@
 
     <!-- Screenshots Section -->
     {{ if $versionData.app_metadata.screenshots }}
-    <br>
-    <div class="screenshots-section">
-      <b>Screenshots</b>
-      <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-        {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
-        <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
-        {{ end }}
+      <br>
+      <div class="screenshots-section">
+        <b>Screenshots</b>
+        <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+            <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+          {{ end }}
+        </div>
       </div>
-    </div>
+    {{ else }}
+      {{ warnf "No screenshots found for %s in %s" $name $localFilePath }}
     {{ end }}
 
     <!-- Lightbox Modal -->
@@ -133,8 +180,8 @@
           {{ end }}
         </ul>
       </details>
-      {{ end }}
-    {{ end }}
+	  {{ end }}
+	{{ end }}
 
     <!-- Security Capabilities Section -->
     {{ if $versionData.app_metadata.capabilities }}
@@ -150,9 +197,8 @@
           {{ end }}
         </ul>
       </details>
-      {{ end }}
-    {{ end }}
-
+	  {{ end }}
+	{{ end }}
     <!-- App_Versions File Expand -->
     <br>
     <details>
@@ -161,9 +207,8 @@
     </details>
     <br>
     <hr>
-  {{ else }}
-    <p>Error: Invalid JSON data in <code>{{ $localFilePath }}</code>.</p>
   {{ end }}
 {{ else }}
   <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
+  {{ warnf "File not found at %s" $localFilePath }}
 {{ end }}
