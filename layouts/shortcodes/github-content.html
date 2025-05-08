@@ -48,11 +48,6 @@
     {{ if eq $appIcon "/images/default-icon.png" }}
       {{ warnf "Missing or default 'icon' in app_metadata for file: %s" $localFilePath }}
     {{ end }}
-    {{ if not (isset $versionData.app_metadata "annotations") }}
-      {{ warnf "Missing 'annotations' in app_metadata for file: %s" $localFilePath }}
-    {{ else if not $minScaleVersion }}
-      {{ warnf "Missing 'min_scale_version' in app_metadata.annotations for file: %s" $localFilePath }}
-    {{ end }}
     {{ if not $added }}
       {{ warnf "Missing 'date_added' in app_metadata for file: %s" $localFilePath }}
     {{ end }}
@@ -82,8 +77,6 @@
             <small>
               {{ if $minScaleVersion }}
                 Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
-              {{ else }}
-                {{ warnf "No min_scale_version for %s in %s" $name $localFilePath }}
               {{ end }}
               App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
               {{ if not (isset $versionData.app_metadata "app_version") }}
@@ -131,24 +124,18 @@
           </p>
           <!-- Context Section -->
           {{ if $versionData.app_metadata.run_as_context }}
-            <b>Run as Context</b>
-            <ul style="list-style-type:none;padding-left:0;">
-              {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
-                <li>
-                  <small>
-                    {{ if $run_as_context.description }}
-                      {{ $run_as_context.description }}<br>
-                    {{ else }}
-                      {{ warnf "Missing run_as_context.description for %s in %s" $name $localFilePath }}
-                    {{ end }}
-                    <b>Group:</b> {{ $run_as_context.gid | default "N/A" }} / {{ $run_as_context.group_name | default "N/A" }}<br>
-                    <b>User:</b> {{ $run_as_context.uid | default "N/A" }} / {{ $run_as_context.user_name | default "N/A" }}
-                  </small>
-                </li>
-              {{ end }}
-            </ul>
-          {{ else }}
-            {{ warnf "No run_as_context for %s in %s" $name $localFilePath }}
+          <b>Run as Context</b>
+          <ul style="list-style-type:none;padding-left:0;">
+            {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
+            <li>
+              <small>
+                {{ $run_as_context.description }}<br>
+                <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
+                <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
+              </small>
+            </li>
+            {{ end }}
+          </ul>
           {{ end }}
         </div>
       </div>
@@ -182,54 +169,36 @@
     <!-- Host Mounts Section -->
     {{ if $versionData.app_metadata.host_mounts }}
       {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
-        <br>
-        <details>
-          <summary>Host Mounts</summary>
-          <ul>
-            {{ range $host_mount := $versionData.app_metadata.host_mounts }}
-              <li>
-                {{ $host_mount.host_path | default "N/A" }} : {{ $host_mount.description | default "No description" }}
-                {{ if not $host_mount.host_path }}
-                  {{ warnf "Missing host_mount.host_path for %s in %s" $name $localFilePath }}
-                {{ end }}
-                {{ if not $host_mount.description }}
-                  {{ warnf "Missing host_mount.description for %s in %s" $name $localFilePath }}
-                {{ end }}
-              </li>
-            {{ end }}
-          </ul>
-        </details>
-      {{ else }}
-        {{ warnf "host_mounts is empty for %s in %s" $name $localFilePath }}
-      {{ end }}
-    {{ else }}
-      {{ warnf "No host_mounts for %s in %s" $name $localFilePath }}
-    {{ end }}
+      <br>
+      <details>
+        <summary>Host Mounts</summary>
+        <ul>
+          {{ range $host_mount := $versionData.app_metadata.host_mounts }}
+          <li>
+            {{ $host_mount.host_path }} : {{ $host_mount.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+	  {{ end }}
+	{{ end }}
 
     <!-- Security Capabilities Section -->
     {{ if $versionData.app_metadata.capabilities }}
       {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
-        <br>
-        <details>
-          <summary>Security Capabilities</summary>
-          <ul>
-            {{ range $capability := $versionData.app_metadata.capabilities }}
-              <li>
-                {{ $capability.description | default "No description" }}
-                {{ if not $capability.description }}
-                  {{ warnf "Missing capability.description for %s in %s" $name $localFilePath }}
-                {{ end }}
-              </li>
-            {{ end }}
-          </ul>
-        </details>
-      {{ else }}
-        {{ warnf "capabilities is empty for %s in %s" $name $localFilePath }}
-      {{ end }}
-    {{ else }}
-      {{ warnf "No capabilities for %s in %s" $name $localFilePath }}
-    {{ end }}
-
+      <br>
+      <details>
+        <summary>Security Capabilities</summary>
+        <ul>
+          {{ range $capability := $versionData.app_metadata.capabilities }}
+          <li>
+            {{ $capability.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+	  {{ end }}
+	{{ end }}
     <!-- App_Versions File Expand -->
     <br>
     <details>
@@ -238,9 +207,6 @@
     </details>
     <br>
     <hr>
-  {{ else }}
-    <p>Error: Invalid JSON data in <code>{{ $localFilePath }}</code>.</p>
-    {{ warnf "Invalid JSON data in %s" $localFilePath }}
   {{ end }}
 {{ else }}
   <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
