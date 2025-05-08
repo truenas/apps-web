@@ -22,6 +22,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Enterprise Asigra Deployments" link="/resources/deploy-asigra"
-descr="How to deploy and configure the Asigra DS System app." >}}
+descr="How to deploy and configure the Asigra DS System app." kind="official" >}}
 
 </div>

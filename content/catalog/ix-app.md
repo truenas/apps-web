@@ -20,7 +20,7 @@ aliases:
 
 <div class="docs-sections">
 
-{{< doc-card title="iX App Deployment" link="/resources/deploy-ix-app"
-descr="How to deploy and configure a user-customized application." >}}
+{{< doc-card title="Installing Custom Apps" link="/managing-apps/installing-custom-apps"
+descr="How to install and configure custom or third-party applications in TrueNAS." kind="official" >}}
 
 </div>

@@ -20,7 +20,7 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="Immich Deployment" link="/resources/deploy-immich"
-descr="How to deploy and configure the community Immich app." >}}
+{{< doc-card title="Immich Deployment" link="https://immich.app/docs/install/truenas/"
+descr="How to deploy and configure the community Immich app." kind="project" >}}
 
 </div>

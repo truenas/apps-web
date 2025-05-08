@@ -20,6 +20,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Mealie Deployment" link="/resources/deploy-mealie"
-descr="How to deploy and configure the community Mealie app." >}}
+descr="How to deploy and configure the community Mealie app." kind="community" >}}
 
 </div>

@@ -22,6 +22,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="WebDAV Deployment" link="/resources/deploy-webdav"
-descr="How to deploy and configure the community WebDAV app." >}}
+descr="How to deploy and configure the community WebDAV app." kind="community" >}}
 
 </div>

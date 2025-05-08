@@ -22,6 +22,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Enterprise Syncthing Deployment" link="/resources/deploy-syncthing-enterprise"
-descr="How to deploy and configure the Enterprise Syncthing app." >}}
+descr="How to deploy and configure the Enterprise Syncthing app." kind="official" >}}
 
 </div>
