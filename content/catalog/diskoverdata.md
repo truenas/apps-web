@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Diskoverdata Deployment" link="/resources/deploy-diskoverdata"
-descr="How to deploy and configure the Stable Diskoverdata app." >}}
+descr="How to deploy and configure the Stable Diskoverdata app." kind="community" >}}
 
 </div>

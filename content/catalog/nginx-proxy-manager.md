@@ -20,7 +20,7 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Nginx Proxy Manager Deployment" link="/resources/deploy-nginx-proxy-manager"
-descr="How to deploy and configure the community Nginx Proxy Manager app." >}}
+descr="How to deploy and configure the community Nginx Proxy Manager app." kind="community" >}}
 
 {{< youtube jx6T6lqX-QM >}}
 

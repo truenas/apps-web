@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Netdata Deployment" link="/resources/deploy-netdata"
-descr="How to deploy and configure the Stable Netdata app." >}}
+descr="How to deploy and configure the Stable Netdata app." kind="community" >}}
 
 </div>

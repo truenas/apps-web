@@ -16,6 +16,8 @@ tags:
 
 ## Resources
 
+{{< include file="/static/includes/apps/StableApp.md" >}}
+
 {{< include file="/static/includes/CommunityAppsLegacy.md" >}}
 
 <div class="docs-sections">
@@ -23,6 +25,6 @@ tags:
 {{< youtube PCYvsLSStbA >}}
 
 {{< doc-card title="Syncthing Deployment" link="/resources/deploy-syncthing-stable"
-descr="How to deploy and configure the Stable Syncthing app." >}}
+descr="How to deploy and configure the Stable Syncthing app." kind="community" >}}
 
 </div>

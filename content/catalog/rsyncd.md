@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Rsync Daemon Deployment" link="/resources/deploy-rsyncd"
-descr="How to deploy and configure the community Rsyncd app." >}}
+descr="How to deploy and configure the community Rsyncd app." kind="community" >}}
 
 </div>

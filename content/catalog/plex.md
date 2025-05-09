@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Plex Deployment" link="/resources/deploy-plex"
-descr="How to deploy and configure the Stable Plex app." >}}
+descr="How to deploy and configure the Stable Plex app." kind="community" >}}
 
 </div>

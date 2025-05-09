@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Collabora Deployment" link="/resources/deploy-collabora"
-descr="How to deploy and configure the Stable Collabora app." >}}
+descr="How to deploy and configure the Stable Collabora app." kind="community" >}}
 
 </div>

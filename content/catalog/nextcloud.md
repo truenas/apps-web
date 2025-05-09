@@ -23,6 +23,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Nextcloud Deployment" link="/resources/deploy-nextcloud"
-descr="How to deploy and configure the Stable Nextcloud app." >}}
+descr="How to deploy and configure the Stable Nextcloud app." kind="community" >}}
 
 </div>

@@ -27,6 +27,6 @@ TrueNAS community use of Remote assist for any reason is outside of the intended
 <div class="docs-sections">
 
 {{< doc-card title="Enterprise Remote Assist Deployment" link="/resources/deploy-truenas-remote-assist"
-descr="How to deploy and configure the Remote Assist app." >}}
+descr="How to deploy and configure the Remote Assist app." kind="official" >}}
 
 </div>

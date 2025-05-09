@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Jellyfin Deployment" link="/resources/deploy-jellyfin"
-descr="How to deploy and configure the community Jellyfin app." >}}
+descr="How to deploy and configure the community Jellyfin app." kind="community" >}}
 
 </div>

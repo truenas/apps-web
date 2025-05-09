@@ -20,6 +20,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Home Assistant Deployment" link="/resources/deploy-home-assistant"
-descr="How to deploy and configure the Stable Home Assistant app." >}}
+descr="How to deploy and configure the Stable Home Assistant app." kind="community" >}}
 
 </div>

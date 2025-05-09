@@ -20,6 +20,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Elastic Search Deployment" link="/resources/deploy-elastic-search"
-descr="How to deploy and configure the Stable Elastic Search app." >}}
+descr="How to deploy and configure the Stable Elastic Search app." kind="community" >}}
 
 </div>

@@ -21,9 +21,9 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Minio Deployment" link="/resources/deploy-minio-stable"
-descr="How to deploy and configure the Stable Minio app." >}}
+descr="How to deploy and configure the Stable Minio app." kind="community" >}}
 
 {{< doc-card title="Minio Clustering" link="/resources/minio-clustering"
-descr="Configuring Minio app with a distributed clustering configuration." >}}
+descr="Configuring Minio app with a distributed clustering configuration." kind="community" >}}
 
 </div>

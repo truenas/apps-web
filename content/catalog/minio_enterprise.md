@@ -22,12 +22,12 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Basic Enterprise Minio Deployments" link="/resources/deploy-minio-enterprise"
-descr="How to deploy and configure a basic Minio app." >}}
+descr="How to deploy and configure a basic Minio app." kind="official" >}}
 
 {{< doc-card title="Enterprise Minio Single Node Multi-Disk Configurations" link="/resources/minio-enterprise-snmd"
-descr="How to deploy the Enterprise Minio app in the specific configuration." >}}
+descr="How to deploy the Enterprise Minio app in the specific configuration." kind="official" >}}
 
 {{< doc-card title="Enterprise Minio Multi Node Multi-Disk Configurations" link="/resources/minio-enterprise-mnmd"
-descr="How to deploy the Enterprise Minio app in the specific configuration." >}}
+descr="How to deploy the Enterprise Minio app in the specific configuration." kind="official" >}}
 
 </div>

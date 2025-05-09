@@ -23,6 +23,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Storj Deployment" link="/resources/deploy-storj"
-descr="How to deploy and configure the Stable Storj app." >}}
+descr="How to deploy and configure the Stable Storj app." kind="community" >}}
 
 </div>

@@ -23,6 +23,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Pi-hole Deployment" link="/resources/deploy-pihole"
-descr="How to deploy and configure the Stable Pi-hole app." >}}
+descr="How to deploy and configure the Stable Pi-hole app." kind="community" >}}
 
 </div>
