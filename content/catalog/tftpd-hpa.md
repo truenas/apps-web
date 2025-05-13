@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="TFTP Server Deployment Notes" link="/resources/deploy-tftpd-hpa"
-descr="How to deploy and configure the community TFTP Server app." >}}
+descr="How to deploy and configure the community TFTP Server app." kind="community" >}}
 
 </div>

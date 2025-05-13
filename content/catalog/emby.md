@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Emby Server Deployment" link="/resources/deploy-emby"
-descr="How to deploy and configure the Stable Emby Server app." >}}
+descr="How to deploy and configure the Stable Emby Server app." kind="community" >}}
 
 </div>

@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Chia Deployment" link="/resources/deploy-chia"
-descr="How to deploy and configure the community Chia app." >}}
+descr="How to deploy and configure the community Chia app." kind="community" >}}
 
 </div>

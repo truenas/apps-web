@@ -27,14 +27,14 @@ To see currently available apps, go to **Apps** and click **Discover Apps** or v
 
 ## Contributing to TrueNAS Application Catalogs
 
-Users can submit changes to an existing application catalogs through:
+Users can submit changes to an existing application catalogs through the following methods:
 
 ### Contributing Applications
 
 The Apps catalog is open for contributions!
 For instructions on how to locally develop and test new applications, see the [contributors guide](https://github.com/truenas/apps/blob/master/CONTRIBUTIONS.md) on GitHub.
 
-### Participating in Github Discussions
+### Participating in GitHub Discussions
 
 Questions on the development of applications?
 Please head over to the [discussions](https://github.com/truenas/apps/discussions) page to ask questions and collaborate with other App Developers.
@@ -59,23 +59,113 @@ Community members can now submit content directly to the TrueNAS Apps Market [si
 
 For more information about submitting a pull request on GitHub, see the [Updating Content](https://www.truenas.com/docs/contributing/documentation/contentupdate/) at the TrueNAS Contributions Guide.
 
+Here's a version styled more appropriately for Hugo documentation — clean, semantic, and easy to scan, without icons or unnecessary embellishment:
+
 ### Proposing Content Changes
 
-To submit new content or request changes to existing application documentation:
+To contribute new or updated application documentation, follow the appropriate steps for your task:
 
-1. Fork the [`truenas/apps-web`](https://github.com/truenas/apps-web/?tab=readme-ov-file#apps-web) repository.
-2. To edit an existing application article, open the related <file>.md</file> file in the <file>content/catalog/</file> directory of your forked copy. Here, you can make edits and commit them to your PR.
-3. To submit a new tutorial or create application content, add a new <file>.md</file> file to the <file>content/resources/</file> directory. Follow the [front matter format](#formatting-front-matter) used in existing examples for consistency.
-4. Update the link related to the <file>content/catalog/</file> path and .md</file> file to the new tutorial if the new tutorial is associated with a catalog application entry,
-5. Embed images as needed by saving them in the <file>static/images/</file> directory. Follow standard Markdown image referencing procedures in your PR to ensure consistency with other articles.
-6. (Optional) [Embed](#embedding-resources) YouTube videos or TrueNAS Community Forum direct links in the **Resources** section. These become visibly accessible on the **Resources** section of the app article.
-7. Submit a PR against the main branch of the repository.
+#### Setting Up a Fork
 
-From the **Resources** section of an existing article page, contributors can edit pages directly from the [TrueNAS Apps](https://apps.truenas.com) website using the **Edit page** button in the upper right corner. Some articles related to Enterprise applications might not offer this option.
+* Fork the [`truenas/apps-web`](https://github.com/truenas/apps-web/?tab=readme-ov-file#apps-web) repository.
+* When your edits are ready, submit a pull request (PR) against the `main` branch.
 
-Browse the <file> `content/` </file> and <file> `static/` </file> folders in the repository for examples of complete application entries and resource tutorials.
+#### Editing Existing Application Articles
 
-### Formatting Front Matter
+* Open the relevant `.md` file in the `content/catalog/` directory of your fork.
+* Make and commit your changes in your branch.
+
+#### Adding New Tutorials or App Content
+
+* Create a new `.md` file in the `content/resources/` directory.
+* Follow the [front matter format](#formatting-front-matter) used in existing examples.
+
+#### Embedding Images
+
+* Save images in the `static/images/` directory and reference them with standard Markdown syntax.
+
+### Adding Resource Content to App Pages
+
+* [Add app resources](#adding-app-resources) for users to access from the app's **Resources** section.
+* [Create resource cards](#creating-resource-cards) to link to documentation or external content.
+* [Embed](#embedding-resources) YouTube videos to appear in the **Resources** section of the app article.
+
+#### Review Existing Examples and Use Edit Tools
+
+* Use the **Edit page** button in the upper right corner of an app article to propose changes directly from the site (when available).
+* Explore the `content/` and `static/` directories in the repository for examples of complete entries and tutorials.
+
+#### Opening a Pull Request
+
+When opening a PR, briefly describe the purpose of your change and what it introduces. This helps reviewers quickly understand the context and impact of your contribution.
+
+### Adding App Resources
+
+The Resources section of each app page helps readers find helpful documentation and community materials related to that app. Contributors can add links to internal docs, official project pages, tutorials, blog posts, or videos to support different use cases and learning styles.
+
+#### Creating Resource Cards
+
+Resource cards present links to app documentation and resources directly from [Catalog](/catalog) page of the associated app.
+Create cards to direct readers to internal documentation, such as when [submitting a new contribution](#contributing-to-truenas-application-documentation), or external resources, such as community posts, blogs, or project-maintained documentation for an app.
+
+Create resource cards using the **doc-card** shortcode.
+
+Open the [/content/catalog](https://github.com/truenas/apps-web/tree/main/content/catalog) file for the app you want to edit and locate the **Resources** section.
+Insert a new shortcode call in the **docs-sections** division using the syntax:
+
+```
+{{</* doc-card title="TITLE" link="PATH" descr="DESCRIPTION" doctype="TYPE" kind="KIND" */>}}
+```
+
+Where:
+
+{{< truetable >}}
+| Variable      | Required | Description |
+|---------------|----------|-------------|
+| **TITLE**     | ✅ | The visible name of the resource, typically the page or article title. |
+| **PATH**      | ✅ | The URL or internal path to the resource. For internal docs, use a relative path like `/resources/app-name-file/`; for external links, use the full URL. |
+| **DESCRIPTION** | ✅ | A short summary that appears beneath the title on the card. This should briefly explain what the user can expect from the linked resource. |
+| **TYPE**      | ❌ | The documentation type label shown on the card. Use `tutorial`, `how-to`, `reference`, or `foundations` for internal docs. Leave blank for external links unless the type is known. See [Labeling Resources](#labeling-resources) for more information. |
+| **KIND**      | ❌ | The origin of the resource. Use `official` for iX documentation, `project` for upstream sources, `community` for user-created content, `blog` for blog posts, and `post` for informal sources like forums or Reddit. See [Labeling Resources](#labeling-resources) for more information. |
+{{< /truetable >}}
+
+##### Labeling Resources
+
+To help readers quickly identify the purpose and origin of each resource, use the doctype and kind attributes when creating resource cards.
+These labels appear as small badges on each card and help distinguish between types of documentation (like tutorials or references) and the source of the material (such as official docs, community posts, or upstream project pages).
+Use the tables below to select the most appropriate labels for each resource. Leave either value blank if no label applies.
+
+{{< truetable >}}
+| Doc Type      | Description                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------- |
+| `tutorial`    | Hands-on introduction for new users or those looking to deepen their knowledge.                             |
+| `how-to`      | Step-by-step guides covering key operations and common tasks.                                               |
+| `reference`   | Description of UI screens and fields, including technical information like requirements and specifications. |
+| `foundations` | Overviews and deeper dives into key topics, concepts, and clarifications.                                   |
+{{< /truetable >}}
+
+{{< truetable >}}
+| Kind        | Description                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- |
+| `project`   | Documentation hosted or maintained by the upstream app project.                             |
+| `official`  | Documentation created and maintained by the TrueNAS team.                                   |
+| `community` | Documentation maintained by members of the TrueNAS community.                               |
+| `post`      | Informal community sources, such as forum threads, Reddit posts, or Discord chats.          |
+| `blog`      | Personal or company-authored posts that share experiences, tips, or insights about the app. |
+{{< /truetable >}}
+
+#### Embedding External Resources
+
+You can embed certain types of outside resources, such as YouTube videos, within the **Resources** section of an app page. To do this, use the Hugo [Youtube shortcode](https://gohugo.io/shortcodes/youtube/) containing the resource ID from the original source.
+
+For example, to embed a YouTube video located at *https&#8203;://www.youtube.com&#8203;/watch?v=abcd_1234*, enter the shortcode `{{</* youtube abcd_1234 */>}}`. In this scenario, **youtube** is the shortcode name, and **abcd_1234** is the original resource ID from the YouTube video.
+
+### Adding New Documentation Articles
+
+Use this guide when contributing a new tutorial for an application available through the TrueNAS Apps catalog.
+It covers required front matter formatting, how to customize the official tutorial template, writing and formatting standards, and how to integrate snippet files that explain common configuration steps.
+
+#### Formatting Front Matter
 
 To correctly format the front matter of a new <file> .md </file> file, use the following example as a guide:
 
@@ -93,19 +183,13 @@ tags:
 
 Including a title, short description, and tag(s) ensures consistency and visibility across all apps content.
 
-### Embedding Resources
-
-You can embed outside resources, such as YouTube videos, within the **Resources** section of an app page. To do this, use shortcode containing the resource ID from the original source.
-
-For example, to embed a YouTube video located at *https&#8203;://www.youtube.com&#8203;/watch?v=abcd_1234*, enter the shortcode *&#123;&#123; youtube abcd_1234 &#125;&#125;*. In this scenario, **youtube** is the shortcode name, and **abcd_1234** is the original resource ID from the YouTube video.
-
-### Using the App Tutorial Template
+#### Using the App Tutorial Template
 
 Feel free to change standard article content by adding or removing sections to fit the app installation process.
 Change the front matter <file>description:</file> parameter at the top of the article to suit the subject and content of the new tutorial.
 Description text must not exceed 160 alphanumeric or special characters, including spaces between characters.
 After updating content, delete commented-out sections providing instructions for using this template when they are no longer needed.
-When documenting a **Community** train app, not delete any of the commented-out instructions in the COMMUNITY APP INTRO SNIPPETS section.
+When documenting a **Community** train app, do not delete any commented-out instructions in the COMMUNITY APP INTRO SNIPPETS section.
 
 <div class="docs-sections" id="tutorial-template-link">
 {{< doc-card title="Community App Tutorial Template" link="/getting-started/contributing-to-apps/template"

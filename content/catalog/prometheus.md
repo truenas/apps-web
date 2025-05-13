@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Prometheus Deployment" link="/resources/deploy-prometheus"
-descr="How to deploy and configure the Stable Prometheus app." >}}
+descr="How to deploy and configure the Stable Prometheus app." kind="community" >}}
 
 </div>

@@ -21,6 +21,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Photoprism Deployment" link="/resources/deploy-photoprism"
-descr="How to deploy and configure the Stable Photoprism app." >}}
+descr="How to deploy and configure the Stable Photoprism app." kind="community" >}}
 
 </div>

@@ -23,7 +23,7 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="Community Guide: Setting up qBitTorrent" link="https://forums.truenas.com/t/truenas-scale-setting-up-qbittorrent-including-finding-the-login-password/544"
-descr="Notes about configuring the qBitTorrent app." >}}
+{{< doc-card title="Setting up qBitTorrent" link="https://forums.truenas.com/t/truenas-scale-setting-up-qbittorrent-including-finding-the-login-password/544"
+descr="Notes about configuring the qBitTorrent app." kind="post" >}}
 
 </div>

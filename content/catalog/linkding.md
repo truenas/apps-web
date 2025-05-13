@@ -20,6 +20,6 @@ tags:
 <div class="docs-sections">
 
 {{< doc-card title="Linkding Deployment" link="/resources/deploy-linkding"
-descr="How to deploy and configure the community Linkding app." >}}
+descr="How to deploy and configure the community Linkding app." kind="community" >}}
 
 </div>
