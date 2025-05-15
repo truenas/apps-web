@@ -15,7 +15,7 @@ if [ "$1" == "send-pr" ] ; then
 	  exit 1
 	fi
    else
-	git pull origin ${BASE_BRANCH}
+	git pull --rebase origin ${BASE_BRANCH}
         if [ $? -ne 0 ] ; then
 	  echo "Failed updating ${BRANCH_NAME} branch"
 	  exit 1
