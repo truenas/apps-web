@@ -6,21 +6,23 @@ if [ "$1" == "send-pr" ] ; then
    timestamp=$(date +%s)
    BRANCH_NAME="apps-content-pr"
    BASE_BRANCH="main"
+
+   # Checkout or create the branch
+   git fetch origin
    git checkout ${BRANCH_NAME}
    if [ $? -ne 0 ] ; then
-	echo "Creating ${BRANCH_NAME} branch"
-        git checkout -b ${BRANCH_NAME}
-        if [ $? -ne 0 ] ; then
-	  echo "Failed creating ${BRANCH_NAME} branch"
-	  exit 1
-	fi
-   else
-	git pull --rebase origin ${BASE_BRANCH}
-        if [ $? -ne 0 ] ; then
-	  echo "Failed updating ${BRANCH_NAME} branch"
-	  exit 1
-	fi
+       echo "Creating ${BRANCH_NAME} branch"
+       git checkout -b ${BRANCH_NAME}
+       if [ $? -ne 0 ] ; then
+           echo "Failed creating ${BRANCH_NAME} branch"
+           exit 1
+       fi
    fi
+
+   # --- KEY CHANGE: Always reset branch to match main ---
+   git fetch origin
+   git reset --hard origin/${BASE_BRANCH}
+   # ----------------------------------------------------
 fi
 
 # Determine the script's root directory
@@ -41,8 +43,8 @@ echo "======================" >> "$LOG_FILE"
 
 which jq >/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
-	echo "jq not found"
-	exit 1
+    echo "jq not found"
+    exit 1
 fi
 
 # Function to check for unmatched subdirectories and create .md files
@@ -130,7 +132,7 @@ icon: "$icon"
 
 {{< github-content 
     path="trains/$train/$subdir/app_versions.json"
-	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+    includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
 ## Resources
@@ -144,18 +146,18 @@ EOF
         if [ -n "$SEND_PR" ] ; then
            GIT_CHANGES_PENDING="TRUE"
            echo "git add $md_file_abs_path"
-	   git add ${md_file_abs_path}
-	   if [ $? -ne 0 ] ; then
-		echo "Failed adding ${md_file_abs_path} to git"
-		exit 1
+           git add ${md_file_abs_path}
+           if [ $? -ne 0 ] ; then
+            echo "Failed adding ${md_file_abs_path} to git"
+            exit 1
            fi
            echo "git commit $md_file_abs_path"
            git commit -m "Added ${md_file_rel_path}"
-	   if [ $? -ne 0 ] ; then
-		echo "Failed committing ${md_file_abs_path} to git"
-		exit 1
-  	   fi
-	fi
+           if [ $? -ne 0 ] ; then
+            echo "Failed committing ${md_file_abs_path} to git"
+            exit 1
+           fi
+        fi
       else
         echo "$md_file_abs_path already exists. Skipping creation." >> "$LOG_FILE"
         echo "$md_file_abs_path already exists. Skipping creation."
@@ -192,17 +194,7 @@ if [ -n "$SEND_PR" ] ; then
    # Convert array to comma-separated string
    REVIEWERS_LIST=$(IFS=, ; echo "${PREDEFINED_REVIEWERS[*]}")
 
-   # Fetch latest changes from remote
-   git fetch origin
-
-   # Rebase current branch onto the latest base branch
-   git rebase origin/"$BASE_BRANCH"
-   if [ $? -ne 0 ]; then
-       echo "❌ Rebase failed. Please resolve conflicts and try again."
-       exit 1
-   fi
-
-   # Push the current branch (force-with-lease is safer than --force)
+   # Push the current branch (force-with-lease is safest)
    git push --force-with-lease origin "$BRANCH_NAME"
 
    # Create the Pull Request using GitHub CLI with assigned reviewers
@@ -217,4 +209,3 @@ fi
 
 # Notify the user where the log file is located
 echo "Review log has been generated at: $LOG_FILE"
-
