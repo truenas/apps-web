@@ -194,8 +194,12 @@ if [ -n "$SEND_PR" ] ; then
    # Convert array to comma-separated string
    REVIEWERS_LIST=$(IFS=, ; echo "${PREDEFINED_REVIEWERS[*]}")
 
-   # Push the current branch (force-with-lease is safest)
-   git push --force-with-lease origin "$BRANCH_NAME"
+   # Push the current branch (force)
+   git push --force origin "$BRANCH_NAME"
+   if [ $? -ne 0 ]; then
+       echo "❌ Failed to push branch to remote."
+       exit 1
+   fi
 
    # Create the Pull Request using GitHub CLI with assigned reviewers
    gh pr create --base "$BASE_BRANCH" --head "$BRANCH_NAME" --title "$FINAL_PR_TITLE" --body "$PR_DESCRIPTION" --reviewer "$REVIEWERS_LIST"
