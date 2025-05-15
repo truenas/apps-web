@@ -6,7 +6,11 @@
 {{ $deploymentCount := 0 }}
 
 {{ with index $telemetryData $telemetryTrain }}
-  {{ $deploymentCount = index . $appName | default 0 }}
+  {{ range $k, $v := . }}
+    {{ if eq (lower $k) $appName }}
+      {{ $deploymentCount = $v }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ if gt $deploymentCount 0 }}
