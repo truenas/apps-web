@@ -176,8 +176,8 @@ done
 
 if [ -n "$SEND_PR" ] ; then
    if [ "${GIT_CHANGES_PENDING}" == "FALSE" ] ; then
-	   echo "No pending git changes to push, exiting..."
-	   exit 0
+       echo "No pending git changes to push, exiting..."
+       exit 0
    fi
    PR_TYPE="Bot"
    PR_TITLE="Auto-Generated New Apps Pages"
@@ -192,8 +192,18 @@ if [ -n "$SEND_PR" ] ; then
    # Convert array to comma-separated string
    REVIEWERS_LIST=$(IFS=, ; echo "${PREDEFINED_REVIEWERS[*]}")
 
-   # Push the current branch (if not already pushed)
-   git push origin "$BRANCH_NAME"
+   # Fetch latest changes from remote
+   git fetch origin
+
+   # Rebase current branch onto the latest base branch
+   git rebase origin/"$BASE_BRANCH"
+   if [ $? -ne 0 ]; then
+       echo "❌ Rebase failed. Please resolve conflicts and try again."
+       exit 1
+   fi
+
+   # Push the current branch (force-with-lease is safer than --force)
+   git push --force-with-lease origin "$BRANCH_NAME"
 
    # Create the Pull Request using GitHub CLI with assigned reviewers
    gh pr create --base "$BASE_BRANCH" --head "$BRANCH_NAME" --title "$FINAL_PR_TITLE" --body "$PR_DESCRIPTION" --reviewer "$REVIEWERS_LIST"
