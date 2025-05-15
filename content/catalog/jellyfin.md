@@ -23,7 +23,7 @@ tags:
 {{< doc-card title="Jellyfin Deployment" link="/resources/deploy-jellyfin"
 descr="How to deploy and configure the community Jellyfin app." kind="community" >}}
 
-{{< doc-card title="Jellyfin on TrueNAS" link="/resources/deploy-jellyfin"
+{{< doc-card title="Jellyfin on TrueNAS" link="https://jellyfin.org/docs/general/installation/advanced/truenas/"
 descr="Jellyfin project documentation about deploying on TrueNAS 24.10 or newer." kind="project" >}}
 
 </div>
