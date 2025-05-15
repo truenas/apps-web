@@ -23,4 +23,7 @@ tags:
 {{< doc-card title="Plex Deployment" link="/resources/deploy-plex"
 descr="How to deploy and configure the Stable Plex app." kind="community" >}}
 
+{{< doc-card title="Plex Media Server on TrueNAS CE" link="https://wiki.familybrown.org/en/fester/configure-apps/media/plex-on-ce"
+descr="Installation and basic configuration of Plex Media Server on TrueNAS Community Edition from Dan's Wiki." kind="community" >}}
+
 </div>
