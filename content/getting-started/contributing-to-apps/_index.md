@@ -55,7 +55,7 @@ Include the relevant files in the PR, including a ReadMe.txt file with any insta
 
 ## Contributing to TrueNAS Application Documentation
 
-Community members can now submit content directly to the TrueNAS Apps Market [site repository](https://github.com/truenas/apps-web).
+Community members can now submit content directly to the [TrueNAS Apps Market repository](https://github.com/truenas/apps-web).
 
 For more information about submitting a pull request on GitHub, see the [Updating Content](https://www.truenas.com/docs/contributing/documentation/contentupdate/) at the TrueNAS Contributions Guide.
 
@@ -101,7 +101,8 @@ When opening a PR, briefly describe the purpose of your change and what it intro
 
 ### Adding App Resources
 
-The Resources section of each app page helps readers find helpful documentation and community materials related to that app. Contributors can add links to internal docs, official project pages, tutorials, blog posts, or videos to support different use cases and learning styles.
+The Resources section of each app page helps readers find helpful documentation and community materials related to that app.
+Contributors can create [Apps Market repository](https://github.com/truenas/apps-web) pull requests to add links to internal docs, official project pages, tutorials, blog posts, or videos to support different use cases and learning styles.
 
 #### Creating Resource Cards
 
