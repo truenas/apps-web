@@ -1,7 +1,3 @@
-{{- $section := .Get 0 | anchorize -}}
-{{- $screen := .Get 1 | default (.Page.Scratch.Get "screen") | anchorize -}}
+{{/* Set the current section context (no output) */}}
+{{- $section := (.Get 0 | anchorize) -}}
 {{- .Page.Scratch.Set "section" $section -}}
-
-<div id="{{ $.Page.Params.doctype }}.{{ $screen }}.{{ $section }}" class="ui-section">
-  {{ .Inner | markdownify }}
-</div>

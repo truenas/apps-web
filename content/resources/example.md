@@ -1,66 +1,130 @@
 ---
-title: "Multi-Screen Test with Two Screens"
+title: "Stable Context and Wrappers"
 doctype: reference
 ---
 
 {{< screen "dashboard" >}}
+
+{{< render-screen >}}
+
+## Dashboard
+
 This is the **Dashboard** screen.
+Use this screen to monitor system status and manage key settings.
 
-{{< section "inventory" "dashboard" >}}
-The **Inventory** section on Dashboard.
+{{< section "inventory" >}}
 
-{{< field "search-system" "inventory" "dashboard" >}}
-Use Search System to find systems.
+{{< render-section >}}
+
+### Inventory
+
+The **Inventory** section lets you manage system resources.
+
+{{< field "search-system" >}}
+
+#### Search System
+
+Enter a system name to filter the inventory list.
+
 {{< /field >}}
 
-{{< field "tag-system" "inventory" "dashboard" >}}
-Use Tag System to categorize systems.
+{{< field "tag-system" >}}
+
+#### Tag this system
+
+Click (+) to add or remove tags from a system.
+
 {{< /field >}}
 
-{{< /section >}}
+{{< /render-section >}}
 
-{{< section "alerts" "dashboard" >}}
-The **Alerts** section on Dashboard.
+{{< section "alerts" >}}
 
-{{< field "alert-levels" "alerts" "dashboard" >}}
+{{< render-section >}}
+
+### Alerts
+
+The **Alerts** section shows notifications and warnings.
+
+{{< field "alert-levels" >}}
+
+#### Alert Levels
+
 Choose alert levels to filter messages.
+
 {{< /field >}}
 
-{{< field "acknowledge" "alerts" "dashboard" >}}
-Acknowledge alerts to mark them as read.
+{{< field "acknowledge" >}}
+
+#### Acknowledge Alerts
+
+Mark alerts as read or resolved.
+
 {{< /field >}}
 
-{{< /section >}}
+{{< /render-section >}}
 
-{{< /screen >}}
+{{< /render-screen >}}
 
 {{< screen "storage" >}}
+
+{{< render-screen >}}
+
+## Storage
+
 This is the **Storage** screen.
+Use this screen to manage your storage devices and data protection.
 
-{{< section "volumes" "storage" >}}
-The **Volumes** section on Storage.
+{{< section "volumes" >}}
 
-{{< field "create-volume" "volumes" "storage" >}}
-Create a new storage volume here.
+{{< render-section >}}
+
+### Volumes
+
+Manage storage volumes here.
+
+{{< field "create-volume" >}}
+
+#### Create Volume
+
+Create a new storage volume.
+
 {{< /field >}}
 
-{{< field "delete-volume" "volumes" "storage" >}}
-Delete existing volumes carefully.
+{{< field "delete-volume" >}}
+
+#### Delete Volume
+
+Delete an existing volume carefully.
+
 {{< /field >}}
 
-{{< /section >}}
+{{< /render-section >}}
 
-{{< section "snapshots" "storage" >}}
-The **Snapshots** section on Storage.
+{{< section "snapshots" >}}
 
-{{< field "create-snapshot" "snapshots" "storage" >}}
-Create snapshots to protect data.
+{{< render-section >}}
+
+### Snapshots
+
+Manage data snapshots.
+
+{{< field "create-snapshot" >}}
+
+#### Create Snapshot
+
+Create a snapshot to protect your data.
+
 {{< /field >}}
 
-{{< field "restore-snapshot" "snapshots" "storage" >}}
-Restore data from snapshots.
+{{< field "restore-snapshot" >}}
+
+#### Restore Snapshot
+
+Restore data from a previous snapshot.
+
 {{< /field >}}
 
-{{< /section >}}
+{{< /render-section >}}
 
-{{< /screen >}}
+{{< /render-screen >}}

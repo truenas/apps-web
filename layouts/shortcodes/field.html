@@ -1,7 +1,8 @@
-{{- $field := .Get 0 | anchorize -}}
-{{- $section := .Get 1 | default (.Page.Scratch.Get "section") | anchorize -}}
-{{- $screen := .Get 2 | default (.Page.Scratch.Get "screen") | anchorize -}}
+{{- $field   := (.Get 0 | anchorize) -}}
+{{- $screen  := .Page.Scratch.Get "screen"  | default "NO_SCREEN"   -}}
+{{- $section := .Page.Scratch.Get "section" | default "NO_SECTION" -}}
+{{- $doctype := .Page.Params.doctype -}}
 
-<div id="{{ $.Page.Params.doctype }}.{{ $screen }}.{{ $section }}.{{ $field }}" class="ui-field">
+<div id="{{ $doctype }}.{{ $screen }}.{{ $section }}.{{ $field }}" class="ui-field">
   {{ .Inner | markdownify }}
 </div>
