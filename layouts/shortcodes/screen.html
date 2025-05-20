@@ -1,0 +1,9 @@
+{{- $screen := .Get 0 | anchorize -}}
+{{- if eq (len .Params) 2 -}}
+  {{- $screen = .Get 1 | anchorize -}}  <!-- optional override -->
+{{- end -}}
+{{- .Page.Scratch.Set "screen" $screen -}}
+
+<div id="{{ $.Page.Params.doctype }}.{{ $screen }}" class="ui-screen">
+  {{ .Inner | markdownify }}
+</div>

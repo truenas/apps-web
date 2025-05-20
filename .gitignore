@@ -2,7 +2,6 @@ deploy.py
 jenkins/
 public/
 Apps_Temp/
-resources/
 node_modules/
 tech-doc-hugo
 .vscode
