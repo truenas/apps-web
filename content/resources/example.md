@@ -1,5 +1,5 @@
 ---
-title: "Stable Context and Wrappers"
+title: "UI Reference Test"
 doctype: reference
 ---
 
