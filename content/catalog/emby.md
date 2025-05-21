@@ -23,4 +23,7 @@ tags:
 {{< doc-card title="Emby Server Deployment" link="/resources/deploy-emby"
 descr="How to deploy and configure the Stable Emby Server app." kind="community" >}}
 
+{{< doc-card title="Emby Server on TrueNAS CE" link="https://wiki.familybrown.org/en/fester/configure-apps/media/emby-on-ce"
+descr="Installation and basic configuration of Emby Server on TrueNAS Community Edition from Dan's Wiki." kind="community" >}}
+
 </div>

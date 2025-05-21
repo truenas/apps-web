@@ -24,4 +24,7 @@ descr="How to deploy and configure the community Nginx Proxy Manager app." kind=
 
 {{< youtube jx6T6lqX-QM >}}
 
+{{< doc-card title="Nginx Proxy Manager" link="https://wiki.familybrown.org/en/fester/configure-apps/other/npm"
+descr="Installing and Configuring Nginx Proxy Manager in TrueNAS 24.10 and newer from Dan's Wiki." kind="community" >}}
+
 </div>
