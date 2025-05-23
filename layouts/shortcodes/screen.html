@@ -1,0 +1,4 @@
+{{/* Set the current screen context (no output) */}}
+{{- $screen := (.Get 0 | anchorize) -}}
+{{- .Page.Scratch.Set "screen" $screen -}}
+{{- .Page.Scratch.Delete "section" -}}

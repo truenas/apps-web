@@ -1,0 +1,3 @@
+{{/* Set the current section context (no output) */}}
+{{- $section := (.Get 0 | anchorize) -}}
+{{- .Page.Scratch.Set "section" $section -}}

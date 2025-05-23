@@ -1,0 +1,13 @@
+{{/*
+  Usage:
+  {{< render-section >}}
+  Outputs <div class="ui-section"> with section-level content
+*/}}
+
+{{- $screen  := .Page.Scratch.Get "screen" | default "NO_SCREEN" -}}
+{{- $section := .Page.Scratch.Get "section" | default "NO_SECTION" -}}
+{{- $doctype := .Page.Params.doctype | default "reference" -}}
+
+<div id="{{ $doctype }}.{{ $screen }}.{{ $section }}" class="ui-section">
+  {{ .Inner | markdownify }}
+</div>

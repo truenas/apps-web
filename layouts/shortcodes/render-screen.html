@@ -1,0 +1,12 @@
+{{/*
+  Usage:
+  {{< render-screen >}}
+  Outputs <div class="ui-screen"> with screen-level content
+*/}}
+
+{{- $screen  := .Page.Scratch.Get "screen" | default "NO_SCREEN" -}}
+{{- $doctype := .Page.Params.doctype | default "reference" -}}
+
+<div id="{{ $doctype }}.{{ $screen }}" class="ui-screen">
+  {{ .Inner | markdownify }}
+</div>
