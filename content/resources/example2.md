@@ -4,7 +4,6 @@ doctype: tutorial
 ---
 
 {{< screen "dashboard" >}}
-
 {{< render-screen >}}
 
 ## Dashboard
@@ -13,7 +12,6 @@ This is the **Dashboard** screen.
 Use this screen to monitor system status and manage key settings.
 
 {{< section "inventory" >}}
-
 {{< render-section >}}
 
 ### Inventory
@@ -35,11 +33,9 @@ Enter a system name to filter the inventory list.
 Click (+) to add or remove tags from a system.
 
 {{< /field >}}
-
 {{< /render-section >}}
 
 {{< section "alerts" >}}
-
 {{< render-section >}}
 
 ### Alerts
@@ -63,11 +59,9 @@ Mark alerts as read or resolved.
 {{< /field >}}
 
 {{< /render-section >}}
-
 {{< /render-screen >}}
 
 {{< screen "storage" >}}
-
 {{< render-screen >}}
 
 ## Storage
@@ -76,7 +70,6 @@ This is the **Storage** screen.
 Use this screen to manage your storage devices and data protection.
 
 {{< section "volumes" >}}
-
 {{< render-section >}}
 
 ### Volumes
@@ -124,7 +117,5 @@ Create a snapshot to protect your data.
 Restore data from a previous snapshot.
 
 {{< /field >}}
-
 {{< /render-section >}}
-
 {{< /render-screen >}}
