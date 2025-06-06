@@ -248,7 +248,11 @@
   <div class="apps-banner-content-sizing">
     <div class="apps-banner-content">
       <!--<img class="apps-banner-content-logo" src="/images/TrueNAS-Logo.webp" alt="TrueNAS Logo">-->
-      <h1 class="apps-banner-head">{{ site.Title }}</h1>
+      <h1 class="apps-banner-head">
+        <a href="{{ "/" | relLangURL }}" style="color: inherit; text-decoration: none;">
+            {{ site.Title }}
+        </a>
+      </h1>
       <p class="apps-banner-text">Expand your system’s capabilities quickly and easily by adding third-party software.</p>
       <a class="apps-banner-download" href="https://www.truenas.com/download-truenas-scale/">Download TrueNAS</a>
     </div>
