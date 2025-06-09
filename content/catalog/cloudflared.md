@@ -19,11 +19,9 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+{{< doc-card title="Servers@Home AI Guide" link="https://wiki.serversatho.me/en/CloudflareTunnels" descr="A guide to installing Cloudflare Tunnels in TrueNAS Scale as well as on bare metal and docker" kind="community" >}}
 
 </div>
--->
