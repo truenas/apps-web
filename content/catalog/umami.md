@@ -20,11 +20,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+
+{{< doc-card title="Servers@Home Umami Guide" link="https://wiki.serversatho.me/en/umami" descr="A guide to deploy Umami on TrueNAS and docker" kind="community" >}}
+
 
 </div>
--->
