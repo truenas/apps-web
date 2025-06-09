@@ -24,4 +24,7 @@ tags:
 {{< doc-card title="Tailscale Deployment" link="/resources/deploy-tailscale"
 descr="How to deploy and configure the community Tailscale app." kind="community" >}}
 
+{{< doc-card title="Servers@Home Tailscale Guide" link="https://wiki.serversatho.me/en/tailscale" descr="A guide to deploy Tailscale on TrueNAS and docker" kind="community" >}}
+
+{{< youtube lajmJtNycgQ >}}
 </div>
