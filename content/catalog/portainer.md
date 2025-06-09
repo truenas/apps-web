@@ -19,11 +19,10 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube wsixvmNPrlU >}}
+
+{{< doc-card title="Servers@Home Portainer Guide" link="https://wiki.serversatho.me/en/Portainer" descr="A guide to deploy Portainer on TrueNAS and docker" kind="community" >}}
 
 </div>
--->
