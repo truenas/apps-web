@@ -19,11 +19,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+{{< youtube mVbi6xkM-rk >}}
+
+{{< doc-card title="Servers@Home Dockge Guide" link="https://wiki.serversatho.me/en/dockge" descr="A guide to deploying Dockge on TrueNAS" kind="community" >}}
 
 </div>
--->
