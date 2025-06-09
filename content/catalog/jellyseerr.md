@@ -19,11 +19,9 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+{{< doc-card title="Servers@Home Jellyseerr Guide" link="https://wiki.serversatho.me/en/jellyseerr" descr="A guide to installing Jellyseerr in TrueNAS Scale as well as docker via compose" kind="community" >}}
 
 </div>
--->
