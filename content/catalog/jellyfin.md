@@ -29,4 +29,7 @@ descr="Jellyfin project documentation about deploying on TrueNAS 24.10 or newer.
 {{< doc-card title="Jellyfin Media Server on TrueNAS CE" link="https://wiki.familybrown.org/en/fester/configure-apps/media/jellyfin-on-ce"
 descr="Installation and basic configuration of Jellyfin Media Server on TrueNAS Community Edition from Dan's Wiki." kind="community" >}}
 
+{{< doc-card title="Servers@Home Jellyfin Setup" link="https://wiki.serversatho.me/en/jellyfin"
+descr="A guide to deploying Jellyfin on TrueNAS as well as Docker" kind="community" >}}
+
 </div>
