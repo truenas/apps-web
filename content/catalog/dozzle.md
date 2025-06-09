@@ -20,11 +20,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+{{< youtube LNDkGBOfv6Y >}} 
+
+{{< doc-card title="Servers@Home Dozzle Guide" link="https://wiki.serversatho.me/en/dozzle" descr="A guide to deploy Dozzle on TrueNAS" kind="community" >}}
 
 </div>
--->
