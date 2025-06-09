@@ -26,4 +26,7 @@ descr="How to deploy and configure the Stable Emby Server app." kind="community"
 {{< doc-card title="Emby Server on TrueNAS CE" link="https://wiki.familybrown.org/en/fester/configure-apps/media/emby-on-ce"
 descr="Installation and basic configuration of Emby Server on TrueNAS Community Edition from Dan's Wiki." kind="community" >}}
 
+{{< doc-card title="Servers@Home Emby Guide" link="https://wiki.serversatho.me/en/Emby"
+descr="A guide to installing Emby in TrueNAS as well as docker via compose" kind="community" >}}
+
 </div>
