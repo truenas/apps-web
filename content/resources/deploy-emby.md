@@ -34,7 +34,7 @@ Before you install the Emby app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/Apps/EmbyDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/EmbyDetailsScreen.png" alt="Emby App Details Screen" id="Emby App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 <div style="margin-left: 33px">The Emby run-as user ID is <b>0</b>. The app also includes the default <b>apps</b> user ID <b>568</b>.
