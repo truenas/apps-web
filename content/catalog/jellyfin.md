@@ -20,8 +20,6 @@ tags:
 
 <div class="docs-sections">
 
-{{< youtube VNhsR2lpntc >}}
-
 {{< doc-card title="Jellyfin Deployment" link="/resources/deploy-jellyfin"
 descr="How to deploy and configure the community Jellyfin app." kind="community" >}}
 
@@ -33,5 +31,7 @@ descr="Installation and basic configuration of Jellyfin Media Server on TrueNAS 
 
 {{< doc-card title="Servers@Home Jellyfin Setup" link="https://wiki.serversatho.me/en/jellyfin"
 descr="A guide to deploying Jellyfin on TrueNAS as well as Docker" kind="community" >}}
+
+{{< youtube VNhsR2lpntc >}}
 
 </div>
