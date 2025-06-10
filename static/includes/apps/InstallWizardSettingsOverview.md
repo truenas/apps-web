@@ -50,7 +50,7 @@ TrueNAS applications generally include these basic setting sections:
   * **SMB share**
   * **Tmpfs (Temporary directory created on the RAM)**
 
-  See [Understanding App Storage Volumes](/getting-started/app-storage-volumes) for more information.
+  See [Understanding App Storage Volumes](/getting-started/app-storage) for more information.
 
   After configuring required storage volumes you can add additional storage volumes.
   To configure additional storage volumes for the application, click **Add** to select the type of storage to configure.
