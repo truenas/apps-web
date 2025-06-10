@@ -22,7 +22,11 @@ tags:
 
 <div class="docs-sections">
 
+{{< youtube aPF_JhuwKmQ >}}
+
 {{< doc-card title="WG Easy Deployment" link="/resources/deploy-wg-easy"
 descr="How to deploy and configure the Stable WG Easy app." kind="community" >}}
+
+{{< doc-card title="Servers@Home WG Easy Guide" link="https://wiki.serversatho.me/en/wg-easy" descr="A guide to deploy WG Easy on TrueNAS and docker" kind="community" >}}
 
 </div>

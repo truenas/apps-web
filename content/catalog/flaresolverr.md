@@ -19,11 +19,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+
+{{< youtube sUMT0PTll_M >}} 
+
+{{< doc-card title="Servers@Home Flaresolverr Guide" link="https://wiki.serversatho.me/en/flaresolverr" descr="A guide to deploy Flaresolverr on TrueNAS and docker" kind="community" >}}
 
 </div>
--->

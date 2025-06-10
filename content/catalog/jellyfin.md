@@ -20,6 +20,8 @@ tags:
 
 <div class="docs-sections">
 
+{{< youtube VNhsR2lpntc >}}
+
 {{< doc-card title="Jellyfin Deployment" link="/resources/deploy-jellyfin"
 descr="How to deploy and configure the community Jellyfin app." kind="community" >}}
 

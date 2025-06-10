@@ -20,11 +20,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube lQeUq5Pzo1o >}}
+
+{{< doc-card title="Servers@Home RomM Guide" link="https://wiki.serversatho.me/en/romm" descr="A guide to deploy RomM on TrueNAS and docker" kind="community" >}}
+
 
 </div>
--->

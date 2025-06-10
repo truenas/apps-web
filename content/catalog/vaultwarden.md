@@ -19,11 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
+
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube cWvWIPMoR1M >}}
+
+{{< doc-card title="Servers@Home Vaultwarden Guide" link="https://wiki.serversatho.me/en/vaultwarden" descr="A guide to deploy Vaultwarden on TrueNAS and docker" kind="community" >}}
+
 
 </div>
--->

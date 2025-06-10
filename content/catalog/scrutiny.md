@@ -20,11 +20,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
+
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube 5Pv2ip_v_2s >}}
+
+{{< doc-card title="Servers@Home Scrutiny Guide" link="https://wiki.serversatho.me/en/scrutiny" descr="A guide to deploy Scrutiny on TrueNAS and docker" kind="community" >}}
+
 
 </div>
--->
