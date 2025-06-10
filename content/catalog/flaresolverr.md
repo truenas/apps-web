@@ -17,13 +17,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
 <div class="docs-sections">
 
-
 {{< youtube sUMT0PTll_M >}} 
 
-{{< doc-card title="Servers@Home Flaresolverr Guide" link="https://wiki.serversatho.me/en/flaresolverr" descr="A guide to deploy Flaresolverr on TrueNAS and docker" kind="community" >}}
+{{< doc-card title="Servers@Home Flaresolverr Guide" link="https://wiki.serversatho.me/en/Flaresolverr" descr="A guide to deploy Flaresolverr on TrueNAS and docker" kind="community" >}}
 
 </div>
