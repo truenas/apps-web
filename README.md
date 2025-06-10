@@ -29,7 +29,7 @@ This is still a work in progress with content from https://www.truenas.com/docs/
 
 This repository accepts contributions!
 
-An update to the https://www.truenas.com/docs/contributing/applications/ TrueNAS Contributor Guide with more details is forthcoming, but here are some brief notes:
+See [https://apps.truenas.com/getting-started/contributing-to-apps/](https://apps.truenas.com/getting-started/contributing-to-apps/#contributing-to-truenas-application-documentation) for more details, but here are some brief notes:
 
 The Resources category for an app article under _content/catalog_ can include youtube video embedding or direct links to TrueNAS Community Forum tutorials about an app!
 See the content/catalog/syncthing_stable.md article for an example of youtube embedding.

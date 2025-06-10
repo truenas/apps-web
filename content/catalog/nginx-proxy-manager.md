@@ -19,6 +19,8 @@ tags:
 
 <div class="docs-sections">
 
+
+{{< youtube mvT0Ehz4s8o >}}
 {{< doc-card title="Nginx Proxy Manager Deployment" link="/resources/deploy-nginx-proxy-manager"
 descr="How to deploy and configure the community Nginx Proxy Manager app." kind="community" >}}
 
@@ -26,5 +28,7 @@ descr="How to deploy and configure the community Nginx Proxy Manager app." kind=
 
 {{< doc-card title="Nginx Proxy Manager" link="https://wiki.familybrown.org/en/fester/configure-apps/other/npm"
 descr="Installing and Configuring Nginx Proxy Manager in TrueNAS 24.10 and newer from Dan's Wiki." kind="community" >}}
+
+{{< doc-card title="Servers@Home NPM Guide" link="https://wiki.serversatho.me/en/nginx" descr="A guide to deploying NPM on TrueNAS and docker" kind="community" >}}
 
 </div>

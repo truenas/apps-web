@@ -19,11 +19,8 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< doc-card title="Servers@Home Radarr Guide" link="https://wiki.serversatho.me/en/radarr" descr="A guide to deploy Radarr on TrueNAS and docker" kind="community" >}}
 
 </div>
--->

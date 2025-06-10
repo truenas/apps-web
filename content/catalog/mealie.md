@@ -19,6 +19,8 @@ tags:
 
 <div class="docs-sections">
 
+{{< youtube nj0CIwMOIZ8 >}}
+
 {{< doc-card title="Mealie Deployment" link="/resources/deploy-mealie"
 descr="How to deploy and configure the community Mealie app." kind="community" >}}
 

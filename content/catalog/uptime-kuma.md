@@ -20,11 +20,11 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube 7VrU_zNrzqo >}}
+
+{{< doc-card title="Servers@Home Uptime Kuma Guide" link="https://wiki.serversatho.me/en/Kuma" descr="A guide to deploy Uptime Kuma on TrueNAS and docker" kind="community" >}}
+
 
 </div>
--->

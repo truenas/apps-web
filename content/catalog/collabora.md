@@ -23,4 +23,8 @@ tags:
 {{< doc-card title="Collabora Deployment" link="/resources/deploy-collabora"
 descr="How to deploy and configure the Stable Collabora app." kind="community" >}}
 
+{{< doc-card title="Servers@Home Collabora Guide" link="https://wiki.serversatho.me/en/nextcloud#integrating-collabora" descr="A guide to deploy Collabora on TrueNAS with Nextcloud" kind="community" >}}
+
+
+
 </div>
