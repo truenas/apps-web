@@ -1,5 +1,6 @@
 {{/* Define constants and variables */}}
-{{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
+{{ $timestamp := now.Unix | div 3600 }}
+{{ $telemetryURL := printf "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json?t=%d" $timestamp }}
 {{ $rawData := resources.GetRemote $telemetryURL }}
 {{ $telemetryData := $rawData | transform.Unmarshal | default dict }}
 {{ $localBaseDir := "Apps_Temp/trains" }}
