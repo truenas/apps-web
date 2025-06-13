@@ -17,14 +17,10 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
-
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
 <div class="docs-sections">
 
-
-
 {{< doc-card title="Servers@Home Wordpress Guide" link="https://wiki.serversatho.me/en/wordpress" descr="A guide to deploy Wordpress on TrueNAS and docker" kind="community" >}}
-
 
 </div>

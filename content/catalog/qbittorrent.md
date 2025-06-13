@@ -25,9 +25,9 @@ tags:
 
 {{< youtube I4SRwmKLfQQ >}}
 
+{{< doc-card title="Servers@Home qBittorrent Guide" link="https://wiki.serversatho.me/en/qBittorrent" descr="A guide to deploy qBit on TrueNAS and docker and LXC" kind="community" >}}
+
 {{< doc-card title="Setting up qBitTorrent" link="https://forums.truenas.com/t/truenas-scale-setting-up-qbittorrent-including-finding-the-login-password/544"
 descr="Notes about configuring the qBitTorrent app." kind="post" >}}
-
-{{< doc-card title="Servers@Home qBittorrent Guide" link="https://wiki.serversatho.me/en/qBittorrent" descr="A guide to deploy qBit on TrueNAS and docker and LXC" kind="community" >}}
 
 </div>

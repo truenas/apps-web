@@ -17,11 +17,9 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}-->
 
 <div class="docs-sections">
-
-
 
 {{< doc-card title="Servers@Home Bazarr Guide" link="https://wiki.serversatho.me/en/bazarr" descr="A guide to deploying Bazarr via TrueNAS and docker compose" kind="community" >}}
 
