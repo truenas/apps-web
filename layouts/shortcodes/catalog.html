@@ -28,7 +28,8 @@
 
 <!-- Catalog Cards -->
 <div class="docs-sections" id="catalog-cards">
-  {{- $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" -}} <!-- Telemetry data URL -->
+  {{- $timestamp := now.Unix | div 3600 -}}
+  {{- $telemetryURL := printf "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json?t=%d" $timestamp -}} <!-- Telemetry data URL -->
   {{- $rawData := resources.GetRemote $telemetryURL -}} <!-- Fetch telemetry data -->
   {{- $telemetryData := $rawData | transform.Unmarshal | default dict -}} <!-- Parse telemetry data -->
   {{- $localBaseDir := "Apps_Temp/trains" -}} <!-- Base directory for temporary files -->

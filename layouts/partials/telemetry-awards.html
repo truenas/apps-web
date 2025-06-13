@@ -1,4 +1,5 @@
-{{ $telemetryURL := "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json" }}
+{{ $timestamp := now.Unix | div 3600 }}
+{{ $telemetryURL := printf "https://telemetry.sys.truenas.net/apps/truenas-apps-stats.json?t=%d" $timestamp }}
 {{ $telemetryData := resources.GetRemote $telemetryURL | transform.Unmarshal | default dict }}
 {{ $appName := .appName | lower }}
 {{ $appTrain := .appTrain | lower }}
