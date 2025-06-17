@@ -28,14 +28,12 @@ Click on an app row to view **Details**, including the **Application Info**, **W
 
 {{< trueimage src="/images/Apps/InstalledAppsScreenWithApps.png" alt="Installed Applications Screen" id="Installed Applications Screen" >}}
 
-<!-- Placeholder for PD-2004
 ## Editing Apps
-Click **Edit** to edit.
+From the **Application Info** widget, click **Edit** to edit app configuration settings.
 
-[details on using the Edit screen]
+In the **Edit** screen, users can change all initial configuration settings apart from application name and type of storage volume.
 
-Click **Save** to apply changes and redeploy the application.
--->
+After making all desired configuration changes, click **Update** and the bottom of the **Edit** screen to save all modifications. Changes are applied automatically after you have updated the app configuration.
 
 ## Upgrading Apps
 
@@ -53,9 +51,15 @@ Click on the down arrow to see the options available for each.
 Click **Upgrade** to begin the process. A counter dialog opens showing the upgrade progress.
 When complete, the update badge and buttons disappear and the application **Update** state on the **Installed** screen changes from **Update Available** to **Up to date**.
 
-<!-- Placeholder for PD-2004
 ### Rolling Back to Previous Versions
--->
+
+To roll back an application to a previous version, select the app you wish to roll back from the **Installed** applications screen. This opens the **Application Info** widget on the right side of the screen and provides users with the **Roll Back** button.
+
+{{< trueimage src="/images/Apps/RollBackWindow.png" alt="Roll Back Window" id="Roll Back Window" >}}
+
+After clicking the **Roll Back** button, a small window opens in the UI. Use this window to select the version you want to roll the app back to from the **Version** dropdown menu.
+
+Users should check the **Roll back snapshots** option if they want to roll back dataset snapshots along with the app configuration. 
 
 ## Deleting Apps
 
@@ -81,7 +85,6 @@ Apps on the **Installed** screen, showing either the **Deploying** or **Running*
 Running apps show the restart icon button that allows you to stop and then restart the application.
 Click the <span class="material-icons">restart_alt</span> icon button to stop then automatically restart the app.
 
-<!-- Placeholder for PD-2004
 ## Viewing Workloads
 The **Workloads** widget shows ports and container information.
 Each container includes buttons to access a container shell, view volume mounts, and view logs.
@@ -92,7 +95,6 @@ Click <i class="material-icons" aria-hidden="true" title="Volume Mounts">folder_
 
 Click <span class="iconify" data-icon="mdi:text-box" title="Logs">Logs</span> to open the **Container Logs** window.
 Select options in **Logs Details** and click **Connect** to view logs for the container.
--->
 
 ## Managing Container Images
 
