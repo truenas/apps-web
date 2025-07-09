@@ -47,7 +47,7 @@ Refer to tutorials created and maintained by the community for more information 
 
 TrueNAS applications generally include these basic setting sections:
 
-## Application Name
+### Application Name
 
 **Application Name** shows the default name for the application.
 
@@ -58,23 +58,23 @@ When a new version becomes available, the **Installed** application screen shows
 **Application Info** widget shows an **Update** button.
 Updating the app changes the version to the currently available release.
 
-## Application Configuration
+### Application Configuration
 
 ***Application* Configuration** shows required and optional settings for the app.
 Typical settings include user credentials, environment variables, additional argument settings, the name of
 the node, or even sizing parameters.
 
-## User and Group Configuration
+### User and Group Configuration
 
 **User and Group Configuration** shows the user and group ID for the default user assigned to the app.
 If not using a default user and group provided, add a new user to manage the application before using the
 installation wizard, then enter the UID in both the user and group fields.
 This section is not always included in app installation wizards.
 
-## Network Configuration
+### Network Configuration
 
 **Network Configuration** shows network settings the app needs to communicate with TrueNAS and the Internet.
-Settings include the default port assignment, host name, IP addresses, and other network settings.
+Settings include the default port assignment, IP addresses, and other network settings.
 
 If changing the port number to something other than the default setting, refer to [Default
 Ports](https://www.truenas.com/docs/solutions/optimizations/security/#truenas-default-ports) for a list of
@@ -84,7 +84,36 @@ Some network configuration settings include the option to add a certificate. Cre
 authority and certificate before using the installation wizard if using a certificate is required for the
 application.
 
-## Storage Configuration
+#### Advanced Port Configuration
+
+Applications include additional port and IP configuration options for network control.
+
+**Port Bind Mode** controls how application ports are exposed.
+**Publish port on the host for external access** is the default setting that allows external connections from your network or the internet.
+**Expose port for inter-container communication** allows only other applications on the same TrueNAS system to connect.
+**None** does not expose the port, making it inaccessible from outside the application container.
+
+**Host IPs** restricts which IP addresses can receive incoming connections to the application when using **Publish port on the host for external access** mode.
+
+Default behavior (empty): The port binds to all available network interfaces (0.0.0.0).
+
+Specific IP binding: Add one or more IP addresses to restrict which network interfaces can receive connections. You must first configure alias IP addresses in the TrueNAS network configuration before they appear in the **Host IPs** dropdown list. Click **Add** to select from available configured IP addresses.
+
+{{< hint type="important" >}}
+Host IP binding only controls incoming traffic to the application. Outgoing connections from the application still use the host's primary IP address by default, not the specified alias IP.
+{{< /hint >}}
+
+To add alias IP addresses, see [Adding Static or Alias IP Addresses](https://www.truenas.com/docs/scale/scaletutorials/network/interfaces/#adding-static-or-alias-ip-addresses).
+
+**Host Network** enables direct host network access for the application.
+
+{{< hint type="warning" >}}
+**Host Network** mode is not recommended for most applications. Enable only when specifically required.
+{{< /hint >}}
+
+When enabled, the application shares the host's network stack directly, reducing network isolation but potentially required for network discovery or legacy applications.
+
+### Storage Configuration
 
 **Storage Configuration** shows options to configure storage for the application.
 Storage configuration can include the primary data mount volume, a configuration volume, postgres volumes,
@@ -124,7 +153,7 @@ dataset(s) and SMB share before using the installation wizard.
 
 {{< include file="/static/includes/apps/HostPathACL.md" >}}
 
-## Resources Configuration
+### Resources Configuration
 
 **Resources Configuration** shows CPU and memory settings for the container pod.
 In most cases, you can accept the default settings, or you can change these settings to limit the system
@@ -132,7 +161,7 @@ resources available to the application.
 
 Some apps include GPU settings if the app allows or requires GPU passthrough.
 
-### GPU Passthrough
+#### GPU Passthrough
 
 Users with compatible hardware can pass through a GPU device to an application for use in hardware acceleration.
 
@@ -148,7 +177,7 @@ Click **Passthrough available (non-NVIDIA) GPUs** to have TrueNAS pass an AMD or
 **Select NVIDIA GPU(s)** displays if an NVIDIA GPU is available, with [installed drivers](/getting-started/setting-up-apps-service/#installing-nvidia-drivers).
 Click **Use this GPU** to pass that GPU to the application.
 
-## Post-Installation
+### Post-Installation
 
 After clicking **Install** on an application wizard screen, the **Installed** applications screen opens showing the application in the **Deploying** state before
 changing to **Running**.
