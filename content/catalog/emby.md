@@ -29,4 +29,7 @@ descr="Installation and basic configuration of Emby Server on TrueNAS Community 
 {{< doc-card title="Servers@Home Emby Guide" link="https://wiki.serversatho.me/en/Emby"
 descr="A guide to installing Emby in TrueNAS as well as docker via compose" kind="community" >}}
 
+
+{{< youtube b4YLNhtWaRc >}}
+
 </div>
