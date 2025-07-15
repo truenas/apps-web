@@ -17,3 +17,5 @@ icon: "https://media.sys.truenas.net/apps/headscale/icons/icon.svg"
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+
+{{< youtube VNhsR2lpntc >}}
