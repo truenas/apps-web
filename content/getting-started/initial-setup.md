@@ -45,9 +45,18 @@ If you close the dialog to set the pool later, click **Configuration > Choose Po
 
 {{< include file="/static/includes/apps/AppsPool.md" >}}
 
+### Migrating Existing Applications
+
+{{< include file="/static/includes/apps/MigrateExisting.md" >}}
+
 ### Unsetting the Apps Pool
 
-To select a different pool for apps to use, click **Configuration > Unset Pool**. This turns off the apps service until you choose another pool for apps to use.
+To remove the apps pool configuration, click **Unset Pool** on the **Settings** menu.
+
+{{< trueimage src="/images/apps/AppsUnsetPoolDialog.png" alt="Apps Unset Pool" id="Apps Unset Pool" >}}
+
+Click **Unset** to confirm.
+This turns off the apps service until you choose another pool for apps to use.
 
 ## Managing Container Images
 
