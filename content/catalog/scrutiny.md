@@ -26,4 +26,6 @@ tags:
 
 {{< doc-card title="Servers@Home Scrutiny Guide" link="https://wiki.serversatho.me/en/scrutiny" descr="A guide to deploy Scrutiny on TrueNAS and docker" kind="community" >}}
 
+{{< youtube 5Pv2ip_v_2s >}}
+
 </div>
