@@ -62,6 +62,8 @@ This opens the **Application Info** widget on the right side of the screen and p
 The **Version** dropdown contains available app versions for roll back.
 The version numbers displayed are the version of the app in the TrueNAS catalog, equivalent to the **Version** displayed on the app information card.
 It is not equal to the **App Version** or the upstream release version.
+See [Understanding Versions](https://apps.truenas.com/managing-apps/discovering-apps/#understanding-versions) for more information.
+
 
 Click **Roll back snapshots** to restore the application data volume to match the selected version by rolling back to the snapshot for that version.
 This reverts both the application and app data stored in the apps pool to the exact state from when the snapshot was created.
