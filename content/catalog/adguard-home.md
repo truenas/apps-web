@@ -19,11 +19,9 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
-<!--
+
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
-
+{{< doc-card title="Servers@Home AdGuard Guide" link="https://wiki.serversatho.me/en/adguard" descr="A guide to deploying AdGuard Home via TrueNAS and docker compose" kind="community" >}}
 </div>
--->
+

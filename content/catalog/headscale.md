@@ -16,6 +16,8 @@ icon: "https://media.sys.truenas.net/apps/headscale/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
 {{< youtube VNhsR2lpntc >}}
+
+{{< doc-card title="Servers@Home Headscale Guide" link="https://wiki.serversatho.me/en/headscale" descr="A guide to deploying Headscale docker compose" kind="community" >}}
