@@ -17,3 +17,7 @@ icon: "https://media.sys.truenas.net/apps/gotify/icons/icon.png"
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+
+{{< doc-card title="Servers@Home Gotify Setup" link="https://wiki.serversatho.me/en/gotify" descr="A guide to deploying Gotify" kind="community" >}}
+
+{{< youtube CaKs9M2SL3k >}}
