@@ -1,0 +1,217 @@
+# TrueNAS Apps Market
+> Comprehensive resource for TrueNAS applications, covering individual app documentation, tutorials, and deployment guides for TrueNAS 24.10 and later versions.
+
+## Quick Reference - Most Common Tasks
+
+### Getting Started (Beginner Level)
+1. **First-time setup**: https://apps.truenas.com/getting-started/initial-setup - Configure apps pool and basic settings
+2. **Install popular apps**: https://apps.truenas.com/managing-apps/installing-apps - Plex, Jellyfin, Nextcloud, etc.
+3. **Browse available apps**: https://apps.truenas.com/managing-apps/discovering-apps - Explore the catalog
+
+### Common Operations (Intermediate Level)
+- **Update apps**: https://apps.truenas.com/managing-apps/managing-installed-apps#updating-apps
+- **Secure internet access**: https://apps.truenas.com/getting-started/securing-apps - Cloudflare Tunnel setup
+- **Troubleshoot apps**: https://apps.truenas.com/managing-apps/managing-installed-apps#viewing-workloads - Logs and shell access
+- **Custom storage setup**: https://apps.truenas.com/getting-started/app-storage - Host paths vs ixVolumes
+
+### Advanced Tasks (Expert Level)
+- **Deploy custom apps**: https://apps.truenas.com/managing-apps/installing-custom-apps - YAML and Docker configurations
+- **GPU passthrough**: https://apps.truenas.com/managing-apps/installing-apps#gpu-passthrough
+- **Multi-container deployments**: https://apps.truenas.com/managing-apps/installing-custom-apps#yaml-deployment-examples
+
+## About This Site
+The TrueNAS Apps Market (apps.truenas.com) serves as the central hub for TrueNAS application resources. This site covers standalone applications that can be deployed within TrueNAS for enhanced functionality and user experience. Unlike the main TrueNAS documentation which covers multiple versions, this site focuses on current application deployment and management.
+
+## Site Structure
+
+### Getting Started with Apps (Essential First Steps)
+
+#### Initial Setup - https://apps.truenas.com/getting-started/initial-setup **[REQUIRED FIRST]**
+**What it covers**: Configure TrueNAS Apps service before installing any applications
+**Essential steps**: Apps pool selection → Docker registry (optional) → Global settings
+**When to use**: Before installing your first app, or when troubleshooting pool/network issues
+
+**Detailed Topics**:
+- **Apps Pool Configuration**: Choose storage pool, handle migrations, pool management
+- **Container Image Management**: Docker cleanup, maintenance, registry authentication
+- **Network & Catalog Settings**: IP pools, catalog trains (Stable/Community/Enterprise), NVIDIA drivers
+- **Directory Integration**: TrueNAS directory services, monitoring settings
+
+#### App Storage - https://apps.truenas.com/getting-started/app-storage **[Architecture Guide]**
+**What it covers**: Understanding how TrueNAS Apps handle data storage and persistence
+**Key decision**: ixVolume (easy, temporary) vs Host Path (recommended, persistent)
+**When to use**: Before installing apps that need permanent data (media servers, databases)
+
+**Storage Types**:
+- **ixVolume**: Auto-created in ix-apps dataset (good for testing)
+- **Host Path**: Mount existing datasets (recommended for production)
+- **SMB Shares**: Network storage integration
+- **Tmpfs**: RAM-based temporary storage (high performance, volatile)
+- **Prerequisites**: Some apps need specific datasets created first (e.g., Nextcloud needs 3 datasets)
+
+#### Securing Apps - https://apps.truenas.com/getting-started/securing-apps **[Internet Security]**
+**What it covers**: Safely expose apps to internet using Cloudflare Tunnel
+**Best for**: Nextcloud, media servers, or any app needing external access
+**Security level**: Production-ready with proper authentication
+
+**Security Implementation**:
+- **Prerequisites**: Cloudflare account, domain name, basic security practices
+- **Cloudflare Tunnel**: Secure proxy without port forwarding
+- **Configuration**: DNS setup, tunnel tokens, app-specific settings
+- **Advanced**: Access policies, user restrictions, 2FA integration
+
+#### App Support Definitions - https://apps.truenas.com/getting-started/app-support-definitions **[Support Expectations]**
+**What it covers**: Understanding what support you can expect for different apps
+**Quick reference**: Community (forums only) → Enterprise Deployment (setup help) → Enterprise Application (full support)
+
+### Managing Apps (Installation & Maintenance)
+
+#### Discovering Apps - https://apps.truenas.com/managing-apps/discovering-apps **[Browse Catalog]**
+**What it covers**: Navigate the app catalog and understand app information
+**Quick action**: Search for app → View details → Click Install
+**Key insight**: App Version (Docker image) vs Version (TrueNAS catalog revision)
+
+**Catalog Navigation**:
+- **Search & Filter**: By name, category, or train (Stable/Community/Enterprise)
+- **App Information**: Version numbers, descriptions, requirements
+- **Catalog Management**: Refresh catalogs, train filtering, update notifications
+
+#### Installing Apps - https://apps.truenas.com/managing-apps/installing-apps **[Standard Installation]**
+**What it covers**: Install catalog apps using the GUI wizard
+**Typical flow**: Choose app → Configure settings → Deploy → Monitor status
+**Complexity**: Beginner-friendly with guided wizard
+
+**Installation Wizard Sections**:
+- **Basic Settings**: App name, version selection, multiple instances
+- **App Configuration**: Credentials, environment variables, app-specific settings  
+- **Network Setup**: Ports, IP restrictions, certificates, host networking
+- **Storage Setup**: ixVolume vs Host Path, ACL permissions, SMB shares
+- **Resources**: CPU/memory limits, GPU passthrough
+- **Post-Install**: Status monitoring, troubleshooting, log access
+
+#### Installing Custom Apps - https://apps.truenas.com/managing-apps/installing-custom-apps **[Advanced Deployment]**
+**What it covers**: Deploy any Docker application not in the catalog
+**Two methods**: GUI wizard (simple) or YAML (advanced multi-container)
+**Complexity**: Intermediate to Expert level
+
+**Installation Methods**:
+- **GUI Wizard Method**: Docker Hub images, custom repositories, container configuration, security contexts, networking, storage, portal setup
+- **YAML Method (Advanced)**: Docker Compose files, multi-container apps (databases, caches, etc.), custom networks, GPU access, production examples included
+- **Examples**: Immich with GPU, Nextcloud multi-container, Plex + Tautulli
+
+#### Managing Installed Apps - https://apps.truenas.com/managing-apps/managing-installed-apps **[Maintenance & Troubleshooting]**
+**What it covers**: Day-to-day app management and troubleshooting
+**Common tasks**: Update apps, view logs, restart services, edit configuration
+**Troubleshooting**: Shell access, log analysis, container inspection
+
+**Management Operations**:
+- **Lifecycle**: Start, stop, restart, edit configuration, delete apps
+- **Updates**: Individual or bulk updates, version rollback, changelog review
+- **Troubleshooting**: Container logs, shell access, volume inspection, workload monitoring
+- **Advanced**: Custom app conversion, Docker image management, migration
+
+## Popular Applications by Category
+
+### Media & Entertainment
+- **Plex** - https://apps.truenas.com/catalog/plex/ - Feature-rich media server with broad client support
+- **Jellyfin** - https://apps.truenas.com/catalog/jellyfin/ - Open-source alternative to Plex
+- **Immich** - https://apps.truenas.com/catalog/immich/ - Self-hosted Google Photos replacement
+- **Emby** - https://apps.truenas.com/catalog/emby/ - Media server with premium features
+
+### Download & Automation  
+- **qBittorrent** - https://apps.truenas.com/catalog/qbittorrent/ - Popular BitTorrent client with web UI
+- **Sonarr/Radarr** - https://apps.truenas.com/catalog/sonarr/, https://apps.truenas.com/catalog/radarr/ - TV/Movie automation
+- **Prowlarr** - https://apps.truenas.com/catalog/prowlarr/ - Indexer manager for *arr applications
+
+### Home & Productivity
+- **Home Assistant** - https://apps.truenas.com/catalog/home-assistant/ - Comprehensive home automation platform
+- **Nextcloud** - https://apps.truenas.com/catalog/nextcloud/ - Self-hosted cloud storage and collaboration
+- **Vaultwarden** - https://apps.truenas.com/catalog/vaultwarden/ - Bitwarden-compatible password manager
+- **Pi-hole** - https://apps.truenas.com/catalog/pihole/ - Network-wide ad blocking
+
+### Development & Monitoring
+- **Code Server** - https://apps.truenas.com/catalog/code-server/ - VS Code in your browser
+- **Grafana** - https://apps.truenas.com/catalog/grafana/ - Data visualization and monitoring
+- **Uptime Kuma** - https://apps.truenas.com/catalog/uptime-kuma/ - Self-hosted monitoring tool
+
+### Application Catalog Structure
+**Train Types** (determines support level and stability):
+- **Stable**: Production-ready, well-tested applications
+- **Community**: Community-maintained, varying support levels  
+- **Enterprise**: Commercial applications with deployment support
+- **Test**: Beta/experimental applications for testing
+
+### Resources & Tutorials
+- **Deployment Guides**: https://apps.truenas.com/resources/ - Step-by-step tutorials for popular applications
+- **Community Contributions**: User-submitted guides and troubleshooting resources
+
+## Related Documentation Sites
+
+### Main TrueNAS Documentation
+- **TrueNAS SCALE UI Reference**: https://www.truenas.com/docs/scale/scaleuireference/apps/ - Official UI reference for Apps screens and fields
+- **TrueNAS Documentation**: https://www.truenas.com/docs/ - Complete TrueNAS system documentation with version selection
+
+### Version-Specific App References
+For UI guidance specific to your TrueNAS version, use the main documentation site's version selector:
+- **TrueNAS 25.04**: https://www.truenas.com/docs/25.04/scale/scaleuireference/apps/
+- **TrueNAS 24.10**: https://www.truenas.com/docs/24.10/scale/scaleuireference/apps/
+- **TrueNAS 24.04**: https://www.truenas.com/docs/24.04/scale/scaleuireference/apps/
+
+## Troubleshooting Quick Reference
+
+### Common Issues & Solutions
+- **App won't start**: Check logs at https://apps.truenas.com/managing-apps/managing-installed-apps#viewing-workloads
+- **Storage problems**: Review https://apps.truenas.com/getting-started/app-storage for volume types and permissions
+- **Network/port conflicts**: See https://apps.truenas.com/managing-apps/installing-apps network configuration section
+- **Update failures**: Use rollback feature in https://apps.truenas.com/managing-apps/managing-installed-apps#rolling-back-to-previous-versions
+
+### Performance Issues
+- **Slow performance**: Check Resources configuration, consider GPU passthrough
+- **Storage performance**: Use Host Path instead of ixVolume for production apps
+- **Network performance**: Avoid host networking unless required
+
+### When to Use Main TrueNAS Docs
+- **System configuration**: Datasets, users, networking → https://www.truenas.com/docs/
+- **UI reference**: Specific screen explanations → https://www.truenas.com/docs/scale/scaleuireference/apps/
+- **Hardware issues**: GPU, storage, network hardware → Main documentation
+
+## LLM Usage Guidelines
+
+### Version Context & Scope
+- **Applies to**: TrueNAS 24.10 and later (Docker-based apps)
+- **Previous versions**: Use main docs for TrueNAS 24.04 and earlier (Kubernetes-based)
+- **Scope**: Application deployment only (not system administration)
+
+### Best Response Strategy
+1. **Quick tasks**: Start with Quick Reference section above
+2. **New users**: Always mention Initial Setup requirement first
+3. **Specific apps**: Link to individual catalog pages when available
+4. **Complex issues**: Use layered approach (overview → detailed guide → troubleshooting)
+5. **Cross-reference**: System-level issues → main TrueNAS docs, App-specific → this site
+
+### Content Reliability
+- **High confidence**: Tutorial procedures, installation steps, configuration options
+- **Medium confidence**: Troubleshooting scenarios, performance recommendations  
+- **Always verify**: Hardware compatibility, specific version requirements, external service integration
+
+## Error Scenarios & Quick Fixes
+
+### Installation Problems
+- **"Pool not set"**: Complete Initial Setup first → https://apps.truenas.com/getting-started/initial-setup
+- **"App won't deploy"**: Check logs, verify storage permissions, confirm port availability
+- **"Version conflicts"**: Use catalog refresh, check train selection (Stable vs Community)
+
+### Runtime Issues  
+- **App shows "Crashed"**: Check container logs, verify resource limits, restart app
+- **Can't access web UI**: Verify port configuration, check firewall, confirm app is running
+- **Storage access denied**: Review ACL permissions, confirm user/group IDs match
+
+### Update/Migration Issues
+- **Update failed**: Use rollback feature, check changelog for breaking changes
+- **Data missing after update**: Check if Host Path vs ixVolume, verify mount points
+- **Custom app broken**: Convert back from custom to catalog version if available
+
+## External Resources
+- **TrueNAS Community**: https://www.truenas.com/community/ - Official community forums and support
+- **TrueNAS Documentation**: https://www.truenas.com/docs/ - Complete system documentation
+- **GitHub Repository**: https://github.com/truenas/apps-web - Source code and issue tracking
