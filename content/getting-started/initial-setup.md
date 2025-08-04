@@ -53,7 +53,7 @@ If you close the dialog to set the pool later, click **Configuration > Choose Po
 
 To remove the apps pool configuration, click **Unset Pool** on the **Settings** menu.
 
-{{< trueimage src="/images/apps/AppsUnsetPoolDialog.png" alt="Apps Unset Pool" id="Apps Unset Pool" >}}
+{{< trueimage src="/images/Apps/AppsUnsetPoolDialog.png" alt="Apps Unset Pool" id="Apps Unset Pool" >}}
 
 Click **Unset** to confirm.
 This turns off the apps service until you choose another pool for apps to use.
