@@ -2,7 +2,7 @@
 
 If you select a new pool in the **Pool** dropdown after [previously configuring the apps service](/getting-started/initial-setup/#choosing-the-apps-pool), the dialog displays the **Migrate existing applications** option.
 
-{{< trueimage src="/images/apps/ChoosePoolMigrate.png" alt="Migrate Existing Applications" id="Migrate Existing Applications" >}}
+{{< trueimage src="/images/Apps/ChoosePoolMigrate.png" alt="Migrate Existing Applications" id="Migrate Existing Applications" >}}
 
 Click **Migrate existing applications** to migrate all installed applications to the new applications pool.
 
