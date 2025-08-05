@@ -44,7 +44,7 @@ Before you install the Nextcloud app:
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
 
-<div style="margin-left: 33px">{{< trueimage src="/images/SCALE/Apps/NextcloudDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
+<div style="margin-left: 33px">{{< trueimage src="/images/Apps/NextcloudDetailsScreen.png" alt="Nextcloud App Details Screen" id="Nextcloud App Details Screen" >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
@@ -66,9 +66,6 @@ Configure the remaining permissions in the app installation wizard when adding s
 To change the permissions for the **data** and **html** datasets:
 1. Select the dataset (**data** or **html**), scroll down to the **Permissions** widget and click **Edit** to open the **Edit ACL** screen for the selected dataset.
 2. Change **root** to **apps** in the **Owner** and **Owner Group** fields, then click **Apply Owner** and **Apply Group**.
-
- {{< trueimage src="/images/SCALE/Apps/NextcloudEditACLScreenForhtmlDataset.png" alt="Edit ACL Screen for Nextcloud html Dataset" id="Edit ACL Screen for Nextcloud html Dataset" >}}
-
 3. Click **Save Access Control List**.
 4. Select the **data** dataset and repeat steps 1-3 above.
 
@@ -97,7 +94,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 {{< include file="/static/includes/apps/MultipleAppInstancesAndNaming.md" >}}
 {{< include file="/static/includes/apps/LocateAndOpenInstallWizard.md" >}}
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudScreen.png" alt="Install Nextcloud Screen" id="Install Nextcloud Screen" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudScreen.png" alt="Install Nextcloud Screen" id="Install Nextcloud Screen" >}}
 
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
@@ -117,11 +114,7 @@ Nextcloud does not URL encode in some places so do not use the ampersand (&), at
 
 - Enter the Nextcloud database password in **Database Password**.
 
-{{< trueimage src="/images/SCALE/Apps/NextcloudConfigurationCredentials.png" alt="Install Nextcloud Configuration Credentials" id="Install Nextcloud Configuration Credentials" >}}
-
 Scroll down to **Previews** and **Imaginary** and select to enable them if using these options for images.
-
-{{< trueimage src="/images/SCALE/Apps/NextcloudConfigEnablePreviewsAndImaginary.png" alt="Install Nextcloud Configuration Enable Imaginary" id="Install Nextcloud Configuration Enable Imaginary" >}}
 
 Change other settings to suit your use case or accept the remaining defaults in the **Nextcloud Configuration** section.
 
@@ -151,13 +144,13 @@ Add your **Storage Configuration** settings.
 Set **Type** to **Host Path (Path that already exists on the system)** for **AppData Storage**.
 Select **Enable ACL**, then enter or browse to select the **html** dataset to populate the **Host Path** field.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudStorageAppDataACLandACESettings.png" alt="Install Nextcloud Storage for AppData" id="Install Nextcloud Storage for AppData" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudStorageAppDataACLandACESettings.png" alt="Install Nextcloud Storage for AppData" id="Install Nextcloud Storage for AppData" >}}
 
 Select **Force Flag** to allow upgrading the app when the dataset has existing data.
 
 Repeat the storage steps above to configure the host path for **Nextcoud Data Storage**. Enter or select the **data** dataset.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudStorageDataACLandACESettings.png" alt="Install Nextcloud Storage for Data" id="Install Nextcloud Storage for Data" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudStorageDataACLandACESettings.png" alt="Install Nextcloud Storage for Data" id="Install Nextcloud Storage for Data" >}}
 
 Click **ACE Entries**, and add an entry for **568** with **FULL_CONTROL** permission.
 
@@ -166,8 +159,6 @@ To configure the **Nextcloud Postgres Data Storage** host path, do not select **
 Set **Type** to **Host Path (Path that already exists on the system)**, then enter or browse to select the **postgres_data** dataset to populate the **Host Path** field.
 
 Select **Automatic Permissions**. This does not show if you selected **Enable ACL**.
-
-{{< trueimage src="/images/SCALE/Apps/NextcloudInstallWizardPostgresDatasetAutomaticPermissions.png" alt="Postgres Storage Automatic Permissions" id="Postgres Storage Automatic Permissions" >}}
 
 See [Storage Configuration Settings](#storage-configuration-settings) below for more information.
 
@@ -178,7 +169,7 @@ The **Installed** screen displays with the **nextcloud** app in the **Deploying*
 
 Click **Web UI** on the **Application Info** widget to open the Nextcloud web portal sign-in screen.
 
-{{< trueimage src="/images/SCALE/Apps/NextcloudSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
+{{< trueimage src="/images/Apps/NextcloudSignInScreen.png" alt="Nextcloud Sign In Screen" id="Nextcloud Sign In Screen" >}}
 
 ## Understanding App Installation Wizard Settings
 
@@ -189,7 +180,6 @@ The following sections provide more detailed explanations of the settings in eac
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
 ### Nextcloud Configuration Settings
-
 
 Nextcloud configuration settings include setting up credentials, server information like timezone, maintenance window start, and default phone region, performance settings, how previews display (sizing and quality settings), providers, expiration settings, trusted domains and proxies, enabling/disabling related services like Collabora, the host IP and port, adding a cron job with schedule, and adding additional environment variables.
 
@@ -315,7 +305,7 @@ Available values:
 **Add**, to the right of **Tasks**, shows the **Schedule** and **Command** setting options. Enter the time and day settings in **Schedule** and the command to run in **Command**.
 If enabled, **Cron** shows the **Schedule** option. The default value is <b>*/5 * * * *</b>. Enter the schedule values to replace the asterisks based on your desired schedule.
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudConfigCronSettings.png" alt="Configure Nextcloud Cron Settings" id="Configure Nextcloud Cron Settings" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudConfigCronSettings.png" alt="Configure Nextcloud Cron Settings" id="Configure Nextcloud Cron Settings" >}}
 
 #### Notify Push Settings
 
@@ -443,7 +433,7 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 ### Resource Configuration
 
-{{< trueimage src="/images/SCALE/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
+{{< trueimage src="/images/Apps/InstallNextcloudResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}
