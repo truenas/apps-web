@@ -130,7 +130,7 @@ If setting up a cron job schedule, click **Add** to the right of **Tasks** under
 {{< expand "Nextcloud Cron Jobs" "v" >}}
 NextCloud cron jobs only run while the app is running. If you stop the app, the cron job(s) do not run until you start the app again.
 
-For more information on formatting and using cron jobs, see [Managing Cron Jobs]({{< ref "ManageCronJobsSCALE" >}}).
+For more information on formatting and using cron jobs, see [Managing Cron Jobs](https://www.truenas.com/docs/scale/scaletutorials/systemsettings/advanced/managecronjobsscale/).
 {{< /expand >}}
 
 The TrueNAS app is configured with all the required environment variables, but if you want to customize the container, click **Add** to the right of **Additional Environment Variables** for each to enter the variable(s) and values(s).
