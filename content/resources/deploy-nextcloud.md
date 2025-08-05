@@ -415,7 +415,7 @@ When the app has postgres storage volumes, the process is easier and less prone 
 
 {{< include file="/static/includes/apps/InstallWizardPostgresStorageAutomaticPermissions.md" >}}
 
-{{< include files="/static/includes/apps/InstallAppsStorageConfig2.md" >}}
+{{< include file="/static/includes/apps/InstallAppsStorageConfig2.md" >}}
 
 #### Setting Dataset ACL Permissions
 
