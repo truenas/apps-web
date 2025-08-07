@@ -73,7 +73,7 @@ Finish the permission configuration in the app installation wizard as described 
 For optimal performance, Frigate benefits from dedicated hardware acceleration:
 
 * Frigate recommends Google Coral USB/PCIe TPU, Intel integrated graphics with VAAPI, or NVIDIA GPU
-* Frigate recmmended minimum is CPU-only detection (limited performance)
+* Frigate recommended minimum is CPU-only detection (limited performance)
 * Frigate recommended RAM is 2GB minimum, 4GB+ recommended for multiple cameras
 * Frigate recommended storage for the **media** dataset is to use fast storage (SSD preferred)
 
@@ -83,7 +83,7 @@ For optimal performance, Frigate benefits from dedicated hardware acceleration:
 Before installing Frigate:
 
 * Ensure your IP cameras support RTSP streams
-* Know your the RTSP URL format for your camera(s)
+* Know the RTSP URL format for your camera(s)
 * Have camera credentials (username/password) ready
 * Test camera streams with a tool like VLC to verify connectivity
 {{< /expand >}}
@@ -111,7 +111,7 @@ Select your local timezone from the **Timezone** dropdown. This ensures timestam
 
 Choose **Normal Image** in **Image Selector** unless you have specific hardware acceleration requirements. Advanced users with supported hardware can select optimized images.
 
-Set the **Shared Memory Size** based on your camera setup. Select the option that applies for your use case:
+Set the **Shared Memory Size** based on your camera setup. Select the option that applies to your use case:
 - **64 MiB** - The default setting for 1-2 cameras.
 - **128 MiB** - The recommended setting for 3-5 cameras.
 - **256 MiB** - The setting for 6+ cameras or higher resolution streams.
@@ -123,7 +123,7 @@ Click **Add** next to **Devices** to configure hardware acceleration. Select the
 - For NVIDIA GPUs, add appropriate GPU devices
 - For Google Coral, USB devices are auto-detected when mounted
 
-The TrueNAS app is configured with required environment variables. Add custom variables only if needed for your specific configuration.
+The TrueNAS app is configured with the required environment variables. Add custom variables only if needed for your specific configuration.
 {{< /expand >}}
 
 Configure the network settings:
@@ -142,7 +142,7 @@ Select **Enable ACL**, then browse to select the **config** dataset.
 
 Select **Force Flag** to allow app upgrades when the dataset has existing data.
 
-Configure the host path for **Frigate Media Storage** by seleting **Host Path** in **type**.
+Configure the host path for **Frigate Media Storage** by selecting **Host Path** in **type**.
 Select **Enable ACL**. 
 Browse to select the **media** dataset.
 Add ACE entries for user ID **568** with **FULL_CONTROL** permission.
@@ -153,7 +153,7 @@ Add ACE entries for user ID **568** with **FULL_CONTROL** permission.
 For the **Cache Storage**, you can set **Type** to **tmpfs** to create a directory in RAM for temporary storage, or set **Type** to **Host Path** and then browse to select the otpional **cache** dataset.
 
 If selecting the host path option, select **Enable ACL** and configure permissions similar to media storage.
-If seleting the tmpfs option, select the **Tmpfs Size Limit**. The default is **500**.
+If selecting the tmpfs option, select the **Tmpfs Size Limit**. The default is **500**.
 
 {{< trueimage src="/images/Apps/InstallFrigateStoragetmpfsCacheStorage.png" alt="Install Frigate tmpfs Cache Storage" id="Install Frigate tmpfs Cache Storage" >}}
 
@@ -244,7 +244,7 @@ Select **Mount USB Bus** to enable access to USB devices like Google Coral TPU a
 
 **Devices** section allows adding hardware acceleration devices. Click **Add** to the right of **Devices** to show the **Host Device** and **Container Device** fields. Enter the paths for the devices based on your use case.
 - Enter `/dev/dri/renderD128` if you have Intel integrated graphics
-- Enter `/dev/nvidia0`if you have NVIDIA GPU device
+- Enter `/dev/nvidia0`if you have an NVIDIA GPU device
 - Enter the custom device paths for other accelerators.
 
 #### Environment Variables
@@ -260,22 +260,22 @@ Accept the default settings in TrueNAS for the Frigate app.
 **WebUI Port (Auth)** settings configure the ports for the Frigate app.
 **Port Number** uses the default **30193** for Frigate web interface.
 
-Note: If the Dockerfile defines an EXPOSE directive,the port is still exposed for inter-container communication regardless of this setting.
+Note: If the Dockerfile defines an EXPOSE directive, the port is exposed for inter-container communication regardless of this setting.
 
 {{< include file="/static/includes/apps/InstallWizardDefaultPorts.md" >}}
 
-**Port Bind Mode** has options for external access, container communication, or no exposure:.
+**Port Bind Mode** has options for external access, container communication, or no exposure:
 - **Publish** - Publishes the port on the host for external access.
 - **Expose** - Exposes the port for inter-container communication.
 - **None** - Does not expose or publish the port.
 
-**WebUI Port (No Auth)** settings configure port setting without authentication.
+**WebUI Port (No Auth)** settings configure the port setting without authentication.
 
 **Port Bind Mode** shows the same options as the **Port Bind (Auth**) setting documented above.
 
-**RTSP Port** is the RTSP port for Frigate, it uses the internal port number **8554**, and the bind options are the same as those documented above.
+**RTSP Port** is the RTSP port for Frigate; it uses the internal port number **8554**, and the bind options are the same as those documented above.
 
-**WebRTC Port** is the WebRTC port for Frigate, it uses the internal port number **8555**, and the bind options are the same as those documented above.
+**WebRTC Port** is the WebRTC port for Frigate; it uses the internal port number **8555**, and the bind options are the same as those documented above.
 
 **Go2RTC Port** is the Go2RTC port for Frigate, and the bind options are the same as those documented above.
 
@@ -291,7 +291,7 @@ Frigate needs two datasets for host path storage volume configurations:
 
 * **config** for the **Config Storage** volume.
 * **media** for the **Media Storage** volume.
-* **cache** (optional) for temporary storage or you can use the **tmpfs** option to create a directory in RAM for temporary file storage, thumbprints, etc.
+* **cache** (optional) for temporary storage, or you can use the **tmpfs** option to create a directory in RAM for temporary file storage, thumbprints, etc.
   Using **Host Path** requires a dataset. Using **tmpfs** is RAM-based storage that is faster but cleared on a system restart.
 
 If you nest these datasets under a parent dataset named *frigate*, you can create this frigate dataset with the **Dataset Preset** set to **Generic** or **Apps**.
@@ -313,7 +313,7 @@ Configure both the **config** and **media** dataset ACL permissions as described
 
 ## Advanced Configurations
 
-The following instructions cover hardware accleration setups, camera optimizations, and storage reteintion policies in your Frigate account.
+The following instructions cover hardware acceleration setups, camera optimizations, and storage retention policies in your Frigate account.
 
 ### Hardware Acceleration Setup
 
