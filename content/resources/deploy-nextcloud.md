@@ -216,7 +216,7 @@ Entering the wrong language code prevents the container from starting.
 
 Select **Run Optimized** to enable Nextcloud optimizations. For more information, visit https://github.com/truenas/containers/blob/master/apps/nextcloud-fpm/configure-scripts/occ-optimize.sh.
 
-**Max Chuncksize (MB)** sets the maximum chunk size for user-chunked uploads. The default setting is **10** MB. 
+**Max Chunksize (MB)** sets the maximum chunk size for user-chunked uploads. The default setting is **10** MB. 
 
 **PHP Upload Limit (GB)** Sets the PHP upload limit. It applies a timeout to the client_max_body size in nginx, and the post_max_size and upload_max_filesize in PHP. The default value is **3**.
 
