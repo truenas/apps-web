@@ -148,7 +148,7 @@ Select **Enable ACL**, then enter or browse to select the **html** dataset to po
 
 Select **Force Flag** to allow upgrading the app when the dataset has existing data.
 
-Repeat the storage steps above to configure the host path for **Nextcoud Data Storage**. Enter or select the **data** dataset.
+Repeat the storage steps above to configure the host path for **Nextcloud Data Storage**. Enter or select the **data** dataset.
 
 {{< trueimage src="/images/Apps/InstallNextcloudStorageDataACLandACESettings.png" alt="Install Nextcloud Storage for Data" id="Install Nextcloud Storage for Data" >}}
 
