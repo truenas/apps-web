@@ -313,7 +313,7 @@ If enabled, **Cron** shows the **Schedule** option. The default value is <b>*/5 
 
 **Collabora** enables or disables the Collabora settings for Nextcloud. Enables/disables start-up trigger actions like updating the configuration, adding/removing the Nextcloud app, etc., to ensure the configuration is  present or absent. Select **Enable** to enable Collabora.
 
-**Onlyoffice** enables or disables the Onlyoffices settings for Nextcloud. It enables/disables start-up trigger actions like updating the configuration, adding/removing the Nextcloud app, etc., to ensure the configuration is present or absent. Select **Enable** to enable Onlyoffice.
+**Onlyoffice** enables or disables the Onlyoffice settings for Nextcloud. It enables/disables start-up trigger actions like updating the configuration, adding/removing the Nextcloud app, etc., to ensure the configuration is present or absent. Select **Enable** to enable Onlyoffice.
 
 **Clamav** enables Clamav settings for Nextcloud. Select **Enable** to enable Clamav.
 
