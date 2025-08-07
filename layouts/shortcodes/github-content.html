@@ -1,0 +1,214 @@
+<!-- Define variables -->
+{{ $path := .Get "path" }}
+{{ $localBaseDir := "Apps_Temp" }} <!-- Base directory for trains -->
+{{ $localFilePath := printf "%s/%s" $localBaseDir $path }} <!-- Corrected file path -->
+{{ $editUrl := printf "https://github.com/truenas/apps/edit/master/trains/%s" $path }}
+
+<!-- Check if the file exists locally -->
+{{ if fileExists $localFilePath }}
+  <!-- Read and parse the JSON file -->
+  {{ $fileContent := readFile $localFilePath }}
+  {{ $jsonData := transform.Unmarshal $fileContent | default dict }}
+
+  <!-- Ensure jsonData is valid before proceeding -->
+  {{ if $jsonData }}
+    <!-- Extract the first key dynamically -->
+    {{ $firstKey := "" }}
+    {{ range $key, $value := $jsonData }}
+      {{ $firstKey = $key }}
+      {{ break }}
+    {{ end }}
+    {{ $versionData := index $jsonData $firstKey | default dict }}
+
+    <!-- Extract metadata -->
+    {{ $name := $versionData.app_metadata.name | default "" }}
+    {{ $train := $versionData.app_metadata.train | lower | default "" }}
+    {{ $appTitle := $versionData.app_metadata.title | default "App Title" }}
+    {{ $appDescription := $versionData.app_metadata.description | default "No description available." }}
+    {{ $appIcon := $versionData.app_metadata.icon | default "/images/default-icon.png" }}
+    {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
+    {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
+    {{ $added := $versionData.app_metadata.date_added | default "" }}
+    {{ $keywords := $versionData.app_metadata.keywords | default (slice) }}
+    {{ .Page.Scratch.Set "keywords" $keywords }}
+
+    <!-- Logging for missing fields -->
+    {{ if not $name }}
+      {{ warnf "Missing 'name' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not $train }}
+      {{ warnf "Missing 'train' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appTitle "App Title" }}
+      {{ warnf "Missing 'title' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appDescription "No description available." }}
+      {{ warnf "Missing 'description' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if eq $appIcon "/images/default-icon.png" }}
+      {{ warnf "Missing or default 'icon' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not $added }}
+      {{ warnf "Missing 'date_added' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "keywords") }}
+      {{ warnf "Missing 'keywords' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "changelog_url") }}
+      {{ warnf "Missing 'changelog_url' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+    {{ if not (isset $versionData.app_metadata "home") }}
+      {{ warnf "Missing 'home' in app_metadata for file: %s" $localFilePath }}
+    {{ end }}
+
+    <!-- Render the content -->
+    <div class="apps-docs-sections">
+      <!-- First Card -->
+      <div class="section-box">
+        <!-- Include telemetry and awards -->
+        {{ partial "telemetry-awards.html" (dict "appName" $name "appTrain" $train) }}
+        <div class="box-image">
+          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo">
+        </div>
+        <div class="section-tab-content ixprods">
+          <b class="app-title">{{ $appTitle }}</b><br>
+          <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
+          <div class="app-info">
+            <small>
+              {{ if $minScaleVersion }}
+                Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
+              {{ end }}
+              App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+              {{ if not (isset $versionData.app_metadata "app_version") }}
+                {{ warnf "Missing 'app_version' in app_metadata for file: %s" $localFilePath }}
+              {{ end }}
+              {{ if $changelog }}
+                (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+              {{ else }}
+                {{ warnf "No changelog_url for %s in %s" $name $localFilePath }}
+              {{ end }}
+              <br>
+              {{ with $versionData.app_metadata.keywords }}
+                Keywords: {{ delimit . ", " }}<br>
+              {{ else }}
+                {{ warnf "No keywords for %s in %s" $name $localFilePath }}
+              {{ end }}
+              Train: {{ title $train | default "Unknown" }}<br>
+              {{ if $versionData.app_metadata.home }}
+                Home Page: <a href="{{ $versionData.app_metadata.home }}" target="_blank">{{ $versionData.app_metadata.home }}</a><br>
+              {{ else }}
+                Home Page: <span style="color: #888;">N/A</span><br>
+                {{ warnf "No home page for %s in %s" $name $localFilePath }}
+              {{ end }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Card -->
+      <div class="section-box">
+        <div class="box-image">
+          <b>{{ $appTitle }} Details</b><br>
+          {{ if $added }}
+            Added: {{ $added }}<br>
+          {{ else }}
+            {{ warnf "No date_added for %s in %s" $name $localFilePath }}
+          {{ end }}
+          {{ if $versionData.last_update }}
+            Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+          {{ else }}
+            {{ warnf "No last_update for %s in %s" $name $localFilePath }}
+          {{ end }}
+          <p class="app-descr">
+            {{ $appDescription }}
+          </p>
+          <!-- Context Section -->
+          {{ if $versionData.app_metadata.run_as_context }}
+          <b>Run as Context</b>
+          <ul style="list-style-type:none;padding-left:0;">
+            {{ range $run_as_context := $versionData.app_metadata.run_as_context }}
+            <li>
+              <small>
+                {{ $run_as_context.description }}<br>
+                <b>Group:</b> {{ $run_as_context.gid }} / {{ $run_as_context.group_name }}<br>
+                <b>User:</b> {{ $run_as_context.uid }} / {{ $run_as_context.user_name }}
+              </small>
+            </li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshots Section -->
+    {{ if $versionData.app_metadata.screenshots }}
+      <br>
+      <div class="screenshots-section">
+        <b>Screenshots</b>
+        <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+            <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+          {{ end }}
+        </div>
+      </div>
+    {{ else }}
+      {{ warnf "No screenshots found for %s in %s" $name $localFilePath }}
+    {{ end }}
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-image" class="lightbox-content" src="" alt="Full Screenshot">
+      <div class="lightbox-controls">
+        <button id="prev-button" onclick="prevImage(event)">&#10094;</button>
+        <button id="next-button" onclick="nextImage(event)">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Host Mounts Section -->
+    {{ if $versionData.app_metadata.host_mounts }}
+      {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
+      <br>
+      <details>
+        <summary>Host Mounts</summary>
+        <ul>
+          {{ range $host_mount := $versionData.app_metadata.host_mounts }}
+          <li>
+            {{ $host_mount.host_path }} : {{ $host_mount.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+	  {{ end }}
+	{{ end }}
+
+    <!-- Security Capabilities Section -->
+    {{ if $versionData.app_metadata.capabilities }}
+      {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
+      <br>
+      <details>
+        <summary>Security Capabilities</summary>
+        <ul>
+          {{ range $capability := $versionData.app_metadata.capabilities }}
+          <li>
+            {{ $capability.description }}
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+	  {{ end }}
+	{{ end }}
+    <!-- App_Versions File Expand -->
+    <br>
+    <details>
+      <summary>App Metadata (Raw File)</summary>
+      <pre><code>{{ $fileContent }}</code></pre>
+    </details>
+    <br>
+    <hr>
+  {{ end }}
+{{ else }}
+  <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
+  {{ warnf "File not found at %s" $localFilePath }}
+{{ end }}
