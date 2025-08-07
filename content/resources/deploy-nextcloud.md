@@ -230,7 +230,7 @@ A value of 1 runs background jobs between 1:00 a.m. UTC and 5:00 a.m.
 Refer to https://docs.nextcloud.com/server/28/admin_manual/configuration_server/background_jobs_configuration.html#maintenance-window-start for more information.
 
 **Default Phone Region** sets the default region for phone numbers for your Nextcloud app (server), using ISO 3166-1 country codes such as DE for Germany, FR for France, etc.
-It is required to allow inserting phone numbers in the user profiles starting without the country code (e.g. +49 for Germany). The default value for TrueNAS systems in the United States is **US**.
+It is required to allow users to insert phone numbers in the user profiles starting without the country code (e.g. +49 for Germany). The default value for TrueNAS systems in the United States is **US**.
 
 #### Preview Settings
 
