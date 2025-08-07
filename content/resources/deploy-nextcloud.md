@@ -244,7 +244,7 @@ By default, Nextcloud can generate previews for:
 Preview settings have two main settings:
 * **Enabled** - Enables the preview settings listed below. When disabled, it does not show previews.
 * **Imaginary** - Enables using Imaginary to configure thumbnail settings. 
- Enabling triggers actions(updating configuration, adding the Nextcloud app) on each startup to ensure the configuration is present. 
+ Enabling triggers actions (updating configuration, adding the Nextcloud app) on each startup to ensure the configuration is present. 
  Disabling this setting modifies triggered actions (removing the Nextcloud app) upon startup. Configuration is absent when disabled.
 
 For more information on preview settings, refer to [Nextcould documentation](https://docs.nextcloud.com/server/28/admin_manual/configuration_files/previews_configuration.html) and [Nextcloud server configuration](https://docs.nextcloud.com/server/28/admin_manual/configuration_server/config_sample_php_parameters.html#previews).
