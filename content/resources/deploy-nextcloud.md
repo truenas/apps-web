@@ -292,7 +292,7 @@ Version retention defines the policy for when versions are permanently deleted.
 Allows for two settings, a minimum and a maximum time for version retention.
 The minimum time is the number of days a version is kept before it can be deleted. The maximum time is the number of days after which it is guaranteed to be deleted.
 Minimum and maximum times can be set together to define version deletion.
-This setting is initially set to **auto**. Possible values:
+This setting is initially set to **auto**.
 Available values:
 * **auto** - Automatically expire versions according to expire-rules. Refer to Nextcloud Controlling file versions and aging for more information.
 * **D, auto** - Keeps versions at least for *D* days, applies expiration rules to all versions older than *D* days.
