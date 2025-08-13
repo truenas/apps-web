@@ -251,12 +251,12 @@ For more information on preview settings, refer to [Nextcould documentation](htt
 
 {{< truetable >}}
 | Setting | Default Value | Description |
-|*********|***************|*************|
+|---------|---------------|-------------|
 | **Max X** | **2048** | Sets the maximum width, in pixels, of the preview. A value of null means no limit. Nextcloud sets the default to 4096. |
 | **Max Y** | **2048** | Sets the maximum height, in pixels, of the preview. Null means no limit. Nextcloud sets the default to 4096. |
 | **Max Memory (MB)** | **1024** | Sets the maximum memory available to users to generate an image preview with `imaged`. It reads the image dimensions from the header and assumes 32 bits per pixel. If creating the image allocates more memory, preview generation is disabled and the default mimetype icon shows. Set to -1 for no limit. Nextcloud default is 256 MB. |
-| **Max Filesize Image (MB)** | **50** | Sets the maximum file size for generating image previews with `imaged`(default behavior). If the image exceeds the maximum size, it tries other preview generators but most likely shows the default mimetype icon or does not display the image. When set to -1 it sets no limit and tries to generate image previews on all file sizes. The default value is **50**. |
-| **JPEG Quality** | **60** | Sets the JPEG quality for preview images. The default value is 60. |
+| **Max Filesize Image (MB)** | **50** | Sets the maximum file size for generating image previews with `imaged` (default behavior). If the image exceeds the maximum size, it tries other preview generators but most likely shows the default mimetype icon or does not display the image. When set to -1 it sets no limit and tries to generate image previews on all file sizes. The default value is **50**. |
+| **JPEG Quality** | **60** | Sets the JPEG quality for preview images. The default value is **60**. |
 {{< /truetable >}}
 
 The **Square Sizes**, **Width Sizes**, and **Height Sizes** settings show **Size** fields added by the app based on what the preview generation sends to the app.
