@@ -1,0 +1,165 @@
+/* Apps-Web Site CSS Overrides */
+/* This file contains apps-web specific overrides that should not be shared */
+
+/* Add ONLY the missing properties from original apps-web section-box */
+.section-box {
+	position: relative;  /* Missing from shared CSS */
+    padding: 1rem;       /* Missing from shared CSS */
+}
+
+/* Missing section-box styling that got lost in merge */
+.section-box.external-link b span {
+  font-size: 0.9rem;
+  vertical-align: top;
+  color: inherit;
+}
+.section-box .material-icons {
+  font-size: 1rem;
+  vertical-align: text-top;
+}
+
+/* Ribbon for kind labels - CRITICAL for app cards */
+.ribbon {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  background: #71bf44; /* Default green */
+  color: white;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 2;
+}
+
+.ribbon-official {
+  background: #0095d5; /* Blue for Official */
+}
+
+/* Fix app card icon sizing - override shared CSS */
+.app-card-img {
+	width: 10em;
+	height: 10rem !important;
+	object-fit: contain;
+	padding: 1em 1em 1em 1em;
+}
+
+/* Fix section-box positioning - CRITICAL for telemetry awards (merged above) */
+
+/* Fix popular app (telemetry awards) positioning */
+.popular-app {
+	position: absolute;
+	top: 1rem;
+	right: .25rem;
+	width: 4rem;
+}
+
+/* Fix prod-card-img icon sizing */
+.prod-card-img {
+	width: 80px;
+	height: auto !important;
+	object-fit: contain;
+}
+
+/* Fix box-image padding for proper card layout */
+.box-image {
+	padding: .5rem 1rem .5rem 1rem;
+	text-align: center;
+}
+
+/* Section Tab System - Missing from shared CSS */
+.section-tabs {
+  display: flex;
+  justify-content: center;
+  background-color: #0095d5;
+}
+
+.section-tab {
+  padding: .5rem .5rem;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #0095d5;
+  color: white;
+  font-weight: 600;
+  border-top: solid;
+  border-top-color: #0095d5;
+}
+
+.section-tab-content {
+	text-align: center;
+}
+
+/* Fix ixprods padding to match original - don't override top padding */
+.ixprods {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important;
+    padding-bottom: 0 !important;
+}
+
+/* Force exact paragraph spacing to match original apps-web */
+.section-box p {
+    text-align: center !important;
+    line-height: 1rem !important;
+    margin: .5rem 0 .5rem 0 !important;
+    padding: 0 !important;
+}
+
+
+.section-tab.active {
+    background-color: rgb(248, 249, 250);
+    color: #0095d5;
+    border-top: solid;
+    border-top-color: #0095d5;
+}
+
+/* Diataxis Labels positioning within tab content */
+.section-tab-content .doctype-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+/* Fix grid layouts to match original apps-web */
+.docs-sections {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* 4 equal columns instead of auto */
+  gap: 2rem !important;
+  padding: 1rem !important;
+}
+
+@media screen and (max-width:99rem) {
+	.docs-sections {
+		grid-template-columns: repeat(3, 1fr) !important;
+	}
+}
+
+@media screen and (max-width:83rem) {
+	.docs-sections {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+
+@media screen and (max-width:50rem) {
+	.docs-sections {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Fix docs-sections paragraph styling from original */
+.docs-sections > p {
+  text-align: center !important;
+  padding: 20px 0 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #555 !important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+  transition: 0.3s !important;
+  background-color: rgb(248, 249, 250) !important;
+}
+
+.docs-sections > p:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+}
+
+/* End Apps-Web Specific Overrides */
