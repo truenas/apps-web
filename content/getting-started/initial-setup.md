@@ -47,6 +47,8 @@ If you close the dialog to set the pool later, click **Configuration > Choose Po
 
 ### Migrating Existing Applications
 
+(TrueNAS 25.10 and later)
+
 {{< include file="/static/includes/apps/MigrateExisting.md" >}}
 
 ### Unsetting the Apps Pool
