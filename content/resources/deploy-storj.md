@@ -36,16 +36,14 @@ Before you can configure your system to act as a Storj node:
 
 * Create a [wallet address](#getting-a-wallet-address).
 
-* Obtain a [Storj authentication token](#obtaining-an-authentication-token-for-storj).
-
 * [Configure your router and firewall](#configuring-the-router-and-firewall).
 
 * [Create a publicly-available domain name](#creating-a-ddns-host-name) to access the Storj application. Point this to your router public IP address.
 
-* [Create a Storj identity and authorize it](https://docs.storj.io/node/dependencies/identity) for every node.
+* [Create a Storj identity](https://docs.storj.io/node/dependencies/identity) for every node.
 
   Every node must have a unique identifier on the network. Use NFS/SMB shares or a file transfer service such as FTP to upload the credentials generated.
-  If the identity is not present in the storage directory, it generates and authorizes one automatically.
+  If the identity is not present in the storage directory, it generates one automatically.
   This can take a long time and consume system resources while it generates one.
 
 * Prepare TrueNAS for the app installation by [creating the datasets](#creating-the-storj-datasets-on-truenas) for the application storage, and a new user if not using the default apps user.
@@ -74,15 +72,6 @@ If you already have a wallet for another crypto-currency application, you can us
 See [Storj Wallet Configuration](https://support.storj.io/hc/en-us/articles/360026611692-How-do-I-hold-STORJ-What-is-a-valid-address-or-compatible-wallet-).
 
 Special considerations regarding how to protect and manage a wallet are outside the scope of this article.
-
-## Obtaining an Authentication Token for Storj
-
-Open a browser window and go to Storj [Get an Authorization Token](https://docs.storj.io/node/get-started/auth-token).
-Enter an email address, select **I'm not a robot**, then click **Continue**.
-
-{{< trueimage src="/images/Apps/StorjHostaNode.png" alt="Storj Host a Node" id="Storj Host a Node" >}}
-
-Copy the auth token to use later in this procedure. Keep the token in a secure location.
 
 ## Configuring the Router and Firewall
 
@@ -170,16 +159,14 @@ TrueNAS alerts you when a new version is available for deployed apps, and allows
 
    Select either **zkSync** or **zkSync Era** or both if you want to uses these wallet optional flags.
 
-   b. Enter the [authentication token copied from Storj](#obtaining-an-authentication-token-for-storj) in **Auth Token**.
+   b. Enter the email address used when you obtained the token in **Email**.
 
-   c. Enter the email address used when you obtained the token in **Email**.
-
-   d. Enter the [storage domain](#creating-a-ddns-host-name) (i.e., the public network DNS name) added for Storj in **Domain Address**.
+   c. Enter the [storage domain](#creating-a-ddns-host-name) (i.e., the public network DNS name) added for Storj in **Domain Address**.
    If using Dynamic DNS (DDNS), enter that name here as well. For example, *name.ddns.net*.
 
-   e. Accept the default values for **Grace Period** and **Storage Size** unless you want to set different parameters for the rented storage.
+   d. Accept the default values for **Grace Period** and **Storage Size** unless you want to set different parameters for the rented storage.
 
-   f. Click **Add** to show **Additional Environmental Variables** fields. These are optional settings.
+   e. Click **Add** to show **Additional Environmental Variables** fields. These are optional settings.
    The **Install Storj** wizard includes all required settings to deploy the Storj node application.
 
 2. Accept the default values in the **User ID** and **Group ID**.
