@@ -77,12 +77,10 @@ Finish the permission configuration in the app installation wizard as described 
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppCertificate.md" >}}
 
-<div style="margin-left: 33px">Adding a certificate is optional but if you want to use a certificate for this application, create a new self-signed CA and then the certificate or import an existing CA and create the certificate for Nextcloud. A certificate is not required to deploy the application.
-
 * Set up a Nextcloud account.
 
  If you have an existing Nextcloud account, enter the credentials for that user in the installation wizard.
- If you do not have an existing Nextcloud account, you can create one in the **Nextcloud Configuration** section of the application install wizard.</div>
+ If you do not have an existing Nextcloud account, you can create one in the **Nextcloud Configuration** section of the application install wizard.
 
 ### Installing the Nextcloud App
 
