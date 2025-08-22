@@ -102,7 +102,7 @@ Set **ID** to **Entry is for a USER**, enter **0** in **ID**, and then give the 
 
 Select **Force Flag** to allow upgrading the app. This allows writing to the dataset when there is existing data.
 
-{{< trueimage src="/images/Apps/InstallSyncthingStorageHomeACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
 
 Repeat for the **/data1** storage volume. Click **Add** to the right of **Additional Storage** to show the storage settings.
 
