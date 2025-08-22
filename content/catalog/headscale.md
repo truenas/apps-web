@@ -19,3 +19,5 @@ icon: "https://media.sys.truenas.net/apps/headscale/icons/icon.svg"
 {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
 
 {{< doc-card title="Servers@Home Headscale Guide" link="https://wiki.serversatho.me/en/headscale" descr="A guide to deploying Headscale docker compose" kind="community" >}}
+
+{{< youtube r-qn6DrJ6IA >}}
