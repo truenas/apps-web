@@ -39,7 +39,7 @@ To install the Syncthing **enterprise** train app, do the following:
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
-{{< include file="/static/includes/apps/BeforeYouBegingAddAppCertificate.md" >}}
+{{< include file="/static/includes/apps/BeforeYouBeginAddAppCertificate.md" >}}
 
 {{< include file="/static/includes/apps/BeforeYouBegingAddNewAppUser.md" >}}
 
@@ -52,7 +52,7 @@ Follow the instructions below in <b>Creating Datasets for Apps</b> to correctly 
 You can organize the app dataset(s) under a parent dataset to separate them from datasets for other applications.
 For example, create a <i>syncthing</i> parent dataset with these datasets nested under it.
 If you organize the required dataset(s) under a parent dataset, set up the required ACL permissions for the parent dataset before using the app installation wizard to avoid receiving installation wizard errors.
-Use the <b>Enable ACL</b> option in the <b>Install Sycnting</b> wizard to configure permissions for the <b>home</b> and <b>data1</b> datasets.</div>
+Use the <b>Enable ACL</b> option in the <b>Install Sycnthing</b> wizard to configure permissions for the <b>home</b> and <b>data1</b> datasets.</div>
 
 <div style="margin-left: 33px">{{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasetsProcedure.md" >}}
 </div>
@@ -102,7 +102,7 @@ Set **ID** to **Entry is for a USER**, enter **0** in **ID**, and then give the 
 
 Select **Force Flag** to allow upgrading the app. This allows writing to the dataset when there is existing data.
 
-{{< trueimage src="/images/Apps/InstallSyncthingStorageHomeACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
+{{< trueimage src="/images/Apps/InstallSyncthingStorageConfigACLandACESettings.png" alt="Home Host Path ACL and ACE Settings" id="Home Host Path ACL and ACE Settings" >}}
 
 Repeat for the **/data1** storage volume. Click **Add** to the right of **Additional Storage** to show the storage settings.
 

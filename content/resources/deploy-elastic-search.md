@@ -41,7 +41,6 @@ Prepare TrueNAS before installing the app by:
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppCertificate.md" >}}
 
-  <p style="margin-left: 33px">Adding a certificate is optional but if you want to use a certificate for this application, either create a new self-signed CA and certificate or import an existing CA and create the certificate for Elastic Search. A certificate is not required to deploy the application.</p>
 
 ## Installing the Application
 
