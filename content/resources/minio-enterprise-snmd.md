@@ -38,13 +38,15 @@ To install the MinIO **enterprise** train app, do the following for each of the 
 
 {{< include file="/static/includes/apps/BeforeYouBegingAddAppCertificate.md" >}}
 
-<div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic app configuration, but it is required when setting up single node (SNMD) and multi-mode (MNMD) configurations.
+<div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic MinIO Enterprise app configuration but it is required when setting up single node (SNMD) or multi-mode (MNMD) configurations.
 </div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
 <div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
-MinIO enterprise train app in an MNMD cluster requires four datasets, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>. The default mount path follows the dataset naming, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>. These datasets represent the disks in the MNMD configuration. Repeat this in each of the three remaining systems in the cluster.
+MinIO enterprise train app in an SNMD cluster requires four datasets, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>.
+The default mount path follows the dataset naming, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>.
+These datasets represent the disks in the SNMD configuration.
 
 Follow the instructions below in **Creating Datasets for Apps** to correctly create the datasets.
 You can organize the app dataset(s) under a parent dataset to separate them from datasets for other applications.
@@ -67,8 +69,9 @@ The error message shows the user name to add. Give both users full permissions.
 {{< /expand >}}</div>
  
 ## Installing MinIO Enterprise
+
 {{< hint info >}}
-This basic procedure covers the required MinIO app settings.
+This basic procedure covers the required MinIO app settings when setting up a SNMD cluster.
 For optional settings, see [Understanding App Installation Wizard Settings](#understanding-app-installation-wizard-settings).
 {{< /hint >}}
 
@@ -81,7 +84,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/MinIoEnterpriseConfigSettings.md" >}}
 
-{{< include file="/static/includes/apps/MinIOEnterpriseMultiModeSNMDConfig.md" >}}
+{{< include file="/static/includes/apps/MinIOEnterpriseSNMDConfig.md" >}}
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -105,12 +108,15 @@ The following section provides more detailed explanations of the settings in eac
 {{< include file="/static/includes/apps/MinIOEnterpriseMinIOConfig.md" >}}
 
 #### MultiMode Configuration
-Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
-MinIO recommends using MNMD for enterprise-grade performance and scalability.
 
-Click **Enabled** under **Multi Mode (SNMD or MNMD) Configuration** to enable multi-mode and show the **Multi Mode (SNMD or MNMD)** and **Add** options.
+{{< include file="/static/includes/apps/MinIOEnterpriseSNMDConfig.md" >}}
+
+Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
+
+MinIO recommends using [MNMD]({{< relref "minio-enterprise-mnmd.md">}}) for enterprise-grade performance and scalability.
 
 #### Adding Environment Variables
+
 {{< include file="/static/includes/apps/InstallWizardEnvironVariablesSettings.md" >}}
 
 ### User and Group Configuration
@@ -121,13 +127,18 @@ Click **Enabled** under **Multi Mode (SNMD or MNMD) Configuration** to enable mu
 
 {{< include file="/static/includes/apps/MinIOEnterpriseNetworkConfig.md" >}}
 
-When installing and configuring multi-mode SNMD or MNMD you must create a self-signed certificate.
+#### Certificate Configuration
 
-An SNMD configuration can use the same self-signed certificate created for MNMD.
+When configuring a multi-mode SNMD or MNMD cluster, you must create or import a certificate that is configured with the IP address for the TrueNAS system.
+If you have an existing certificate for this MinIO multi-disk cluster, go to **Certificates**, and click the **Import** button on the **Certificates** widget. Refer to the [Managing Certificates](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/certificatesscale/) for more details on importing a certificate.
+
+If you do not have an existing certificate to import, you can add one by:
+1. [Adding an ACME DNS Authenticator](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/addacmescale/) from a DNS provider service (like Cloudflare).
+2. [Adding a certificate signing request (CSR)](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/addcsrsscale/) configured with the IP address for the TrueNAS server.
+3. [Creating an ACME Certificate](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/settingupletsencryptcertificates/) for the CSR in step 2 above.
+
+An SNMD configuration can use the same certificate created or imported for MNMD.
 An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
-Create this same self-signed certificate for the MNMD cluster on each system (node) in the cluster! 
-
-{{< include file="/static/includes/apps/InstallWizardCertificateSettings.md" >}}
 
 ### Storage Configuration
 
