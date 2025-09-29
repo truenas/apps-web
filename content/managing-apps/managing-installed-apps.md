@@ -57,7 +57,7 @@ When complete, the update badge and buttons disappear and the application **Upda
 To roll back an application to a previous version, select the app you wish to roll back from the **Installed** applications screen.
 This opens the **Application Info** widget on the right side of the screen and provides users with the **Roll Back** button.
 
-{{< trueimage src="/images/apps/RollBackDialog.png" alt="Roll Back Dialog" id="Roll Back Dialog" >}}
+{{< trueimage src="/images/Apps/RollBackDialog.png" alt="Roll Back Dialog" id="Roll Back Dialog" >}}
 
 The **Version** dropdown contains available app versions for roll back.
 The version numbers displayed are the version of the app in the TrueNAS catalog, equivalent to the **Version** displayed on the app information card.
