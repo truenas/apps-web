@@ -57,7 +57,7 @@ When complete, the update badge and buttons disappear and the application **Upda
 To roll back an application to a previous version, select the app you wish to roll back from the **Installed** applications screen.
 This opens the **Application Info** widget on the right side of the screen and provides users with the **Roll Back** button.
 
-{{< trueimage src="/images/apps/RollBackDialog.png" alt="Roll Back Dialog" id="Roll Back Dialog" >}}
+{{< trueimage src="/images/Apps/RollBackDialog.png" alt="Roll Back Dialog" id="Roll Back Dialog" >}}
 
 The **Version** dropdown contains available app versions for roll back.
 The version numbers displayed are the version of the app in the TrueNAS catalog, equivalent to the **Version** displayed on the app information card.
@@ -137,7 +137,7 @@ To access the web UI for a custom app, navigate to the port on the TrueNAS syste
 To convert an installed catalog application to a custom YAML application, select the app row and click <i class="material-icons" aria-hidden="true" title="more_vert">more_vert</i> on the **Application Info** widget, then select **Convert to custom app** from the dropdown menu.
 Converting to a custom app direct editing to YAML configuration file.
 
-{{< trueimage src="/images/apps/ConvertToCustomAppDialog.png" alt="Convert to Custom App Dialog" id="Convert to Custom App Dialog" >}}
+{{< trueimage src="/images/Apps/ConvertToCustomAppDialog.png" alt="Convert to Custom App Dialog" id="Convert to Custom App Dialog" >}}
 
 {{< hint type=warning title="Permanent Action" >}}
 **Convert to custom app** is a one-time, permanent operation.
