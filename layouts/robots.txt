@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /tags/*
+Disallow: /pagefind/
 
 Sitemap: https://apps.truenas.com/sitemap.xml
