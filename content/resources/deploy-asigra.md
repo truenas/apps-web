@@ -57,7 +57,7 @@ You do not need to add the **oper** user in TrueNAS as a user account.
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
-<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
+<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
 Asigra expects two host path dataset storage volumes, <b>data</b> and <b>postgres_data</b>.
 You can create more datasets if you want additional storage volumes for the app, but these are not required. You can add datasets and storage volumes after installing the app.</div>
 

@@ -33,7 +33,7 @@ To install the MinIO **enterprise** train app, do the following:
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
-<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
+<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
 MinIO enterprise train app requires one dataset, <b>data</b>. The default mount path is <b>/data1</b>.
 
 Follow the instructions below in <b>Creating Datasets for Apps</b> to correctly create the dataset(s).
