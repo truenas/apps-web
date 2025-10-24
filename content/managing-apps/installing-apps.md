@@ -103,7 +103,7 @@ Specific IP binding: Add one or more IP addresses to restrict which network inte
 Host IP binding only controls incoming traffic to the application. Outgoing connections from the application still use the host's primary IP address by default, not the specified alias IP.
 {{< /hint >}}
 
-To add alias IP addresses, see [Adding Static or Alias IP Addresses](https://www.truenas.com/docs/scale/scaletutorials/network/interfaces/#adding-static-or-alias-ip-addresses).
+To add alias IP addresses, see [Adding Static or Alias IP Addresses](https://www.truenas.com/docs/scale/25.10/scaletutorials/network/interfaces/#adding-static-or-alias-ip-addresses).
 
 **Host Network** enables direct host network access for the application.
 
@@ -165,7 +165,7 @@ Some apps include GPU settings if the app allows or requires GPU passthrough.
 
 Users with compatible hardware can pass through a GPU device to an application for use in hardware acceleration.
 
-GPU devices can be available for the host operating system (OS) and applications or can be [isolated for use in a Virtual Machine (VM)](https://www.truenas.com/docs/scale/scaletutorials/systemsettings/advanced/managegpuscale/).
+GPU devices can be available for the host operating system (OS) and applications or can be [isolated for use in a Virtual Machine (VM)](https://www.truenas.com/docs/scale/25.10/scaletutorials/systemsettings/advanced/managegpuscale/).
 A single GPU cannot be shared between the OS/applications and a VM.
 
 The GPU passthrough option shows in the **Resources Configuration** section of the application installation wizard screen or the **Edit** screen for a deployed application.
