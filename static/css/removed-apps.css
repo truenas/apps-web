@@ -1,0 +1,144 @@
+/* Removed Apps Styling
+ * Styles for apps that have been removed from the TrueNAS catalog
+ */
+
+/* Removal Banner */
+.deprecation-banner.removed {
+  background: #f8d7da;
+  border-left: 5px solid #c82333;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  color: #721c24;
+}
+
+.deprecation-banner.removed .removal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.deprecation-banner.removed .removal-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.deprecation-banner.removed h2 {
+  margin: 0;
+  color: #721c24;
+  font-size: 1.5rem;
+}
+
+.deprecation-banner.removed p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+
+.deprecation-banner.removed .alt-app-link {
+  color: #004085;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.deprecation-banner.removed .alt-app-link:hover {
+  color: #002752;
+}
+
+.deprecation-banner.removed .removal-note {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f5c6cb;
+  font-style: italic;
+  color: #856404;
+}
+
+/* Removed App Info Box */
+.removed-app-info {
+  opacity: 0.85;
+  border: 2px dashed #dc3545;
+  background: #fff5f5;
+  position: relative;
+}
+
+.removed-app-info::before {
+  content: "Last Known Information";
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #fff5f5;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #721c24;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.removed-app-info .app-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.removed-badge {
+  display: inline-block;
+  background: #dc3545;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.removed-app-info .app-info {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(220, 53, 69, 0.05);
+  border-radius: 4px;
+}
+
+.last-known-note {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f5c6cb;
+  color: #856404;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .deprecation-banner.removed {
+    padding: 1rem;
+  }
+
+  .deprecation-banner.removed h2 {
+    font-size: 1.25rem;
+  }
+
+  .deprecation-banner.removed .removal-icon {
+    font-size: 1.5rem;
+  }
+
+  .removed-app-info::before {
+    font-size: 0.75rem;
+    padding: 0 8px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .deprecation-banner.removed {
+    border: 2px solid #000;
+    background: #f0f0f0;
+  }
+
+  .removed-badge {
+    border: 1px solid #000;
+    background: #ddd;
+    color: #000;
+  }
+}
