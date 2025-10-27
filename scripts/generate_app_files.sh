@@ -187,17 +187,31 @@ detect_removed_apps() {
   for app_name in "${catalog_apps[@]}"; do
     local app_exists=false
     local app_train=""
+    local base_app_name="$app_name"
+    local expected_train=""
 
-    # Check if app exists in any train directory
-    for train in "${TRAINS[@]}"; do
-      if [[ -d "$TRAINS_DIR/$train/$app_name" ]]; then
+    # Check if filename has a train suffix (e.g., minio_enterprise, syncthing_stable)
+    if [[ "$app_name" =~ ^(.+)_(enterprise|stable|community)$ ]]; then
+      base_app_name="${BASH_REMATCH[1]}"
+      expected_train="${BASH_REMATCH[2]}"
+
+      # For train-suffixed files, only check the specific train
+      if [[ -d "$TRAINS_DIR/$expected_train/$base_app_name" ]]; then
         app_exists=true
-        app_train="$train"
-        break
+        app_train="$expected_train"
       fi
-    done
+    else
+      # For non-suffixed files, check all trains
+      for train in "${TRAINS[@]}"; do
+        if [[ -d "$TRAINS_DIR/$train/$app_name" ]]; then
+          app_exists=true
+          app_train="$train"
+          break
+        fi
+      done
+    fi
 
-    # If app doesn't exist in any train, it was removed
+    # If app doesn't exist in any train (or its specific train), it was removed
     if [[ "$app_exists" == false ]]; then
       # Check if already tracked in removals
       if grep -q "^${app_name}:" "$removals_file" 2>/dev/null; then
