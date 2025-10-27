@@ -169,9 +169,11 @@
         addRemovedBadge(card);
         processedCount++;
 
-        // Hide by default if filter is off
-        if (!showRemovedApps) {
-          card.style.display = 'none';
+        // Apply current filter state using CSS class
+        if (showRemovedApps) {
+          card.classList.remove('removed-app-hidden');
+        } else {
+          card.classList.add('removed-app-hidden');
         }
       }
     });
@@ -185,7 +187,11 @@
     const removedCards = document.querySelectorAll('[data-removed="true"]');
 
     removedCards.forEach(card => {
-      card.style.display = show ? '' : 'none';
+      if (show) {
+        card.classList.remove('removed-app-hidden');
+      } else {
+        card.classList.add('removed-app-hidden');
+      }
     });
 
     // Save preference

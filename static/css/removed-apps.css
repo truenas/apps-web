@@ -170,6 +170,11 @@ p.last-known-note small {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Hide removed apps when filter is off */
+.removed-app-hidden {
+  display: none !important;
+}
+
 /* Removed Apps Filter Toggle */
 .removed-apps-filter {
   display: inline-flex;
