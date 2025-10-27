@@ -20,7 +20,7 @@ tags:
 
 Users migrating data from an existing third-party NAS solution to TrueNAS 24.04 (Dragonfish) or newer can use the Syncthing **Enterprise** application to mount the source with a remote SMB share that preserves metadata.
 
-See [Third-Party SMB Data Migration](https://www.truenas.com/docs/scale/gettingstarted/thirdpartymigration/) for considerations and a full tutorial.
+See [Third-Party SMB Data Migration](https://www.truenas.com/docs/scale/25.10/gettingstarted/thirdpartymigration/) for considerations and a full tutorial.
 
 Enterprise users with the appropriate license can see the apps in the **enterprise** train.
 Community users can access enterprise versions of apps by adding the **enterprise** train to their catalog. To change app train settings:
@@ -45,7 +45,7 @@ To install the Syncthing **enterprise** train app, do the following:
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
-<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
+<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
 Syncthing enterprise train app requires two datasets, <b>home</b> to store configuration data and <b>data1</b> to store app data.
 
 Follow the instructions below in <b>Creating Datasets for Apps</b> to correctly create the dataset(s).
