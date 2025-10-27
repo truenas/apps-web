@@ -51,15 +51,16 @@
   padding-top: 1rem;
   border-top: 1px solid #f5c6cb;
   font-style: italic;
-  color: #856404;
+  color: #6c757d;
 }
 
 /* Removed App Info Box */
 .removed-app-info {
-  opacity: 0.85;
+  opacity: 1;
   border: 2px dashed #dc3545;
   background: #fff5f5;
   position: relative;
+  color: #212529;
 }
 
 .removed-app-info::before {
@@ -81,6 +82,7 @@
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
+  color: #212529;
 }
 
 .removed-badge {
@@ -100,13 +102,35 @@
   padding: 0.75rem;
   background: rgba(220, 53, 69, 0.05);
   border-radius: 4px;
+  color: #212529;
 }
 
-.last-known-note {
-  margin-top: 1rem;
-  padding-top: 0.75rem;
+.removed-app-info .app-info small {
+  color: #495057;
+}
+
+p.last-known-note {
+  margin-top: 2rem !important;
+  margin-bottom: 0 !important;
+  padding-top: 1.5rem !important;
   border-top: 1px solid #f5c6cb;
-  color: #856404;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  display: block !important;
+}
+
+p.last-known-note small {
+  color: inherit;
+}
+
+/* Darker text in section boxes with blue backgrounds */
+.section-box p.last-known-note {
+  color: #fff;
+  border-top-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-box p.last-known-note small {
+  color: #fff;
 }
 
 /* Responsive adjustments */
@@ -129,6 +153,42 @@
   }
 }
 
+/* Catalog Page - Removed App Badge */
+.removed-catalog-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #dc3545;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Removed Apps Filter Toggle */
+.removed-apps-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+
+.removed-apps-filter input[type="checkbox"] {
+  margin: 0;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.removed-apps-filter label {
+  color: inherit;
+  font-weight: normal;
+}
+
 /* Print styles */
 @media print {
   .deprecation-banner.removed {
@@ -140,5 +200,11 @@
     border: 1px solid #000;
     background: #ddd;
     color: #000;
+  }
+
+  .removed-catalog-badge {
+    background: #ddd;
+    color: #000;
+    border: 1px solid #000;
   }
 }
