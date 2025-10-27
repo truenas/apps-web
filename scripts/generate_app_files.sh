@@ -171,16 +171,127 @@ EOF
   fi
 }
 
+# Function to detect removed apps and update removals tracking
+detect_removed_apps() {
+  local removals_file="$HUGO_ROOT/static/data/app-removals.yaml"
+  local current_date=$(date +%Y-%m-%d)
+  local removed_apps_found=false
+
+  echo "" >> "$LOG_FILE"
+  echo "Checking for removed apps..." >> "$LOG_FILE"
+  echo "Checking for removed apps..."
+
+  # Get list of all markdown files in catalog (excluding _index.md)
+  local catalog_apps=($(find "$CATALOG_DIR" -type f -name "*.md" ! -name "_index.md" -exec basename {} .md \;))
+
+  for app_name in "${catalog_apps[@]}"; do
+    local app_exists=false
+    local app_train=""
+
+    # Check if app exists in any train directory
+    for train in "${TRAINS[@]}"; do
+      if [[ -d "$TRAINS_DIR/$train/$app_name" ]]; then
+        app_exists=true
+        app_train="$train"
+        break
+      fi
+    done
+
+    # If app doesn't exist in any train, it was removed
+    if [[ "$app_exists" == false ]]; then
+      # Check if already tracked in removals
+      if grep -q "^${app_name}:" "$removals_file" 2>/dev/null; then
+        echo "  ✓ ${app_name} already tracked as removed" >> "$LOG_FILE"
+      else
+        echo "  ! DETECTED REMOVAL: ${app_name}" >> "$LOG_FILE"
+        echo "  ! DETECTED REMOVAL: ${app_name}"
+        removed_apps_found=true
+
+        # Extract metadata from the markdown file's frontmatter
+        local md_file="$CATALOG_DIR/$app_name.md"
+        local title=""
+        local train=""
+        local icon=""
+        local description=""
+
+        if [[ -f "$md_file" ]]; then
+          # Extract frontmatter fields using awk
+          title=$(awk '/^title:/ {gsub(/^title: "/, ""); gsub(/"$/, ""); print; exit}' "$md_file")
+          train=$(awk '/^train:/ {gsub(/^train: "/, ""); gsub(/"$/, ""); print; exit}' "$md_file")
+          icon=$(awk '/^icon:/ {gsub(/^icon: "/, ""); gsub(/"$/, ""); print; exit}' "$md_file")
+          description=$(awk '/^description:/ {gsub(/^description: "/, ""); gsub(/"$/, ""); print; exit}' "$md_file")
+        fi
+
+        # If we couldn't extract from frontmatter, use defaults
+        title=${title:-$app_name}
+        train=${train:-unknown}
+        description=${description:-No description available}
+        icon=${icon:-}
+
+        # Append to removals.yaml
+        cat >> "$removals_file" <<EOF
+
+$app_name:
+  train: $train
+  title: "$title"
+  removal_detected_date: "$current_date"
+  last_known_metadata:
+    icon: "$icon"
+    description: "$description"
+    reason: "Removed from catalog"
+EOF
+
+        echo "    Added ${app_name} to removals tracking" >> "$LOG_FILE"
+
+        # If in PR mode, stage the changes
+        if [ -n "$SEND_PR" ]; then
+          GIT_CHANGES_PENDING="TRUE"
+        fi
+      fi
+    fi
+  done
+
+  if [[ "$removed_apps_found" == true ]]; then
+    echo "" >> "$LOG_FILE"
+    echo "Updated removals tracking file: $removals_file" >> "$LOG_FILE"
+    echo "Updated removals tracking file"
+  else
+    echo "No new removed apps detected" >> "$LOG_FILE"
+    echo "No new removed apps detected"
+  fi
+}
+
 # Iterate through each train and check for unmatched subdirectories
 for train in "${TRAINS[@]}"; do
   check_unmatched_subdirs "$train"
 done
+
+# Check for removed apps
+detect_removed_apps
 
 if [ -n "$SEND_PR" ] ; then
    if [ "${GIT_CHANGES_PENDING}" == "FALSE" ] ; then
        echo "No pending git changes to push, exiting..."
        exit 0
    fi
+
+   # Add tracking files to git if they were modified
+   if [ -f "$HUGO_ROOT/static/data/app-removals.yaml" ]; then
+       git add "$HUGO_ROOT/static/data/app-removals.yaml"
+       if [ $? -eq 0 ]; then
+           echo "Staged app-removals.yaml for commit"
+       fi
+   fi
+
+   # Commit tracking file changes if any
+   if ! git diff --cached --quiet; then
+       git commit -m "Update app removals tracking"
+       if [ $? -ne 0 ]; then
+           echo "Failed to commit tracking file changes"
+           exit 1
+       fi
+   fi
+
    PR_TYPE="Bot"
    PR_TITLE="Auto-Generated New Apps Pages"
    PR_DESCRIPTION="Auto-generated list of new Apps Content Pages"
