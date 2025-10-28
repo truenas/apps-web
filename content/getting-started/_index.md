@@ -27,7 +27,7 @@ descr="Learn about the different types of storage volumes used for TrueNAS Apps 
 {{< doc-card title="App Support Definitions" link="/getting-started/app-support-definitions"
 descr="Learn about the different kinds of informal or formal support offered for applications available within TrueNAS." >}}
 
-{{< doc-card title="Apps UI Guide" doctype="reference" link="https://www.truenas.com/docs/scale/scaleuireference/apps/"
+{{< doc-card title="Apps UI Guide" doctype="reference" link="https://www.truenas.com/docs/scale/25.10/scaleuireference/apps/"
 descr="Descriptions of the apps screens and fields. Use the version dropdown to select your installed TrueNAS version." >}}
 
 {{< doc-card title="Contributing to Apps" doctype="how-to" link="/getting-started/contributing-to-apps"

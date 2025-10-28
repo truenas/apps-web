@@ -24,6 +24,7 @@ pipeline {
 			sh 'bash ./scripts/download_apps_repo.sh'
 		    sh 'bash ./scripts/generate_app_files.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
+			sh 'npx pagefind --site public'
 			sh 'bash ./scripts/cleanup_apps_repo.sh'
         }
     }
