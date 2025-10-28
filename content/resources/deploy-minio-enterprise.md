@@ -137,11 +137,11 @@ For more information, see:
 {{< include file="/static/includes/apps/MinIOEnterpriseNetworkConfig.md" >}}
 
 MinIO does not require a certificate for a basic configuration and installation of MinIO Enterprise.
-If installing and configuring multi-mode SNMD or MNMD you must import a certificate into TrueNAS for the app to use.
+If installing and configuring multi-mode SNMD or MNMD you must obtain then import a certificate into TrueNAS for the app to use.
 
 An SNMD configuration can use the same certificate imported for MNMD.
 An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
-Create and import the same certificate in each system (node) in the MNMD cluster! 
+After obtaining a correctly configured certificate for MinIO, use the TrueNAS **Import** option on **Certificates** widget on the **Credentials > Certificates** screen. After importing the certificate you can select it in the **Install MinIO** wizard.
 
 {{< include file="/static/includes/apps/InstallWizardCertificateSettings.md" >}}
 

@@ -41,6 +41,17 @@ To install the MinIO **enterprise** train app, do the following for each of the 
 <div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic MinIO Enterprise app configuration but it is required when setting up single node (SNMD) or multi-mode (MNMD) configurations.
 </div>
 
+<div style="margin-left: 33px">{{< expand "Importing Certificates for SNMD Configurations" "v" >}}
+After obtaining a correctly configured certificate, download it, and then import it into each system in the SNMD cluster:
+1. Download your certificate and open it a text editor window. This is make importing it into TrueNAS easier.
+2. On one system, go to **Credentials > Certificates**, click **Import** on the **Certificates** wiget to open the **Import Certificate** screen.
+   a. Enter a name for the certificate. For example *minio_snmd*.
+   b. Select **Add to Trusted Store**.
+   c. Paste the certificate into **Certificate** and the private key into **Private Key**.
+   d. Enter a password in both **Password** and **Confirm Password**, then click **Import**.
+   The certificate shows on the Certificates widget, and is available to select in the **Install MinIO** wizard.
+{{< /expand >}}</div>
+
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
 <div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
@@ -129,15 +140,14 @@ MinIO recommends using [MNMD]({{< relref "minio-enterprise-mnmd.md">}}) for ente
 
 #### Certificate Configuration
 
-When configuring a multi-mode SNMD or MNMD cluster, you must create or import a certificate that is configured with the IP address for the TrueNAS system.
-If you have an existing certificate for this MinIO multi-disk cluster, go to **Certificates**, and click the **Import** button on the **Certificates** widget. Refer to the [Managing Certificates](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/certificatesscale/) for more details on importing a certificate.
+Multi-mode SNMD or MNMD clusters require certificates.
 
-If you do not have an existing certificate to import, you can add one by:
-1. [Adding an ACME DNS Authenticator](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/addacmescale/) from a DNS provider service (like Cloudflare).
-2. [Adding a certificate signing request (CSR)](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/addcsrsscale/) configured with the IP address for the TrueNAS server.
-3. [Creating an ACME Certificate](https://www.truenas.com/docs/scale/scaletutorials/credentials/certificates/settingupletsencryptcertificates/) for the CSR in step 2 above.
+When configuring a multi-mode SNMD or MNMD cluster, you must obtain and import a certificate that is configured with the IP address for the TrueNAS system.
 
-An SNMD configuration can use the same certificate created or imported for MNMD.
+Import this certificate into TrueNAS by going to **Credentials > Certificates** and clicking the **Import** button on the **Certificates** widget.
+If you do not have an existing certificate to import, you can follow the general directions in the [Before You Begin](#before-you-begin) section on certificates.
+
+An SNMD configuration can use the same certificate imported for MNMD.
 An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
 
 ### Storage Configuration
