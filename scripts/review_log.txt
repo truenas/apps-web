@@ -1,0 +1,16 @@
+Review Log - Mon Oct 27 11:10:29 EDT 2025
+======================
+Unmatched subdirectories in community:
+- dockpeek
+Created /mnt/c/Users/iXUser/Documents/GitHub/apps-web/content/catalog/dockpeek.md
+- yamtrack
+Created /mnt/c/Users/iXUser/Documents/GitHub/apps-web/content/catalog/yamtrack.md
+
+All subdirectories in enterprise have matching .md files.
+
+All subdirectories in stable have matching .md files.
+
+
+Checking for removed apps...
+  ✓ codegate already tracked as removed
+No new removed apps detected

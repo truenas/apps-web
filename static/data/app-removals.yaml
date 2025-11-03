@@ -1,0 +1,34 @@
+# App Removals Tracking
+#
+# This file tracks apps that have been removed from the TrueNAS Apps catalog.
+# It serves as the source of truth for removed apps and is automatically updated
+# by the generate_app_files.sh script during site builds.
+#
+# Format:
+#   app-slug:
+#     train: community|stable|enterprise
+#     title: "App Display Name"
+#     removal_detected_date: "YYYY-MM-DD"
+#     last_known_metadata:
+#       icon: "URL to icon"
+#       description: "App description"
+#       app_version: "x.y.z"
+#       deprecated_date: "YYYY-MM-DD" (if was deprecated before removal)
+#       scheduled_removal_date: "YYYY-MM-DD" (if was announced)
+#       reason: "Why removed"
+#       alternative_app: "suggested-alternative-slug"
+#
+# Note: This file is committed to the repo and persists across builds.
+
+codegate:
+  train: community
+  title: CodeGate
+  removal_detected_date: "2025-10-03"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/codegate/icons/icon.svg"
+    description: "AI-powered code review and security analysis tool for developers"
+    app_version: "1.0.13"
+    deprecated_date: "2025-09-01"
+    scheduled_removal_date: "2025-10-03"
+    reason: "No longer maintained by upstream project"
+    alternative_app: "code-server"
