@@ -22,13 +22,16 @@ This version of MinIO is tested and polished to provide a safe and supportable e
 The enterprise MinIO application is tested and verified as an immutable target for Veeam Backup and Replication.
 
 ## Adding MinIO Enterprise App
+
 Community members can add and use the MinIO Enterprise app or the default community version.
 
 {{< include file="/static/includes/AddMinioEnterpriseTrain.md" >}}
 
 ## Before You Begin
+
 To install the MinIO **enterprise** train app, do the following for each of the four Enterprise systems in the multi-node cluster:
-* Acquire and apply the Enterprise VM & Apps license to the system. 
+
+* Acquire and apply the Enterprise VM & Apps license to the systems. 
 
 {{< include file="/static/includes/apps/BeforeYouBeginStableApps.md" >}}
 {{< include file="/static/includes/apps/BeforeYouBeginRunAsUser.md" >}}
@@ -37,31 +40,28 @@ To install the MinIO **enterprise** train app, do the following for each of the 
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
-{{< include file="/static/includes/apps/BeforeYouBegingAddAppCertificate.md" >}}
+* Import the certificate.
 
-<div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic app configuration but is required when setting up multi-mode configurations, and when using MinIO as an S3 storage object target for Veeam Backup and Replication Immutability.
+<div style="margin-left: 33px">{{< include file="/static/includes/apps/BeforeYouBegingAddAppCertificate.md" >}}
 
-MinIO and MinIO for Veeam integrations, can use a self-signed certificate, however, a certificate from a trusted certificate authority is recommended for production deployments.
+The <b>Certificates</b> setting is optional for a basic app configuration but is required when setting up multi-mode configurations, and when using MinIO as an S3 storage object target for Veeam Backup and Replication Immutability.
+
+We recommend using a certificate from a trusted certificate authority for MinIO and MinIO for Veeam integrations in production deployments.
 If using a self-signed certificate, Veeam shows a security warning dialog when the certificate is added. Click continue to advance through the configuration.
 
-When deploying MNMD configurations, create the certificate on one system, then import both the certificate and keys into each of the remaining three systems in the cluster.</div>
+When deploying MNMD configurations, import a certificate configured with the IP addresses for each of the TrueNAS systems in the MNMD cluster.
+Import the certificate and keys into each of the systems in the cluster.</div>
 
 <div style="margin-left: 33px">{{< expand "Importing Certificates for MNMD Configurations" "v" >}}
-After creating a certificate authority and certificate on one system in the MNMD cluster, import the certificate into the other three systems:
-1. Open a text editor window, and enter a heading for Certificate and Key.
-2. On system 1 with the certificate, copy/paste the certificate and key into a text editor.
-   a. Select the newly created certificate, click <b>Edit</b>, then click <b>View/Download Certificate</b>.
-   b. Click <b>View/Download Certificate</b>, click <b>Copy to Clipboard</b>, then paste the certificate into the text editor under the Certificate header.
-   c. Click <b>View/Download Key</b>, click <b>Copy to Clipboard</b>, then paste the key into the text editor under the Key header.
-3. Import the certificate into another system in the cluster.
-   a. Log into another system in the cluster, go to <b>Credentials > Certificates</b>, and click <b>Add</b> to the right of <b>Certificates</b> to open the <b>Add Certificate</b> wizard.
-   b. Enter a name, for example, <i>miniomdmd2</i> for minio certificate mdmd node 2, then select <b>Import Certificate</b> in the <b>Type</b> field.
-   c. Select <b>Add To Trusted Store</b>, then click <b>Next</b>.
-   d. Paste the certificate into the <b>Certificate</b> field (do not include the header from the text file), then paste the key. Click <b>Next</b>.
-4. Confirm the information and click <b>Save</b>.
-5. Repeat steps 2 and 3 in each of the other systems in the cluster.
-   
-When finished, all four systems have the same certificate.
+After obtaining a correctly configured certificate, download it, and then import it into each system in the MNMD cluster:
+1. Download your certificate and open it a text editor window. This is make importing it into TrueNAS easier.
+2. On one system, go to **Credentials > Certificates**, click **Import** on the **Certificates** wiget to open the **Import Certificate** screen.
+   a. Enter a name for the certificate. For example *minio_mnmd*.
+   b. Select **Add to Trusted Store**.
+   c. Paste the certificate into **Certificate** and the private key into **Private Key**.
+   d. Enter a password in both **Password** and **Confirm Password**, then click **Import**.
+   The certificate shows on the Certificates widget, and is available to select in the **Install MinIO** wizard.
+3. Repeat step 2 for each system in the cluster.
 {{< /expand >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
@@ -117,6 +117,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 Log into the MinIO web portal, and go to **Monitoring > Metrics**. The MinIO UI should show four servers and 12 drives.
 
 ## Understanding App Installation Wizard Settings
+
 The following section provides more detailed explanations of the settings in each section of the **Install MinIO** configuration wizard.
 
 ### Application Name Settings
@@ -124,21 +125,15 @@ The following section provides more detailed explanations of the settings in eac
 {{< include file="/static/includes/apps/InstallWizardAppNameAndVersion.md" >}}
 
 ### MinIO Configuration Settings
+
 {{< include file="/static/includes/apps/MinIOEnterpriseMinIOConfig.md" >}}
 
 #### MultiMode Configuration
-Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
-MinIO recommends using MNMD for enterprise-grade performance and scalability.
 
 Click **Enabled** under **Multi Mode (SNMD or MNMD) Configuration** to enable multi-mode and show the **Multi Mode (SNMD or MNMD)** and **Add** options.
 
-When installing and configuring multi-mode SNMD or MNMD you must create a self-signed certificate.
-
-An SNMD configuration can use the same self-signed certificate created for MNMD.
-An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
-Create this same self-signed certificate for the MNMD cluster on each system (node) in the cluster! 
-
-{{< include file="/static/includes/apps/InstallWizardCertificateSettings.md" >}}
+Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
+MinIO recommends using MNMD for enterprise-grade performance and scalability.
 
 #### Adding Environment Variables
 
@@ -152,19 +147,21 @@ Create this same self-signed certificate for the MNMD cluster on each system (no
 
 {{< include file="/static/includes/apps/MinIOEnterpriseNetworkConfig.md" >}}
 
-When installing and configuring multi-mode SNMD or MNMD you must create a self-signed certificate.
+Multi-mode SNMD or MNMD clusters require certificates.
 
-An SNMD configuration can use the same self-signed certificate created for MNMD.
+When installing and configuring multi-mode MNMD, you must obtain a correctly certificate that includes the IP addresses of each TrueNAS system in the MNMD cluster.
+Import this certificate into TrueNAS by going to **Credentials > Certificates** and clicking the **Import** button on the **Certificates** widget.
+If you do not have an existing certificate to import, you can follow the general directions in the [Before You Begin](#before-you-begin) section on certificates.
+Import the certificate into each of the TrueNAS systems in the MNMD cluster.
+
 An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
-Create this same self-signed certificate for the MNMD cluster on each system (node) in the cluster! 
-
-{{< include file="/static/includes/apps/InstallWizardCertificateSettings.md" >}}
 
 ### Storage Configuration
 
 {{< include file="/static/includes/apps/MinIOEnterpriseStorageConfig.md" >}}
 
 #### Setting Dataset ACL Permissions
+
 You can configure ACL permissions for the required dataset in the **Install MinIO** wizard, or from the **Datasets** screen any time after adding the datasets.
 
 {{< include file="/static/includes/apps/InstallWizardStorageACLConfig.md" >}}
