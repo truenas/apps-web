@@ -8,5 +8,5 @@ Click **Migrate existing applications** to migrate all installed applications to
 
 {{< hint type=note >}}
 **Migrate existing applications** only affects data saved in the apps dataset, such as the installed app loacation and iXvolume storage.
-Data in mounted host paths is migrated.
+Data in mounted host paths is not migrated.
 {{< /hint >}}
