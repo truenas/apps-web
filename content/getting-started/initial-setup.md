@@ -29,7 +29,7 @@ The default system-level settings are found in **Apps > Settings**.
 
 Use the **Configuration** dropdown to access the **Choose Pool**, **Unset Pool**, **Manage Container Images**, and **Settings** options.
 
-For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/scaleuireference/apps/).
+For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/25.10/scaleuireference/apps/).
 Use the dropdown to select your installed TrueNAS version.
 
 ## Choosing the Apps Pool

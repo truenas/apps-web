@@ -148,7 +148,7 @@ The TrueNAS Apps Market (apps.truenas.com) serves as the central hub for TrueNAS
 ## Related Documentation Sites
 
 ### Main TrueNAS Documentation
-- **TrueNAS SCALE UI Reference**: https://www.truenas.com/docs/scale/scaleuireference/apps/ - Official UI reference for Apps screens and fields
+- **TrueNAS SCALE UI Reference**: https://www.truenas.com/docs/scale/25.10/scaleuireference/apps/ - Official UI reference for Apps screens and fields
 - **TrueNAS Documentation**: https://www.truenas.com/docs/ - Complete TrueNAS system documentation with version selection
 
 ### Version-Specific App References
@@ -172,7 +172,7 @@ For UI guidance specific to your TrueNAS version, use the main documentation sit
 
 ### When to Use Main TrueNAS Docs
 - **System configuration**: Datasets, users, networking → https://www.truenas.com/docs/
-- **UI reference**: Specific screen explanations → https://www.truenas.com/docs/scale/scaleuireference/apps/
+- **UI reference**: Specific screen explanations → https://www.truenas.com/docs/scale/25.10/scaleuireference/apps/
 - **Hardware issues**: GPU, storage, network hardware → Main documentation
 
 ## LLM Usage Guidelines

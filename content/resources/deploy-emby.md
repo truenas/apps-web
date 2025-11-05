@@ -42,7 +42,7 @@ If you create a new TrueNAS user to serve as the administrator for the app, make
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
-<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
+<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
 Emby expects only one host path dataset storage volume, <b>config</b>, but you can create more datasets if you want to add additional storage volumes for the app to use, such as for a library, logs, or an SMB share.
 These extra storage volumes are not required and can be added after installing the app.</div>
 
