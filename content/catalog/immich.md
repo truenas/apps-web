@@ -25,6 +25,6 @@ descr="How to deploy and configure the community Immich app." kind="project" >}}
 
 {{< doc-card title="Servers@Home Immich Guide" link="https://wiki.serversatho.me/en/immich" descr="A guide to deploy Immich on TrueNAS and docker" kind="community" >}}
 
-{{< youtube abqnhmOs7_A >}}
+{{< youtube TqjlUocu6ZI >}}
 
 </div>
