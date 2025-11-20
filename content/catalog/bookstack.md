@@ -16,4 +16,9 @@ icon: "https://media.sys.truenas.net/apps/bookstack/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<div class="docs-sections">
+
+{{< doc-card title="BookStack Deployment Guide" link="/resources/deploy-bookstack"
+descr="How to deploy and configure the BookStack application." doctype="how-to" kind="community" >}}
+
+</div>
