@@ -1,10 +1,6 @@
-Review Log - Mon Oct 27 11:10:29 EDT 2025
+Review Log - Fri Dec 19 15:24:09 EST 2025
 ======================
-Unmatched subdirectories in community:
-- dockpeek
-Created /mnt/c/Users/iXUser/Documents/GitHub/apps-web/content/catalog/dockpeek.md
-- yamtrack
-Created /mnt/c/Users/iXUser/Documents/GitHub/apps-web/content/catalog/yamtrack.md
+All subdirectories in community have matching .md files.
 
 All subdirectories in enterprise have matching .md files.
 
@@ -12,5 +8,59 @@ All subdirectories in stable have matching .md files.
 
 
 Checking for removed apps...
+  ! DETECTED REMOVAL: bentopdf
+    Added bentopdf to removals tracking
+  ! DETECTED REMOVAL: bichon
+    Added bichon to removals tracking
   ✓ codegate already tracked as removed
-No new removed apps detected
+  ! DETECTED REMOVAL: gatus
+    Added gatus to removals tracking
+  ! DETECTED REMOVAL: globalping-probe
+    Added globalping-probe to removals tracking
+  ! DETECTED REMOVAL: lens
+    Added lens to removals tracking
+  ! DETECTED REMOVAL: librechat
+    Added librechat to removals tracking
+  ! DETECTED REMOVAL: localai
+    Added localai to removals tracking
+  ! DETECTED REMOVAL: mail-archiver
+    Added mail-archiver to removals tracking
+  ! DETECTED REMOVAL: media-manager
+    Added media-manager to removals tracking
+  ! DETECTED REMOVAL: memos
+    Added memos to removals tracking
+  ! DETECTED REMOVAL: miniflux
+    Added miniflux to removals tracking
+  ! DETECTED REMOVAL: mkfd
+    Added mkfd to removals tracking
+  ! DETECTED REMOVAL: mkvtoolnix
+    Added mkvtoolnix to removals tracking
+  ! DETECTED REMOVAL: mydia
+    Added mydia to removals tracking
+  ! DETECTED REMOVAL: next-explorer
+    Added next-explorer to removals tracking
+  ! DETECTED REMOVAL: openarchiver
+    Added openarchiver to removals tracking
+  ! DETECTED REMOVAL: papra
+    Added papra to removals tracking
+  ! DETECTED REMOVAL: rustfs
+    Added rustfs to removals tracking
+  ! DETECTED REMOVAL: signal-cli-rest-api
+    Added signal-cli-rest-api to removals tracking
+  ! DETECTED REMOVAL: tandoor-recipes
+    Added tandoor-recipes to removals tracking
+  ! DETECTED REMOVAL: tinyauth
+    Added tinyauth to removals tracking
+  ! DETECTED REMOVAL: vitransfer
+    Added vitransfer to removals tracking
+  ! DETECTED REMOVAL: zerobyte
+    Added zerobyte to removals tracking
+
+Updated removals tracking file: /mnt/c/Users/iXUser/Documents/GitHub/apps-web/static/data/app-removals.yaml
+
+Processing app deprecations...
+  Found deprecations for: briefkasten (community)
+  Found deprecations for: qbittorrent (community)
+
+Processed 2 apps with deprecations
+Updated deprecations file: /mnt/c/Users/iXUser/Documents/GitHub/apps-web/static/data/app-deprecations.yaml
