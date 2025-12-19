@@ -1,0 +1,54 @@
+# App Deprecations Tracking
+#
+# This file tracks apps with active deprecations from the TrueNAS Apps catalog.
+# It consolidates all deprecations.yaml files from individual apps.
+# Generated automatically by generate_app_files.sh during site builds.
+#
+# Format:
+#   app-slug:
+#     train: community|stable|enterprise
+#     title: "App Display Name"
+#     deprecations:
+#       - scope: partial|full
+#         deprecated_date: "YYYY-MM-DD"
+#         removal_date: "YYYY-MM-DD"
+#         reason: "Description of why deprecated"
+#         partial_details:      # Only for scope: partial
+#           feature: "Feature name"
+#           description: "Detailed description"
+#           steps:
+#             - "Migration step 1"
+#             - "Migration step 2"
+#
+# Note: When an app is removed, its deprecation history is moved to app-removals.yaml
+
+
+briefkasten:
+  train: community
+  title: "Briefkasten"
+  deprecations:
+    - scope: partial
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+qbittorrent:
+  train: community
+  title: "qBittorrent"
+  deprecations:
+    - scope: partial
+      deprecated_date: "2025-10-17"
+      removal_date: "2026-01-17"
+      reason: "Version 4.x.x of qBittorrent is no longer supported"
+      partial_details:
+        feature: "qBittorrent version 4.x.x"
+        description: "Version 4.x.x of qBittorrent is no longer supported"
+        steps:
+          - "Edit the application and select v5.x.x in the image selector"
+          - "Save the application"
