@@ -349,12 +349,12 @@ p.last-known-note small {
 
 /* Full deprecation badge - Red */
 .deprecated-catalog-badge.full {
-  background: #dc3545;
+  background: #dc3545 !important;
 }
 
 /* Partial deprecation badge - Orange */
 .deprecated-catalog-badge.partial {
-  background: #fd7e14;
+  background: #fd7e14 !important;
 }
 
 /* Days indicator (shown in tooltip, styling for potential inline display) */
