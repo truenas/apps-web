@@ -184,7 +184,7 @@
           {{ else }}
             {{ if .partial_details }}
               {{ if .partial_details.feature }}
-                <p><strong>{{ .partial_details.feature }}</strong> in <strong>{{ $appDeprecationInfo.title }}</strong> is deprecated.</p>
+                <p><strong>{{ $appDeprecationInfo.title }}</strong>: {{ .partial_details.feature }}</p>
               {{ else }}
                 <p>A feature in <strong>{{ $appDeprecationInfo.title }}</strong> is deprecated.</p>
               {{ end }}
