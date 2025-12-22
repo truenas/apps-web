@@ -198,14 +198,14 @@
           </div>
 
           {{ if .reason }}
-            <p class="deprecation-reason"><strong>Reason:</strong> {{ .reason }}</p>
+            <p class="deprecation-reason"><strong>Reason:</strong> {{ .reason | safeHTML }}</p>
           {{ end }}
 
           {{ if eq .scope "partial" }}
             {{ if .partial_details }}
               {{ if .partial_details.description }}
                 <div class="deprecation-timeline">
-                  <p><strong>Description:</strong> {{ .partial_details.description }}</p>
+                  <p><strong>Description:</strong> {{ .partial_details.description | safeHTML }}</p>
                 </div>
               {{ end }}
 
@@ -215,7 +215,7 @@
                     <summary>Migration Steps</summary>
                     <ol>
                       {{ range .partial_details.steps }}
-                        <li>{{ . }}</li>
+                        <li>{{ . | safeHTML }}</li>
                       {{ end }}
                     </ol>
                   </details>
