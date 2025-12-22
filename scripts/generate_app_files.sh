@@ -325,10 +325,11 @@ detect_and_copy_deprecations() {
 EOF
 
   local apps_with_deprecations=0
+  local ix_dev_dir="$HUGO_ROOT/Apps_Temp/ix-dev"
 
-  # Iterate through all trains and apps
+  # Iterate through all trains and apps in ix-dev (where deprecations live)
   for train in "${TRAINS[@]}"; do
-    local train_dir="$TRAINS_DIR/$train"
+    local train_dir="$ix_dev_dir/$train"
 
     if [[ ! -d "$train_dir" ]]; then
       continue
@@ -348,8 +349,9 @@ EOF
         echo "  Found deprecations for: ${app_name} (${train})" >> "$LOG_FILE"
         echo "  Found deprecations for: ${app_name} (${train})"
 
-        # Extract app title from app_versions.json
-        local json_file="$app_dir/app_versions.json"
+        # Extract app title from app_versions.json in trains directory
+        local trains_app_dir="$TRAINS_DIR/$train/$app_name"
+        local json_file="$trains_app_dir/app_versions.json"
         local title=""
 
         if [[ -f "$json_file" ]]; then
