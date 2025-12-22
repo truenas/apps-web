@@ -104,8 +104,10 @@
         if (inDeprecations) {
           const scopeMatch = line.match(/^\s+-\s+scope:\s*(.+)/);
           if (scopeMatch) {
+            // Remove surrounding quotes if present
+            const scope = scopeMatch[1].replace(/^["']|["']$/g, '').trim();
             currentDeprecation = {
-              scope: scopeMatch[1]
+              scope: scope
             };
             apps[currentApp].deprecations.push(currentDeprecation);
             inPartialDetails = false;
@@ -208,14 +210,8 @@
     if (scope === 'full') {
       badge.textContent = 'DEPRECATED';
     } else {
-      // For partial, show feature name if available and short enough
-      if (deprecation.partial_details && deprecation.partial_details.feature) {
-        const feature = deprecation.partial_details.feature;
-        // If feature name is short, show it; otherwise just say "PARTIAL"
-        badge.textContent = feature.length <= 20 ? feature : 'PARTIAL';
-      } else {
-        badge.textContent = 'PARTIAL';
-      }
+      // For partial, always show "PARTIAL" to indicate deprecation type
+      badge.textContent = 'PARTIAL';
     }
 
     // Tooltip with days remaining and removal date
