@@ -208,14 +208,14 @@
 
     // Badge text based on scope
     if (scope === 'full') {
-      badge.textContent = 'DEPRECATED';
+      badge.textContent = 'REMOVED';
     } else {
-      // For partial, always show "PARTIAL" to indicate deprecation type
-      badge.textContent = 'PARTIAL';
+      // For partial, always show text that informs readers the App is changing in a significant way and action is required on their part when they have it deployed.
+      badge.textContent = 'ACTION REQUIRED';
     }
 
     // Tooltip with days remaining and removal date
-    const tooltipText = `${scope === 'full' ? 'App' : 'Feature'} will be removed in ${daysRemaining} days (${deprecation.removal_date})`;
+    const tooltipText = `${scope === 'full' ? 'App' : 'App'} will be disruptively changed in ${daysRemaining} days (${deprecation.removal_date})`;
     badge.title = tooltipText;
 
     // Add badge to card
