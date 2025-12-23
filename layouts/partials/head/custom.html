@@ -50,7 +50,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Removed apps catalog handler -->
 <script src="/js/catalog-removed-apps.js" defer></script>
- 
+
+<!-- Deprecated apps catalog handler -->
+<script src="/js/catalog-deprecated-apps.js" defer></script>
+
  <!-- Add app keywords to html metadata -->
 {{ if .Scratch.Get "keywords" }}
   <meta name="keywords" content="{{ delimit (.Scratch.Get "keywords") ", " }}">

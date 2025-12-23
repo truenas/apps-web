@@ -141,6 +141,98 @@
       </div>
     </div>
 
+    <!-- Check for deprecations -->
+    {{ $deprecationsFile := "static/data/app-deprecations.yaml" }}
+    {{ $deprecationsData := dict }}
+
+    {{ if fileExists $deprecationsFile }}
+      {{ $deprecationsContent := readFile $deprecationsFile }}
+      {{ $deprecationsData = transform.Unmarshal $deprecationsContent | default dict }}
+    {{ end }}
+
+    {{ $pathParts := split $path "/" }}
+    {{ $appName := "" }}
+    {{ if ge (len $pathParts) 3 }}
+      {{ $appName = index $pathParts 2 }}
+    {{ end }}
+
+    {{ $appDeprecationInfo := index $deprecationsData $appName }}
+
+    {{ if $appDeprecationInfo }}
+      {{ $currentDate := now }}
+      {{ range $appDeprecationInfo.deprecations }}
+        {{ $removalDate := time .removal_date }}
+        {{ $daysUntilRemoval := div (sub $removalDate.Unix $currentDate.Unix) 86400 }}
+
+        {{ $bannerClass := "partial" }}
+        {{ $deprecationIcon := "⚠️" }}
+        {{ $bannerTitle := "Feature Deprecation Notice" }}
+        {{ if eq .scope "full" }}
+          {{ $bannerClass = "full" }}
+          {{ $deprecationIcon = "🚨" }}
+          {{ $bannerTitle = "Application Deprecation Notice" }}
+        {{ end }}
+
+        <div class="deprecation-banner {{ $bannerClass }}">
+          <div class="deprecation-header">
+            <span class="deprecation-icon">{{ $deprecationIcon }}</span>
+            <h2>{{ $bannerTitle }}</h2>
+          </div>
+
+          {{ if eq .scope "full" }}
+            <p><strong>{{ $appDeprecationInfo.title }}</strong> is deprecated and will be removed from the TrueNAS catalog.</p>
+          {{ else }}
+            {{ if .partial_details }}
+              {{ if .partial_details.feature }}
+                <p><strong>{{ $appDeprecationInfo.title }}</strong>: {{ .partial_details.feature }}</p>
+              {{ else }}
+                <p>A feature in <strong>{{ $appDeprecationInfo.title }}</strong> is deprecated.</p>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          <div class="deprecation-timeline">
+            <p><strong>Deprecated:</strong> {{ .deprecated_date }}</p>
+            <p><strong>Scheduled Removal:</strong> {{ .removal_date }}</p>
+            <p class="days-remaining"><strong>Days Remaining:</strong> {{ $daysUntilRemoval }}</p>
+          </div>
+
+          {{ if .reason }}
+            <p class="deprecation-reason"><strong>Reason:</strong> {{ .reason | safeHTML }}</p>
+          {{ end }}
+
+          {{ if eq .scope "partial" }}
+            {{ if .partial_details }}
+              {{ if .partial_details.description }}
+                <div class="deprecation-timeline">
+                  <p><strong>Description:</strong> {{ .partial_details.description | safeHTML }}</p>
+                </div>
+              {{ end }}
+
+              {{ if .partial_details.steps }}
+                <div class="migration-steps">
+                  <details>
+                    <summary>Migration Steps</summary>
+                    <ol>
+                      {{ range .partial_details.steps }}
+                        <li>{{ . | safeHTML }}</li>
+                      {{ end }}
+                    </ol>
+                  </details>
+                </div>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ if eq .scope "full" }}
+            <p class="deprecation-action"><strong>Action Required:</strong> Please plan to migrate to an alternative solution before the removal date.</p>
+          {{ else }}
+            <p class="deprecation-action"><strong>Action Required:</strong> Please follow the migration steps above before the removal date.</p>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+
     <!-- Screenshots Section -->
     {{ if $versionData.app_metadata.screenshots }}
       <br>
@@ -208,6 +300,7 @@
     <br>
     <hr>
   {{ end }}
+
 {{ else }}
   <!-- File not found - check if app was removed -->
   {{ $removalsFile := "static/data/app-removals.yaml" }}

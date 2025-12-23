@@ -242,6 +242,12 @@ detect_removed_apps() {
         description=${description:-No description available}
         icon=${icon:-}
 
+        # Sanitize values - remove any stray quotes to prevent YAML corruption
+        title=$(echo "$title" | sed 's/"//g')
+        train=$(echo "$train" | sed 's/"//g')
+        icon=$(echo "$icon" | sed 's/"//g')
+        description=$(echo "$description" | sed 's/"//g')
+
         # Append to removals.yaml
         cat >> "$removals_file" <<EOF
 
@@ -280,8 +286,137 @@ for train in "${TRAINS[@]}"; do
   check_unmatched_subdirs "$train"
 done
 
+# Function to detect and consolidate deprecation files
+detect_and_copy_deprecations() {
+  local deprecations_file="$HUGO_ROOT/static/data/app-deprecations.yaml"
+  local temp_file="$HUGO_ROOT/static/data/app-deprecations.yaml.tmp"
+  local current_date=$(date +%Y-%m-%d)
+
+  echo "" >> "$LOG_FILE"
+  echo "Processing app deprecations..." >> "$LOG_FILE"
+  echo "Processing app deprecations..."
+
+  # Start fresh file with header
+  cat > "$temp_file" <<'EOF'
+# App Deprecations Tracking
+#
+# This file tracks apps with active deprecations from the TrueNAS Apps catalog.
+# It consolidates all deprecations.yaml files from individual apps.
+# Generated automatically by generate_app_files.sh during site builds.
+#
+# Format:
+#   app-slug:
+#     train: community|stable|enterprise
+#     title: "App Display Name"
+#     deprecations:
+#       - scope: partial|full
+#         deprecated_date: "YYYY-MM-DD"
+#         removal_date: "YYYY-MM-DD"
+#         reason: "Description of why deprecated"
+#         partial_details:      # Only for scope: partial
+#           feature: "Feature name"
+#           description: "Detailed description"
+#           steps:
+#             - "Migration step 1"
+#             - "Migration step 2"
+#
+# Note: When an app is removed, its deprecation history is moved to app-removals.yaml
+
+EOF
+
+  local apps_with_deprecations=0
+  local ix_dev_dir="$HUGO_ROOT/Apps_Temp/ix-dev"
+
+  # Iterate through all trains and apps in ix-dev (where deprecations live)
+  for train in "${TRAINS[@]}"; do
+    local train_dir="$ix_dev_dir/$train"
+
+    if [[ ! -d "$train_dir" ]]; then
+      continue
+    fi
+
+    # Get all subdirectories (apps) in the train
+    for app_dir in "$train_dir"/*; do
+      if [[ ! -d "$app_dir" ]]; then
+        continue
+      fi
+
+      local app_name=$(basename "$app_dir")
+      local deprecations_yaml="$app_dir/deprecations.yaml"
+
+      # Check if deprecations.yaml exists
+      if [[ -f "$deprecations_yaml" ]]; then
+        echo "  Found deprecations for: ${app_name} (${train})" >> "$LOG_FILE"
+        echo "  Found deprecations for: ${app_name} (${train})"
+
+        # Extract app title from app_versions.json in trains directory
+        local trains_app_dir="$TRAINS_DIR/$train/$app_name"
+        local json_file="$trains_app_dir/app_versions.json"
+        local title=""
+
+        if [[ -f "$json_file" ]]; then
+          title=$(jq -r '.[].app_metadata.title' "$json_file" 2>/dev/null | head -n 1)
+        fi
+        title=${title:-$app_name}
+
+        # Add app entry to consolidated file
+        cat >> "$temp_file" <<EOF
+
+$app_name:
+  train: $train
+  title: "$title"
+  deprecations:
+EOF
+
+        # Parse and add deprecation entries with proper indentation
+        # We need to indent each line appropriately for the consolidated structure
+        while IFS= read -r line; do
+          # Skip empty lines and comments
+          if [[ -z "$line" ]] || [[ "$line" =~ ^[[:space:]]*# ]]; then
+            continue
+          fi
+
+          # Detect list item marker at the start (new deprecation entry)
+          if [[ "$line" =~ ^-[[:space:]] ]]; then
+            # Start of new deprecation entry - indent with 4 spaces
+            echo "    $line" >> "$temp_file"
+          # Detect keys at any indentation level
+          elif [[ "$line" =~ ^[[:space:]]+ ]]; then
+            # Count leading spaces to determine nesting level
+            leading_spaces="${line%%[![:space:]]*}"
+            spaces_count=${#leading_spaces}
+
+            # Base indentation is 4 spaces (under deprecations:)
+            # Add the original indentation plus 4
+            new_indent="    $line"
+            echo "$new_indent" >> "$temp_file"
+          fi
+        done < "$deprecations_yaml"
+
+        apps_with_deprecations=$((apps_with_deprecations + 1))
+      fi
+    done
+  done
+
+  # Replace old file with new one
+  mv "$temp_file" "$deprecations_file"
+
+  echo "" >> "$LOG_FILE"
+  echo "Processed ${apps_with_deprecations} apps with deprecations" >> "$LOG_FILE"
+  echo "Processed ${apps_with_deprecations} apps with deprecations"
+  echo "Updated deprecations file: $deprecations_file" >> "$LOG_FILE"
+
+  # If in PR mode, stage the changes
+  if [ -n "$SEND_PR" ] && [ -f "$deprecations_file" ]; then
+    GIT_CHANGES_PENDING="TRUE"
+  fi
+}
+
 # Check for removed apps
 detect_removed_apps
+
+# Process deprecations
+detect_and_copy_deprecations
 
 if [ -n "$SEND_PR" ] ; then
    if [ "${GIT_CHANGES_PENDING}" == "FALSE" ] ; then
@@ -294,6 +429,14 @@ if [ -n "$SEND_PR" ] ; then
        git add "$HUGO_ROOT/static/data/app-removals.yaml"
        if [ $? -eq 0 ]; then
            echo "Staged app-removals.yaml for commit"
+       fi
+   fi
+
+   # Add deprecations file
+   if [ -f "$HUGO_ROOT/static/data/app-deprecations.yaml" ]; then
+       git add "$HUGO_ROOT/static/data/app-deprecations.yaml"
+       if [ $? -eq 0 ]; then
+           echo "Staged app-deprecations.yaml for commit"
        fi
    fi
 
