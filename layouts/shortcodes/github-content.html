@@ -141,6 +141,98 @@
       </div>
     </div>
 
+    <!-- Check for deprecations -->
+    {{ $deprecationsFile := "static/data/app-deprecations.yaml" }}
+    {{ $deprecationsData := dict }}
+
+    {{ if fileExists $deprecationsFile }}
+      {{ $deprecationsContent := readFile $deprecationsFile }}
+      {{ $deprecationsData = transform.Unmarshal $deprecationsContent | default dict }}
+    {{ end }}
+
+    {{ $pathParts := split $path "/" }}
+    {{ $appName := "" }}
+    {{ if ge (len $pathParts) 3 }}
+      {{ $appName = index $pathParts 2 }}
+    {{ end }}
+
+    {{ $appDeprecationInfo := index $deprecationsData $appName }}
+
+    {{ if $appDeprecationInfo }}
+      {{ $currentDate := now }}
+      {{ range $appDeprecationInfo.deprecations }}
+        {{ $removalDate := time .removal_date }}
+        {{ $daysUntilRemoval := div (sub $removalDate.Unix $currentDate.Unix) 86400 }}
+
+        {{ $bannerClass := "partial" }}
+        {{ $deprecationIcon := "⚠️" }}
+        {{ $bannerTitle := "Feature Deprecation Notice" }}
+        {{ if eq .scope "full" }}
+          {{ $bannerClass = "full" }}
+          {{ $deprecationIcon = "🚨" }}
+          {{ $bannerTitle = "Application Deprecation Notice" }}
+        {{ end }}
+
+        <div class="deprecation-banner {{ $bannerClass }}">
+          <div class="deprecation-header">
+            <span class="deprecation-icon">{{ $deprecationIcon }}</span>
+            <h2>{{ $bannerTitle }}</h2>
+          </div>
+
+          {{ if eq .scope "full" }}
+            <p><strong>{{ $appDeprecationInfo.title }}</strong> is deprecated and will be removed from the TrueNAS catalog.</p>
+          {{ else }}
+            {{ if .partial_details }}
+              {{ if .partial_details.feature }}
+                <p><strong>{{ $appDeprecationInfo.title }}</strong>: {{ .partial_details.feature }}</p>
+              {{ else }}
+                <p>A feature in <strong>{{ $appDeprecationInfo.title }}</strong> is deprecated.</p>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          <div class="deprecation-timeline">
+            <p><strong>Deprecated:</strong> {{ .deprecated_date }}</p>
+            <p><strong>Scheduled Removal:</strong> {{ .removal_date }}</p>
+            <p class="days-remaining"><strong>Days Remaining:</strong> {{ $daysUntilRemoval }}</p>
+          </div>
+
+          {{ if .reason }}
+            <p class="deprecation-reason"><strong>Reason:</strong> {{ .reason | safeHTML }}</p>
+          {{ end }}
+
+          {{ if eq .scope "partial" }}
+            {{ if .partial_details }}
+              {{ if .partial_details.description }}
+                <div class="deprecation-timeline">
+                  <p><strong>Description:</strong> {{ .partial_details.description | safeHTML }}</p>
+                </div>
+              {{ end }}
+
+              {{ if .partial_details.steps }}
+                <div class="migration-steps">
+                  <details>
+                    <summary>Migration Steps</summary>
+                    <ol>
+                      {{ range .partial_details.steps }}
+                        <li>{{ . | safeHTML }}</li>
+                      {{ end }}
+                    </ol>
+                  </details>
+                </div>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ if eq .scope "full" }}
+            <p class="deprecation-action"><strong>Action Required:</strong> Please plan to migrate to an alternative solution before the removal date.</p>
+          {{ else }}
+            <p class="deprecation-action"><strong>Action Required:</strong> Please follow the migration steps above before the removal date.</p>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+
     <!-- Screenshots Section -->
     {{ if $versionData.app_metadata.screenshots }}
       <br>
@@ -208,7 +300,97 @@
     <br>
     <hr>
   {{ end }}
+
 {{ else }}
-  <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
-  {{ warnf "File not found at %s" $localFilePath }}
+  <!-- File not found - check if app was removed -->
+  {{ $removalsFile := "static/data/app-removals.yaml" }}
+  {{ $removalsData := dict }}
+
+  {{ if fileExists $removalsFile }}
+    {{ $removalsContent := readFile $removalsFile }}
+    {{ $removalsData = transform.Unmarshal $removalsContent | default dict }}
+  {{ end }}
+
+  <!-- Extract app name from path (e.g., "trains/community/codegate/app_versions.json" -> "codegate") -->
+  {{ $pathParts := split $path "/" }}
+  {{ $appName := "" }}
+  {{ if ge (len $pathParts) 3 }}
+    {{ $appName = index $pathParts 2 }}
+  {{ end }}
+
+  <!-- Check if app exists in removals data -->
+  {{ $removalInfo := index $removalsData $appName }}
+
+  {{ if $removalInfo }}
+    <!-- App was removed - show removal banner -->
+    <div class="deprecation-banner removed">
+      <div class="removal-header">
+        <span class="removal-icon">❌</span>
+        <h2>This app has been removed from the TrueNAS catalog</h2>
+      </div>
+
+      <p><strong>{{ $removalInfo.title }}</strong> was removed from the catalog on <strong>{{ $removalInfo.removal_detected_date }}</strong>.</p>
+
+      {{ with $removalInfo.last_known_metadata }}
+        {{ if .reason }}
+          <p><strong>Reason:</strong> {{ .reason }}</p>
+        {{ end }}
+
+        {{ if .alternative_app }}
+          {{ $altAppSlug := .alternative_app }}
+          {{ $altAppPath := printf "/catalog/%s" $altAppSlug }}
+          <p><strong>Recommended Alternative:</strong>
+             <a href="{{ $altAppPath }}" class="alt-app-link">{{ $altAppSlug | title }}</a>
+          </p>
+        {{ end }}
+      {{ end }}
+
+      <p class="removal-note"><em>This page is maintained for historical reference and search engine indexing.</em></p>
+    </div>
+
+    <!-- Show last known app information if available -->
+    {{ with $removalInfo.last_known_metadata }}
+      <br>
+      <div class="apps-docs-sections">
+        <div class="section-box removed-app-info">
+          <div class="box-image">
+            {{ if .icon }}
+              <img class="app-card-img" src="{{ .icon }}" aria-label="{{ $removalInfo.title }} Logo">
+            {{ end }}
+          </div>
+          <div class="section-tab-content ixprods">
+            <b class="app-title">{{ $removalInfo.title }}</b>
+            <span class="removed-badge">REMOVED</span>
+            <div class="app-info">
+              <small>
+                Train: {{ $removalInfo.train | title }}<br>
+                {{ if .app_version }}
+                  Last Known Version: <b>{{ .app_version }}</b><br>
+                {{ end }}
+                {{ if .deprecated_date }}
+                  Deprecated: {{ .deprecated_date }}<br>
+                {{ end }}
+                Removed: {{ $removalInfo.removal_detected_date }}
+              </small>
+            </div>
+          </div>
+        </div>
+
+        {{ if .description }}
+          <div class="section-box">
+            <div class="box-image">
+              <b>About {{ $removalInfo.title }}</b>
+              <p class="app-descr">{{ .description }}</p>
+              <p class="last-known-note"><small><em>This information reflects the app's last known state before removal.</em></small></p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  {{ else }}
+    <!-- App not in removals data - show error -->
+    <p>Error: File not found at <code>{{ $localFilePath }}</code>.</p>
+    {{ warnf "File not found at %s" $localFilePath }}
+  {{ end }}
 {{ end }}

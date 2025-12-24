@@ -38,12 +38,23 @@ To install the MinIO **enterprise** train app, do the following for each of the 
 
 {{< include file="/static/includes/apps/BeforeYouBegingAddAppCertificate.md" >}}
 
-<div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic app configuration, but it is required when setting up single node (SNMD) and multi-mode (MNMD) configurations.
+<div style="margin-left: 33px">The <b>Certificates</b> setting is optional for a basic MinIO Enterprise app configuration but it is required when setting up single node (SNMD) or multi-mode (MNMD) configurations.
 </div>
+
+<div style="margin-left: 33px">{{< expand "Importing Certificates for SNMD Configurations" "v" >}}
+After obtaining a correctly configured certificate, download it, and then import it into each system in the SNMD cluster:
+1. Download your certificate and open it a text editor window. This is make importing it into TrueNAS easier.
+2. On one system, go to **Credentials > Certificates**, click **Import** on the **Certificates** wiget to open the **Import Certificate** screen.
+   a. Enter a name for the certificate. For example *minio_snmd*.
+   b. Select **Add to Trusted Store**.
+   c. Paste the certificate into **Certificate** and the private key into **Private Key**.
+   d. Enter a password in both **Password** and **Confirm Password**, then click **Import**.
+   The certificate shows on the Certificates widget, and is available to select in the **Install MinIO** wizard.
+{{< /expand >}}</div>
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
-<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
+<div style="margin-left: 33px"><a href="https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/">Create the dataset(s)</a> before beginning the app installation process.
 MinIO enterprise train app in an MNMD cluster requires four datasets, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>. The default mount path follows the dataset naming, <b>data1</b>, <b>data2</b>, <b>data3</b>, and <b>data4</b>. These datasets represent the disks in the MNMD configuration. Repeat this in each of the three remaining systems in the cluster.
 
 Follow the instructions below in **Creating Datasets for Apps** to correctly create the datasets.
@@ -67,8 +78,9 @@ The error message shows the user name to add. Give both users full permissions.
 {{< /expand >}}</div>
  
 ## Installing MinIO Enterprise
+
 {{< hint info >}}
-This basic procedure covers the required MinIO app settings.
+This basic procedure covers the required MinIO app settings when setting up a SNMD cluster.
 For optional settings, see [Understanding App Installation Wizard Settings](#understanding-app-installation-wizard-settings).
 {{< /hint >}}
 
@@ -81,7 +93,7 @@ For optional settings, see [Understanding App Installation Wizard Settings](#und
 
 {{< include file="/static/includes/apps/MinIoEnterpriseConfigSettings.md" >}}
 
-{{< include file="/static/includes/apps/MinIOEnterpriseMultiModeSNMDConfig.md" >}}
+{{< include file="/static/includes/apps/MinIOEnterpriseSNMDConfig.md" >}}
 
 {{< include file="/static/includes/apps/InstallWizardUserAndGroupConfig.md" >}}
 
@@ -105,12 +117,15 @@ The following section provides more detailed explanations of the settings in eac
 {{< include file="/static/includes/apps/MinIOEnterpriseMinIOConfig.md" >}}
 
 #### MultiMode Configuration
-Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
-MinIO recommends using MNMD for enterprise-grade performance and scalability.
 
-Click **Enabled** under **Multi Mode (SNMD or MNMD) Configuration** to enable multi-mode and show the **Multi Mode (SNMD or MNMD)** and **Add** options.
+{{< include file="/static/includes/apps/MinIOEnterpriseSNMDConfig.md" >}}
+
+Multi-mode installs the app in either a [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd) cluster.
+
+MinIO recommends using [MNMD]({{< relref "minio-enterprise-mnmd.md">}}) for enterprise-grade performance and scalability.
 
 #### Adding Environment Variables
+
 {{< include file="/static/includes/apps/InstallWizardEnvironVariablesSettings.md" >}}
 
 ### User and Group Configuration
@@ -121,13 +136,17 @@ Click **Enabled** under **Multi Mode (SNMD or MNMD) Configuration** to enable mu
 
 {{< include file="/static/includes/apps/MinIOEnterpriseNetworkConfig.md" >}}
 
-When installing and configuring multi-mode SNMD or MNMD you must create a self-signed certificate.
+#### Certificate Configuration
 
-An SNMD configuration can use the same self-signed certificate created for MNMD.
+Multi-mode SNMD or MNMD clusters require certificates.
+
+When configuring a multi-mode SNMD or MNMD cluster, you must obtain and import a certificate that is configured with the IP address for the TrueNAS system.
+
+Import this certificate into TrueNAS by going to **Credentials > Certificates** and clicking the **Import** button on the **Certificates** widget.
+If you do not have an existing certificate to import, you can follow the general directions in the [Before You Begin](#before-you-begin) section on certificates.
+
+An SNMD configuration can use the same certificate imported for MNMD.
 An MNMD configuration cannot use the certificate for an SNMD configuration because that certificate only includes the IP address for one system.
-Create this same self-signed certificate for the MNMD cluster on each system (node) in the cluster! 
-
-{{< include file="/static/includes/apps/InstallWizardCertificateSettings.md" >}}
 
 ### Storage Configuration
 

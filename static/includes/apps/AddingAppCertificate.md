@@ -1,6 +1,8 @@
 &NewLine;
 
 {{< expand "Adding an App Certificate" "v" >}}
+For TrueNAS systems on the latest maintenace release of 25.04.*x* or earlier releases:
+
 1. Go to **Credentials > Certificates** to add a self-signed certificate authority (CA) and certificate for the application to use.
 
 2. Click **Add** on the **Certificate Authorities (CA)** widget to open the **Add Certificate Authority** screen.

@@ -35,6 +35,8 @@ Prepare TrueNAS before installing Home Assistant by:
 
 {{< include file="/static/includes/apps/BeforeYouBeginAddNewAppUser.md" >}}
 
+{{< include file="/static/includes/apps/BeforeYouBeginAddAppCertificate.md" >}}
+
 ## Installing the Application
 
 {{< hint info >}}

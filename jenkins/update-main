@@ -7,9 +7,16 @@ pipeline {
 
   environment {
         HUGO_ENV = "production"
+        PATH = "/usr/local/go/bin:${env.PATH}"
   }
 
   stages {
+    stage('Update Modules') {
+        steps {
+            sh 'hugo mod get -u github.com/truenas/docs-shared'
+            sh 'hugo mod tidy'
+        }
+    }
     stage('Build') {
         steps {
             sh 'npm install -D --save autoprefixer'
@@ -17,6 +24,7 @@ pipeline {
 			sh 'bash ./scripts/download_apps_repo.sh'
 		    sh 'bash ./scripts/generate_app_files.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
+			sh 'npx pagefind --site public'
 			sh 'bash ./scripts/cleanup_apps_repo.sh'
         }
     }

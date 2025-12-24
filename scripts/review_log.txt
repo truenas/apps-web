@@ -1,0 +1,37 @@
+Review Log - Mon Dec 22 13:43:16 EST 2025
+======================
+All subdirectories in community have matching .md files.
+
+All subdirectories in enterprise have matching .md files.
+
+All subdirectories in stable have matching .md files.
+
+
+Checking for removed apps...
+  ✓ codegate already tracked as removed
+No new removed apps detected
+
+Processing app deprecations...
+  Found deprecations for: briefkasten (community)
+  Found deprecations for: firefly-iii (community)
+  Found deprecations for: freshrss (community)
+  Found deprecations for: gitea (community)
+  Found deprecations for: immich (community)
+  Found deprecations for: invidious (community)
+  Found deprecations for: joplin (community)
+  Found deprecations for: linkding (community)
+  Found deprecations for: listmonk (community)
+  Found deprecations for: mealie (community)
+  Found deprecations for: minecraft (community)
+  Found deprecations for: n8n (community)
+  Found deprecations for: odoo (community)
+  Found deprecations for: paperless-ngx (community)
+  Found deprecations for: penpot (community)
+  Found deprecations for: planka (community)
+  Found deprecations for: qbittorrent (community)
+  Found deprecations for: roundcube (community)
+  Found deprecations for: vaultwarden (community)
+  Found deprecations for: vikunja (community)
+
+Processed 20 apps with deprecations
+Updated deprecations file: /mnt/c/Users/iXUser/Documents/GitHub/apps-web/static/data/app-deprecations.yaml

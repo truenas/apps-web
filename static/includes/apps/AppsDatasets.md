@@ -11,8 +11,11 @@ Do not include the ix-apps dataset inside an SMB or NFS share.
 
 The ix-apps dataset does not inherit encryption if an encrypted pool is selected as the pool for applications.
 
-Back up and restore functionality as well as migration of the ix-apps dataset from one apps pool to another are not currently supported by the TrueNAS interface.
-Support for these features is planned for a future TrueNAS release version.
+You can migrate the ix-apps dataset from one pool to another using the **Migrate existing applications** option from the **Apps > Configuration > Choose a pool for Apps** dialog.
+See [Migrating Existing Applications]({{< ref "/managing-apps/managing-installed-apps.md#migrating-existing-applications" >}}) for more information.
+
+Back up and restore functionality of the ix-apps dataset is not currently supported by the TrueNAS interface (as of 25.10.0).
+Support is planned for a future TrueNAS release version.
 
 {{< hint type="note" title="ix-Applications Dataset" >}}
 TrueNAS 24.04 and earlier versions stored applications data in an **ix-applications** dataset on the configured apps pool.

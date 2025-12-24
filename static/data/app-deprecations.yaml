@@ -1,0 +1,337 @@
+# App Deprecations Tracking
+#
+# This file tracks apps with active deprecations from the TrueNAS Apps catalog.
+# It consolidates all deprecations.yaml files from individual apps.
+# Generated automatically by generate_app_files.sh during site builds.
+#
+# Format:
+#   app-slug:
+#     train: community|stable|enterprise
+#     title: "App Display Name"
+#     deprecations:
+#       - scope: partial|full
+#         deprecated_date: "YYYY-MM-DD"
+#         removal_date: "YYYY-MM-DD"
+#         reason: "Description of why deprecated"
+#         partial_details:      # Only for scope: partial
+#           feature: "Feature name"
+#           description: "Detailed description"
+#           steps:
+#             - "Migration step 1"
+#             - "Migration step 2"
+#
+# Note: When an app is removed, its deprecation history is moved to app-removals.yaml
+
+
+briefkasten:
+  train: community
+  title: "Briefkasten"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+firefly-iii:
+  train: community
+  title: "Firefly III"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+freshrss:
+  train: community
+  title: "FreshRSS"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+gitea:
+  train: community
+  title: "Gitea"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+immich:
+  train: community
+  title: "Immich"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+invidious:
+  train: community
+  title: "Invidious"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+joplin:
+  train: community
+  title: "Joplin"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+linkding:
+  train: community
+  title: "Linkding"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+listmonk:
+  train: community
+  title: "Listmonk"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+mealie:
+  train: community
+  title: "Mealie"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+minecraft:
+  train: community
+  title: "Minecraft Server (Java)"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-10"
+      removal_date: "2026-03-10"
+      reason: |
+        The following Minecraft server images are deprecated:</br>
+        - Java 8 GraalVM CE (Oracle)</br>
+        - Java 8 HotSpot+JDK (Ubuntu)</br>
+        - Java 8 OpenJ9 (Debian)</br>
+        - Java 11 HotSpot+JDK (Ubuntu)</br>
+        - Java 11 OpenJ9 (Debian)</br>
+        - Java 17 GraalVM CE (Oracle)</br>
+        - Java 17 HotSpot (Alpine)</br>
+        - Java 17 HotSpot+JDK (Ubuntu)</br>
+        - Java 17 OpenJ9 (Debian)</br>
+        - Java 19 HotSpot (Ubuntu)</br>
+        Deprecation is done based on the supported tag list here: https://docker-minecraft-server.readthedocs.io/en/latest/versions/java/#image-tags
+      partial_details:
+        feature: "Deprecated Minecraft Server Images"
+        description: "Some Minecraft server images are deprecated and will be removed in a future release."
+        steps:
+          - "Follow upstream instructions to migrate to a compatible image"
+          - "Edit the application and select a non-deprecated image in the image selector"
+          - "Save the application"
+
+n8n:
+  train: community
+  title: "n8n"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+odoo:
+  train: community
+  title: "Odoo"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+paperless-ngx:
+  train: community
+  title: "Paperless-ngx"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+penpot:
+  train: community
+  title: "Penpot"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+planka:
+  train: community
+  title: "Planka"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+qbittorrent:
+  train: community
+  title: "qBittorrent"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-10-17"
+      removal_date: "2026-01-17"
+      reason: "Version 4.x.x of qBittorrent is no longer supported"
+      partial_details:
+        feature: "qBittorrent version 4.x.x"
+        description: "Version 4.x.x of qBittorrent is no longer supported"
+        steps:
+          - "Edit the application and select v5.x.x in the image selector"
+          - "Save the application"
+
+roundcube:
+  train: community
+  title: "Roundcube"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+vaultwarden:
+  train: community
+  title: "Vaultwarden"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"
+
+vikunja:
+  train: community
+  title: "Vikunja"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2025-12-01"
+      removal_date: "2026-03-01"
+      reason: "Drop support for Postgres 15"
+      partial_details:
+        feature: "Postgres 15"
+        description: "Postgres 15 is no longer supported"
+        steps:
+          - "Edit the application and select Postgres 18 in the image selector"
+          - "Save the application"

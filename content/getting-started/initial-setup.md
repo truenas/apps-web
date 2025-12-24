@@ -29,7 +29,7 @@ The default system-level settings are found in **Apps > Settings**.
 
 Use the **Configuration** dropdown to access the **Choose Pool**, **Unset Pool**, **Manage Container Images**, and **Settings** options.
 
-For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/scaleuireference/apps/).
+For more information on screens and screen functions, refer to the UI Reference article on [Apps Screens](https://www.truenas.com/docs/scale/25.10/scaleuireference/apps/).
 Use the dropdown to select your installed TrueNAS version.
 
 ## Choosing the Apps Pool
@@ -46,6 +46,8 @@ If you close the dialog to set the pool later, click **Configuration > Choose Po
 {{< include file="/static/includes/apps/AppsPool.md" >}}
 
 ### Migrating Existing Applications
+
+(TrueNAS 25.10 and later)
 
 {{< include file="/static/includes/apps/MigrateExisting.md" >}}
 
@@ -90,6 +92,48 @@ Then enter a display name for the registry record in TrueNAS.
 Enter the user name and password of an existing account on the registry.
 
 Click **Save** to sign in and create the registry record.
+
+## Configuring Docker Registry Mirrors
+
+Registry mirrors provide local caching of Docker images to improve performance and reduce bandwidth usage when multiple systems pull images from public registries. Use registry mirrors to avoid hitting rate limits on public registries like Docker Hub.
+
+To configure registry mirrors, go to **Apps > Configuration > Settings** to open the **Settings** screen.
+
+### Adding Registry Mirrors
+
+In the **Settings** screen, locate the **Registry Mirrors** section. This section contains two fields for configuring different types of registry mirrors:
+
+#### Secure Mirror URLs
+
+Use **Secure Mirror URLs** to configure HTTPS-enabled registry mirrors that provide secure connections. Secure mirrors require HTTPS and a valid certificate.
+
+1. Click in the **Secure Mirror URLs** field.
+
+2. Type the registry mirror URL using HTTPS format (e.g., *`https://my-docker-mirror-host`*).
+
+3. Press <kbd>Enter</kbd> to add the URL as a chip.
+
+4. Repeat to add additional secure mirror URLs.
+
+#### Insecure Mirror URLs  
+
+Use **Insecure Mirror URLs** to configure mirrors that use HTTP or HTTPS with self-signed certificates.
+
+{{< hint type="warning" title="Security Consideration" >}}
+Insecure registry mirrors can use HTTP connections without encryption or HTTPS with self-signed certificates. Only use insecure mirrors in trusted network environments.
+{{< /hint >}}
+
+1. Click in the **Insecure Mirror URLs** field.
+
+2. Type the registry mirror URL (e.g., *`http://my-insecure-mirror-host`* or *`https://my-mirror-with-self-signed-cert`*).
+
+3. Press <kbd>Enter</kbd> to add the URL as a chip.
+
+4. Repeat to add additional insecure mirror URLs.
+
+5. Click **Save** to apply the configuration.
+
+Registry mirrors are used in addition to the original registry. When a mirror is unavailable, Docker falls back to pulling images directly from the original registry.
 
 ## Configuring Global Settings
 
