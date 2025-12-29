@@ -54,6 +54,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Deprecated apps catalog handler -->
 <script src="/js/catalog-deprecated-apps.js" defer></script>
 
+<!-- App version switcher -->
+<script src="/js/app-version-switcher.js" defer></script>
+
  <!-- Add app keywords to html metadata -->
 {{ if .Scratch.Get "keywords" }}
   <meta name="keywords" content="{{ delimit (.Scratch.Get "keywords") ", " }}">
