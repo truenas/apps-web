@@ -50,9 +50,9 @@ You can create a third dataset, <b>cache</b> or use the <b>tmpfs</b> storage opt
 These datasets store different types of data:
 * **config** - Contains the Frigate configuration YAML file and other app settings
 * **media** - Stores recorded video clips and snapshots 
-* **cache** - (Optional) Stores processing and thumbnail generation, or use the **tmpfs** option to create a diectory for temporary storage in RAM </div>
+* **cache** - (Optional) Stores processing and thumbnail generation, or use the **tmpfs** option to create a directory for temporary storage in RAM </div>
 
-For more information on storage configuration options, refer to the storage configuration options in the [Understanding App Installation Wizard Settings](#understanding-app-installation-wisard-settings) section.</div>
+For more information on storage configuration options, refer to the storage configuration options in the [Understanding App Installation Wizard Settings](#understanding-app-installation-wizard-settings) section.</div>
 
 * Prepare Hardware Acceleration information (optional)
   
@@ -63,7 +63,7 @@ For more information on storage configuration options, refer to the storage conf
 
   NVIDIA GPU: Verify NVIDIA drivers are installed and your GPU is detected.
 
-  Google Coral USB TPU: No preparation needed - simply enable **Mount USB Bus** during installation.
+  For USB accelerators: Enable **Mount USB Bus** during installation.
 
   For detailed hardware detection instructions and configuration examples, see https://docs.frigate.video/configuration/hardware_acceleration.
 
@@ -72,7 +72,7 @@ For more information on storage configuration options, refer to the storage conf
   {{< expand "Frigate Hardware Acceleration Requirements" "v" >}}
 
   For optimal performance, Frigate benefits from dedicated hardware acceleration.
-  Frigate recommends Google Coral USB/PCIe TPU, Intel integrated graphics with VAAPI, or NVIDIA GPU.
+  Refer to Frigate documentation for current hardware recommendations.
 
   Frigate recommendations for CPU and RAM:
   * CPU-only detection (limited performance) at a minimum
@@ -118,10 +118,12 @@ Advanced users with supported hardware can select optimized images.
 
 Set the **Shared Memory Size** based on your camera setup. Choose the option that applies to your use case.
 * **64 MiB** is the default setting for one to two cameras.
-* **128 MiB** is for three to five cameras.
+* **128 MiB** is for three to five cameras (Frigate recommends this as the minimum for most setups).
 * **256 MiB** is for six or more cameras or higher resolution streams.
 
-Select **Mount USB Bus** if using a Google Coral USB accelerator or other USB devices for hardware acceleration.
+For specific calculations based on your setup, refer to the [Frigate Installation documentation](https://docs.frigate.video/frigate/installation#calculating-required-shm-size).
+
+Select **Mount USB Bus** if using a USB accelerator or other USB devices for hardware acceleration.
 
 Click **Add** next to **Devices** add hardware acceleration devices (GPU, TPU, etc.).
 Refer to the list created in the [Before You Begin](#before-you-begin) section on hardware acceleration for device paths.
@@ -183,7 +185,7 @@ Click **Web UI** on the **Application Info** widget to open the Frigate web inte
 
 ## Initial Frigate Account Configuration
 
-After deploying the TrueNAS Frigate app, log into your Frigate account to configure your camera settings and object detection zones as described in the sections below.
+After deploying the TrueNAS Frigate app, access the Frigate interface to configure your camera settings and object detection zones.
 
 ### Camera Configuration
 
@@ -195,40 +197,15 @@ To add camera configuration information in the Frigate app:
    
   Where:
   * *pool* is the name of the pool where you created the datasets for the Frigate app.
-  * *apps** is the parent dataset for the frigate storage.
+  * *apps* is the parent dataset for the frigate storage.
   * *frigate* is a parent dataset for the frigate datasets.
 
   Your mount path might vary based on where you created the datasets for Frigate.
 
-* Create or edit the `config.yml` file with your camera configuration. See the example below.
-  
-  Basic camera configuration example:
-  ```yaml
-  cameras:
-    front_door:
-      ffmpeg:
-        inputs:
-          - path: rtsp://username:password@camera-ip:554/stream1
-            roles:
-              - detect
-              - record
-      detect:
-        width: 1920
-        height: 1080
-  ```
+* Configure cameras using the Frigate UI.
+  Refer to [Camera Configuration & Object Detection Zones](https://docs.frigate.video/configuration/cameras) and [configuring zones/masks in the Frigate UI](https://docs.frigate.video/configuration/zones) for more information.
+
 Restart the Frigate app to apply changes. On the TrueNAS **Applications** screen, click the **Restart** icon for the Frigate app.
-
-### Object Detection Zones
-
-Modify the config.yaml file to add detection zones to focus on specific areas and reduce false positives. See the example below.
-
-```yaml
-cameras:
-  front_door:
-    zones:
-      entry_area:
-        coordinates: 100,100,400,100,400,300,100,300
-```
 
 ## Understanding App Installation Wizard Settings
 
@@ -250,12 +227,14 @@ The **Image Selector** option determines which Frigate image to use. Options are
 * **Normal Image** - Use for standard CPU-based detection.
 * **Optimized Images** - Use and available for specific hardware (NVIDIA, Intel, etc.).
 
-Enter the memory you want to allocate for inter-process communication in **Shared Memory Size**. Options are:
-* **64 MiB** - Suitable for 1-2 cameras at 1080p.
-* **128 MiB** - Recommended for 3-5 cameras.
-* **256 MiB or higher** - Best for many cameras or 4K streams.
+Enter the memory you want to allocate for inter-process communication in **Shared Memory Size**.
+The default **128 MiB** is suitable for approximately 2 cameras at 720p resolution.
+For multiple cameras or higher resolutions, you need to increase this allocation.
 
-Select **Mount USB Bus** to enable access to USB devices like Google Coral TPU accelerators.
+To calculate the exact shared memory requirements for your camera setup, use the formula provided in the [Frigate Installation documentation](https://docs.frigate.video/frigate/installation#calculating-required-shm-size):
+`(width × height × 1.5 × 20 + 270480) / 1048576` per camera, plus approximately 40MB for logs.
+
+Select **Mount USB Bus** to enable access to USB hardware accelerators.
 
 #### Device Configuration
 
@@ -337,82 +316,6 @@ Select **Force Flag** to allow TrueNAS to update the app when the dataset has da
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}
 
-## Frigate Advanced Configurations
+## Frigate Troubleshooting
 
-This section covers hardware acceleration setups, camera optimizations, and storage retention policies in your Frigate account.
-
-### Setting Up Hardware Acceleration
-
-For optimal performance, configure hardware acceleration:
-
-#### Google Coral TPU
-1. Enable **Mount USB Bus** in the TrueNAS **Install Frigate**  wizard configuration.
-   Coral devices are automatically detected.
-2. Add to the following to the config.yml: `detector: { type: edgetpu, device: usb }`
-
-#### Intel Integrated Graphics 
-1. Add `/dev/dri/renderD128` device
-2. Configure VAAPI in config.yml for hardware encoding
-
-#### NVIDIA GPU
-1. Add appropriate GPU devices
-2. Use NVIDIA-optimized container image
-3. Configure hardware encoding in config.yml
-
-### Setting Up Camera Optimization
-
-When configuring streams, use separate streams for detection (lower resolution) and recording (higher resolution), configure appropriate frame rates (5-10 fps for detection is often sufficient), and use H.264 codec for best compatibility.
-
-When setting up detection tuning, adjust detection thresholds to reduce false positives.
-Configure object filters for relevant objects only.
-Use zones to focus detection on important areas.
-
-### Changing Storage Retention Policies
-
-To modify retention policies, configure automatic deletion of old recordings. See the example below:
-
-```yaml
-record:
-  retain:
-    days: 7
-    mode: motion
-snapshots:
-  retain:
-    default: 14
-```
-Configure storage monitoring of the media dataset usage.
-Set up alerts for storage capacity.
-Consider automated cleanup scripts for very large deployments.
-
-## Troubleshooting
-
-### Common Issues
-
-**Poor Detection Performance**
-* Increase shared memory allocation.
-* Configure hardware acceleration.
-* Optimize camera stream settings.
-
-**Camera Connection Issues**
-* Verify RTSP URLs and credentials.
-* Test streams outside of Frigate first.
-* Check network connectivity between TrueNAS and cameras.
-
-### Performance Optimization
-
-**CPU Usage**
-* Enable hardware acceleration when available.
-* Reduce detection frame rates.
-* Use appropriate detection image sizes.
-
-**Memory Usage**
-* Adjust shared memory size based on camera count.
-* Monitor RAM usage with multiple cameras.
-* Consider tmpfs for cache storage.
-
-**Network Bandwidth**
-* Use appropriate stream resolutions.
-* Configure separate substreams for detection.
-* Monitor network utilization during peak usage.
-
-For additional troubleshooting and advanced configuration, refer to the [official Frigate documentation](https://docs.frigate.video/).
+For troubleshooting and advanced configuration, refer to the [official Frigate documentation](https://docs.frigate.video/).
