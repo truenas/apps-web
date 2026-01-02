@@ -10,7 +10,8 @@
   {{< /hint >}}
 
   You can create required datasets before or after launching the installation wizard.
-  The install wizard includes the **Create Dataset** option for host path storage volumes, but if you are organizing required datasets under a parent you must create that dataset before launching the app installation wizard.
+  The install wizard includes the **Create Dataset** option for host path storage volumes.
+  This allows you to create the parent dataset if want to organize the required datasets under a parent, or you can create all datasets before you begin installing the app.
 
-  Go to **Datasets** and select the pool or dataset where you want to place the dataset(s) for the app.
-  For example, */tank/apps/appName*.
+  To create datasets before using the **Install Frigate** wizard, go to **Datasets** and select the pool or parent dataset where you want to place the dataset(s) for the app. For example, */tank/apps/appName*.
+
