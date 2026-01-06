@@ -36,6 +36,7 @@
       <input type="checkbox" class="hidden" id="menu-header-control" />
       {{ $navEnabled := default false .Page.Params.GeekdocNav }}
       {{ partial "site-header" (dict "Root" . "MenuEnabled" $navEnabled) }}
+      {{ partial "apps-banner" . }}
 
 
       <main class="container flex flex-even">
