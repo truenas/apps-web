@@ -162,4 +162,12 @@
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
 }
 
+/* Fix header menu button hover/focus outline - remove black square */
+.truenas-menubutton:hover,
+.truenas-menubutton:focus,
+.truenas-menubutton:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* End Apps-Web Specific Overrides */
