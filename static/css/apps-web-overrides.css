@@ -162,12 +162,63 @@
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
 }
 
-/* Fix header menu button hover/focus outline - remove black square */
-.truenas-menubutton:hover,
-.truenas-menubutton:focus,
-.truenas-menubutton:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
+/* Version Selector Styling - Inline dropdown */
+.version-dropdown {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: 1px solid #0095d5;
+  border-radius: 3px;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  margin: 0 0.25rem;
+}
+
+.version-dropdown:hover {
+  border-color: #007ab8;
+  background: #f8f9fa;
+}
+
+.version-dropdown:focus {
+  outline: none;
+  border-color: #005a87;
+  box-shadow: 0 0 0 2px rgba(0, 149, 213, 0.2);
+}
+
+.version-dropdown option {
+  color: #333;
+  background: white;
+}
+
+.version-dropdown option[data-healthy="false"] {
+  color: #856404;
+  font-style: italic;
+}
+
+/* Version-specific content visibility */
+.version-content {
+  display: none; /* Hidden by default */
+}
+
+.version-content.active {
+  display: block; /* Show active version */
+}
+
+/* Inline spans for version-specific text */
+.version-text {
+  display: none;
+}
+
+.version-text.active {
+  display: inline;
+}
+
+/* Smooth transition */
+.version-content, .version-text {
+  transition: opacity 0.2s ease;
 }
 
 /* End Apps-Web Specific Overrides */

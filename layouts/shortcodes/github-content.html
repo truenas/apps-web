@@ -12,13 +12,16 @@
 
   <!-- Ensure jsonData is valid before proceeding -->
   {{ if $jsonData }}
-    <!-- Extract the first key dynamically -->
-    {{ $firstKey := "" }}
+    <!-- Extract all versions and sort by semantic version (descending) -->
+    {{ $allVersions := slice }}
     {{ range $key, $value := $jsonData }}
-      {{ $firstKey = $key }}
-      {{ break }}
+      {{ $allVersions = $allVersions | append (dict "key" $key "data" $value "healthy" $value.healthy "app_version" $value.app_metadata.app_version) }}
     {{ end }}
-    {{ $versionData := index $jsonData $firstKey | default dict }}
+
+    {{ $sortedVersions := sort $allVersions "key" "desc" }}
+    {{ $selectedVersion := index $sortedVersions 0 }}
+    {{ $versionData := $selectedVersion.data }}
+    {{ $currentVersionKey := $selectedVersion.key }}
 
     <!-- Extract metadata -->
     {{ $name := $versionData.app_metadata.name | default "" }}
@@ -75,17 +78,50 @@
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
             <small>
-              {{ if $minScaleVersion }}
-                Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
+              {{ if gt (len $sortedVersions) 1 }}
+                {{ range $index, $ver := $sortedVersions }}
+                  {{ if $ver.data.app_metadata.annotations.min_scale_version }}
+                    <span class="version-text {{ if eq $index 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+                      Requires TrueNAS: <b>{{ $ver.data.app_metadata.annotations.min_scale_version }}</b> or newer<br>
+                    </span>
+                  {{ end }}
+                {{ end }}
+              {{ else }}
+                {{ if $minScaleVersion }}
+                  Requires TrueNAS: <b>{{ $minScaleVersion }}</b> or newer<br>
+                {{ end }}
               {{ end }}
-              App Version: <b>{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+              App Version:
+              {{ if gt (len $sortedVersions) 1 }}
+                <select id="version-select-{{ $name }}" class="version-dropdown" data-app-name="{{ $name }}">
+                  {{ range $sortedVersions }}
+                    <option value="{{ .key }}"
+                            data-healthy="{{ .healthy }}"
+                            {{ if eq .key $currentVersionKey }}selected{{ end }}>
+                      {{ .app_version }}{{ if not .healthy }} (Unhealthy){{ end }}
+                    </option>
+                  {{ end }}
+                </select>
+              {{ else }}
+                <b class="app-version-display">{{ $versionData.app_metadata.app_version | default "Unknown" }}</b>
+              {{ end }}
               {{ if not (isset $versionData.app_metadata "app_version") }}
                 {{ warnf "Missing 'app_version' in app_metadata for file: %s" $localFilePath }}
               {{ end }}
-              {{ if $changelog }}
-                (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+              {{ if gt (len $sortedVersions) 1 }}
+                {{ range $index, $ver := $sortedVersions }}
+                  <span class="version-text {{ if eq $index 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+                    {{ if $ver.data.app_metadata.changelog_url }}
+                      (<a href="{{ $ver.data.app_metadata.changelog_url }}" target="_blank">Changelog</a>)
+                    {{ end }}
+                  </span>
+                {{ end }}
               {{ else }}
-                {{ warnf "No changelog_url for %s in %s" $name $localFilePath }}
+                {{ if $changelog }}
+                  (<a href="{{ $changelog }}" target="_blank">Changelog</a>)
+                {{ else }}
+                  {{ warnf "No changelog_url for %s in %s" $name $localFilePath }}
+                {{ end }}
               {{ end }}
               <br>
               {{ with $versionData.app_metadata.keywords }}
@@ -102,6 +138,7 @@
               {{ end }}
             </small>
           </div>
+
         </div>
       </div>
 
@@ -114,10 +151,20 @@
           {{ else }}
             {{ warnf "No date_added for %s in %s" $name $localFilePath }}
           {{ end }}
-          {{ if $versionData.last_update }}
-            Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+          {{ if gt (len $sortedVersions) 1 }}
+            Last Updated:
+            {{ range $index, $ver := $sortedVersions }}
+              <span class="version-text {{ if eq $index 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+                {{ if $ver.data.last_update }}{{ (time $ver.data.last_update).Format "2006-01-02" }}{{ else }}Unknown{{ end }}
+              </span>
+            {{ end }}
+            <br>
           {{ else }}
-            {{ warnf "No last_update for %s in %s" $name $localFilePath }}
+            {{ if $versionData.last_update }}
+              Last Updated: {{ (time $versionData.last_update).Format "2006-01-02" }}<br>
+            {{ else }}
+              {{ warnf "No last_update for %s in %s" $name $localFilePath }}
+            {{ end }}
           {{ end }}
           <p class="app-descr">
             {{ $appDescription }}
@@ -234,18 +281,34 @@
     {{ end }}
 
     <!-- Screenshots Section -->
-    {{ if $versionData.app_metadata.screenshots }}
-      <br>
-      <div class="screenshots-section">
-        <b>Screenshots</b>
-        <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
-            <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
-          {{ end }}
-        </div>
-      </div>
+    {{ if gt (len $sortedVersions) 1 }}
+      {{ range $vIndex, $ver := $sortedVersions }}
+        {{ if $ver.data.app_metadata.screenshots }}
+          <br class="version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+          <div class="screenshots-section version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+            <b>Screenshots</b>
+            <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              {{ range $index, $screenshot := $ver.data.app_metadata.screenshots }}
+                <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
     {{ else }}
-      {{ warnf "No screenshots found for %s in %s" $name $localFilePath }}
+      {{ if $versionData.app_metadata.screenshots }}
+        <br>
+        <div class="screenshots-section">
+          <b>Screenshots</b>
+          <div class="screenshots-thumbnails" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            {{ range $index, $screenshot := $versionData.app_metadata.screenshots }}
+              <img class="screenshot-thumbnail" style="flex: 1 1 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem);" src="{{ $screenshot }}" alt="Screenshot {{ add $index 1 }}" onclick="openLightbox('{{ $screenshot }}')">
+            {{ end }}
+          </div>
+        </div>
+      {{ else }}
+        {{ warnf "No screenshots found for %s in %s" $name $localFilePath }}
+      {{ end }}
     {{ end }}
 
     <!-- Lightbox Modal -->
@@ -259,38 +322,78 @@
     </div>
 
     <!-- Host Mounts Section -->
-    {{ if $versionData.app_metadata.host_mounts }}
-      {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
-      <br>
-      <details>
-        <summary>Host Mounts</summary>
-        <ul>
-          {{ range $host_mount := $versionData.app_metadata.host_mounts }}
-          <li>
-            {{ $host_mount.host_path }} : {{ $host_mount.description }}
-          </li>
+    {{ if gt (len $sortedVersions) 1 }}
+      {{ range $vIndex, $ver := $sortedVersions }}
+        {{ if $ver.data.app_metadata.host_mounts }}
+          {{ if gt (len $ver.data.app_metadata.host_mounts) 0 }}
+            <br class="version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+            <details class="version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+              <summary>Host Mounts</summary>
+              <ul class="host-mounts-list">
+                {{ range $host_mount := $ver.data.app_metadata.host_mounts }}
+                <li>
+                  {{ $host_mount.host_path }} : {{ $host_mount.description }}
+                </li>
+                {{ end }}
+              </ul>
+            </details>
           {{ end }}
-        </ul>
-      </details>
-	  {{ end }}
-	{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ if $versionData.app_metadata.host_mounts }}
+        {{ if gt (len $versionData.app_metadata.host_mounts) 0 }}
+        <br>
+        <details>
+          <summary>Host Mounts</summary>
+          <ul class="host-mounts-list">
+            {{ range $host_mount := $versionData.app_metadata.host_mounts }}
+            <li>
+              {{ $host_mount.host_path }} : {{ $host_mount.description }}
+            </li>
+            {{ end }}
+          </ul>
+        </details>
+        {{ end }}
+      {{ end }}
+    {{ end }}
 
     <!-- Security Capabilities Section -->
-    {{ if $versionData.app_metadata.capabilities }}
-      {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
-      <br>
-      <details>
-        <summary>Security Capabilities</summary>
-        <ul>
-          {{ range $capability := $versionData.app_metadata.capabilities }}
-          <li>
-            {{ $capability.description }}
-          </li>
+    {{ if gt (len $sortedVersions) 1 }}
+      {{ range $vIndex, $ver := $sortedVersions }}
+        {{ if $ver.data.app_metadata.capabilities }}
+          {{ if gt (len $ver.data.app_metadata.capabilities) 0 }}
+            <br class="version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+            <details class="version-content {{ if eq $vIndex 0 }}active{{ end }}" data-app="{{ $name }}" data-version="{{ $ver.key }}">
+              <summary>Security Capabilities</summary>
+              <ul class="capabilities-list">
+                {{ range $capability := $ver.data.app_metadata.capabilities }}
+                <li>
+                  {{ $capability.description }}
+                </li>
+                {{ end }}
+              </ul>
+            </details>
           {{ end }}
-        </ul>
-      </details>
-	  {{ end }}
-	{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ if $versionData.app_metadata.capabilities }}
+        {{ if gt (len $versionData.app_metadata.capabilities) 0 }}
+        <br>
+        <details>
+          <summary>Security Capabilities</summary>
+          <ul class="capabilities-list">
+            {{ range $capability := $versionData.app_metadata.capabilities }}
+            <li>
+              {{ $capability.description }}
+            </li>
+            {{ end }}
+          </ul>
+        </details>
+        {{ end }}
+      {{ end }}
+    {{ end }}
     <!-- App_Versions File Expand -->
     <br>
     <details>
