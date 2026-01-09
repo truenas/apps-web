@@ -45,7 +45,7 @@ Before you install the Frigate app:
 {{< include file="/static/includes/apps/BeforeYouBeginAddAppDatasets.md" >}}
 
 <div style="margin-left: 33px">Frigate requires two datasets: <b>config</b> for app configuration files and <b>media</b> for recorded video storage.
-You can create a third dataset, <b>cache</b> or use the <b>tmpfs</b> storage option to create a temporary directory on the RAM for temporary storage and thumbnails.
+You can create a third dataset, <b>cache</b>, or use the <b>tmpfs</b> storage option to create a temporary directory on the RAM for temporary storage and thumbnails.
   
 These datasets store different types of data:
 * **config** - Contains the Frigate configuration YAML file and other app settings
@@ -147,7 +147,7 @@ See [Network Configuration](#network-configuration) below for more information.
 
 If you want to bind specific host IPs, click **Add** next to **Host IPs** and enter the IP addresses.
 
-Add your **Storage Configuration** settings. For **Frigate Config Storage** do the following:
+Add your **Storage Configuration** settings. For **Frigate Config Storage**, do the following:
 
 Set **Type** to **Host Path (Path that already exists on the system)**.
 Select **Enable ACL**. Use the file browser to navigate to the required dataset. 
@@ -291,7 +291,7 @@ Frigate needs two datasets for host path storage volume configurations:
 * **media** for media storage. Select as the **Media Storage** volume.
 
 The **Cache Storage** can be set to a host path with a dataset named **cache** or set to the **tmpfs** option, which creates a directory in RAM for temporary file storage, thumbnails, etc.
-Using **Host Path** requires a dataset. Using **tmpfs** RAM-based storage is faster but the directory is cleared on a system restart.
+Using **Host Path** requires a dataset. Using **tmpfs** RAM-based storage is faster, but the directory is cleared on a system restart.
 
 If you nest these datasets under a parent dataset named *frigate*, and use the **Add Dataset** form, you can create a dataset with the **Dataset Preset** set to **Generic** or **Apps**.
 
