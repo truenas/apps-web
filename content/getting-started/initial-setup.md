@@ -167,7 +167,15 @@ Select the network option, or add additional options to resolve the network conn
 
 ### Installing NVIDIA Drivers
 
-TrueNAS 24.10 (and later) users must manually install drivers from the TrueNAS UI.
+{{< hint type="info" title="TrueNAS 26 and Later" >}}
+In TrueNAS 26 and later releases, NVIDIA driver installation has moved to **System > Advanced Settings**.
+
+See [Advanced Settings Screen](https://www.truenas.com/docs/scale/26.04/scaleuireference/systemsettings/advancedsettingsscreen/#nvidia-drivers-widget) for detailed instructions.
+
+The steps below apply to TrueNAS 25.10 and earlier releases.
+{{< /hint >}}
+
+TrueNAS 24.10 through 25.10 users must manually install drivers from the TrueNAS UI.
 
 1. Go to **Apps > Installed** and click on the **Configuration**.
 
