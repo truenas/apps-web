@@ -236,7 +236,12 @@ If the app still does not start, try clearing your screen cache. This can someti
 ### Plex App NVIDIA GPU Driver Issues
 
 If Plex reports issues with drivers you might have to delete the app and recreate a fresh app container using the same datasets.
-Also, check **Apps > Configuration > Settings** to make sure the NVIDIA driver option is selected.
+
+Also, verify NVIDIA drivers are installed:
+- **TrueNAS 25.10 and earlier**: Check **Apps > Configuration > Settings** for the NVIDIA driver option
+- **TrueNAS 26 and later**: Check **System > Advanced Settings** for NVIDIA driver configuration
+
+See the [Initial Setup](https://apps.truenas.com/getting-started/initial-setup/#installing-nvidia-drivers) guide for version-specific instructions.
 
 Search the [TrueNAS forum](https://forums.truenas.com/) for Plex discussion threads for other tips and suggestions.
 
