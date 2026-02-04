@@ -68,14 +68,44 @@ check_unmatched_subdirs() {
   # Check each subdirectory against the .md files
   for subdir in "${subdirs[@]}"; do
     match_found=false
+    matched_file=""
 
+    # First check if there's an exact train-suffixed match (e.g., appname_stable.md)
     for md_file in "${md_files[@]}"; do
-      # Check if the .md file matches the subdirectory name and train name
-      if [[ "$md_file" == "$subdir" || "$md_file" == *"_${train}" ]]; then
+      if [[ "$md_file" == "${subdir}_${train}" ]]; then
         match_found=true
+        matched_file="$md_file"
+        echo "  ✓ $train/$subdir matched by ${md_file}.md (train-suffixed)" >> "$LOG_FILE"
         break
       fi
     done
+
+    # If no train-suffixed match, check for exact name match (e.g., appname.md)
+    # but ONLY if its train frontmatter matches
+    if [[ "$match_found" == false ]]; then
+      for md_file in "${md_files[@]}"; do
+        if [[ "$md_file" == "$subdir" ]]; then
+          # Found a name match, now verify the train field in frontmatter
+          md_file_path="$CATALOG_DIR/${md_file}.md"
+          if [[ -f "$md_file_path" ]]; then
+            # Extract train from frontmatter (handles CRLF and LF line endings)
+            file_train=$(awk '/^train:/ {gsub(/^train: *"?/, ""); gsub(/"?[[:space:]]*$/, ""); print; exit}' "$md_file_path")
+
+            if [[ "$file_train" == "$train" ]]; then
+              # Train matches, this is a valid match
+              match_found=true
+              matched_file="$md_file"
+              echo "  ✓ $train/$subdir matched by ${md_file}.md (train field verified)" >> "$LOG_FILE"
+            else
+              # Train mismatch - this file is for a different train
+              echo "  ⚠ $train/$subdir: Found ${md_file}.md but it has train='$file_train', not '$train'" >> "$LOG_FILE"
+              echo "    → This indicates a multi-train app needs ${subdir}_${train}.md" >> "$LOG_FILE"
+            fi
+          fi
+          break
+        fi
+      done
+    fi
 
     # If no match is found, add the subdirectory to the unmatched list
     if [[ "$match_found" == false ]]; then
@@ -103,6 +133,28 @@ check_unmatched_subdirs() {
       description=$(jq -r '.[].app_metadata.description' "$json_file" | head -n 1)
       icon=$(jq -r '.[].app_metadata.icon' "$json_file" | head -n 1)
 
+      # Check if this app exists in multiple trains (multi-train app)
+      multi_train=false
+      train_count=0
+      for check_train in "${TRAINS[@]}"; do
+        if [[ -d "$TRAINS_DIR/$check_train/$subdir" ]]; then
+          train_count=$((train_count + 1))
+        fi
+      done
+      if [[ $train_count -gt 1 ]]; then
+        multi_train=true
+        echo "  ℹ $subdir exists in $train_count trains (multi-train app)" >> "$LOG_FILE"
+      fi
+
+      # Determine the filename: use train suffix for multi-train apps
+      if [[ "$multi_train" == true ]]; then
+        md_filename="${subdir}_${train}.md"
+        title_suffix=" ($(echo $train | sed 's/./\U&/')) " # Capitalize first letter
+      else
+        md_filename="${subdir}.md"
+        title_suffix=""
+      fi
+
       # Determine the include file based on the train
       if [[ "$train" == "community" ]]; then
         include_file="CommunityApp"
@@ -116,13 +168,13 @@ check_unmatched_subdirs() {
       fi
 
       # Create the .md file in the catalog directory
-      md_file_abs_path="$CATALOG_DIR/$subdir.md"
-      md_file_rel_path="./content/catalog/${subdir}.md"
+      md_file_abs_path="$CATALOG_DIR/$md_filename"
+      md_file_rel_path="./content/catalog/${md_filename}"
       if [[ ! -f "$md_file_abs_path" ]]; then
         # Generate the content for the .md file
         cat <<EOF > "$md_file_abs_path"
 ---
-title: "$title"
+title: "$title$title_suffix"
 description: "Description and resources for the TrueNAS $train application called $title."
 train: "$train"
 icon: "$icon"
