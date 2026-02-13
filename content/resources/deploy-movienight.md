@@ -21,8 +21,8 @@ tags:
 This app need pretty much nothing to run, only a optional conf file that you'll map through a a mounted volume.
 
 MovieNight takes a few minutes to install.
-When it's running, click on the `web portal` button to go to the MovieNight app itself.
-You'll also need a stream solution, like `[OBS](https://obsproject.com/fr)` to inject a video stream to broadcast.
+When it is running, click on the **web portal** button to go to the MovieNight app itself.
+You also need a stream solution, like [OBS](https://obsproject.com/fr) to inject a video stream to broadcast.
 
 For all the configuration, see : [MovieNight :: Readme](https://github.com/zorchenhimer/MovieNight/blob/master/readme.md)
 
