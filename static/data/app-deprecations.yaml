@@ -127,6 +127,17 @@ invidious:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
+jellyseerr:
+  train: community
+  title: "Jellyseerr (Deprecated)"
+  deprecations:
+    - scope: "full"
+      deprecated_date: "2026-02-16"
+      removal_date: "2026-05-16"
+      reason: "App is no longer maintained, migrate to Seerr"
+      alternative_app: "Seerr"
+      migration_guide: "https://docs.seerr.dev/migration-guide"
+
 joplin:
   train: community
   title: "Joplin"
@@ -244,6 +255,17 @@ odoo:
         steps:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
+
+overseerr:
+  train: community
+  title: "Overseerr (Deprecated)"
+  deprecations:
+    - scope: "full"
+      deprecated_date: "2026-02-16"
+      removal_date: "2026-05-16"
+      reason: "App is no longer maintained, migrate to Seerr"
+      alternative_app: "Seerr"
+      migration_guide: "https://docs.seerr.dev/migration-guide"
 
 paperless-ngx:
   train: community
