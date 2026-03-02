@@ -3,6 +3,24 @@
 This repository contains all the raw files for building the TrueNAS Apps Portal.
 This site is intended for use as the online hub for information about first- and third- party applications that are available from within TrueNAS.
 
+## Install Hugo
+
+This site requires **Hugo Extended v0.157.0**.
+
+**Windows (Chocolatey — recommended, run PowerShell as Administrator):**
+
+    choco install hugo-extended --version=0.157.0
+
+**Windows (winget):**
+
+    winget install Hugo.Hugo.Extended --version 0.157.0
+
+**WSL/Linux:** Download `hugo_extended_0.157.0_linux-amd64.tar.gz` from
+https://github.com/gohugoio/hugo/releases/tag/v0.157.0 and install to your PATH.
+
+> Hugo Extended (not standard Hugo) is required. This site has been tested against v0.157.0.
+> Later versions may work but have not been officially tested.
+
 ## Method
 
 The strategy for this site is to be as automated as possible.
