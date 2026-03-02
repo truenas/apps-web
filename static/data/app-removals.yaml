@@ -32,3 +32,12 @@ codegate:
     scheduled_removal_date: "2025-10-03"
     reason: "No longer maintained by upstream project"
     alternative_app: "code-server"
+
+huntarr:
+  train: community
+  title: "Huntarr"
+  removal_detected_date: "2026-03-02"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/sonarr/icons/icon.svg"
+    description: "Description and resources for the TrueNAS community application called Huntarr."
+    reason: "Removed from catalog"
