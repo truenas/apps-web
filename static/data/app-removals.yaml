@@ -41,3 +41,12 @@ huntarr:
     icon: "https://media.sys.truenas.net/apps/sonarr/icons/icon.svg"
     description: "Description and resources for the TrueNAS community application called Huntarr."
     reason: "Removed from catalog"
+
+booklore:
+  train: community
+  title: "BookLore"
+  removal_detected_date: "2026-03-23"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/booklore/icons/icon.svg"
+    description: "Description and resources for the TrueNAS community application called BookLore."
+    reason: "Removed from catalog"
