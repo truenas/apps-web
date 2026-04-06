@@ -316,7 +316,8 @@ Enter a name for the application using lowercase, alphanumeric characters.
 
 Enter the Compose YAML file in **Custom Config**.
 
-Begin the Compose file with a top-level element, such as `name:` or `services:`.
+Begin the Compose file with a top-level element, such as `name:`, `services:`, or `include:`.
+The `include:` key allows referencing an external Compose file that defines services, which is useful for users managing their own Docker Compose files outside TrueNAS.
 See the Docker [Compose file reference](https://docs.docker.com/reference/compose-file/) for more information.
 As Compose files can be complex and YAML relies on indentation and whitespace to define structure and hierarchy, we recommend writing the file in a stand-alone code editor before pasting the completed content into the **Custom Config** field.
 
