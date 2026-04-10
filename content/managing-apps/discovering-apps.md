@@ -41,14 +41,16 @@ Click on an app widget to open the app information screen with details about the
 
 ## Understanding Versions
 
-The information screen includes two version numbers for the selected application: **App Version** and **Version**.
+The information screen shows two version identifiers for the selected application: **Version** and **Revision**.
 
-**App Version** is the version of the upstream Docker image the app installs, such as *24.04.10.2.1* for Collabora.
-The **App Version** also appears in the **Application Info** widget on the **Installed** applications screen.
+**Version** is the upstream application version — the version of the software released by the upstream project, such as *24.04.10.2.1* for Collabora.
+**Version** also appears in the **Application Info** widget on the **Installed** screen.
 
-**Version** is the revision number of the app in the [TrueNAS app train](https://github.com/truenas/apps/tree/master/trains), for example *1.2.2*.
-The **Version** is the number used to identify app updates in TrueNAS.
-It also appears on the **Installed** applications screen, on the **Discover** screen app widget, and in the install wizard for the app.
+**Revision** is the TrueNAS catalog revision — the version of the app entry in the [TrueNAS app train](https://github.com/truenas/apps/tree/master/trains), for example *1.2.2*.
+The **Revision** identifies catalog packaging updates and appears on the **Installed** screen and in the install wizard for the app.
+
+Updates to an app can involve a new upstream **Version**, a new **Revision**, or both.
+The **Applications** table on the **Installed** screen shows **Update available** when the upstream version changes, or **Revision available** when only the catalog revision changes.
 
 ## Refreshing the Apps Catalog
 
