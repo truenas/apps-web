@@ -1,6 +1,6 @@
 ---
-title: "Chatwoot"
-description: "Description and resources for the TrueNAS community application called Chatwoot."
+title: "LibreChat"
+description: "Description and resources for the TrueNAS community application called LibreChat."
 train: "community"
 icon: "https://media.sys.truenas.net/apps/librechat/icons/icon.svg"
 ---
