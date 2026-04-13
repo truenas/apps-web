@@ -28,7 +28,8 @@ Click on an app row to view **Details**, including the **Application Info**, **W
 
 {{< trueimage src="/images/Apps/InstalledAppsScreenWithApps.png" alt="Installed Applications Screen" id="Installed Applications Screen" >}}
 
-The **Application Info** widget shows the app name, **Version** (upstream application version), **Revision** (TrueNAS catalog revision), source link, and action buttons.
+In TrueNAS 26 and later, the **Application Info** widget shows the app name, **Version** (upstream application version), **Revision** (TrueNAS catalog revision), source link, and action buttons.
+In TrueNAS 25.10 and earlier, the widget shows **App Version** instead of **Version** and does not show **Revision**.
 
 ## Editing Apps
 
@@ -41,22 +42,24 @@ After making all desired configuration changes, click **Update** and the bottom 
 ## Updating Apps
 
 Apps with available updates show a yellow circle with an exclamation point in the **Applications** table row.
-The row displays **Update available** when the upstream application version is changing, or **Revision available** when only the TrueNAS catalog revision is changing.
+In TrueNAS 26 and later, the row displays **Update available** when the upstream application version is changing, or **Revision available** when only the TrueNAS catalog revision is changing.
 The **Installed** application screen banner displays an **Update** or an **Update All** button when updates are detected.
 To update an app, select the app row and click <i class="material-icons" aria-hidden="true" title="more_vert">more_vert</i> on the **Application Info** widget, then select **Update** from the dropdown menu.
 To update multiple apps, either click the **Update All** button on the **Installed** applications banner or select the checkbox to the left of the application row to show the **Bulk Actions** button.
 Click **Bulk Actions** and select **Update All** to update the apps selected.
 Update options only show if TrueNAS detects an available update for installed applications.
 
-The bulk update dialog lists each app in an expandable panel showing the app name and current upstream version.
+In TrueNAS 26 and later, the bulk update dialog lists each app in an expandable panel showing the app name and current upstream version.
 Expand a panel to see the version change details — a **Version** row if the upstream version is changing, and always a **Revision** row showing the catalog revision change.
 A **Version to be updated to** dropdown appears for apps that have multiple available revisions.
+In TrueNAS 25.10 and earlier, the dialog lists apps with radio buttons and shows a **Version** dropdown and **Changelog** when expanded.
 
-**Update** opens an update dialog showing the version change.
+In TrueNAS 26 and later, **Update** opens an update dialog showing the version change.
 When the upstream application version is changing, the dialog shows a **Version** row with the current and new upstream versions.
 The dialog always shows a **Revision** row with the current and new catalog revision numbers.
 When multiple catalog revisions are available, a **Version to be updated to** dropdown appears with options in the format **Version: X / Revision: Y**.
 A **View Upstream Release Notes** link appears when the app provides a changelog URL.
+In TrueNAS 25.10 and earlier, the update dialog shows **Images (to be updated)** and **Changelog** options instead.
 
 {{< trueimage src="/images/Apps/AppUpdateWindow.png" alt="Update Application Window" id="Update Application Window" >}}
 
@@ -73,6 +76,7 @@ This opens the **Application Info** widget on the right side of the screen and p
 The **Version** dropdown contains available app versions for roll back.
 The version numbers displayed are the **Revision** of the app in the TrueNAS catalog, equivalent to the **Revision** displayed on the **Application Info** widget.
 This is the catalog revision, not the upstream **Version**.
+In TrueNAS 25.10 and earlier, this catalog revision is labeled **Version** on the app information card.
 See [Understanding Versions](https://apps.truenas.com/managing-apps/discovering-apps/#understanding-versions) for more information.
 
 Click **Roll back snapshots** to restore the application data volume to match the selected version by rolling back to the snapshot for that version.
@@ -96,7 +100,8 @@ After the app status changes to stopped, click **Delete** on the **Application I
 
 {{< trueimage src="/images/Apps/AppsDeleteAppDialog.png" alt="Delete Application Dialog" id="Delete Application Dialog" >}}
 
-The dialog displays the application name and prompts you to type the application name in the confirmation field.
+In TrueNAS 26 and later, the dialog displays the application name and prompts you to type the application name in the confirmation field.
+In TrueNAS 25.10 and earlier, the dialog uses a **Confirm** checkbox and **Continue** button instead.
 
 Configure the following options as needed before clicking **Delete**:
 

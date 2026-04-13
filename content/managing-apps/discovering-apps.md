@@ -41,7 +41,8 @@ Click on an app widget to open the app information screen with details about the
 
 ## Understanding Versions
 
-The information screen shows two version identifiers for the selected application: **Version** and **Revision**.
+In TrueNAS 26 and later, the information screen shows two version identifiers for the selected application: **Version** and **Revision**.
+In TrueNAS 25.10 and earlier, these fields are labeled **App Version** and **Version** respectively.
 
 **Version** is the upstream application version — the version of the software released by the upstream project, such as *24.04.10.2.1* for Collabora.
 **Version** also appears in the **Application Info** widget on the **Installed** screen.
@@ -50,7 +51,8 @@ The information screen shows two version identifiers for the selected applicatio
 The **Revision** identifies catalog packaging updates and appears on the **Installed** screen and in the install wizard for the app.
 
 Updates to an app can involve a new upstream **Version**, a new **Revision**, or both.
-The **Applications** table on the **Installed** screen shows **Update available** when the upstream version changes, or **Revision available** when only the catalog revision changes.
+In TrueNAS 26 and later, the **Applications** table on the **Installed** screen shows **Update available** when the upstream version changes, or **Revision available** when only the catalog revision changes.
+In TrueNAS 25.10 and earlier, the table shows a general update indicator without distinguishing between version and revision updates.
 
 ## Refreshing the Apps Catalog
 
