@@ -1,14 +1,14 @@
 ---
-title: "LibreChat"
-description: "Description and resources for the TrueNAS community application called LibreChat."
+title: "Immich Kiosk"
+description: "Description and resources for the TrueNAS community application called Immich Kiosk."
 train: "community"
-icon: "https://media.sys.truenas.net/apps/librechat/icons/icon.svg"
+icon: "https://media.sys.truenas.net/apps/sonarr/icons/icon.svg"
 ---
 
 {{< catalog-return-button >}}
 
 {{< github-content 
-    path="trains/community/librechat/app_versions.json"
+    path="trains/community/immich-kiosk/app_versions.json"
     includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 

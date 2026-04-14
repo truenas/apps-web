@@ -1,14 +1,14 @@
 ---
-title: "LibreChat"
-description: "Description and resources for the TrueNAS community application called LibreChat."
+title: "Terraria TShock"
+description: "Description and resources for the TrueNAS community application called Terraria TShock."
 train: "community"
-icon: "https://media.sys.truenas.net/apps/librechat/icons/icon.svg"
+icon: "https://media.sys.truenas.net/apps/terraria-tshock/icons/icon.webp"
 ---
 
 {{< catalog-return-button >}}
 
 {{< github-content 
-    path="trains/community/librechat/app_versions.json"
+    path="trains/community/terraria-tshock/app_versions.json"
     includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 

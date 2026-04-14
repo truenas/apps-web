@@ -1,14 +1,14 @@
 ---
-title: "LibreChat"
-description: "Description and resources for the TrueNAS community application called LibreChat."
+title: "Blinko"
+description: "Description and resources for the TrueNAS community application called Blinko."
 train: "community"
-icon: "https://media.sys.truenas.net/apps/librechat/icons/icon.svg"
+icon: "https://media.sys.truenas.net/apps/blinko/icons/icon.png"
 ---
 
 {{< catalog-return-button >}}
 
 {{< github-content 
-    path="trains/community/librechat/app_versions.json"
+    path="trains/community/blinko/app_versions.json"
     includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
 >}}
 
