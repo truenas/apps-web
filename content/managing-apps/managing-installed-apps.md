@@ -28,6 +28,9 @@ Click on an app row to view **Details**, including the **Application Info**, **W
 
 {{< trueimage src="/images/Apps/InstalledAppsScreenWithApps.png" alt="Installed Applications Screen" id="Installed Applications Screen" >}}
 
+In TrueNAS 26 and later, the **Application Info** widget shows the app name, **Version** (upstream application version), **Revision** (TrueNAS catalog revision), source link, and action buttons.
+In TrueNAS 25.10 and earlier, the widget shows **App Version** instead of **Version** and does not show **Revision**.
+
 ## Editing Apps
 
 From the **Application Info** widget, click **Edit** to edit app configuration settings.
@@ -38,14 +41,25 @@ After making all desired configuration changes, click **Update** and the bottom 
 
 ## Updating Apps
 
-Apps with available updates show a yellow circle with an exclamation point on the right side of the **Applications** table row, and the **Installed** application screen banner displays an **Update** or an **Update All** button.
+Apps with available updates show a yellow circle with an exclamation point in the **Applications** table row.
+In TrueNAS 26 and later, the row displays **Update available** when the upstream application version is changing, or **Revision available** when only the TrueNAS catalog revision is changing.
+The **Installed** application screen banner displays an **Update** or an **Update All** button when updates are detected.
 To update an app, select the app row and click <i class="material-icons" aria-hidden="true" title="more_vert">more_vert</i> on the **Application Info** widget, then select **Update** from the dropdown menu.
 To update multiple apps, either click the **Update All** button on the **Installed** applications banner or select the checkbox to the left of the application row to show the **Bulk Actions** button.
 Click **Bulk Actions** and select **Update All** to update the apps selected.
 Update options only show if TrueNAS detects an available update for installed applications.
 
-**Update** opens an update window that includes two selectable options, **Images (to be updated)** and **Changelog**.
-Click on the down arrow to see the options available for each.
+In TrueNAS 26 and later, the bulk update dialog lists each app in an expandable panel showing the app name and current upstream version.
+Expand a panel to see the version change details — a **Version** row if the upstream version is changing, and always a **Revision** row showing the catalog revision change.
+A **Version to be updated to** dropdown appears for apps that have multiple available revisions.
+In TrueNAS 25.10 and earlier, the dialog lists apps with radio buttons and shows a **Version** dropdown and **Changelog** when expanded.
+
+In TrueNAS 26 and later, **Update** opens an update dialog showing the version change.
+When the upstream application version is changing, the dialog shows a **Version** row with the current and new upstream versions.
+The dialog always shows a **Revision** row with the current and new catalog revision numbers.
+When multiple catalog revisions are available, a **Version to be updated to** dropdown appears with options in the format **Version: X / Revision: Y**.
+A **View Upstream Release Notes** link appears when the app provides a changelog URL.
+In TrueNAS 25.10 and earlier, the update dialog shows **Images (to be updated)** and **Changelog** options instead.
 
 {{< trueimage src="/images/Apps/AppUpdateWindow.png" alt="Update Application Window" id="Update Application Window" >}}
 
@@ -60,8 +74,9 @@ This opens the **Application Info** widget on the right side of the screen and p
 {{< trueimage src="/images/Apps/RollBackDialog.png" alt="Roll Back Dialog" id="Roll Back Dialog" >}}
 
 The **Version** dropdown contains available app versions for roll back.
-The version numbers displayed are the version of the app in the TrueNAS catalog, equivalent to the **Version** displayed on the app information card.
-It is not equal to the **App Version** or the upstream release version.
+The version numbers displayed are the **Revision** of the app in the TrueNAS catalog, equivalent to the **Revision** displayed on the **Application Info** widget.
+This is the catalog revision, not the upstream **Version**.
+In TrueNAS 25.10 and earlier, this catalog revision is labeled **Version** on the app information card.
 See [Understanding Versions](https://apps.truenas.com/managing-apps/discovering-apps/#understanding-versions) for more information.
 
 Click **Roll back snapshots** to restore the application data volume to match the selected version by rolling back to the snapshot for that version.
@@ -81,17 +96,20 @@ Click **Roll Back** to begin the operation.
 ## Deleting Apps
 
 To delete an application, click <i class="fa fa-stop" aria-hidden="true"></i> **Stop** on the application row.
-After the app status changes to stopped, click **Delete** on the **Application Info** widget for the selected application to open the **Delete App** dialog.
+After the app status changes to stopped, click **Delete** on the **Application Info** widget for the selected application to open the **Delete** dialog.
 
 {{< trueimage src="/images/Apps/AppsDeleteAppDialog.png" alt="Delete Application Dialog" id="Delete Application Dialog" >}}
 
-Select **Remove iXVolumes** to delete hidden app storage from the apps pool.
-Select **Force-Remove iXVolumes** to delete app storage created on TrueNAS 24.04 and migrated to 24.10 or later.
-Proceed with caution as this option removes both legacy Kubernetes and current Docker data for the application.
+In TrueNAS 26 and later, the dialog displays the application name and prompts you to type the application name in the confirmation field.
+In TrueNAS 25.10 and earlier, the dialog uses a **Confirm** checkbox and **Continue** button instead.
 
-Select **Remove Images** to prune Docker images of the deleted app.
+Configure the following options as needed before clicking **Delete**:
 
-Click **Confirm** then **Continue** to delete the application.
+* **Remove iXVolumes** — deletes hidden app storage from the apps pool. Only shown if the app has iXVolumes.
+* **Force-remove iXVolumes** — deletes app storage created on TrueNAS 24.04 and migrated to 24.10 or later. Only shown when **Remove iXVolumes** is selected. This action removes both legacy Kubernetes and current Docker data for the application and cannot be undone.
+* **Remove Images** — prunes Docker images of the deleted app.
+
+Type the application name exactly as shown, then click **Delete** to remove the application.
 
 ## Stopping Apps
 
