@@ -1,0 +1,274 @@
+/* ========== DOCS NAV BAR STYLES ========== */
+
+/* Sticky nav container */
+#sitenav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Navbar background by page type */
+#sitenav:has(.docsnav-docs) {
+  background: #0095d5;
+  box-shadow: 0 2px 8px rgba(0, 149, 213, 0.35);
+}
+#sitenav:has(.docsnav-home) {
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 149, 213, 0.5);
+}
+
+/* TrueNAS logo link */
+.tn-nav-logo-link {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  text-decoration: none;
+}
+.tn-nav-logo {
+  height: 36px;
+  width: auto;
+  max-width: 220px;
+}
+@media (max-width: 1024px) { .tn-nav-logo { height: 30px; } }
+@media (max-width: 768px)  { .tn-nav-logo { height: 26px; } }
+
+/* Logo wordmark variants — navbar is always on a colored bg, show white */
+.tn-wordmark-black, .tn-wordmark-color { display: none; }
+.tn-wordmark-white { display: block; }
+
+/* Hub wordmark in menubar button */
+.truenas-hub-button {
+  padding: 6px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.tn-hub-wordmark {
+  height: 16px;
+  width: auto;
+  display: block;
+}
+.tn-hub-black { display: none; }
+
+.stickyelement {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: .5rem 1rem;
+}
+
+.docsnav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+.docsnav .truenas-menubar {
+  float: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Standalone link nav items (e.g. Catalog) — keep white across all link states */
+a.truenas-docsnav-menubutton,
+a.truenas-docsnav-menubutton:visited,
+a.truenas-docsnav-menubutton:hover,
+a.truenas-docsnav-menubutton:active {
+  color: white;
+}
+
+/* Nav buttons */
+.truenas-docsnav-menubutton {
+  background: transparent;
+  color: white;
+  padding: 10px 6px;
+  border: none;
+  font-family: "din-2014", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.truenas-docsnav-menubutton:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+.truenas-docsnav-menuitem:hover .truenas-docsnav-menubutton {
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+}
+.truenas-docsnav-menubutton[disabled] {
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Dropdowns */
+.truenas-navmenudropdown {
+  display: none;
+  position: absolute;
+  color: white;
+  background-color: #1a1a1a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  min-width: 200px;
+  border-top: 2px solid #0095d5;
+}
+
+.truenas-dropdown-item {
+  cursor: pointer;
+  font-family: "din-2014", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.truenas-dropdown-item:hover,
+.truenas-navmenudropdown a.truenas-dropdown-item:hover {
+  color: #31beec;
+  background-color: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+.truenas-navmenudropdown a.truenas-dropdown-item {
+  text-decoration: none;
+  color: white;
+}
+.truenas-navmenudropdown a.truenas-dropdown-item:visited {
+  color: white;
+}
+
+/* Icons inside hub dropdown items */
+.dropdown-icon-svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  flex-shrink: 0;
+}
+.truenas-dropdown-item:hover .dropdown-icon-svg { fill: #31beec; }
+.dropdown-icon-img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.dropdown-icon-invert { filter: invert(1); }
+
+#hubDropdown { min-width: 220px; }
+
+/* Search buttons — white pill with green wipe on hover */
+.docsnav-search-container {
+  display: flex;
+  gap: 0;
+  margin-left: 4px;
+}
+.docsnav-search-btn {
+  background: white;
+  color: #0095d5;
+  border: 1px solid white;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.docsnav-search-btn::after {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: white;
+  z-index: -2;
+  border-radius: inherit;
+}
+.docsnav-search-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -10%; width: 0; bottom: -2px;
+  background: #71bf44;
+  transition: width 0.25s ease;
+  transform: skewX(-10deg);
+  z-index: -1;
+}
+.docsnav-search-btn:hover::before { width: 125%; }
+.docsnav-search-btn:hover { border-color: #71bf44 !important; color: white !important; }
+.docsnav-search-left  { border-radius: 30px 0 0 30px; }
+.docsnav-search-right { border-radius: 0 30px 30px 0; }
+.docsnav-search-btn i { font-size: 16px; }
+
+/* Home page: blue search buttons */
+#sitenav:has(.docsnav-home) .docsnav-search-btn {
+  background: #0095d5;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+#sitenav:has(.docsnav-home) .docsnav-search-btn::after { background: #0095d5; }
+
+/* Home page logo crossfade white → color on hover */
+#sitenav:has(.docsnav-home) .tn-nav-logo-link { position: relative; }
+#sitenav:has(.docsnav-home) .tn-wordmark-white { transition: opacity 0.25s ease; }
+#sitenav:has(.docsnav-home) .tn-wordmark-color {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+#sitenav:has(.docsnav-home) .tn-nav-logo-link:hover .tn-wordmark-white { opacity: 0; }
+#sitenav:has(.docsnav-home) .tn-nav-logo-link:hover .tn-wordmark-color { opacity: 1; }
+
+/* GeekDocs theme toggle icons */
+#gdoc-color-theme .gdoc-icon { fill: white; color: white; }
+
+#docsnav-intro { padding-right: 2px; font-size: 18px; font-weight: bold; }
+
+@media screen and (max-width: 800px) {
+  .tn-nav-logo-link { flex: unset; }
+  #gdoc-color-theme { flex: 1; }
+}
+
+/* Dark mode — keep transparent backgrounds, white text */
+@media screen and (prefers-color-scheme: dark) {
+  .stickyelement, .stickybackground, .docsnav {
+    background-color: transparent;
+  }
+  .truenas-docsnav-menubutton, #docsnav-intro { color: white; }
+  .truenas-docsnav-menuitem:hover .truenas-docsnav-menubutton,
+  .truenas-navmenudropdown:hover + .truenas-docsnav-menubutton {
+    background-color: #0095d5;
+    color: white;
+  }
+}
+:root[color-theme=dark] {
+  .stickyelement, .stickybackground, .docsnav {
+    background-color: transparent;
+  }
+  .truenas-docsnav-menubutton, #docsnav-intro { color: white; }
+  .truenas-docsnav-menuitem:hover .truenas-docsnav-menubutton,
+  .truenas-navmenudropdown:hover + .truenas-docsnav-menubutton {
+    background-color: #0095d5;
+    color: white;
+  }
+}
+:root[color-theme=light] {
+  .stickyelement, .stickybackground, .docsnav {
+    background-color: transparent;
+  }
+  .truenas-docsnav-menubutton, #docsnav-intro { color: white; }
+}
