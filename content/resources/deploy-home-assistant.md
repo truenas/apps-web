@@ -1,7 +1,7 @@
 ---
 title: "Home Assistant Deployment"
 description: "Provides installation instructions for the Home Assistant application in TrueNAS."
-related_app: "/catalog/home-assistant"
+related_app: "/catalog/home-assistant_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-home-assistant.md"
 tags:

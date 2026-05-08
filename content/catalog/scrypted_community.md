@@ -1,0 +1,21 @@
+---
+title: "Scrypted"
+description: "Description and resources for the TrueNAS community application called Scrypted."
+train: "community"
+aliases:
+- /catalog/scrypted/
+icon: "https://media.sys.truenas.net/apps/scrypted/icons/icon.png"
+---
+
+{{< catalog-return-button >}}
+
+{{< github-content 
+    path="trains/community/scrypted/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
+
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
+{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}

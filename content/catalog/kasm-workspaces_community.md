@@ -1,0 +1,21 @@
+---
+title: "Kasm Workspaces"
+description: "Description and resources for the TrueNAS community application called Kasm Workspaces."
+train: "community"
+aliases:
+- /catalog/kasm-workspaces/
+icon: "https://media.sys.truenas.net/apps/kasm-workspaces/icons/icon.png"
+---
+
+{{< catalog-return-button >}}
+
+{{< github-content 
+    path="trains/community/kasm-workspaces/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
+
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
+{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}

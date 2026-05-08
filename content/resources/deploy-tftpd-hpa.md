@@ -1,7 +1,7 @@
 ---
 title: "TFTP Server Deployment"
 description: "Provides instructions for installing the TFTP Server application in TrueNAS."
-related_app: "/catalog/tftpd-hpa"
+related_app: "/catalog/tftpd-hpa_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-tftpd-hpa.md"
 tags:

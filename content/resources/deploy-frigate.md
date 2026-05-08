@@ -1,7 +1,7 @@
 ---
 title: "Frigate Deployment"
 description: "Provides instructions to configure TrueNAS and install Frigate to support AI-powered NVR with real-time object detection for IP cameras."
-related_app: "/catalog/frigate"
+related_app: "/catalog/frigate_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-frigate.md"
 tags:

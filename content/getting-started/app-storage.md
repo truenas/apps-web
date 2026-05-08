@@ -24,7 +24,7 @@ Additionally, configuration options for individual apps include one or more of t
 Each dataset type has unique characteristics and considerations.
 
 If an application requires specific host path datasets, create the datasets before installing the application.
-For example, the [Nextcloud](/catalog/nextcloud) app requires three datasets: **html** for app data, **data** for user data, and **postgres_data** for the database data storage volume.
+For example, the [Nextcloud](/catalog/nextcloud_stable) app requires three datasets: **html** for app data, **data** for user data, and **postgres_data** for the database data storage volume.
 [Create these datasets](https://www.truenas.com/docs/scale/25.10/scaletutorials/datasets/datasetsscale/) before installing the app.
 See individual app information screens and app tutorials for more information.
 

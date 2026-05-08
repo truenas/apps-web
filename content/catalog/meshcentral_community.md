@@ -1,0 +1,21 @@
+---
+title: "MeshCentral"
+description: "Description and resources for the TrueNAS community application called MeshCentral."
+train: "community"
+aliases:
+- /catalog/meshcentral/
+icon: "https://media.sys.truenas.net/apps/meshcentral/icons/icon.png"
+---
+
+{{< catalog-return-button >}}
+
+{{< github-content 
+    path="trains/community/meshcentral/app_versions.json"
+    includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
+
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
+{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}

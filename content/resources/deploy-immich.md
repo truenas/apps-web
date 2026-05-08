@@ -1,7 +1,7 @@
 ---
 title: "Immich Deployment"
 description: "Provides installation instructions for the Immich application in TrueNAS."
-related_app: "/catalog/immich"
+related_app: "/catalog/immich_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-immich.md"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Jellyfin Deployment"
 description: "Provides installation instructions for the Jellyfin application in TrueNAS."
-related_app: "/catalog/jellyfin"
+related_app: "/catalog/jellyfin_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-jellyfin.md"
 tags:
