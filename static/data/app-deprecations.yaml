@@ -52,6 +52,23 @@ briefkasten:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
+ddns-updater:
+  train: community
+  title: "DDNS Updater"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2026-05-04"
+      removal_date: "2026-08-04"
+      reason: "Drop support for the legacy Hetzner DNS provider"
+      partial_details:
+        feature: "Hetzner provider"
+        description: "The legacy Hetzner DNS API is going to be shutdown soon by Hetzner. Please migrate to the Hetzner Cloud provider."
+        steps:
+          - "Edit the application"
+          - "In the Provider Configuration, change the [Provider] from [Hetzner] to [Hetzner Cloud]"
+          - "Provide the required fields."
+          - "Save the application"
+
 firefly-iii:
   train: community
   title: "Firefly III"
