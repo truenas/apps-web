@@ -146,7 +146,7 @@
       const currentSrc = img.src;
 
       // Update if it's the default icon or if it doesn't match the removal icon
-      if (currentSrc.includes('default-icon') || !currentSrc.includes(appName)) {
+      if (currentSrc.includes('image-preloader') || !currentSrc.includes(appName)) {
         console.log(`Updating icon for ${appName} from ${currentSrc} to ${newIcon}`);
         img.src = newIcon;
         img.onerror = () => {

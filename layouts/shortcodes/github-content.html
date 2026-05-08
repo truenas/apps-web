@@ -28,7 +28,7 @@
     {{ $train := $versionData.app_metadata.train | lower | default "" }}
     {{ $appTitle := $versionData.app_metadata.title | default "App Title" }}
     {{ $appDescription := $versionData.app_metadata.description | default "No description available." }}
-    {{ $appIcon := $versionData.app_metadata.icon | default "/images/default-icon.png" }}
+    {{ $appIcon := $versionData.app_metadata.icon | default "/images/image-preloader.svg" }}
     {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
     {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
     {{ $added := $versionData.app_metadata.date_added | default "" }}
@@ -48,7 +48,7 @@
     {{ if eq $appDescription "No description available." }}
       {{ warnf "Missing 'description' in app_metadata for file: %s" $localFilePath }}
     {{ end }}
-    {{ if eq $appIcon "/images/default-icon.png" }}
+    {{ if eq $appIcon "/images/image-preloader.svg" }}
       {{ warnf "Missing or default 'icon' in app_metadata for file: %s" $localFilePath }}
     {{ end }}
     {{ if not $added }}
@@ -71,7 +71,7 @@
         <!-- Include telemetry and awards -->
         {{ partial "telemetry-awards.html" (dict "appName" $name "appTrain" $train) }}
         <div class="box-image">
-          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo">
+          <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo" onerror="this.onerror=null;this.src='/images/image-preloader.svg';">
         </div>
         <div class="section-tab-content ixprods">
           <b class="app-title">{{ $appTitle }}</b><br>
@@ -468,7 +468,7 @@
         <div class="section-box removed-app-info">
           <div class="box-image">
             {{ if .icon }}
-              <img class="app-card-img" src="{{ .icon }}" aria-label="{{ $removalInfo.title }} Logo">
+              <img class="app-card-img" src="{{ .icon }}" aria-label="{{ $removalInfo.title }} Logo" onerror="this.onerror=null;this.src='/images/image-preloader.svg';">
             {{ end }}
           </div>
           <div class="section-tab-content ixprods">
