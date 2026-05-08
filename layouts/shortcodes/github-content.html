@@ -441,7 +441,17 @@
 
         {{ if .alternative_app }}
           {{ $altAppSlug := .alternative_app }}
-          {{ $altAppPath := printf "/catalog/%s" $altAppSlug }}
+          {{ $altAppPath := "" }}
+          {{ range slice "_stable" "_enterprise" "_community" }}
+            {{ if eq $altAppPath "" }}
+              {{ with site.GetPage (printf "/catalog/%s%s" $altAppSlug .) }}
+                {{ $altAppPath = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          {{ if eq $altAppPath "" }}
+            {{ $altAppPath = printf "/catalog/%s" $altAppSlug }}
+          {{ end }}
           <p><strong>Recommended Alternative:</strong>
              <a href="{{ $altAppPath }}" class="alt-app-link">{{ $altAppSlug | title }}</a>
           </p>
