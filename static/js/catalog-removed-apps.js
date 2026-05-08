@@ -47,7 +47,7 @@
       const href = link.getAttribute('href');
       const match = href.match(/\/catalog\/([^\/]+)\/?$/);
       if (match) {
-        const appName = match[1];
+        const appName = match[1].replace(/_(community|stable|enterprise)$/, '');
         return removedApps.includes(appName);
       }
     }
@@ -69,7 +69,7 @@
       const href = link.getAttribute('href');
       const match = href.match(/\/catalog\/([^\/]+)\/?$/);
       if (match) {
-        return match[1];
+        return match[1].replace(/_(community|stable|enterprise)$/, '');
       }
     }
     return null;
