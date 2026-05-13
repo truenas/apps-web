@@ -2,6 +2,8 @@
 title: "Immich Frame"
 description: "Description and resources for the TrueNAS community application called Immich Frame."
 train: "community"
+aliases:
+- /catalog/immich-frame/
 icon: "https://media.sys.truenas.net/apps/immich-frame/icons/icon.svg"
 ---
 
