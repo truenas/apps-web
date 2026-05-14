@@ -1,7 +1,7 @@
 ---
 title: "MinIO (Stable) Deployments"
 description: "Tutorials for installing and using the MinIO charts application available in the stable train in TrueNAS."
-related_app: "/catalog/minio-stable"
+related_app: "/catalog/minio_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-minio-stable.md"
 tags:
