@@ -77,3 +77,21 @@ huntarr_community:
     icon: "https://media.sys.truenas.net/apps/sonarr/icons/icon.svg"
     description: "Description and resources for the TrueNAS community application called Huntarr."
     reason: "Removed from catalog"
+
+jellyseerr_community:
+  train: community
+  title: "Jellyseerr"
+  removal_detected_date: "2026-06-11"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called Jellyseerr."
+    reason: "Removed from catalog"
+
+overseerr_community:
+  train: community
+  title: "Overseerr"
+  removal_detected_date: "2026-06-11"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called Overseerr."
+    reason: "Removed from catalog"
