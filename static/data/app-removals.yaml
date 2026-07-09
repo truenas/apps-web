@@ -95,3 +95,12 @@ overseerr_community:
     icon: ""
     description: "Description and resources for the TrueNAS community application called Overseerr."
     reason: "Removed from catalog"
+
+minio_stable:
+  train: stable
+  title: "MinIO (Stable)"
+  removal_detected_date: "2026-07-09"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS stable application called MinIO."
+    reason: "Removed from catalog"
