@@ -1,7 +1,7 @@
 ---
 title: "Emby Server Deployment"
 description: "Provides instructions to configure TrueNAS and install Emby Server for movies, TV shows, books, photos, music, and other media files."
-related_app: "/catalog/emby"
+related_app: "/catalog/emby_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-emby.md"
 tags:

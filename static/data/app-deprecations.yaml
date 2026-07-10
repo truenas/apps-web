@@ -52,6 +52,23 @@ briefkasten:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
+ddns-updater:
+  train: community
+  title: "DDNS Updater"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2026-05-04"
+      removal_date: "2026-08-04"
+      reason: "Drop support for the legacy Hetzner DNS provider"
+      partial_details:
+        feature: "Hetzner provider"
+        description: "The legacy Hetzner DNS API is going to be shutdown soon by Hetzner. Please migrate to the Hetzner Cloud provider."
+        steps:
+          - "Edit the application"
+          - "In the Provider Configuration, change the [Provider] from [Hetzner] to [Hetzner Cloud]"
+          - "Provide the required fields."
+          - "Save the application"
+
 firefly-iii:
   train: community
   title: "Firefly III"
@@ -126,17 +143,6 @@ invidious:
         steps:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
-
-jellyseerr:
-  train: community
-  title: "Jellyseerr (Deprecated)"
-  deprecations:
-    - scope: "full"
-      deprecated_date: "2026-02-16"
-      removal_date: "2026-05-16"
-      reason: "App is no longer maintained, migrate to Seerr"
-      alternative_app: "Seerr"
-      migration_guide: "https://docs.seerr.dev/migration-guide"
 
 joplin:
   train: community
@@ -271,16 +277,15 @@ odoo:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
-overseerr:
+oikos:
   train: community
-  title: "Overseerr (Deprecated)"
+  title: "Oikos (Deprecated)"
   deprecations:
     - scope: "full"
-      deprecated_date: "2026-02-16"
-      removal_date: "2026-05-16"
-      reason: "App is no longer maintained, migrate to Seerr"
-      alternative_app: "Seerr"
-      migration_guide: "https://docs.seerr.dev/migration-guide"
+      deprecated_date: "2026-06-15"
+      removal_date: "2026-09-15"
+      reason: "App lives under a new name 'Yuvomi'"
+      alternative_app: "Yuvomi"
 
 paperless-ngx:
   train: community
@@ -399,6 +404,15 @@ roundcube:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
+smart-home-dashboard:
+  train: community
+  title: "Smart Home Dashboard (Deprecated)"
+  deprecations:
+    - scope: "full"
+      deprecated_date: "2026-06-23"
+      removal_date: "2026-09-23"
+      reason: App is no longer maintained.
+
 vaultwarden:
   train: community
   title: "Vaultwarden"
@@ -428,14 +442,3 @@ vikunja:
         steps:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
-
-minio:
-  train: stable
-  title: "MinIO (Deprecated)"
-  deprecations:
-    - scope: "full"
-      deprecated_date: "2026-04-06"
-      removal_date: "2026-07-16"
-      reason: |
-        App is no longer maintained. Please consider using an alternative object storage solution such as AIStor
-      alternative_app: "AIStor"

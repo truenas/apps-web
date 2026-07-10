@@ -1,7 +1,7 @@
 ---
 title: "BookStack Deployment Guide"
 description: "Provides basic installation instructions for the BookStack application in TrueNAS."
-related_app: "/catalog/bookstack"
+related_app: "/catalog/bookstack_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-bookstack.md"
 tags: 

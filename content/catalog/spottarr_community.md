@@ -1,0 +1,21 @@
+---
+title: "Spottarr"
+description: "Description and resources for the TrueNAS community application called Spottarr."
+train: "community"
+aliases:
+- /catalog/spottarr/
+icon: "https://media.sys.truenas.net/apps/spottarr/icons/icon.svg"
+---
+
+{{< catalog-return-button >}}
+
+{{< github-content 
+    path="trains/community/spottarr/app_versions.json"
+	includeFile="/static/includes/apps/Apps-Understanding-Versions.md"
+>}}
+
+## Resources
+
+{{< include file="/static/includes/apps/CommunityApp.md" >}}
+
+{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}

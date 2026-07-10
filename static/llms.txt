@@ -113,26 +113,26 @@ The TrueNAS Apps Market (apps.truenas.com) serves as the central hub for TrueNAS
 ## Popular Applications by Category
 
 ### Media & Entertainment
-- **Plex** - https://apps.truenas.com/catalog/plex/ - Feature-rich media server with broad client support
-- **Jellyfin** - https://apps.truenas.com/catalog/jellyfin/ - Open-source alternative to Plex
-- **Immich** - https://apps.truenas.com/catalog/immich/ - Self-hosted Google Photos replacement
-- **Emby** - https://apps.truenas.com/catalog/emby/ - Media server with premium features
+- **Plex** - https://apps.truenas.com/catalog/plex_stable/ - Feature-rich media server with broad client support
+- **Jellyfin** - https://apps.truenas.com/catalog/jellyfin_community/ - Open-source alternative to Plex
+- **Immich** - https://apps.truenas.com/catalog/immich_community/ - Self-hosted Google Photos replacement
+- **Emby** - https://apps.truenas.com/catalog/emby_stable/ - Media server with premium features
 
 ### Download & Automation  
-- **qBittorrent** - https://apps.truenas.com/catalog/qbittorrent/ - Popular BitTorrent client with web UI
-- **Sonarr/Radarr** - https://apps.truenas.com/catalog/sonarr/, https://apps.truenas.com/catalog/radarr/ - TV/Movie automation
-- **Prowlarr** - https://apps.truenas.com/catalog/prowlarr/ - Indexer manager for *arr applications
+- **qBittorrent** - https://apps.truenas.com/catalog/qbittorrent_community/ - Popular BitTorrent client with web UI
+- **Sonarr/Radarr** - https://apps.truenas.com/catalog/sonarr_community/, https://apps.truenas.com/catalog/radarr_community/ - TV/Movie automation
+- **Prowlarr** - https://apps.truenas.com/catalog/prowlarr_community/ - Indexer manager for *arr applications
 
 ### Home & Productivity
-- **Home Assistant** - https://apps.truenas.com/catalog/home-assistant/ - Comprehensive home automation platform
-- **Nextcloud** - https://apps.truenas.com/catalog/nextcloud/ - Self-hosted cloud storage and collaboration
-- **Vaultwarden** - https://apps.truenas.com/catalog/vaultwarden/ - Bitwarden-compatible password manager
-- **Pi-hole** - https://apps.truenas.com/catalog/pihole/ - Network-wide ad blocking
+- **Home Assistant** - https://apps.truenas.com/catalog/home-assistant_stable/ - Comprehensive home automation platform
+- **Nextcloud** - https://apps.truenas.com/catalog/nextcloud_stable/ - Self-hosted cloud storage and collaboration
+- **Vaultwarden** - https://apps.truenas.com/catalog/vaultwarden_community/ - Bitwarden-compatible password manager
+- **Pi-hole** - https://apps.truenas.com/catalog/pihole_stable/ - Network-wide ad blocking
 
 ### Development & Monitoring
-- **Code Server** - https://apps.truenas.com/catalog/code-server/ - VS Code in your browser
-- **Grafana** - https://apps.truenas.com/catalog/grafana/ - Data visualization and monitoring
-- **Uptime Kuma** - https://apps.truenas.com/catalog/uptime-kuma/ - Self-hosted monitoring tool
+- **Code Server** - https://apps.truenas.com/catalog/code-server_community/ - VS Code in your browser
+- **Grafana** - https://apps.truenas.com/catalog/grafana_community/ - Data visualization and monitoring
+- **Uptime Kuma** - https://apps.truenas.com/catalog/uptime-kuma_community/ - Self-hosted monitoring tool
 
 ### Application Catalog Structure
 **Train Types** (determines support level and stability):

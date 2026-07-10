@@ -1,7 +1,7 @@
 ---
 title: "Netdata Deployment"
 description: "Provides information on installing and configuring the Netdata app on TrueNAS."
-related_app: "/catalog/netdata"
+related_app: "/catalog/netdata_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-netdata.md"
 tags:

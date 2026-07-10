@@ -134,7 +134,7 @@ Click **Save** and deploy the application.
 
 #### Nextcloud Configuration
 
-Install the [Nextcloud](/catalog/nextcloud) **stable** application.
+Install the [Nextcloud](/catalog/nextcloud_stable) **stable** application.
 
 The first application deployment could take a while, and starts and stops multiple times.
 This is normal behavior.

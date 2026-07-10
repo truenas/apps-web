@@ -1,7 +1,7 @@
 ---
 title: "Tailscale Deployment"
 description: "Provides installation instructions for the Tailscale application in TrueNAS."
-related_app: "/catalog/tailscale"
+related_app: "/catalog/tailscale_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-tailscale.md"
 tags:

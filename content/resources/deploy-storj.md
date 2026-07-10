@@ -1,7 +1,7 @@
 ---
 title: "Storj Deployment"
 description: "Provides information on setting up the Storj node app on your TrueNAS system."
-related_app: "/catalog/storj"
+related_app: "/catalog/storj_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-storj.md"
 tags:

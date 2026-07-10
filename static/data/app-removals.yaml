@@ -50,3 +50,57 @@ booklore:
     icon: "https://media.sys.truenas.net/apps/booklore/icons/icon.svg"
     description: "Description and resources for the TrueNAS community application called BookLore."
     reason: "Removed from catalog"
+
+codegate_community:
+  train: community
+  title: "CodeGate"
+  removal_detected_date: "2026-05-15"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/codegate/icons/icon.svg"
+    description: "Description and resources for the TrueNAS community application called CodeGate."
+    reason: "Removed from catalog"
+
+booklore_community:
+  train: community
+  title: "BookLore"
+  removal_detected_date: "2026-05-15"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/booklore/icons/icon.svg"
+    description: "Description and resources for the TrueNAS community application called BookLore."
+    reason: "Removed from catalog"
+
+huntarr_community:
+  train: community
+  title: "Huntarr"
+  removal_detected_date: "2026-05-15"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/sonarr/icons/icon.svg"
+    description: "Description and resources for the TrueNAS community application called Huntarr."
+    reason: "Removed from catalog"
+
+jellyseerr_community:
+  train: community
+  title: "Jellyseerr"
+  removal_detected_date: "2026-06-11"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called Jellyseerr."
+    reason: "Removed from catalog"
+
+overseerr_community:
+  train: community
+  title: "Overseerr"
+  removal_detected_date: "2026-06-11"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called Overseerr."
+    reason: "Removed from catalog"
+
+minio_stable:
+  train: stable
+  title: "MinIO (Stable)"
+  removal_detected_date: "2026-07-09"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS stable application called MinIO."
+    reason: "Removed from catalog"

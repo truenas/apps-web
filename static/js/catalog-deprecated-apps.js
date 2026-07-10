@@ -185,7 +185,7 @@
     if (href) {
       const match = href.match(/\/catalog\/([^\/]+)\/?$/);
       if (match) {
-        return match[1];
+        return match[1].replace(/_(community|stable|enterprise)$/, '');
       }
     }
 

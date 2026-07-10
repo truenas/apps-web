@@ -1,7 +1,7 @@
 ---
 title: "Linkding Deployment"
 description: "Provides installation instructions for the Linkding application in TrueNAS."
-related_app: "/catalog/linkding"
+related_app: "/catalog/linkding_community"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-linkding.md"
 tags:

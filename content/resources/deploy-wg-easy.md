@@ -1,7 +1,7 @@
 ---
 title: "WG Easy Deployment"
 description: "Provides installation instructions for the WG Easy application."
-related_app: "/catalog/wg-easy"
+related_app: "/catalog/wg-easy_stable"
 GeekdocShowEdit: true
 geekdocEditPath: "edit/main/content/resources/deploy-wg-easy.md"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Remote Assist"
 description: "Provides general information and use scenarios for the TrueNAS Enterprise Remote Assist app, which allows iXsystems support personnel remote access to TrueNAS Enterprise systems."
-related_app: "/catalog/ix-remote-assist"
+related_app: "/catalog/ix-remote-assist_enterprise"
 tags:
 - support
 - apps

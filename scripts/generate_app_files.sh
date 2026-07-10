@@ -133,7 +133,10 @@ check_unmatched_subdirs() {
       description=$(jq -r '.[].app_metadata.description' "$json_file" | head -n 1)
       icon=$(jq -r '.[].app_metadata.icon' "$json_file" | head -n 1)
 
-      # Check if this app exists in multiple trains (multi-train app)
+      # Always use train-suffixed filename (uniform URL convention)
+      md_filename="${subdir}_${train}.md"
+
+      # Title suffix is added only for multi-train apps to disambiguate
       multi_train=false
       train_count=0
       for check_train in "${TRAINS[@]}"; do
@@ -144,14 +147,8 @@ check_unmatched_subdirs() {
       if [[ $train_count -gt 1 ]]; then
         multi_train=true
         echo "  ℹ $subdir exists in $train_count trains (multi-train app)" >> "$LOG_FILE"
-      fi
-
-      # Determine the filename: use train suffix for multi-train apps
-      if [[ "$multi_train" == true ]]; then
-        md_filename="${subdir}_${train}.md"
         title_suffix=" ($(echo $train | sed 's/./\U&/')) " # Capitalize first letter
       else
-        md_filename="${subdir}.md"
         title_suffix=""
       fi
 
