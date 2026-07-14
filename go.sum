@@ -2,3 +2,5 @@ github.com/truenas/docs-shared v0.0.0-20251107151355-955ee5450aab h1:4mIBPhSdZ8D
 github.com/truenas/docs-shared v0.0.0-20251107151355-955ee5450aab/go.mod h1:NynCkRXG0eYgZ9OuHiJBp3McKXzLbLUdKtkQeDwPhgc=
 github.com/truenas/docs-shared v0.0.0-20260501150651-ada5d47288e4 h1:bLxats6DEQO1OyGmZqeuF7Lwg4xP9c2cqWOPuqExNmg=
 github.com/truenas/docs-shared v0.0.0-20260501150651-ada5d47288e4/go.mod h1:NynCkRXG0eYgZ9OuHiJBp3McKXzLbLUdKtkQeDwPhgc=
+github.com/truenas/docs-shared v0.0.0-20260713160400-c3791782a908 h1:aH5d5AWOgcPfBL1/4mM1GFYbv6acoWMBkR8r75Bnyxk=
+github.com/truenas/docs-shared v0.0.0-20260713160400-c3791782a908/go.mod h1:NynCkRXG0eYgZ9OuHiJBp3McKXzLbLUdKtkQeDwPhgc=
