@@ -13,7 +13,10 @@ pipeline {
   stages {
     stage('Update Modules') {
         steps {
-            sh 'hugo mod get -u github.com/truenas/docs-shared'
+            // Fetch only docs-shared (main), no -u: fresh shared module without force-upgrading
+            // other modules. Forward-safe for the eventual Docsy migration (Docsy will be a pinned
+            // module that must not be force-upgraded in CI).
+            sh 'hugo mod get github.com/truenas/docs-shared@main'
             sh 'hugo mod tidy'
         }
     }
