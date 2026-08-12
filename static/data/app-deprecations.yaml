@@ -69,6 +69,15 @@ ddns-updater:
           - "Provide the required fields."
           - "Save the application"
 
+filebrowser:
+  train: community
+  title: "File Browser (Deprecated)"
+  deprecations:
+    - scope: "full"
+      deprecated_date: "2026-08-10"
+      removal_date: "2026-11-10"
+      reason: "Upstream has archived the project and is no longer maintained."
+
 firefly-iii:
   train: community
   title: "Firefly III"
