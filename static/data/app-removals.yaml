@@ -104,3 +104,12 @@ minio_stable:
     icon: ""
     description: "Description and resources for the TrueNAS stable application called MinIO."
     reason: "Removed from catalog"
+
+oikos_community:
+  train: community
+  title: "Oikos"
+  removal_detected_date: "2026-08-24"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/oikos/icons/icon.png"
+    description: "Description and resources for the TrueNAS community application called Oikos."
+    reason: "Removed from catalog"
