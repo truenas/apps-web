@@ -7,6 +7,26 @@
   'use strict';
 
   let deprecatedApps = {};
+  let removedApps = [];
+
+  // Load removed apps list so a removed app never also gets a deprecated badge
+  async function loadRemovedApps() {
+    try {
+      const response = await fetch('/data/app-removals.yaml');
+      const yamlText = await response.text();
+      const apps = [];
+      for (const line of yamlText.split('\n')) {
+        const appMatch = line.match(/^([a-z0-9_-]+):/);
+        if (appMatch && !line.startsWith('#') && !line.startsWith(' ')) {
+          apps.push(appMatch[1]);
+        }
+      }
+      removedApps = apps;
+    } catch (error) {
+      console.error('Failed to load removed apps:', error);
+      removedApps = [];
+    }
+  }
 
   // Calculate days until removal
   function daysUntilRemoval(removalDateStr) {
@@ -208,7 +228,9 @@
 
     // Badge text based on scope
     if (scope === 'full') {
-      badge.textContent = 'REMOVED';
+      // Full scope means the whole app is deprecated and scheduled for removal,
+      // not that it has been removed yet — that's tracked separately via app-removals.yaml.
+      badge.textContent = 'DEPRECATED';
     } else {
       // For partial, always show text that informs readers the App is changing in a significant way and action is required on their part when they have it deployed.
       badge.textContent = 'ACTION REQUIRED';
@@ -234,7 +256,7 @@
     let processedCount = 0;
     cards.forEach(card => {
       const appName = getAppName(card);
-      if (appName) {
+      if (appName && !removedApps.includes(appName)) {
         const appDeprecation = getAppDeprecation(appName);
         if (appDeprecation && appDeprecation.deprecations.length > 0) {
           const mostUrgent = getMostUrgentDeprecation(appDeprecation.deprecations);
@@ -258,8 +280,8 @@
       return;
     }
 
-    // Load deprecated apps list
-    await loadDeprecatedApps();
+    // Load deprecated apps list, and removed apps so removal always takes precedence
+    await Promise.all([loadDeprecatedApps(), loadRemovedApps()]);
 
     // Process cards initially
     processCatalogCards();
