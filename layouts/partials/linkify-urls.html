@@ -1,0 +1,10 @@
+{{- /* Auto-hyperlinks bare URLs in a plain-text string. Usage: {{ partial "linkify-urls.html" $someText }} */ -}}
+{{- $text := . -}}
+{{- $urlRegex := `(https?://[^\s<]+?)([.,;:)]*)(\s|$)` -}}
+{{- $urlReplace := `<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>$2$3` -}}
+{{- if in $text "<a " -}}
+  {{- /* Text already contains a hand-written link; the regex can't parse HTML, so leave it alone to avoid mangling it. */ -}}
+  {{- $text | safeHTML -}}
+{{- else -}}
+  {{- replaceRE $urlRegex $urlReplace $text | safeHTML -}}
+{{- end -}}
