@@ -245,7 +245,7 @@
           </div>
 
           {{ if .reason }}
-            <p class="deprecation-reason"><strong>Reason:</strong> {{ .reason | safeHTML }}</p>
+            <p class="deprecation-reason"><strong>Reason:</strong> {{ partial "linkify-urls.html" .reason }}</p>
           {{ end }}
 
           {{ if eq .scope "partial" }}
