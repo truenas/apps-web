@@ -168,3 +168,5 @@ Select **Confirm** then click **Convert** to begin the conversion process.
 {{< include file="/static/includes/managing-apps-next-steps.md" >}}
 
 {{< managing-apps-return-button >}}
+
+{{< trademark-notice minio="true" >}}

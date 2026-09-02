@@ -1,0 +1,4 @@
+{{ partial "trademark-notice.html" (dict
+    "minio" (eq (.Get "minio") "true")
+    "aistor" (eq (.Get "aistor") "true")
+) }}

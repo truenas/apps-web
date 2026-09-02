@@ -185,3 +185,5 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}
+
+{{< trademark-notice minio="true" >}}
