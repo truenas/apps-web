@@ -42,7 +42,7 @@ Users should review these definitions carefully and consult with their support c
       This is limited to App store configuration, vendor-provided updates, and basic troubleshooting.</p>
     <p>This tier does <strong>not</strong> cover ongoing maintenance or troubleshooting beyond the initial deployment phase or TrueNAS standard configuration.  
       It does <strong>not</strong> cover functionality, compatibility, or performance issues internal to the application itself.</p>
-    <p><strong>Examples:</strong> Minio, Asigra.</p>
+    <p><strong>Examples:</strong> <strong>MinIO</strong>&trade;, Asigra.</p>
   </div>
 
   <div class="support-card enterprise-application">
@@ -57,3 +57,5 @@ Users should review these definitions carefully and consult with their support c
 ## Next Steps
 
 {{< include file="/static/includes/getting-started-next-steps.md" >}}
+
+{{< trademark-notice minio="true" >}}
