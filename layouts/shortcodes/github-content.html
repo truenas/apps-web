@@ -29,6 +29,31 @@
     {{ $appTitle := $versionData.app_metadata.title | default "App Title" }}
     {{ $appDescription := $versionData.app_metadata.description | default "No description available." }}
     {{ $appIcon := $versionData.app_metadata.icon | default "/images/image-preloader.svg" }}
+
+    <!-- MinIO/AIStor trademark compliance: detect known app slugs -->
+    {{ $trademarkBrand := "" }}
+    {{ $trademarkMinio := false }}
+    {{ $trademarkAistor := false }}
+    {{ if eq $name "minio" }}
+      {{ $trademarkBrand = "MinIO" }}
+      {{ $trademarkMinio = true }}
+    {{ else if eq $name "minio-console" }}
+      {{ $trademarkBrand = "MinIO Console" }}
+      {{ $trademarkMinio = true }}
+    {{ else if eq $name "aistor" }}
+      {{ $trademarkBrand = "AIStor" }}
+      {{ $trademarkAistor = true }}
+    {{ end }}
+    {{ $appTitleDisplay := $appTitle }}
+    {{ if $trademarkBrand }}
+      {{ $appTitleSuffix := strings.TrimPrefix $trademarkBrand $appTitle }}
+      {{ if eq $appTitleSuffix $appTitle }}
+        <!-- $appTitle didn't start with the expected brand string; fall back to the brand name alone rather than guessing -->
+        {{ $appTitleDisplay = printf "%s&trade;" $trademarkBrand }}
+      {{ else }}
+        {{ $appTitleDisplay = printf "%s&trade;%s" $trademarkBrand $appTitleSuffix }}
+      {{ end }}
+    {{ end }}
     {{ $minScaleVersion := $versionData.app_metadata.annotations.min_scale_version | default "" }}
     {{ $changelog := $versionData.app_metadata.changelog_url | default "" }}
     {{ $added := $versionData.app_metadata.date_added | default "" }}
@@ -74,7 +99,7 @@
           <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo" onerror="this.onerror=null;this.src='/images/image-preloader.svg';">
         </div>
         <div class="section-tab-content ixprods">
-          <b class="app-title">{{ $appTitle }}</b><br>
+          <b class="app-title">{{ $appTitleDisplay | safeHTML }}</b><br>
           <a class="truenas-appbutton" href="https://www.truenas.com/docs/truenasapps/">Get Started with Apps!</a><br>
           <div class="app-info">
             <small>
@@ -401,6 +426,9 @@
       <pre><code>{{ $fileContent }}</code></pre>
     </details>
     <br>
+    {{ if $trademarkBrand }}
+      {{ partial "trademark-notice.html" (dict "minio" $trademarkMinio "aistor" $trademarkAistor) }}
+    {{ end }}
     <hr>
   {{ end }}
 
