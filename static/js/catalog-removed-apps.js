@@ -55,7 +55,9 @@
     // Fallback: check for app title
     const titleElement = cardElement.querySelector('[class*="title"], h2, h3, strong');
     if (titleElement) {
-      const title = titleElement.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      // Strip trademark symbols (e.g. "MinIO™") before matching, since they are not
+      // part of the app's URL slug and would otherwise break the substring comparison.
+      const title = titleElement.textContent.trim().toLowerCase().replace(/[™®]/g, '').replace(/\s+/g, '-');
       return removedApps.some(app => title.includes(app) || app.includes(title));
     }
 
