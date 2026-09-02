@@ -15,7 +15,7 @@ tags:
 
 {{< include file="/static/includes/ProposeArticleChange.md" >}}
 
-MinIO High Performance Object Storage, released under the Apache Licenses v2.0 is an open source Amazon S3 cloud storage compatible object storage solution.
+**MinIO™** High Performance Object Storage, released under the Apache Licenses v2.0 is an open source Amazon S3 cloud storage compatible object storage solution.
 The TrueNAS MinIO applications allow users to build high-performance infrastructure for machine learning, analytics, and application data workloads.
 
 TrueNAS has two versions of the MinIO application, a **stable** and **enterprise** train version.
@@ -206,3 +206,5 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
 
 <div class="noprint">
+
+{{< trademark-notice minio="true" >}}
