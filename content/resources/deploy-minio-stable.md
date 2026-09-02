@@ -205,6 +205,6 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
 
-<div class="noprint">
-
 {{< trademark-notice minio="true" >}}
+
+<div class="noprint">
