@@ -54,9 +54,25 @@
       <!-- Extract the base app name by removing the _train suffix -->
       {{- $baseAppName := index (split $appName "_") 0 }}
 
+      <!-- MinIO/AIStor trademark compliance: detect known app slugs -->
+      {{- $trademarkBrand := "" }}
+      {{- $trademarkMinio := false }}
+      {{- $trademarkAistor := false }}
+      {{- if eq $baseAppName "minio" }}
+        {{- $trademarkBrand = "MinIO" }}
+        {{- $trademarkMinio = true }}
+      {{- else if eq $baseAppName "minio-console" }}
+        {{- $trademarkBrand = "MinIO Console" }}
+        {{- $trademarkMinio = true }}
+      {{- else if eq $baseAppName "aistor" }}
+        {{- $trademarkBrand = "AIStor" }}
+        {{- $trademarkAistor = true }}
+      {{- end }}
+
       <!-- Initialize app metadata -->
       {{- $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir $mdTrain $baseAppName }}
       {{- $appTitle := $baseAppName | title }}
+      {{- $appTitleDisplay := $appTitle }}
       {{- $appDescription := printf "Learn more about %s and its features." ($baseAppName | title) }}
       {{- $appIcon := $defaultIcon }}
       {{- $appCategories := slice }}
@@ -72,6 +88,15 @@
         <!-- Extract app metadata -->
         {{- range $version, $data := $jsonData }}
           {{- $appTitle = index $data "app_metadata" "title" | default $appTitle }}
+          {{- $appTitleDisplay = $appTitle }}
+          {{- if $trademarkBrand }}
+            {{- $appTitleSuffix := strings.TrimPrefix $trademarkBrand $appTitle }}
+            {{- if eq $appTitleSuffix $appTitle }}
+              {{- $appTitleDisplay = printf "%s&trade;" $trademarkBrand }}
+            {{- else }}
+              {{- $appTitleDisplay = printf "%s&trade;%s" $trademarkBrand $appTitleSuffix }}
+            {{- end }}
+          {{- end }}
           {{- $appDescription = index $data "app_metadata" "description" | default $appDescription }}
           {{- $iconField := index $data "app_metadata" "icon" }}
           {{- if and $iconField (ne $iconField "") }}
@@ -104,7 +129,7 @@
           <img class="app-card-img" src="{{ $appIcon }}" aria-label="{{ $appTitle }} Logo" onerror="this.onerror=null;this.src='{{ $defaultIcon }}';">
         </div>
         <div class="section-tab-content ixprods">
-          <b class="app-title">{{ $appTitle }}</b>
+          <b class="app-title">{{ if $trademarkBrand }}{{ $appTitleDisplay | safeHTML }}{{ else }}{{ $appTitle }}{{ end }}</b>
           <p>
             Train: {{ title $mdTrain }}<br>
             {{ if $added }}
@@ -114,6 +139,9 @@
           <p>{{ $appDescription }}</p>
           {{ if $minScaleVersion }}
             Requires TrueNAS {{ $minScaleVersion }} or newer
+          {{ end }}
+          {{ if $trademarkBrand }}
+            {{ partial "trademark-notice.html" (dict "minio" $trademarkMinio "aistor" $trademarkAistor) }}
           {{ end }}
         </div>
       </a>
