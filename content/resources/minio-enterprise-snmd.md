@@ -12,7 +12,7 @@ tags:
 
 {{< include file="/static/includes/apps/EnterpriseApps.md" >}}
 
-The instructions in this article apply to the TrueNAS MinIO Enterprise application installed in a Single-Node Multi-Disk (SNMD) multi-mode configuration.
+The instructions in this article apply to the TrueNAS **MinIO™** Enterprise application installed in a Single-Node Multi-Disk (SNMD) multi-mode configuration.
 
 For more information on MinIO multi-mode configurations see [MinIO Single-Node Multi-Drive (SNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-multi-drive.html) or [Multi-Node Multi-Drive (MNMD)](https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html#minio-mnmd). MinIO recommends using MNMD (distributed) for enterprise-grade performance and scalability.
 
@@ -172,3 +172,5 @@ Set ACL permissions for each dataset in the configuration, and on each system in
 {{< trueimage src="/images/Apps/InstallMinIOEnterpriseResourcesConfig.png" alt="MinIO Enterprise Resource Limits" id="MinIO Enterprise Resource Limits" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
+
+{{< trademark-notice minio="true" >}}

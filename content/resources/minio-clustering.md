@@ -17,7 +17,7 @@ tags:
 {{< include file="/static/includes/ProposeArticleChange.md" >}}
 
 {{< hint info >}}
-This article applies to the public release of the TrueNAS S3 **MinIO** stable train application configured in a distributed mode cluster.
+This article applies to the public release of the TrueNAS S3 **MinIO™** stable train application configured in a distributed mode cluster.
 {{< /hint >}}
 
 TrueNAS 23.10 and later allows users to create a MinIO S3 distributed instance to scale out TrueNAS to handle individual node failures.
@@ -100,3 +100,5 @@ Repeat for the **/data** storage volume.
 After completing the first node, begin configuring the remaining system nodes in the cluster (including datasets and directories).
 
 After installing MinIO on all systems (nodes) in the cluster, start the MinIO applications.
+
+{{< trademark-notice minio="true" >}}
