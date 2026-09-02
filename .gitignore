@@ -6,3 +6,5 @@ node_modules/
 tech-doc-hugo
 .vscode
 *.lock
+.worktrees/
+docs/superpowers/
