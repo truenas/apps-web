@@ -284,3 +284,5 @@ If adding an SMB share as an additional storage volume, create the SMB dataset a
 {{< trueimage src="/images/Apps/InstallAsigraResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
+
+{{< trademark-notice minio="true" >}}

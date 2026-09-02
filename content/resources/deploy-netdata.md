@@ -186,3 +186,5 @@ Click **Sign In** to open the Netdata Cloud sign-in screen.
 {{< trueimage src="/images/Apps/NetdataSignInScreen.png" alt="Netdata Cloud Sign-In Screen" id="Netdata Cloud Sign-In Screen" >}}
 
 Use the Netdata-provided documentation to customize Netdata dashboards to suit your use case and monitoring needs.
+
+{{< trademark-notice minio="true" >}}

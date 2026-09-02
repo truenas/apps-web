@@ -73,6 +73,9 @@
       {{- $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir $mdTrain $baseAppName }}
       {{- $appTitle := $baseAppName | title }}
       {{- $appTitleDisplay := $appTitle }}
+      {{- if $trademarkBrand }}
+        {{- $appTitleDisplay = printf "%s&trade;" $trademarkBrand }}
+      {{- end }}
       {{- $appDescription := printf "Learn more about %s and its features." ($baseAppName | title) }}
       {{- $appIcon := $defaultIcon }}
       {{- $appCategories := slice }}

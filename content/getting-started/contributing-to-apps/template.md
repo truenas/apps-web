@@ -259,3 +259,5 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
     ← Contributing to Apps
   </a>
 </div>
+
+{{< trademark-notice minio="true" >}}

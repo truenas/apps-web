@@ -28,6 +28,21 @@
     {{ $safeName := replaceRE `[^a-zA-Z0-9._\-]` "" $name }}
     {{ $localFilePath := printf "%s/%s/%s/app_versions.json" $localBaseDir (lower $train) $safeName }}
 
+    <!-- MinIO/AIStor trademark compliance: detect known app slugs -->
+    {{ $trademarkBrand := "" }}
+    {{ $trademarkMinio := false }}
+    {{ $trademarkAistor := false }}
+    {{ if eq (lower $safeName) "minio" }}
+      {{ $trademarkBrand = "MinIO" }}
+      {{ $trademarkMinio = true }}
+    {{ else if eq (lower $safeName) "minio-console" }}
+      {{ $trademarkBrand = "MinIO Console" }}
+      {{ $trademarkMinio = true }}
+    {{ else if eq (lower $safeName) "aistor" }}
+      {{ $trademarkBrand = "AIStor" }}
+      {{ $trademarkAistor = true }}
+    {{ end }}
+
     <!-- Initialize app metadata -->
     {{ $appTitle := "" }}
     {{ $appDescription := "" }}
@@ -45,6 +60,14 @@
         {{ $appDescription = index $data "app_metadata" "description" | default (printf "Learn more about %s and its features." ($name | title)) }}
         {{ $appIcon = index $data "app_metadata" "icon" | default $appIcon }}
         {{ $dateAdded = index $data "app_metadata" "date_added" | default "" }}
+        {{ if $trademarkBrand }}
+          {{ $appTitleSuffix := strings.TrimPrefix $trademarkBrand $appTitle }}
+          {{ if eq $appTitleSuffix $appTitle }}
+            {{ $appTitle = printf "%s&trade;" $trademarkBrand | safeHTML }}
+          {{ else }}
+            {{ $appTitle = printf "%s&trade;%s" $trademarkBrand $appTitleSuffix | safeHTML }}
+          {{ end }}
+        {{ end }}
         {{ break }}
       {{ end }}
 
@@ -52,7 +75,7 @@
       {{ $normalizedAppName := lower $name }}
 
       <!-- Add to telemetry-based apps (only if app exists locally) -->
-      {{ $telemetryApps = $telemetryApps | append (dict "name" $normalizedAppName "count" $count "train" $train "date_added" $dateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
+      {{ $telemetryApps = $telemetryApps | append (dict "name" $normalizedAppName "count" $count "train" $train "date_added" $dateAdded "title" $appTitle "description" $appDescription "icon" $appIcon "trademarkMinio" $trademarkMinio "trademarkAistor" $trademarkAistor) }}
     {{ end }}
   {{ end }}
 {{ end }}
@@ -72,6 +95,21 @@
       {{ $appIcon := $defaultIcon }}
       {{ $dateAdded := "" }}
 
+      <!-- MinIO/AIStor trademark compliance: detect known app slugs -->
+      {{ $trademarkBrand := "" }}
+      {{ $trademarkMinio := false }}
+      {{ $trademarkAistor := false }}
+      {{ if eq (lower $appName) "minio" }}
+        {{ $trademarkBrand = "MinIO" }}
+        {{ $trademarkMinio = true }}
+      {{ else if eq (lower $appName) "minio-console" }}
+        {{ $trademarkBrand = "MinIO Console" }}
+        {{ $trademarkMinio = true }}
+      {{ else if eq (lower $appName) "aistor" }}
+        {{ $trademarkBrand = "AIStor" }}
+        {{ $trademarkAistor = true }}
+      {{ end }}
+
       <!-- Check if the app_versions.json file exists -->
       {{ if fileExists $appFilePath }}
         {{ $fileContent := readFile $appFilePath }}
@@ -83,6 +121,14 @@
           {{ $appDescription = index $data "app_metadata" "description" | default (printf "Learn more about %s and its features." ($appName | title)) }}
           {{ $appIcon = index $data "app_metadata" "icon" | default $appIcon }}
           {{ $dateAdded = index $data "app_metadata" "date_added" | default "" }}
+          {{ if $trademarkBrand }}
+            {{ $appTitleSuffix := strings.TrimPrefix $trademarkBrand $appTitle }}
+            {{ if eq $appTitleSuffix $appTitle }}
+              {{ $appTitle = printf "%s&trade;" $trademarkBrand | safeHTML }}
+            {{ else }}
+              {{ $appTitle = printf "%s&trade;%s" $trademarkBrand $appTitleSuffix | safeHTML }}
+            {{ end }}
+          {{ end }}
           {{ break }}
         {{ end }}
       {{ end }}
@@ -92,7 +138,7 @@
       {{ if $dateAdded }}
         {{ $parsedDateAdded = time $dateAdded | default "" }}
         {{ if and $parsedDateAdded (lt ($currentDate.Sub $parsedDateAdded).Hours 720) }}
-          {{ $recentApps = $recentApps | append (dict "name" $appName "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon) }}
+          {{ $recentApps = $recentApps | append (dict "name" $appName "train" $train "date_added" $parsedDateAdded "title" $appTitle "description" $appDescription "icon" $appIcon "trademarkMinio" $trademarkMinio "trademarkAistor" $trademarkAistor) }}
         {{ end }}
       {{ end }}
     {{ end }}
@@ -142,6 +188,9 @@
           {{ end }}
         </p>
         <p class="app-description">{{ $app.description }}</p>
+        {{ if or $app.trademarkMinio $app.trademarkAistor }}
+          {{ partial "trademark-notice.html" (dict "minio" $app.trademarkMinio "aistor" $app.trademarkAistor) }}
+        {{ end }}
       </div>
       <!-- Include telemetry and awards -->
       {{ partial "telemetry-awards.html" (dict "appName" $app.name "appTrain" $app.train "telemetryData" $telemetryData) }}
@@ -163,6 +212,9 @@
           {{ end }}
         </p>
         <p class="app-description">{{ $app.description }}</p>
+        {{ if or $app.trademarkMinio $app.trademarkAistor }}
+          {{ partial "trademark-notice.html" (dict "minio" $app.trademarkMinio "aistor" $app.trademarkAistor) }}
+        {{ end }}
       </div>
     </a>
   {{ end }}

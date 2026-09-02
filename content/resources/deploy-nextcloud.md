@@ -447,3 +447,5 @@ After installing Collabora Online, navigate to the **Collabora Online** tab in N
 This integrates Collabora and Nextcloud accounts, enhancing document access and editing capabilities.
 
 For more details on installing Collabora, visit the [Collabora TrueNAS tutorial](https://apps.truenas.com/resources/deploy-collabora/).
+
+{{< trademark-notice minio="true" >}}

@@ -254,3 +254,5 @@ Click on the Plex app row on the **Installed** application table. Stop the app, 
 Scroll down to the storage volume for **Data**, click **Add** to the right of **ACL Entries**.
 Select **Entry is for a USER** as the **ID Type**, enter the user ID number, and then select the level of permission you want to allow.
 Save the changes, then restart the app.
+
+{{< trademark-notice minio="true" >}}

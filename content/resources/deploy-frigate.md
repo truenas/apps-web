@@ -319,3 +319,5 @@ Select **Force Flag** to allow TrueNAS to update the app when the dataset has da
 ## Frigate Troubleshooting
 
 For troubleshooting and advanced configuration, refer to the [official Frigate documentation](https://docs.frigate.video/).
+
+{{< trademark-notice minio="true" >}}

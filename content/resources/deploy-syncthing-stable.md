@@ -195,3 +195,5 @@ The TrueNAS Syncthing app includes the option to mount an SMB share inside the c
 {{< trueimage src="/images/Apps/InstallSyncthingEnterpriseResourcesConfig.png" alt="Syncthing Enterprise Resource Limits" id="Syncthing Enterprise Resource Limits" >}}
 
 {{< include file="/static/includes/apps/AppInstallWizardResourceConfig.md" >}}
+
+{{< trademark-notice minio="true" >}}
