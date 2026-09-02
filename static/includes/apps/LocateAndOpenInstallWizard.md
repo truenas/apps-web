@@ -1,7 +1,7 @@
 &NewLine;
 
 Go to **Apps**, click on **Discover Apps**, and locate the app widget by either scrolling down to it or begin typing the name into the search field.
-For example, to locate the MinIO app widget, begin typing *minIO* into the search field to show app widgets matching the search input.
+For example, to locate the MinIO app widget, begin typing *MinIO* into the search field to show app widgets matching the search input.
 
 {{< trueimage src="/images/Apps/DiscoverScreenLocateAppWidgets.png" alt="Example of Locating an App Widget" id="Example of Locating an App Widget" >}}
 
