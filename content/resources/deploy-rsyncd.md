@@ -157,3 +157,5 @@ The application might use considerably less system resources.
 {{< trueimage src="/images/Apps/RsyncdResourceConfig.png" alt="Resources Configuration" id="Resources Configuration" >}}
 
 Tune these limits as needed to prevent the application from over-consuming system resources and introducing performance issues.
+
+{{< trademark-notice minio="true" >}}

@@ -200,3 +200,5 @@ Emby uses tags to add identification information to media files.
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
 {{< include file="/static/includes/apps/InstallWizardGPUPassthrough.md" >}}
+
+{{< trademark-notice minio="true" >}}

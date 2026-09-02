@@ -224,3 +224,5 @@ The time required to install the Storj App varies depending on your hardware and
 The Storj node dashboard displays stats for the storage node.
 These could include bandwidth utilization, total disk space, and disk space used for the month.
 Payout information is also provided.
+
+{{< trademark-notice minio="true" >}}

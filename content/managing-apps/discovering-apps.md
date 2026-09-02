@@ -80,3 +80,5 @@ The status changes to **Running** when the application is fully deployed and rea
 {{< include file="/static/includes/managing-apps-next-steps.md" >}}
 
 {{< managing-apps-return-button >}}
+
+{{< trademark-notice minio="true" >}}

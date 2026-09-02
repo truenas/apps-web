@@ -200,3 +200,5 @@ To check the logs for information on deployment issues encountered, click <span 
 {{< include file="/static/includes/managing-apps-next-steps.md" >}}
 
 {{< managing-apps-return-button >}}
+
+{{< trademark-notice minio="true" >}}
