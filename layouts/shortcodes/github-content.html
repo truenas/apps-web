@@ -464,8 +464,17 @@
     {{ $trademarkAistor = true }}
   {{ end }}
 
-  <!-- Check if app exists in removals data -->
-  {{ $removalInfo := index $removalsData $appName }}
+  <!-- Check if app exists in removals data. app-removals.yaml keys are "<appName>_<train>"
+       (e.g. "minio_stable"), not the bare app name, so build that key from the path.
+       Fall back to the bare name in case any entry doesn't follow that convention. -->
+  {{ $removalsTrain := "" }}
+  {{ if ge (len $pathParts) 2 }}
+    {{ $removalsTrain = index $pathParts 1 }}
+  {{ end }}
+  {{ $removalInfo := index $removalsData (printf "%s_%s" $appName $removalsTrain) }}
+  {{ if not $removalInfo }}
+    {{ $removalInfo = index $removalsData $appName }}
+  {{ end }}
 
   {{ if $removalInfo }}
     <!-- App was removed - show removal banner -->
