@@ -449,6 +449,21 @@
     {{ $appName = index $pathParts 2 }}
   {{ end }}
 
+  <!-- MinIO/AIStor trademark compliance: detect known app slugs -->
+  {{ $trademarkBrand := "" }}
+  {{ $trademarkMinio := false }}
+  {{ $trademarkAistor := false }}
+  {{ if eq $appName "minio" }}
+    {{ $trademarkBrand = "MinIO" }}
+    {{ $trademarkMinio = true }}
+  {{ else if eq $appName "minio-console" }}
+    {{ $trademarkBrand = "MinIO Console" }}
+    {{ $trademarkMinio = true }}
+  {{ else if eq $appName "aistor" }}
+    {{ $trademarkBrand = "AIStor" }}
+    {{ $trademarkAistor = true }}
+  {{ end }}
+
   <!-- Check if app exists in removals data -->
   {{ $removalInfo := index $removalsData $appName }}
 
@@ -460,7 +475,16 @@
         <h2>This app has been removed from the TrueNAS catalog</h2>
       </div>
 
-      <p><strong>{{ $removalInfo.title }}</strong> was removed from the catalog on <strong>{{ $removalInfo.removal_detected_date }}</strong>.</p>
+      {{ $removalTitleDisplay := $removalInfo.title }}
+      {{ if $trademarkBrand }}
+        {{ $removalTitleSuffix := strings.TrimPrefix $trademarkBrand $removalInfo.title }}
+        {{ if eq $removalTitleSuffix $removalInfo.title }}
+          {{ $removalTitleDisplay = printf "%s&trade;" $trademarkBrand }}
+        {{ else }}
+          {{ $removalTitleDisplay = printf "%s&trade;%s" $trademarkBrand $removalTitleSuffix }}
+        {{ end }}
+      {{ end }}
+      <p><strong>{{ $removalTitleDisplay | safeHTML }}</strong> was removed from the catalog on <strong>{{ $removalInfo.removal_detected_date }}</strong>.</p>
 
       {{ with $removalInfo.last_known_metadata }}
         {{ if .reason }}
@@ -527,6 +551,9 @@
           </div>
         {{ end }}
       </div>
+    {{ end }}
+    {{ if $trademarkBrand }}
+      {{ partial "trademark-notice.html" (dict "minio" $trademarkMinio "aistor" $trademarkAistor) }}
     {{ end }}
 
   {{ else }}
