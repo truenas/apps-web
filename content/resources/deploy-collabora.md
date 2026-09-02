@@ -199,3 +199,5 @@ TrueNAS **Additional Storage** options include mounting an SMB share inside the 
 ### Integrating Collabora and Nextcloud
 
 {{< include file="/static/includes/apps/CollaboraNextcloudConnection.md" >}}
+
+{{< trademark-notice minio="true" >}}

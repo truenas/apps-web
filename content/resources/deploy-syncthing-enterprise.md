@@ -235,3 +235,5 @@ There is a small memory impact of 1080 bytes for each inotify watcher, so it is 
 Enter a **Description** for the variable, such as *Increase inotify limit*.
 
 Select **Enabled** and click **Save**.
+
+{{< trademark-notice minio="true" >}}

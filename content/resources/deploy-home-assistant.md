@@ -190,3 +190,5 @@ TrueNAS **Additional Storage** options include the ability to mount an SMB share
 {{< trueimage src="/images/Apps/InstallHomeAssistantResourcesConfig.png" alt="Resources Configuration Settings" id="Resources Configuration Settings" >}}
 
 {{< include file="/static/includes/apps/InstallWizardResourceConfig.md" >}}
+
+{{< trademark-notice minio="true" >}}
