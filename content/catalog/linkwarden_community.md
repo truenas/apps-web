@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/linkwarden/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube VV9Vuh_r1RY >}}
+
+{{< doc-card title="Servers@Home Linkwarden Guide" link="https://wiki.serversatho.me/en/linkwarden" descr="A guide to deploy Linkwarden on TrueNAS" kind="community" >}}
+
+</div>

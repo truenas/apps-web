@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/wizarr/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Wizarr Guide" link="https://wiki.serversatho.me/en/wizarr" descr="A guide to deploy Wizarr on TrueNAS" kind="community" >}}
+
+</div>

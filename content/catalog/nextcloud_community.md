@@ -16,4 +16,12 @@ icon: "https://media.sys.truenas.net/apps/nextcloud/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube ibL9qAlUZes >}}
+
+{{< doc-card title="Servers@Home Nextcloud Guide" link="https://wiki.serversatho.me/en/nextcloud" descr="A guide to deploy Nextcloud on TrueNAS" kind="community" >}}
+
+</div>

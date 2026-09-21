@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/wiki-js/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube hfhP5WBAXmg >}}
+
+{{< doc-card title="Servers@Home Wiki.js Guide" link="https://wiki.serversatho.me/en/wikijs" descr="A guide to deploy Wiki.js on TrueNAS" kind="community" >}}
+
+</div>

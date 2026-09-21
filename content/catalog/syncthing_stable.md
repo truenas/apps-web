@@ -27,4 +27,8 @@ tags:
 {{< doc-card title="Syncthing Deployment" link="/resources/deploy-syncthing-stable"
 descr="How to deploy and configure the Stable Syncthing app." kind="community" >}}
 
+{{< youtube ITro3Bws7JQ >}}
+
+{{< doc-card title="Servers@Home Syncthing Guide" link="https://wiki.serversatho.me/en/syncthing" descr="A guide to deploy Syncthing on TrueNAS" kind="community" >}}
+
 </div>

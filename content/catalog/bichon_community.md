@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/bichon/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Bichon Guide" link="https://wiki.serversatho.me/en/bichon" descr="A guide to deploy Bichon on TrueNAS" kind="community" >}}
+
+</div>

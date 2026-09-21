@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/opencloud/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube CfGRm6QtEjE >}}
+
+{{< doc-card title="Servers@Home OpenCloud Guide" link="https://wiki.serversatho.me/en/opencloud" descr="A guide to deploy OpenCloud on TrueNAS" kind="community" >}}
+
+</div>

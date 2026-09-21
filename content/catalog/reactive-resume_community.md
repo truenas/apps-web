@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/reactive-resume/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube _CCmyFAteYc >}}
+
+{{< doc-card title="Servers@Home Reactive Resume Guide" link="https://wiki.serversatho.me/en/reactiveresume" descr="A guide to deploy Reactive Resume on TrueNAS" kind="community" >}}
+
+</div>

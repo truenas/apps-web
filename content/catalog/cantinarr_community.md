@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/cantinarr/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Cantinarr Guide" link="https://wiki.serversatho.me/en/cantinarr" descr="A guide to deploy Cantinarr on TrueNAS" kind="community" >}}
+
+</div>

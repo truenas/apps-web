@@ -19,13 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube 4xUfjEaUiMc >}}
+
+{{< doc-card title="Servers@Home Homarr Guide" link="https://wiki.serversatho.me/en/homarr" descr="A guide to deploy Homarr on TrueNAS" kind="community" >}}
 
 </div>
--->
