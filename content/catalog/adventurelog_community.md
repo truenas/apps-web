@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/adventurelog/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home AdventureLog Guide" link="https://wiki.serversatho.me/en/adventurelog" descr="A guide to deploy AdventureLog on TrueNAS" kind="community" >}}
+
+</div>

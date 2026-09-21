@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/dockpeek/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube LgnPCeeCVGI >}}
+
+{{< doc-card title="Servers@Home Dockpeek Guide" link="https://wiki.serversatho.me/en/dockpeek" descr="A guide to deploy Dockpeek on TrueNAS" kind="community" >}}
+
+</div>

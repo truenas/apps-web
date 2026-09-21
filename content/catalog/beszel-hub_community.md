@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/beszel-hub/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube bpNt3o6B_0A >}}
+
+{{< doc-card title="Servers@Home Beszel Guide" link="https://wiki.serversatho.me/en/beszel" descr="A guide to deploy Beszel on TrueNAS" kind="community" >}}
+
+</div>

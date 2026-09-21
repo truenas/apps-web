@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/netbird-server/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube skbWnMSwZcE >}}
+
+{{< doc-card title="Servers@Home NetBird Guide" link="https://wiki.serversatho.me/en/netbird" descr="A guide to deploy NetBird on TrueNAS" kind="community" >}}
+
+</div>

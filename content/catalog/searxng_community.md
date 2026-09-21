@@ -19,13 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube 5vNegD0Lgt4 >}}
+
+{{< doc-card title="Servers@Home SearXNG Guide" link="https://wiki.serversatho.me/en/searxng" descr="A guide to deploy SearXNG on TrueNAS" kind="community" >}}
 
 </div>
--->

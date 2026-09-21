@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/next-explorer/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home nextExplorer Guide" link="https://wiki.serversatho.me/en/nextexplorer" descr="A guide to deploy nextExplorer on TrueNAS" kind="community" >}}
+
+</div>

@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/pterodactyl-panel/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube Py558KYhFvM >}}
+
+{{< doc-card title="Servers@Home Pterodactyl Guide" link="https://wiki.serversatho.me/en/pterodactyl" descr="A guide to deploy Pterodactyl on TrueNAS" kind="community" >}}
+
+</div>

@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/rackula/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Rackula Guide" link="https://wiki.serversatho.me/en/rackula" descr="A guide to deploy Rackula on TrueNAS" kind="community" >}}
+
+</div>

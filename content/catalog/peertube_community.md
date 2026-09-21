@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/peertube/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home PeerTube Guide" link="https://wiki.serversatho.me/en/peertube" descr="A guide to deploy PeerTube on TrueNAS" kind="community" >}}
+
+</div>

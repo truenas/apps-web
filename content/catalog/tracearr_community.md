@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/tracearr/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Tracearr Guide" link="https://wiki.serversatho.me/en/tracearr" descr="A guide to deploy Tracearr on TrueNAS" kind="community" >}}
+
+</div>

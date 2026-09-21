@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/crafty-4/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube A9Nld6MxhXk >}}
+
+{{< doc-card title="Servers@Home Crafty Guide" link="https://wiki.serversatho.me/en/crafty" descr="A guide to deploy Crafty on TrueNAS" kind="community" >}}
+
+</div>

@@ -27,4 +27,8 @@ tags:
 {{< doc-card title="Pi-hole Deployment" link="/resources/deploy-pihole"
 descr="How to deploy and configure the Stable Pi-hole app." kind="community" >}}
 
+{{< youtube yp1AbZlIHhM >}}
+
+{{< doc-card title="Servers@Home Pi-hole Guide" link="https://wiki.serversatho.me/en/pihole" descr="A guide to deploy Pi-hole on TrueNAS" kind="community" >}}
+
 </div>

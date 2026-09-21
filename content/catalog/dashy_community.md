@@ -19,14 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube pEv8_TYMHrY >}}
+
+{{< doc-card title="Servers@Home Dashy Guide" link="https://wiki.serversatho.me/en/dashy" descr="A guide to deploy Dashy on TrueNAS" kind="community" >}}
 
 </div>
--->
-

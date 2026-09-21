@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/seerr/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube tJgvZqKo37U >}}
+
+{{< doc-card title="Servers@Home Seerr Guide" link="https://wiki.serversatho.me/en/seerr" descr="A guide to deploy Seerr on TrueNAS" kind="community" >}}
+
+</div>
