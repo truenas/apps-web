@@ -25,6 +25,6 @@ tags:
 
 {{< youtube b2HeHDUbkec >}}
 
-{{< doc-card title="Servers@Home AI Guide" link="https://wiki.serversatho.me/en/localai" descr="A guide to deploy local AI containers on TrueNAS" kind="community" >}}
+{{< doc-card title="Servers@Home Ollama Guide" link="https://wiki.serversatho.me/en/ollama" descr="A guide to deploy Ollama on TrueNAS" kind="community" >}}
 
 </div>

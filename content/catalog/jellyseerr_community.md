@@ -23,6 +23,8 @@ tags:
 
 <div class="docs-sections">
 
-{{< doc-card title="Servers@Home Jellyseerr Guide" link="https://wiki.serversatho.me/en/Jellyseerr" descr="A guide to installing Jellyseerr in TrueNAS as well as docker via compose" kind="community" >}}
+{{< youtube tJgvZqKo37U >}}
+
+{{< doc-card title="Servers@Home Seerr Guide" link="https://wiki.serversatho.me/en/seerr" descr="Jellyseerr has merged into Seerr. A guide to deploying Seerr and migrating from Jellyseerr" kind="community" >}}
 
 </div>

@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/arcane/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube 3TaDWpYgGtE >}}
+
+{{< doc-card title="Servers@Home Arcane Guide" link="https://wiki.serversatho.me/en/arcane" descr="A guide to deploy Arcane on TrueNAS" kind="community" >}}
+
+</div>

@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/dispatcharr/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Dispatcharr Guide" link="https://wiki.serversatho.me/en/dispatcharr" descr="A guide to deploy Dispatcharr on TrueNAS" kind="community" >}}
+
+</div>

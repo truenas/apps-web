@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/bookorbit/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home BookOrbit Guide" link="https://wiki.serversatho.me/en/bookorbit" descr="A guide to deploy BookOrbit on TrueNAS" kind="community" >}}
+
+</div>

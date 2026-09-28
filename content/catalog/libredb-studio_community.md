@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/libredb-studio/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home LibreDB Studio Guide" link="https://wiki.serversatho.me/en/libredbstudio" descr="A guide to deploy LibreDB Studio on TrueNAS" kind="community" >}}
+
+</div>

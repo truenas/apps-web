@@ -25,4 +25,8 @@ tags:
 {{< doc-card title="Photoprism Deployment" link="/resources/deploy-photoprism"
 descr="How to deploy and configure the Stable Photoprism app." kind="community" >}}
 
+{{< youtube r3q6qNHcKq8 >}}
+
+{{< doc-card title="Servers@Home PhotoPrism Guide" link="https://wiki.serversatho.me/en/photoprism" descr="A guide to deploy PhotoPrism on TrueNAS" kind="community" >}}
+
 </div>

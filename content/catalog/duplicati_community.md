@@ -20,13 +20,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube ZxSpwwtJ3aA >}}
+
+{{< doc-card title="Servers@Home Duplicati Guide" link="https://wiki.serversatho.me/en/duplicati" descr="A guide to deploy Duplicati on TrueNAS" kind="community" >}}
 
 </div>
--->

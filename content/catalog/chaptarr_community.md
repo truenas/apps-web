@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/chaptarr/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Chaptarr Guide" link="https://wiki.serversatho.me/en/chaptarr" descr="A guide to deploy Chaptarr on TrueNAS" kind="community" >}}
+
+</div>

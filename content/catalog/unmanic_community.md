@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/unmanic/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Unmanic Guide" link="https://wiki.serversatho.me/en/unmanic" descr="A guide to deploy Unmanic on TrueNAS" kind="community" >}}
+
+</div>

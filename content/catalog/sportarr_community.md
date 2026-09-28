@@ -16,4 +16,10 @@ icon: "https://media.sys.truenas.net/apps/sportarr/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Sportarr Guide" link="https://wiki.serversatho.me/en/sportarr" descr="A guide to deploy Sportarr on TrueNAS" kind="community" >}}
+
+</div>

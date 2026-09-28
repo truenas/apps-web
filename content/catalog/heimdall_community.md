@@ -20,13 +20,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube -pm-F9dzYn0 >}}
+
+{{< doc-card title="Servers@Home Heimdall Guide" link="https://wiki.serversatho.me/en/heimdall" descr="A guide to deploy Heimdall on TrueNAS" kind="community" >}}
 
 </div>
--->

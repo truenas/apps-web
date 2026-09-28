@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/rust-desk-relay/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube aV4dDYc27gk >}}
+
+{{< doc-card title="Servers@Home RustDesk Guide" link="https://wiki.serversatho.me/en/rustdesk" descr="A guide to deploy RustDesk on TrueNAS" kind="community" >}}
+
+</div>
