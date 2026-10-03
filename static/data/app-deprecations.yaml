@@ -271,6 +271,23 @@ n8n:
           - "Edit the application and select Postgres 18 in the image selector"
           - "Save the application"
 
+node-red:
+  train: community
+  title: "Node-RED"
+  deprecations:
+    - scope: "partial"
+      deprecated_date: "2026-12-31"
+      removal_date: "2027-03-31"
+      reason: "Node-RED v4 reaches end of life upstream on 2026-12-31 (Node.js 18 and 20 are already end of life)"
+      partial_details:
+        feature: "Node-RED v4 images"
+        description: "Node-RED v4 images (Node.js 18, 20 and 22, including the minimal variants) are no longer supported"
+        steps:
+          - "Back up your Node-RED data directory"
+          - "Check that your flows and installed nodes are compatible with Node-RED v5"
+          - "Edit the application and select Node-RED v5 on Node.js 24 in the image selector"
+          - "Save the application"
+
 odoo:
   train: community
   title: "Odoo"
@@ -314,31 +331,6 @@ penpot:
         description: "Postgres 15 is no longer supported"
         steps:
           - "Edit the application and select Postgres 18 in the image selector"
-          - "Save the application"
-
-planka:
-  train: community
-  title: "Planka"
-  deprecations:
-    - scope: "partial"
-      deprecated_date: "2025-12-01"
-      removal_date: "2026-03-01"
-      reason: "Drop support for Postgres 15"
-      partial_details:
-        feature: "Postgres 15"
-        description: "Postgres 15 is no longer supported"
-        steps:
-          - "Edit the application and select Postgres 18 in the image selector"
-          - "Save the application"
-    - scope: "partial"
-      deprecated_date: "2026-02-13"
-      removal_date: "2026-05-13"
-      reason: "Remove deprecated volumes for Planka"
-      partial_details:
-        feature: "Planka volumes"
-        description: Old Planka volumes are no longer supported.
-        steps:
-          - "Edit the application and enable the Remove Deprecated Storage option"
           - "Save the application"
 
 portainer:
