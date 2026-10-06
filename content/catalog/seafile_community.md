@@ -16,4 +16,12 @@ icon: "https://media.sys.truenas.net/apps/seafile/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube ZaLfJnNWpg8 >}}
+
+{{< doc-card title="Servers@Home Seafile Guide" link="https://wiki.serversatho.me/en/seafile" descr="A guide to deploy Seafile on TrueNAS" kind="community" >}}
+
+</div>

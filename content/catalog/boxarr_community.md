@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/boxarr/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Boxarr Guide" link="https://wiki.serversatho.me/en/boxarr" descr="A guide to deploy Boxarr on TrueNAS" kind="community" >}}
+
+</div>

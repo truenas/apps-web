@@ -19,13 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube FT5kyiMjoYs >}}
+
+{{< doc-card title="Servers@Home Penpot Guide" link="https://wiki.serversatho.me/en/penpot" descr="A guide to deploy Penpot on TrueNAS" kind="community" >}}
 
 </div>
--->

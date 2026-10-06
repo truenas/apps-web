@@ -19,13 +19,12 @@ tags:
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
 
-<!--
 <div class="docs-sections">
 
-{{< doc-card title="<appname> Deployments" link="/resources/"
-descr="How to deploy and configure the <appname> app." >}}
+{{< youtube bGdkSHf0MGI >}}
+
+{{< doc-card title="Servers@Home n8n Guide" link="https://wiki.serversatho.me/en/n8n" descr="A guide to deploy n8n on TrueNAS" kind="community" >}}
 
 </div>
--->

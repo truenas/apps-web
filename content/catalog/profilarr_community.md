@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/profilarr/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube jvir2SmnwWs >}}
+
+{{< doc-card title="Servers@Home Profilarr Guide" link="https://wiki.serversatho.me/en/profilarr" descr="A guide to deploy Profilarr on TrueNAS" kind="community" >}}
+
+</div>

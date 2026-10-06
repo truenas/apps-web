@@ -16,4 +16,12 @@ icon: "https://media.sys.truenas.net/apps/glance/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube M7-ft-8GmFo >}}
+
+{{< doc-card title="Servers@Home Glance Guide" link="https://wiki.serversatho.me/en/glance" descr="A guide to deploy Glance on TrueNAS" kind="community" >}}
+
+</div>

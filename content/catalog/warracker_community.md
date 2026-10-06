@@ -18,4 +18,10 @@ icon: "https://media.sys.truenas.net/apps/warracker/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< doc-card title="Servers@Home Warracker Guide" link="https://wiki.serversatho.me/en/warracker" descr="A guide to deploy Warracker on TrueNAS" kind="community" >}}
+
+</div>

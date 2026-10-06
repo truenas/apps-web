@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/portracker/icons/icon.svg"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube oTG5gBA6UgM >}}
+
+{{< doc-card title="Servers@Home Portracker Guide" link="https://wiki.serversatho.me/en/portracker" descr="A guide to deploy Portracker on TrueNAS" kind="community" >}}
+
+</div>

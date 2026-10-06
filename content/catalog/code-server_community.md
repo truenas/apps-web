@@ -18,4 +18,12 @@ icon: "https://media.sys.truenas.net/apps/code-server/icons/icon.png"
 
 {{< include file="/static/includes/apps/CommunityApp.md" >}}
 
-{{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}}
+<!-- {{< include file="/static/includes/apps/CommunityPleaseExpand.md" >}} -->
+
+<div class="docs-sections">
+
+{{< youtube Hsn7wyplrYg >}}
+
+{{< doc-card title="Servers@Home Code Server Guide" link="https://wiki.serversatho.me/en/codeserver" descr="A guide to deploy Code Server on TrueNAS" kind="community" >}}
+
+</div>

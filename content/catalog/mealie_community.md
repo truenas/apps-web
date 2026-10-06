@@ -26,4 +26,6 @@ tags:
 {{< doc-card title="Mealie Deployment" link="/resources/deploy-mealie"
 descr="How to deploy and configure the community Mealie app." kind="community" >}}
 
+{{< doc-card title="Servers@Home Mealie Guide" link="https://wiki.serversatho.me/en/mealie" descr="A guide to deploy Mealie on TrueNAS" kind="community" >}}
+
 </div>
