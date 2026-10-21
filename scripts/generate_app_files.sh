@@ -195,7 +195,7 @@ EOF
         if [ -n "$SEND_PR" ] ; then
            GIT_CHANGES_PENDING="TRUE"
            echo "git add $md_file_abs_path"
-           git add ${md_file_abs_path}
+           git add "${md_file_abs_path}"
            if [ $? -ne 0 ] ; then
             echo "Failed adding ${md_file_abs_path} to git"
             exit 1
