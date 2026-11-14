@@ -122,3 +122,30 @@ minio_enterprise:
     icon: ""
     description: "Description and resources for the TrueNAS Enterprise application called Minio."
     reason: "Removed from catalog"
+
+rowflare_community:
+  train: community
+  title: "Rowflare"
+  removal_detected_date: "2026-11-14"
+  last_known_metadata:
+    icon: "https://media.sys.truenas.net/apps/rowflare/icons/icon.png"
+    description: "Description and resources for the TrueNAS community application called Rowflare."
+    reason: "Removed from catalog"
+
+readarr_community:
+  train: community
+  title: "Readarr"
+  removal_detected_date: "2026-11-14"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called Readarr."
+    reason: "Removed from catalog"
+
+filebrowser_community:
+  train: community
+  title: "File Browser"
+  removal_detected_date: "2026-11-14"
+  last_known_metadata:
+    icon: ""
+    description: "Description and resources for the TrueNAS community application called File Browser."
+    reason: "Removed from catalog"
