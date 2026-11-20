@@ -25,9 +25,7 @@ descr="Support availability for different apps and catalogs." >}}
 
 </div>
 
-## Featured Applications
-
-{{< featured-apps apps="enterprise/asigra-ds-system, enterprise/minio, stable/plex, enterprise/syncthing " >}}
+## Populare Applications
 
 {{< popular-apps >}}
 
