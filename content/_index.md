@@ -25,7 +25,7 @@ descr="Support availability for different apps and catalogs." >}}
 
 </div>
 
-## Populare Applications
+## Popular Applications
 
 {{< popular-apps >}}
 
